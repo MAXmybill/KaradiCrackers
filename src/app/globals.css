@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --brand-red: #D40000;
+    --brand-red-dark: #B00000;
+    --brand-yellow: #FFC400;
+    --brand-yellow-light: #FFE082;
+    --brand-yellow-dark: #FFA000;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Festive Sunburst Ray Background Pattern */
+.bg-sunburst {
+  background-color: #D40000;
+  background-image: repeating-conic-gradient(
+    from 0deg,
+    #D40000 0deg 15deg,
+    #C00000 15deg 30deg
+  );
+}
+
+.bg-sunburst-subtle {
+  background-color: #FFF5F5;
+  background-image: radial-gradient(#FFE0B2 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Yellow Dashed Stitch Border */
+.border-dashed-stitch {
+  border: 2px dashed #FFC400;
+}
+
+.border-dashed-stitch-red {
+  border: 2px dashed #D40000;
+}
+
+/* Festive Sparkle animation */
+@keyframes festive-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 196, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 196, 0, 0.85);
+  }
+}
+
+.festive-pulse {
+  animation: festive-glow 2.5s infinite ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #D40000;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B00000;
 }

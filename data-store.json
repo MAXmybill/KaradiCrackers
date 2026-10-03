@@ -1,0 +1,314 @@
+{
+  "crackers": [
+    {
+      "id": "kc-spk-01",
+      "name": "10 cm Electric Sparklers",
+      "price": 60,
+      "quantity": 150,
+      "isAvailable": true,
+      "category": "Sparklers",
+      "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-spk-02",
+      "name": "15 cm Colour Sparklers (Gold & Red)",
+      "price": 95,
+      "quantity": 120,
+      "isAvailable": true,
+      "category": "Sparklers",
+      "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-flw-01",
+      "name": "Flower Pots Special (Big)",
+      "price": 180,
+      "quantity": 80,
+      "isAvailable": true,
+      "category": "Flower Pots",
+      "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-flw-02",
+      "name": "Colour Koti Flower Pots (Tri-Colour)",
+      "price": 250,
+      "quantity": 60,
+      "isAvailable": true,
+      "category": "Flower Pots",
+      "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-chk-01",
+      "name": "Ground Chakkar Deluxe (10 Pcs)",
+      "price": 140,
+      "quantity": 86,
+      "isAvailable": true,
+      "category": "Chakkars",
+      "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T17:42:20.920Z"
+    },
+    {
+      "id": "kc-chk-02",
+      "name": "Whistling Wheel Chakkar",
+      "price": 190,
+      "quantity": 37,
+      "isAvailable": true,
+      "category": "Chakkars",
+      "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T17:31:40.577Z"
+    },
+    {
+      "id": "kc-rkt-01",
+      "name": "Baby Rockets (10 Pcs)",
+      "price": 120,
+      "quantity": 75,
+      "isAvailable": true,
+      "category": "Rockets",
+      "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-rkt-02",
+      "name": "Bombing Rockets (Whistling & Bang)",
+      "price": 260,
+      "quantity": 50,
+      "isAvailable": true,
+      "category": "Rockets",
+      "imageUrl": "https://images.unsplash.com/photo-1519750783826-e2420f4d687f?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-bjl-01",
+      "name": "Red Bijili Crackers (Striped 100 Pcs)",
+      "price": 70,
+      "quantity": 200,
+      "isAvailable": false,
+      "category": "Sound Crackers",
+      "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T16:41:33.891Z"
+    },
+    {
+      "id": "kc-bmb-01",
+      "name": "Green Mega Atom Bomb (Bullet Mark)",
+      "price": 150,
+      "quantity": 84,
+      "isAvailable": true,
+      "category": "Sound Crackers",
+      "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T17:10:52.022Z"
+    },
+    {
+      "id": "kc-gar-01",
+      "name": "Garland 1000 Wala (Heavy Sound Ladi)",
+      "price": 490,
+      "quantity": 40,
+      "isAvailable": true,
+      "category": "Garland / Lar",
+      "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-fnt-01",
+      "name": "Pencil Fountain Torch (5 Pcs Colour Sparks)",
+      "price": 110,
+      "quantity": 110,
+      "isAvailable": true,
+      "category": "Fountains",
+      "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-pop-01",
+      "name": "Magic Pop-Pop Snappers (Pack of 10 Boxes)",
+      "price": 50,
+      "quantity": 250,
+      "isAvailable": true,
+      "category": "Kids Specials",
+      "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-btf-01",
+      "name": "Flying Butterfly Crackers (Colour Spinners)",
+      "price": 210,
+      "quantity": 59,
+      "isAvailable": true,
+      "category": "Fancy Crackers",
+      "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T17:42:20.134Z"
+    },
+    {
+      "id": "kc-sky-01",
+      "name": "7 Shots Sky Shots Multi-Color Fireworks",
+      "price": 380,
+      "quantity": 70,
+      "isAvailable": true,
+      "category": "Sky Shots",
+      "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T15:03:29.759Z"
+    },
+    {
+      "id": "kc-twk-01",
+      "name": "Twinkling Star Sparkler Candles",
+      "price": 85,
+      "quantity": 129,
+      "isAvailable": true,
+      "category": "Kids Specials",
+      "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
+      "createdAt": "2026-10-03T15:03:29.759Z",
+      "updatedAt": "2026-10-03T17:38:30.361Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-musoj8ps-495l",
+      "orderNumber": "KC-2026-0005",
+      "customerName": "dfgh",
+      "customerPhone": "9874563210",
+      "total": 980,
+      "status": "PENDING",
+      "items": [
+        {
+          "crackerId": "kc-btf-01",
+          "name": "Flying Butterfly Crackers (Colour Spinners)",
+          "price": 210,
+          "quantity": 4
+        },
+        {
+          "crackerId": "kc-chk-01",
+          "name": "Ground Chakkar Deluxe (10 Pcs)",
+          "price": 140,
+          "quantity": 1
+        }
+      ],
+      "createdAt": "2026-10-03T17:42:20.134Z",
+      "updatedAt": "2026-10-03T17:42:20.134Z"
+    },
+    {
+      "id": "ord-musoeb1v-8ldd",
+      "orderNumber": "KC-2026-0004",
+      "customerName": "vicky",
+      "customerPhone": "9874563210",
+      "total": 85,
+      "status": "PENDING",
+      "items": [
+        {
+          "crackerId": "kc-twk-01",
+          "name": "Twinkling Star Sparkler Candles",
+          "price": 85,
+          "quantity": 1
+        }
+      ],
+      "createdAt": "2026-10-03T17:38:30.360Z",
+      "updatedAt": "2026-10-03T17:38:30.360Z"
+    },
+    {
+      "id": "ord-muso5ilz-n8pt",
+      "orderNumber": "KC-2026-0003",
+      "customerName": "vicky",
+      "customerPhone": "9874563210",
+      "total": 540,
+      "status": "PENDING",
+      "items": [
+        {
+          "crackerId": "kc-btf-01",
+          "name": "Flying Butterfly Crackers (Colour Spinners)",
+          "price": 210,
+          "quantity": 1
+        },
+        {
+          "crackerId": "kc-chk-01",
+          "name": "Ground Chakkar Deluxe (10 Pcs)",
+          "price": 140,
+          "quantity": 1
+        },
+        {
+          "crackerId": "kc-chk-02",
+          "name": "Whistling Wheel Chakkar",
+          "price": 190,
+          "quantity": 1
+        }
+      ],
+      "createdAt": "2026-10-03T17:31:39.493Z",
+      "updatedAt": "2026-10-03T17:31:39.493Z"
+    },
+    {
+      "id": "ord-musnesey-3bz1",
+      "orderNumber": "KC-2026-0002",
+      "customerName": "vikcy",
+      "customerPhone": "9874632101",
+      "total": 690,
+      "status": "PENDING",
+      "items": [
+        {
+          "crackerId": "kc-bmb-01",
+          "name": "Green Mega Atom Bomb (Bullet Mark)",
+          "price": 150,
+          "quantity": 1
+        },
+        {
+          "crackerId": "kc-btf-01",
+          "name": "Flying Butterfly Crackers (Colour Spinners)",
+          "price": 210,
+          "quantity": 1
+        },
+        {
+          "crackerId": "kc-chk-01",
+          "name": "Ground Chakkar Deluxe (10 Pcs)",
+          "price": 140,
+          "quantity": 1
+        },
+        {
+          "crackerId": "kc-chk-02",
+          "name": "Whistling Wheel Chakkar",
+          "price": 190,
+          "quantity": 1
+        }
+      ],
+      "createdAt": "2026-10-03T17:10:52.022Z",
+      "updatedAt": "2026-10-03T17:10:52.022Z"
+    },
+    {
+      "id": "ord-musn04if-dhwk",
+      "orderNumber": "KC-2026-0001",
+      "customerName": "vicky",
+      "customerPhone": "9874632101",
+      "total": 1280,
+      "status": "PENDING",
+      "items": [
+        {
+          "crackerId": "kc-chk-01",
+          "name": "Ground Chakkar Deluxe (10 Pcs)",
+          "price": 140,
+          "quantity": 1
+        },
+        {
+          "crackerId": "kc-chk-02",
+          "name": "Whistling Wheel Chakkar",
+          "price": 190,
+          "quantity": 6
+        }
+      ],
+      "createdAt": "2026-10-03T16:59:28.450Z",
+      "updatedAt": "2026-10-03T16:59:28.450Z"
+    }
+  ]
+}
