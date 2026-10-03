@@ -10,7 +10,7 @@ export interface Cracker {
   updatedAt: string;
 }
 
-export type OrderStatus = 'PENDING' | 'COLLECTED' | 'CANCELLED';
+export type OrderStatus = 'ORDERED' | 'DELIVERED';
 
 export interface OrderItem {
   id?: string;

@@ -11,8 +11,8 @@ function AdminLoginForm() {
   const searchParams = useSearchParams();
   const fromParam = searchParams.get('from');
 
-  const [adminId, setAdminId] = useState('karadicrackers');
-  const [password, setPassword] = useState('password123456');
+  const [adminId, setAdminId] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -56,8 +56,6 @@ function AdminLoginForm() {
   return (
     <div className="min-h-[calc(100vh-160px)] bg-sunburst-subtle flex items-center justify-center py-8 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full bg-white rounded-3xl border-2 border-[#D40000] p-6 sm:p-10 shadow-2xl relative my-auto">
-        {/* Top yellow stitch banner */}
-        <div className="absolute top-0 left-0 right-0 h-2 bg-[#FFC400] rounded-t-3xl" />
 
         <div className="text-center mb-8">
           <div className="relative w-24 h-24 mx-auto mb-2">

@@ -291,7 +291,7 @@ export async function createOrder(data: {
     customerName: data.customerName.trim(),
     customerPhone: data.customerPhone.trim(),
     total: grandTotal,
-    status: 'PENDING',
+    status: 'ORDERED',
     items: verifiedItems,
     createdAt: now,
     updatedAt: now,
@@ -314,39 +314,6 @@ export async function updateOrderStatus(orderId: string, status: OrderStatus): P
   const store = loadLocalStore();
   const order = store.orders.find((o) => o.id === orderId) || (await getOrders()).find((o) => o.id === orderId);
   if (!order) return null;
-
-  const oldStatus = order.status;
-
-  // Stock restoration if cancelled
-  if (oldStatus !== 'CANCELLED' && status === 'CANCELLED') {
-    for (const item of order.items) {
-      if (item.crackerId) {
-        const cracker = await getCrackerById(item.crackerId);
-        if (cracker) {
-          await updateCracker(cracker.id, {
-            quantity: cracker.quantity + item.quantity,
-            isAvailable: true,
-          });
-        }
-      }
-    }
-  }
-
-  // Deduct again if restored from cancelled
-  if (oldStatus === 'CANCELLED' && status !== 'CANCELLED') {
-    for (const item of order.items) {
-      if (item.crackerId) {
-        const cracker = await getCrackerById(item.crackerId);
-        if (cracker) {
-          const newQty = Math.max(0, cracker.quantity - item.quantity);
-          await updateCracker(cracker.id, {
-            quantity: newQty,
-            isAvailable: newQty > 0,
-          });
-        }
-      }
-    }
-  }
 
   const now = new Date().toISOString();
   order.status = status;

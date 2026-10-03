@@ -23,10 +23,10 @@ export default async function AdminDashboardPage() {
   const outOfStockCount = crackers.filter((c) => !c.isAvailable).length;
 
   const totalOrders = orders.length;
-  const pendingOrders = orders.filter((o) => o.status === 'PENDING').length;
-  const collectedOrders = orders.filter((o) => o.status === 'COLLECTED').length;
+  const orderedOrders = orders.filter((o) => o.status === 'ORDERED' || (o.status as any) === 'PENDING').length;
+  const deliveredOrders = orders.filter((o) => o.status === 'DELIVERED' || (o.status as any) === 'COLLECTED').length;
   const totalRevenue = orders
-    .filter((o) => o.status === 'COLLECTED')
+    .filter((o) => o.status === 'DELIVERED' || (o.status as any) === 'COLLECTED')
     .reduce((sum, o) => sum + o.total, 0);
 
   const recentOrders = orders.slice(0, 6);
@@ -96,19 +96,19 @@ export default async function AdminDashboardPage() {
             <div>
               <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">Total Orders</p>
               <p className="text-3xl font-black text-gray-900 mt-1">{totalOrders}</p>
-              <p className="text-xs text-gray-500 mt-1">{collectedOrders} collected & paid</p>
+              <p className="text-xs text-gray-500 mt-1">{deliveredOrders} delivered & paid</p>
             </div>
             <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center">
               <ShoppingBag className="w-6 h-6" />
             </div>
           </div>
 
-          {/* Pending Orders */}
+          {/* Ordered (Pending Delivery) */}
           <div className="bg-white p-5 rounded-2xl border-2 border-[#D40000] shadow-xs flex items-center justify-between bg-red-50/20">
             <div>
-              <p className="text-xs font-extrabold text-[#D40000] uppercase tracking-wider">Pending Orders</p>
-              <p className="text-3xl font-black text-[#D40000] mt-1">{pendingOrders}</p>
-              <p className="text-xs text-[#D40000] mt-1 font-bold">Awaiting counter pickup</p>
+              <p className="text-xs font-extrabold text-[#D40000] uppercase tracking-wider">Ordered</p>
+              <p className="text-3xl font-black text-[#D40000] mt-1">{orderedOrders}</p>
+              <p className="text-xs text-[#D40000] mt-1 font-bold">Awaiting delivery / pickup</p>
             </div>
             <div className="w-12 h-12 rounded-2xl bg-red-100 text-[#D40000] flex items-center justify-center">
               <Clock className="w-6 h-6" />
@@ -145,7 +145,7 @@ export default async function AdminDashboardPage() {
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {recentOrders.map((ord) => (
-                      <tr key={ord.id} className="hover:bg-gray-50">
+                      <tr key={ord.id} className="hover:bg-gray-50/80">
                         <td className="py-3 px-3 font-mono font-bold text-gray-900">
                           {ord.orderNumber}
                         </td>
@@ -161,10 +161,8 @@ export default async function AdminDashboardPage() {
                         <td className="py-3 px-3">
                           <span
                             className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${
-                              ord.status === 'COLLECTED'
+                              ord.status === 'DELIVERED'
                                 ? 'bg-emerald-100 text-emerald-800'
-                                : ord.status === 'CANCELLED'
-                                ? 'bg-gray-200 text-gray-700'
                                 : 'bg-amber-100 text-amber-800'
                             }`}
                           >
@@ -186,11 +184,11 @@ export default async function AdminDashboardPage() {
             {/* Counter Revenue Card */}
             <div className="bg-gradient-to-br from-[#D40000] to-red-900 text-white rounded-2xl p-6 shadow-md border-2 border-[#FFC400]">
               <span className="text-xs uppercase font-extrabold tracking-wider text-amber-200">
-                Collected Revenue
+                Delivered Revenue
               </span>
               <div className="text-3xl font-black text-[#FFC400] mt-1">₹{totalRevenue}</div>
               <p className="text-xs text-white/80 mt-2">
-                Collected from {collectedOrders} completed orders at shop counter.
+                Collected from {deliveredOrders} delivered orders at shop counter.
               </p>
             </div>
 

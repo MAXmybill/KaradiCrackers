@@ -190,7 +190,7 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     y: currentY - 20,
     size: 9.5,
     font: fontBold,
-    color: order.status === 'COLLECTED' ? rgb(0.1, 0.6, 0.2) : primaryRed,
+    color: order.status === 'DELIVERED' ? rgb(0.1, 0.6, 0.2) : primaryRed,
   });
 
   // Table Header

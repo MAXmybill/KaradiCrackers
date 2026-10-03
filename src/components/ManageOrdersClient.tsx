@@ -136,11 +136,11 @@ export default function ManageOrdersClient({ initialOrders }: ManageOrdersClient
 
             {/* Status chips */}
             <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl">
-              {['ALL', 'PENDING', 'COLLECTED', 'CANCELLED'].map((st) => (
+              {['ALL', 'ORDERED', 'DELIVERED'].map((st) => (
                 <button
                   key={st}
                   onClick={() => setStatusFilter(st)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                     statusFilter === st
                       ? 'bg-[#D40000] text-white shadow-xs'
                       : 'text-gray-600 hover:text-gray-900'
@@ -207,17 +207,14 @@ export default function ManageOrdersClient({ initialOrders }: ManageOrdersClient
                             onChange={(e) =>
                               handleStatusChange(ord.id, e.target.value as OrderStatus)
                             }
-                            className={`text-xs font-extrabold px-2.5 py-1 rounded-lg border focus:outline-none ${
-                              ord.status === 'COLLECTED'
+                            className={`text-xs font-extrabold px-2.5 py-1 rounded-lg border focus:outline-none cursor-pointer ${
+                              ord.status === 'DELIVERED'
                                 ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
-                                : ord.status === 'CANCELLED'
-                                ? 'bg-gray-100 text-gray-600 border-gray-300'
                                 : 'bg-amber-50 text-amber-800 border-amber-300'
                             }`}
                           >
-                            <option value="PENDING">PENDING</option>
-                            <option value="COLLECTED">COLLECTED (Paid)</option>
-                            <option value="CANCELLED">CANCELLED (Restore Stock)</option>
+                            <option value="ORDERED">ORDERED</option>
+                            <option value="DELIVERED">DELIVERED</option>
                           </select>
                         </td>
                         <td className="py-3 px-4 text-right" onClick={(e) => e.stopPropagation()}>
@@ -332,11 +329,10 @@ export default function ManageOrdersClient({ initialOrders }: ManageOrdersClient
                     onChange={(e) =>
                       handleStatusChange(selectedOrder.id, e.target.value as OrderStatus)
                     }
-                    className="text-xs font-bold px-2 py-1.5 rounded-lg border border-gray-300 focus:outline-none"
+                    className="text-xs font-bold px-2 py-1.5 rounded-lg border border-gray-300 focus:outline-none cursor-pointer"
                   >
-                    <option value="PENDING">PENDING</option>
-                    <option value="COLLECTED">COLLECTED</option>
-                    <option value="CANCELLED">CANCELLED</option>
+                    <option value="ORDERED">ORDERED</option>
+                    <option value="DELIVERED">DELIVERED</option>
                   </select>
                 </div>
 
