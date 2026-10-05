@@ -1,4 +1,4 @@
-import { getOrderByNumber } from '@/lib/db';
+import { getOrderByNumber, getStoreSettings } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -24,20 +24,36 @@ export default async function OrderSuccessPage({
   params: Promise<{ orderNumber: string }>;
 }) {
   const { orderNumber } = await params;
-  const order = await getOrderByNumber(orderNumber);
+  const [order, settings] = await Promise.all([
+    getOrderByNumber(orderNumber),
+    getStoreSettings(),
+  ]);
 
   if (!order) {
     notFound();
   }
 
+  const showPricing = settings?.showPricing ?? true;
   const shopWhatsapp = process.env.NEXT_PUBLIC_SHOP_WHATSAPP || '919876543210';
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const invoiceDownloadUrl = `${siteUrl}/api/invoice/${order.orderNumber}`;
 
   // Build Itemized WhatsApp Message
   const itemsText = order.items
-    .map((item, idx) => `${idx + 1}. ${item.name} (${item.quantity} pcs @ ₹${item.price}) = ₹${item.quantity * item.price}`)
+    .map(
+      (item, idx) =>
+        showPricing
+          ? `${idx + 1}. ${item.name} (${item.quantity} pcs @ ₹${item.price}) = ₹${
+              item.quantity * item.price
+            }`
+          : `${idx + 1}. ${item.name} (${item.quantity} pcs)`
+    )
     .join('\n');
+
+  const discountLine =
+    order.discountPercentage && order.discountPercentage > 0
+      ? `\n*Subtotal:* ₹${order.subtotal || order.total}\n*Diwali Discount (${order.discountPercentage}%):* -₹${order.discountAmount || 0}`
+      : '';
 
   const rawMessage = `*New Diwali Cracker Order - Karadi Crackers* 🎆
 
@@ -48,8 +64,8 @@ export default async function OrderSuccessPage({
 
 *Itemized List:*
 ${itemsText}
-
-*Grand Total:* ₹${order.total}
+${discountLine}
+*Final Amount Payable:* ₹${order.total}
 
 📄 *PDF Invoice Link:*
 ${invoiceDownloadUrl}
@@ -59,7 +75,7 @@ _I will visit the shop and collect my order._`;
   const encodedWhatsAppUrl = `https://wa.me/${shopWhatsapp}?text=${encodeURIComponent(rawMessage)}`;
 
   return (
-    <div className="bg-[#FFFDF7] min-h-screen py-10 sm:py-16">
+    <div className="bg-white min-h-screen py-10 sm:py-16">
       <OrderConfetti />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,20 +158,42 @@ _I will visit the shop and collect my order._`;
                 <div key={idx} className="py-2.5 flex justify-between items-center text-xs sm:text-sm">
                   <div>
                     <span className="font-bold text-gray-900">{item.name}</span>
-                    <span className="text-gray-500 block text-xs">
-                      {item.quantity} × ₹{item.price}
-                    </span>
+                    {showPricing ? (
+                      <span className="text-gray-500 block text-xs">
+                        {item.quantity} × ₹{item.price}
+                      </span>
+                    ) : (
+                      <span className="text-gray-500 block text-xs font-semibold">
+                        Qty: {item.quantity}
+                      </span>
+                    )}
                   </div>
-                  <span className="font-bold text-gray-900">
-                    ₹{item.price * item.quantity}
-                  </span>
+                  {showPricing && (
+                    <span className="font-bold text-gray-900">
+                      ₹{item.price * item.quantity}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
 
-            <div className="pt-3 border-t-2 border-dashed border-gray-200 mt-2 flex justify-between items-baseline">
-              <span className="font-extrabold text-sm text-gray-800">Total Payable at Counter:</span>
-              <span className="font-black text-2xl text-[#D40000]">₹{order.total}</span>
+            <div className="pt-3 border-t-2 border-dashed border-gray-200 mt-2 space-y-2 text-xs sm:text-sm">
+              {order.discountPercentage && order.discountPercentage > 0 ? (
+                <>
+                  <div className="flex justify-between text-gray-600">
+                    <span>Subtotal:</span>
+                    <span className="font-bold text-gray-900">₹{order.subtotal || order.total}</span>
+                  </div>
+                  <div className="flex justify-between text-emerald-700 font-bold bg-emerald-50 px-2.5 py-1 rounded-md">
+                    <span>Diwali Discount ({order.discountPercentage}%):</span>
+                    <span>-₹{order.discountAmount || 0}</span>
+                  </div>
+                </>
+              ) : null}
+              <div className="flex justify-between items-baseline pt-1">
+                <span className="font-extrabold text-sm text-gray-800">Final Total Payable at Counter:</span>
+                <span className="font-black text-2xl text-[#D40000]">₹{order.total}</span>
+              </div>
             </div>
           </div>
 

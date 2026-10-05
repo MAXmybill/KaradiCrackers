@@ -35,7 +35,7 @@
   border: 2px dashed #D40000;
 }
 
-/* Festive Sparkle animation */
+/* Festive Sparkle & Crackers Animation */
 @keyframes festive-glow {
   0%, 100% {
     box-shadow: 0 0 15px rgba(255, 196, 0, 0.4);
@@ -45,8 +45,42 @@
   }
 }
 
+@keyframes cracker-burst {
+  0% {
+    transform: scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes spark-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-4px) scale(1.25);
+    opacity: 1;
+  }
+}
+
 .festive-pulse {
   animation: festive-glow 2.5s infinite ease-in-out;
+}
+
+.animate-cracker-burst {
+  animation: cracker-burst 1.5s infinite alternate ease-in-out;
+}
+
+.animate-spark-float {
+  animation: spark-float 1.2s infinite ease-in-out;
 }
 
 /* Custom scrollbar */

@@ -7,6 +7,9 @@ export const dynamic = 'force-dynamic';
 const crackerSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   price: z.number().positive('Price must be greater than 0'),
+  originalPrice: z.number().positive().optional().nullable(),
+  itemCode: z.string().optional().nullable(),
+  piecesContent: z.string().optional().nullable(),
   quantity: z.number().int().min(0, 'Quantity cannot be negative'),
   isAvailable: z.boolean().default(true),
   category: z.string().optional(),
@@ -33,7 +36,12 @@ export async function POST(request: Request) {
       );
     }
 
-    const newCracker = await createCracker(parsed.data);
+    const newCracker = await createCracker({
+      ...parsed.data,
+      originalPrice: parsed.data.originalPrice ?? undefined,
+      itemCode: parsed.data.itemCode ?? undefined,
+      piecesContent: parsed.data.piecesContent ?? undefined,
+    });
     return NextResponse.json({ success: true, cracker: newCracker });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });

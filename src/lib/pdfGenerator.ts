@@ -282,6 +282,45 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     index++;
   }
 
+  // Subtotal & Discount Calculation Box
+  const hasDiscount = Boolean(order.discountPercentage && order.discountPercentage > 0);
+  const subtotalVal = order.subtotal || order.total;
+  const discountVal = order.discountAmount || 0;
+
+  if (hasDiscount) {
+    currentY -= 15;
+    page.drawText(`SUBTOTAL:`, {
+      x: width - 240,
+      y: currentY,
+      size: 9.5,
+      font: fontRegular,
+      color: darkGray,
+    });
+    page.drawText(`Rs. ${Number(subtotalVal).toFixed(2)}`, {
+      x: width - 130,
+      y: currentY,
+      size: 9.5,
+      font: fontBold,
+      color: darkGray,
+    });
+
+    currentY -= 15;
+    page.drawText(`DISCOUNT (${order.discountPercentage}%):`, {
+      x: width - 240,
+      y: currentY,
+      size: 9.5,
+      font: fontRegular,
+      color: rgb(0.1, 0.6, 0.2),
+    });
+    page.drawText(`- Rs. ${Number(discountVal).toFixed(2)}`, {
+      x: width - 130,
+      y: currentY,
+      size: 9.5,
+      font: fontBold,
+      color: rgb(0.1, 0.6, 0.2),
+    });
+  }
+
   // Grand Total Box
   currentY -= 15;
   page.drawRectangle({
@@ -294,10 +333,10 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     borderWidth: 1.5,
   });
 
-  page.drawText('GRAND TOTAL:', {
+  page.drawText('FINAL NET TOTAL:', {
     x: width - 240,
     y: currentY + 3,
-    size: 11,
+    size: 10,
     font: fontBold,
     color: primaryRed,
   });
@@ -311,7 +350,7 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
   });
 
   // Important Counter Collection Note Box
-  currentY -= 70;
+  currentY -= 55;
   page.drawRectangle({
     x: 36,
     y: currentY - 35,

@@ -45,7 +45,7 @@ export default function AdminNav() {
           {/* Logo & Portal title */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <div className="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
-              <Image src="/logo.png" alt="Logo" fill className="object-contain" />
+              <Image src="/logo.png" alt="Logo" fill sizes="(max-width: 640px) 36px, 40px" className="object-contain" />
             </div>
             <div>
               <span className="font-extrabold text-sm sm:text-lg text-[#D40000] tracking-tight">

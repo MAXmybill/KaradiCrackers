@@ -79,6 +79,7 @@ export default async function HomePage() {
                   src="/logo.png"
                   alt="Karadi Crackers Panda Mascot"
                   fill
+                  sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, 384px"
                   className="object-contain"
                   priority
                 />

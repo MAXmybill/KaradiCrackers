@@ -34,6 +34,7 @@ export default function Header() {
               src="/logo.png"
               alt="Karadi Crackers Logo"
               fill
+              sizes="(max-width: 640px) 48px, 64px"
               className="object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
               priority
             />

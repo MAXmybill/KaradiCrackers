@@ -87,11 +87,16 @@ export default function ProductCard({ cracker }: ProductCardProps) {
 
         {/* Price & In-Cart tag */}
         <div className="mt-3 pt-3 border-t border-gray-100 flex items-baseline justify-between">
-          <div className="flex items-baseline gap-1">
+          <div className="flex items-baseline gap-1.5">
             <span className="text-xs text-gray-400 font-medium">Rate:</span>
             <span className="text-2xl font-black text-[#D40000]">
               ₹{cracker.price}
             </span>
+            {cracker.originalPrice && cracker.originalPrice > cracker.price && (
+              <span className="text-xs text-gray-400 font-semibold line-through">
+                ₹{cracker.originalPrice}
+              </span>
+            )}
           </div>
 
           {currentInCart > 0 && (

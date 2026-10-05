@@ -1,4 +1,4 @@
-import { Cracker, Order, OrderStatus } from '@/types';
+import { Cracker, Order, OrderStatus, StoreSettings } from '@/types';
 import { INITIAL_CRACKERS } from './seedData';
 import { db } from './firebase';
 import {
@@ -19,16 +19,26 @@ import path from 'path';
 // Local storage fallback cache/persistence file
 const DB_FILE_PATH = path.join(process.cwd(), 'data-store.json');
 
+const DEFAULT_SETTINGS: StoreSettings = {
+  showPricing: true,
+  discountPercentage: 20, // default 20% discount as requested
+};
+
 interface DataStore {
   crackers: Cracker[];
   orders: Order[];
+  settings?: StoreSettings;
 }
 
 function loadLocalStore(): DataStore {
   try {
     if (fs.existsSync(DB_FILE_PATH)) {
       const data = fs.readFileSync(DB_FILE_PATH, 'utf-8');
-      return JSON.parse(data);
+      const parsed = JSON.parse(data);
+      if (!parsed.settings) {
+        parsed.settings = { ...DEFAULT_SETTINGS };
+      }
+      return parsed;
     }
   } catch (err) {
     console.error('Error reading local data store:', err);
@@ -41,7 +51,7 @@ function loadLocalStore(): DataStore {
     createdAt: now,
     updatedAt: now,
   }));
-  const store: DataStore = { crackers, orders: [] };
+  const store: DataStore = { crackers, orders: [], settings: { ...DEFAULT_SETTINGS } };
   saveLocalStore(store);
   return store;
 }
@@ -52,6 +62,47 @@ function saveLocalStore(store: DataStore) {
   } catch (err) {
     console.error('Error writing local data store:', err);
   }
+}
+
+// -------------------------------------------------------------
+// STORE SETTINGS REPOSITORY
+// -------------------------------------------------------------
+
+export async function getStoreSettings(): Promise<StoreSettings> {
+  try {
+    const docRef = doc(db, 'settings', 'store');
+    const snap = await getDoc(docRef);
+    if (snap.exists()) {
+      return { ...DEFAULT_SETTINGS, ...(snap.data() as StoreSettings) };
+    }
+  } catch (err) {
+    console.warn('Firestore getStoreSettings error, using fallback:', err);
+  }
+
+  const store = loadLocalStore();
+  return store.settings || { ...DEFAULT_SETTINGS };
+}
+
+export async function updateStoreSettings(updates: Partial<StoreSettings>): Promise<StoreSettings> {
+  const current = await getStoreSettings();
+  const now = new Date().toISOString();
+  const updated: StoreSettings = {
+    ...current,
+    ...updates,
+    updatedAt: now,
+  };
+
+  const store = loadLocalStore();
+  store.settings = updated;
+  saveLocalStore(store);
+
+  try {
+    await setDoc(doc(db, 'settings', 'store'), updated, { merge: true });
+  } catch (err) {
+    console.warn('Firestore setStoreSettings error:', err);
+  }
+
+  return updated;
 }
 
 // -------------------------------------------------------------
@@ -113,7 +164,10 @@ export async function createCracker(data: Omit<Cracker, 'id' | 'createdAt' | 'up
     id,
     name: data.name,
     price: Number(data.price),
-    quantity: Number(data.quantity),
+    originalPrice: data.originalPrice !== undefined ? Number(data.originalPrice) : undefined,
+    itemCode: data.itemCode || undefined,
+    piecesContent: data.piecesContent || undefined,
+    quantity: Number(data.quantity || 999999),
     isAvailable: Boolean(data.isAvailable),
     category: data.category || 'General',
     imageUrl:
@@ -151,6 +205,10 @@ export async function updateCracker(id: string, updates: Partial<Cracker>): Prom
     ...current,
     ...updates,
     price: updates.price !== undefined ? Number(updates.price) : current.price,
+    originalPrice:
+      updates.originalPrice !== undefined ? Number(updates.originalPrice) : current.originalPrice,
+    itemCode: updates.itemCode !== undefined ? updates.itemCode : current.itemCode,
+    piecesContent: updates.piecesContent !== undefined ? updates.piecesContent : current.piecesContent,
     quantity: updates.quantity !== undefined ? Number(updates.quantity) : current.quantity,
     isAvailable: updates.isAvailable !== undefined ? Boolean(updates.isAvailable) : current.isAvailable,
     updatedAt: now,
@@ -168,7 +226,6 @@ export async function updateCracker(id: string, updates: Partial<Cracker>): Prom
   try {
     await updateDoc(doc(db, 'crackers', id), updated as any);
   } catch (err) {
-    // If updateDoc fails (e.g. Doc doesn't exist yet in firestore), use setDoc
     try {
       await setDoc(doc(db, 'crackers', id), updated, { merge: true });
     } catch (e) {
@@ -239,12 +296,20 @@ export async function createOrder(data: {
   customerPhone: string;
   items: { crackerId: string; quantity: number }[];
 }): Promise<{ success: boolean; order?: Order; error?: string }> {
-  // Fetch current crackers
-  const crackers = await getCrackers(false);
+  // Fetch current crackers and settings
+  const [crackers, settings] = await Promise.all([getCrackers(false), getStoreSettings()]);
   const now = new Date().toISOString();
 
-  let grandTotal = 0;
-  const verifiedItems: { crackerId: string; name: string; price: number; quantity: number }[] = [];
+  let subtotal = 0;
+  const verifiedItems: {
+    crackerId: string;
+    name: string;
+    price: number;
+    originalPrice?: number;
+    itemCode?: string;
+    piecesContent?: string;
+    quantity: number;
+  }[] = [];
 
   for (const itemReq of data.items) {
     const cracker = crackers.find((c) => c.id === itemReq.crackerId);
@@ -257,23 +322,29 @@ export async function createOrder(data: {
     if (itemReq.quantity <= 0) {
       return { success: false, error: `Invalid quantity for "${cracker.name}".` };
     }
-    grandTotal += cracker.price * itemReq.quantity;
+    subtotal += cracker.price * itemReq.quantity;
     verifiedItems.push({
       crackerId: cracker.id,
       name: cracker.name,
       price: cracker.price,
+      originalPrice: cracker.originalPrice,
+      itemCode: cracker.itemCode,
+      piecesContent: cracker.piecesContent,
       quantity: itemReq.quantity,
     });
   }
 
-  // Record item sales while keeping available until admin turns off
+  const discountPercentage = Math.max(0, Number(settings.discountPercentage) || 0);
+  const discountAmount = Math.round((subtotal * discountPercentage) / 100);
+  const grandTotal = Math.max(0, subtotal - discountAmount);
+
+  // Record item sales
   for (const it of verifiedItems) {
     const cracker = crackers.find((c) => c.id === it.crackerId);
     if (cracker) {
       const newQty = Math.max(0, cracker.quantity - it.quantity);
       await updateCracker(cracker.id, {
         quantity: newQty,
-        // Keep available ON until explicitly toggled off by admin
         isAvailable: cracker.isAvailable,
       });
     }
@@ -290,6 +361,9 @@ export async function createOrder(data: {
     orderNumber,
     customerName: data.customerName.trim(),
     customerPhone: data.customerPhone.trim(),
+    subtotal,
+    discountPercentage,
+    discountAmount,
     total: grandTotal,
     status: 'ORDERED',
     items: verifiedItems,

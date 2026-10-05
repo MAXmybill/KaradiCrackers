@@ -3,15 +3,17 @@
 import { useCartStore } from '@/lib/cartStore';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
-import { ShieldAlert, ArrowLeft, CheckCircle2, Sparkles, Loader2, Info } from 'lucide-react';
+import { ShieldAlert, ArrowLeft, Sparkles, Loader2, Info, Percent } from 'lucide-react';
 import { toast } from 'sonner';
+import { StoreSettings } from '@/types';
 
 export default function CheckoutPage() {
   const router = useRouter();
   const { items, getTotalAmount, clearCart } = useCartStore();
   const [mounted, setMounted] = useState(false);
+  const [settingsLoaded, setSettingsLoaded] = useState(false);
+  const [settings, setSettings] = useState<StoreSettings | null>(null);
 
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
@@ -22,9 +24,20 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     setMounted(true);
+    fetch('/api/settings')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.settings) {
+          setSettings(data.settings);
+        }
+      })
+      .catch(() => {})
+      .finally(() => {
+        setSettingsLoaded(true);
+      });
   }, []);
 
-  if (!mounted) {
+  if (!mounted || !settingsLoaded || !settings) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
         <Loader2 className="w-10 h-10 animate-spin text-[#D40000] mx-auto mb-4" />
@@ -33,7 +46,10 @@ export default function CheckoutPage() {
     );
   }
 
-  const grandTotal = getTotalAmount();
+  const subtotal = getTotalAmount();
+  const discountPercentage = settings?.discountPercentage || 0;
+  const discountAmount = Math.round((subtotal * discountPercentage) / 100);
+  const netPayable = Math.max(0, subtotal - discountAmount);
 
   if (items.length === 0) {
     return (
@@ -42,7 +58,7 @@ export default function CheckoutPage() {
         <p className="text-gray-500 mb-6">Please add items to your cart before proceeding to checkout.</p>
         <Link
           href="/crackers"
-          className="inline-flex items-center gap-2 bg-[#D40000] text-white font-bold px-6 py-3 rounded-xl"
+          className="inline-flex items-center gap-2 bg-[#D40000] text-white font-bold px-6 py-3 rounded-xl shadow-md border-2 border-[#FFC400]"
         >
           Browse Crackers
         </Link>
@@ -110,10 +126,10 @@ export default function CheckoutPage() {
 
       toast.success('Order placed successfully! Generating invoice...');
 
-      // Clear the local cart
+      // Clear local cart
       clearCart();
 
-      // Redirect to Order Confirmation page
+      // Redirect to confirmation
       router.push(`/order/${data.orderNumber}`);
     } catch (err: any) {
       setServerError(err.message || 'Network error. Please try again.');
@@ -123,7 +139,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="bg-[#FFFDF7] min-h-screen py-10 sm:py-16">
+    <div className="bg-white min-h-screen py-10 sm:py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href="/cart"
@@ -136,7 +152,7 @@ export default function CheckoutPage() {
         <div className="bg-white rounded-3xl border-2 border-[#D40000] p-6 sm:p-10 shadow-lg relative overflow-hidden">
           {/* Header */}
           <div className="border-b-2 border-red-100 pb-6 mb-8 text-center sm:text-left">
-            <span className="text-xs font-black uppercase tracking-wider text-[#D40000] bg-red-50 px-3 py-1 rounded-full">
+            <span className="text-xs font-black uppercase tracking-wider text-[#D40000] bg-red-50 px-3 py-1 rounded-full border border-red-200">
               Express Counter Booking
             </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-950 mt-2">
@@ -205,7 +221,7 @@ export default function CheckoutPage() {
                 </p>
               </div>
 
-              <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-xs text-amber-900 space-y-2">
+              <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-xs text-amber-950 space-y-2">
                 <div className="font-bold flex items-center gap-1.5 text-[#D40000]">
                   <Info className="w-4 h-4 shrink-0" />
                   <span>Important Collection Notice</span>
@@ -218,7 +234,7 @@ export default function CheckoutPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 px-6 bg-[#D40000] hover:bg-[#B00000] text-white font-black rounded-2xl shadow-xl transition-all duration-200 border-2 border-[#FFC400] flex items-center justify-center gap-2 text-base active:scale-95 disabled:opacity-60"
+                className="w-full py-4 px-6 bg-[#D40000] hover:bg-[#B00000] text-white font-black rounded-2xl shadow-xl transition-all duration-200 border-2 border-[#FFC400] flex items-center justify-center gap-2 text-base active:scale-95 disabled:opacity-60 cursor-pointer"
               >
                 {isSubmitting ? (
                   <>
@@ -228,7 +244,7 @@ export default function CheckoutPage() {
                 ) : (
                   <>
                     <Sparkles className="w-5 h-5 text-[#FFC400]" />
-                    <span>Generate Invoice</span>
+                    <span>Generate Invoice (₹{netPayable})</span>
                   </>
                 )}
               </button>
@@ -244,22 +260,40 @@ export default function CheckoutPage() {
                   <div key={it.id} className="flex justify-between items-center text-xs">
                     <div>
                       <p className="font-bold text-gray-800 line-clamp-1">{it.name}</p>
-                      <p className="text-gray-500">
-                        {it.quantity} × ₹{it.price}
-                      </p>
+                      {settings?.showPricing ? (
+                        <p className="text-gray-500">
+                          {it.quantity} × ₹{it.price}
+                        </p>
+                      ) : (
+                        <p className="text-gray-500 font-semibold">Qty: {it.quantity}</p>
+                      )}
                     </div>
-                    <span className="font-bold text-gray-900">₹{it.price * it.quantity}</span>
+                    {settings?.showPricing && (
+                      <span className="font-bold text-gray-900">₹{it.price * it.quantity}</span>
+                    )}
                   </div>
                 ))}
               </div>
 
-              <div className="mt-4 pt-3 border-t-2 border-dashed border-gray-300">
-                <div className="flex justify-between items-baseline">
-                  <span className="font-bold text-sm text-gray-700">Total Payable:</span>
-                  <span className="font-black text-2xl text-[#D40000]">₹{grandTotal}</span>
+              <div className="mt-4 pt-3 border-t-2 border-dashed border-gray-300 space-y-2 text-xs">
+                <div className="flex justify-between text-gray-600">
+                  <span>Total Amount:</span>
+                  <span className="font-bold text-gray-900">₹{subtotal}</span>
                 </div>
-                <span className="text-[11px] text-gray-500 block text-right mt-0.5">
-                  (Pay at counter)
+
+                {discountPercentage > 0 && (
+                  <div className="flex justify-between text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+                    <span>Discount ({discountPercentage}%):</span>
+                    <span>-₹{discountAmount}</span>
+                  </div>
+                )}
+
+                <div className="flex justify-between items-baseline pt-2 border-t border-gray-200">
+                  <span className="font-black text-sm text-gray-900">Final Net Total:</span>
+                  <span className="font-black text-2xl text-[#D40000]">₹{netPayable}</span>
+                </div>
+                <span className="text-[11px] text-gray-500 block text-right mt-0.5 font-medium">
+                  (Pay at counter upon pickup)
                 </span>
               </div>
             </div>

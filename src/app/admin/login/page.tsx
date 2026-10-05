@@ -59,7 +59,7 @@ function AdminLoginForm() {
 
         <div className="text-center mb-8">
           <div className="relative w-24 h-24 mx-auto mb-2">
-            <Image src="/logo.png" alt="Karadi Crackers Logo" fill className="object-contain drop-shadow-md" />
+            <Image src="/logo.png" alt="Karadi Crackers Logo" fill sizes="96px" className="object-contain drop-shadow-md" />
           </div>
           <span className="text-xs font-black uppercase tracking-wider text-[#D40000] bg-red-50 px-3 py-1 rounded-full border border-red-200">
             Protected Staff Area
