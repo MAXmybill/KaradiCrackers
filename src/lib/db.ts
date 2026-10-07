@@ -250,6 +250,63 @@ export async function deleteCracker(id: string): Promise<boolean> {
   return true;
 }
 
+export async function bulkUpdateCrackerPrices(
+  percentage: number,
+  type: 'increase' | 'decrease'
+): Promise<{ count: number; crackers: Cracker[] }> {
+  const store = loadLocalStore();
+  const now = new Date().toISOString();
+  const factor = type === 'increase' ? 1 + percentage / 100 : Math.max(0.01, 1 - percentage / 100);
+
+  const updatedCrackers = store.crackers.map((c) => {
+    let newPrice = Math.round(c.price * factor);
+    if (newPrice < 1) newPrice = 1;
+
+    let newOriginalPrice = c.originalPrice;
+    if (newOriginalPrice) {
+      newOriginalPrice = Math.round(newOriginalPrice * factor);
+      if (newOriginalPrice < newPrice) {
+        newOriginalPrice = Math.round(newPrice * 2);
+      }
+    }
+
+    return {
+      ...c,
+      price: newPrice,
+      originalPrice: newOriginalPrice,
+      updatedAt: now,
+    };
+  });
+
+  store.crackers = updatedCrackers;
+  saveLocalStore(store);
+
+  try {
+    const { writeBatch } = await import('firebase/firestore');
+    let batch = writeBatch(db);
+    let count = 0;
+    for (const c of updatedCrackers) {
+      batch.update(doc(db, 'crackers', c.id), {
+        price: c.price,
+        originalPrice: c.originalPrice,
+        updatedAt: now,
+      });
+      count++;
+      if (count % 400 === 0) {
+        await batch.commit();
+        batch = writeBatch(db);
+      }
+    }
+    if (count % 400 !== 0) {
+      await batch.commit();
+    }
+  } catch (err) {
+    console.warn('Firestore bulk price update error:', err);
+  }
+
+  return { count: updatedCrackers.length, crackers: updatedCrackers };
+}
+
 // -------------------------------------------------------------
 // ORDERS REPOSITORY
 // -------------------------------------------------------------
