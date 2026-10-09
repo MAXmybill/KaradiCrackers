@@ -13,50 +13,50 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-sunburst text-white py-16 sm:py-24 border-b-8 border-[#FFC400]">
+      <section className="relative overflow-hidden bg-sunburst text-white py-8 sm:py-24 border-b-6 sm:border-b-8 border-[#FFC400]">
         {/* Subtle decorative glow & overlay */}
         <div className="absolute inset-0 bg-radial-gradient from-transparent via-red-900/30 to-black/40 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
 
             {/* Left Content */}
-            <div className="lg:col-span-7 text-center lg:text-left space-y-6">
-              <div className="inline-flex items-center gap-2 bg-[#FFC400] text-black px-4 py-1.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-lg border-2 border-white">
-                <Sparkles className="w-4 h-4 text-[#D40000]" />
+            <div className="lg:col-span-7 text-center lg:text-left space-y-4 sm:space-y-6">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#FFC400] text-black px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-sm font-extrabold uppercase tracking-wider shadow-lg border-2 border-white">
+                <Sparkles className="w-3.5 h-3.5 text-[#D40000]" />
                 <span>Diwali 2026 Cracker Booking is Live</span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#FFC400] drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)] leading-tight">
+              <h1 className="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#FFC400] drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)] leading-tight">
                 LIGHT UP YOUR DIWALI!
               </h1>
 
-              <p className="text-lg sm:text-xl text-white/95 max-w-2xl font-medium leading-relaxed drop-shadow">
+              <p className="text-sm sm:text-xl text-white/95 max-w-2xl font-medium leading-relaxed drop-shadow">
                 Pure Sivakasi factory-quality fireworks at wholesale rates. Choose your favorites,
                 generate an instant order invoice, send it on WhatsApp, and collect directly at our counter!
               </p>
 
               {/* Badges row */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-lg border border-white/20 text-xs sm:text-sm">
-                  <ShieldCheck className="w-4 h-4 text-[#FFC400]" />
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 pt-1 sm:pt-2">
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg border border-white/20 text-[11px] sm:text-sm">
+                  <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFC400]" />
                   <span>100% Verified Stock</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-lg border border-white/20 text-xs sm:text-sm">
-                  <Zap className="w-4 h-4 text-[#FFC400]" />
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg border border-white/20 text-[11px] sm:text-sm">
+                  <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFC400]" />
                   <span>Instant PDF Invoice</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-lg border border-white/20 text-xs sm:text-sm">
-                  <Store className="w-4 h-4 text-[#FFC400]" />
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg border border-white/20 text-[11px] sm:text-sm">
+                  <Store className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFC400]" />
                   <span>Zero Online Payment</span>
                 </div>
               </div>
 
               {/* Call to Actions */}
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
                 <Link
                   href="/crackers"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#FFC400] hover:bg-[#FFE082] text-black font-extrabold text-lg px-8 py-4 rounded-2xl shadow-xl transition-all transform hover:scale-105 active:scale-95 border-2 border-white group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#FFC400] hover:bg-[#FFE082] text-black font-extrabold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl shadow-xl transition-all transform hover:scale-105 active:scale-95 border-2 border-white group"
                 >
                   <ShoppingBag className="w-5 h-5 text-[#D40000]" />
                   <span>Shop Now</span>
@@ -65,7 +65,7 @@ export default async function HomePage() {
 
                 <Link
                   href="#how-it-works"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-base px-6 py-4 rounded-2xl border border-white/30 transition-all backdrop-blur"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base px-5 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-white/30 transition-all backdrop-blur"
                 >
                   <span>How It Works</span>
                 </Link>

@@ -192,6 +192,26 @@ export default async function AdminDashboardPage() {
               </p>
             </div>
 
+            {/* Bulk Price Adjustment Shortcut Card */}
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 rounded-2xl border-2 border-[#FFC400] p-5 shadow-xs">
+              <h3 className="font-extrabold text-sm text-gray-900 mb-1.5 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-md bg-[#D40000] text-[#FFC400] flex items-center justify-center font-black text-xs">
+                  %
+                </span>
+                <span>Bulk Price Adjustment</span>
+              </h3>
+              <p className="text-xs text-gray-600 mb-3">
+                Increase or decrease prices across all {totalProducts} items by any percentage (e.g. 10%).
+              </p>
+              <Link
+                href="/admin/crackers"
+                className="w-full inline-flex items-center justify-center gap-1.5 bg-[#D40000] hover:bg-[#B00000] text-white font-extrabold py-2 px-3 rounded-xl text-xs shadow-xs transition-colors"
+              >
+                <span>Adjust Prices in Catalog</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
             {/* Catalog Visibility Status Box */}
             <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-xs">
               <h3 className="font-extrabold text-sm text-gray-900 mb-3 flex items-center gap-2">

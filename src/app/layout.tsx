@@ -21,6 +21,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Karadi Crackers - Light up your Diwali! | Sivakasi Quality Fireworks',
   description:
     'Shop authentic Sivakasi Diwali crackers at Karadi Crackers. Browse sparklers, rockets, sky shots, flower pots and book your counter pickup invoice online today.',

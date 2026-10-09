@@ -110,6 +110,7 @@ export async function updateStoreSettings(updates: Partial<StoreSettings>): Prom
 // -------------------------------------------------------------
 
 export async function getCrackers(availableOnly = false): Promise<Cracker[]> {
+  const store = loadLocalStore();
   try {
     const colRef = collection(db, 'crackers');
     let q = query(colRef);
@@ -118,14 +119,30 @@ export async function getCrackers(availableOnly = false): Promise<Cracker[]> {
     }
     const snapshot = await getDocs(q);
     if (!snapshot.empty) {
-      const results: Cracker[] = [];
+      const firestoreItems: Cracker[] = [];
+      const firestoreIds = new Set<string>();
       snapshot.forEach((d) => {
-        results.push({ id: d.id, ...(d.data() as any) });
+        const item = { id: d.id, ...(d.data() as any) } as Cracker;
+        firestoreItems.push(item);
+        firestoreIds.add(item.id);
       });
-      return results;
+
+      // Also ensure any items in local store (like newly added Gift Boxes, Wala) are merged and seeded
+      let hasMissing = false;
+      for (const localItem of store.crackers) {
+        if (!firestoreIds.has(localItem.id)) {
+          firestoreItems.push(localItem);
+          hasMissing = true;
+          // Seed missing item to Firestore asynchronously in background
+          setDoc(doc(db, 'crackers', localItem.id), localItem).catch(() => {});
+        }
+      }
+
+      return availableOnly
+        ? firestoreItems.filter((c) => c.isAvailable)
+        : firestoreItems;
     } else {
-      // If Firestore collection is empty, seed it with the default crackers!
-      const store = loadLocalStore();
+      // If Firestore collection is empty, seed it with the local store crackers
       for (const cracker of store.crackers) {
         await setDoc(doc(db, 'crackers', cracker.id), cracker).catch(() => {});
       }
@@ -135,7 +152,6 @@ export async function getCrackers(availableOnly = false): Promise<Cracker[]> {
     }
   } catch (error) {
     console.warn('Firestore fetch failed, using local persistent fallback:', error);
-    const store = loadLocalStore();
     if (availableOnly) {
       return store.crackers.filter((c) => c.isAvailable);
     }

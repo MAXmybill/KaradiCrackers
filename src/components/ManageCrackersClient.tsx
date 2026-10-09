@@ -18,6 +18,8 @@ import {
   Percent,
   Eye,
   EyeOff,
+  TrendingUp,
+  TrendingDown,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -37,6 +39,10 @@ export default function ManageCrackersClient({
   const [editingCracker, setEditingCracker] = useState<Cracker | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<Cracker | null>(null);
 
+  // Bulk price percentage adjustment state
+  const [bulkPercent, setBulkPercent] = useState<string>('10');
+  const [bulkLoading, setBulkLoading] = useState(false);
+
   // Store Settings (Pricing Visibility & Discount Percentage)
   const [settings, setSettings] = useState<StoreSettings>(
     initialSettings || {
@@ -46,15 +52,14 @@ export default function ManageCrackersClient({
   );
   const [savingSettings, setSavingSettings] = useState(false);
 
-  // Quick inline edits state: crackerId -> { price, originalPrice, piecesContent }
+  // Quick inline edits state: crackerId -> { price, originalPrice }
   const [inlinePriceEdits, setInlinePriceEdits] = useState<{
-    [id: string]: { price?: number; originalPrice?: number; piecesContent?: string };
+    [id: string]: { price?: number; originalPrice?: number };
   }>({});
   const [savingId, setSavingId] = useState<string | null>(null);
 
   // Form state for Add/Edit Modal
   const [formName, setFormName] = useState('');
-  const [formPiecesContent, setFormPiecesContent] = useState('');
   const [formPrice, setFormPrice] = useState(''); // Selling price
   const [formOriginalPrice, setFormOriginalPrice] = useState(''); // Actual / MRP strikethrough price
   const [formCategory, setFormCategory] = useState('');
@@ -135,6 +140,39 @@ export default function ManageCrackersClient({
     }
   };
 
+  // Bulk Price Adjust (Increase or Decrease by percentage across ALL products)
+  const handleBulkPriceAdjust = async (action: 'increase' | 'decrease') => {
+    const pct = parseFloat(bulkPercent);
+    if (isNaN(pct) || pct <= 0) {
+      toast.error('Please enter a valid percentage greater than 0');
+      return;
+    }
+
+    const actionText = action === 'increase' ? 'increase' : 'decrease';
+    const confirmMsg = `Are you sure you want to ${actionText.toUpperCase()} prices of ALL ${crackers.length} products by ${pct}%?`;
+    if (!window.confirm(confirmMsg)) return;
+
+    setBulkLoading(true);
+    try {
+      const res = await fetch('/api/admin/crackers/bulk-price', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ percentage: pct, action }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.error);
+
+      if (data.crackers && Array.isArray(data.crackers)) {
+        setCrackers(data.crackers);
+      }
+      toast.success(data.message || `All product prices ${actionText}d by ${pct}%!`);
+    } catch (err: any) {
+      toast.error(err.message || 'Failed to adjust prices');
+    } finally {
+      setBulkLoading(false);
+    }
+  };
+
   // Quick Toggle Availability
   const handleToggleAvailability = async (cracker: Cracker) => {
     const newStatus = !cracker.isAvailable;
@@ -165,10 +203,10 @@ export default function ManageCrackersClient({
     }
   };
 
-  // Inline editing handler (price, originalPrice, piecesContent)
+  // Inline editing handler (price, originalPrice)
   const handleInlineChange = (
     id: string,
-    field: 'price' | 'originalPrice' | 'piecesContent',
+    field: 'price' | 'originalPrice',
     val: any
   ) => {
     setInlinePriceEdits((prev) => ({
@@ -188,7 +226,6 @@ export default function ManageCrackersClient({
     const updates: any = {};
     if (edit.price !== undefined) updates.price = Number(edit.price);
     if (edit.originalPrice !== undefined) updates.originalPrice = Number(edit.originalPrice);
-    if (edit.piecesContent !== undefined) updates.piecesContent = String(edit.piecesContent).trim();
 
     try {
       const res = await fetch(`/api/admin/crackers/${cracker.id}`, {
@@ -225,7 +262,6 @@ export default function ManageCrackersClient({
   const openEditModal = (cracker: Cracker) => {
     setEditingCracker(cracker);
     setFormName(cracker.name);
-    setFormPiecesContent(cracker.piecesContent || '10Pcs');
     setFormPrice(String(cracker.price));
     setFormOriginalPrice(cracker.originalPrice ? String(cracker.originalPrice) : '');
     setFormCategory(cracker.category || 'SPARKLERS');
@@ -238,7 +274,6 @@ export default function ManageCrackersClient({
   const resetForm = () => {
     setEditingCracker(null);
     setFormName('');
-    setFormPiecesContent('10Pcs');
     setFormPrice('');
     setFormOriginalPrice('');
     setFormCategory(existingCategories[0] || 'SPARKLERS');
@@ -256,7 +291,6 @@ export default function ManageCrackersClient({
 
     const payload: any = {
       name: formName.trim(),
-      piecesContent: formPiecesContent.trim() || undefined,
       price: parseFloat(formPrice),
       originalPrice: formOriginalPrice ? parseFloat(formOriginalPrice) : undefined,
       quantity: 999999, // unlimited stock
@@ -391,7 +425,7 @@ export default function ManageCrackersClient({
               <div className="flex items-center gap-2">
                 <Percent className="w-4 h-4 text-[#D40000]" />
                 <span className="font-extrabold text-sm text-gray-900">
-                  Discount Percentage
+                  Bill Discount Percentage
                 </span>
               </div>
               <p className="text-xs text-gray-500">
@@ -425,6 +459,70 @@ export default function ManageCrackersClient({
           </div>
         </div>
 
+        {/* Bulk Price Modifier (Increase or Decrease ALL Product Prices) */}
+        <div className="bg-gradient-to-r from-amber-50 via-red-50/60 to-white rounded-2xl border-2 border-[#FFC400] p-4 sm:p-5 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-[#D40000] text-[#FFC400] flex items-center justify-center font-black text-xs shadow-xs">
+                %
+              </div>
+              <h2 className="text-sm sm:text-base font-black text-gray-950 uppercase tracking-tight">
+                Bulk Price Adjustment (All {crackers.length} Products)
+              </h2>
+            </div>
+            <p className="text-xs text-gray-600 max-w-xl">
+              Enter a percentage (e.g. <span className="font-bold text-gray-900">10%</span>) and click <span className="font-bold text-emerald-700">Increase</span> or <span className="font-bold text-red-600">Decrease</span> to automatically update the price of every cracker in the catalog simultaneously.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2.5 flex-wrap shrink-0">
+            <div className="relative">
+              <input
+                type="number"
+                min="0.1"
+                max="100"
+                step="0.5"
+                placeholder="10"
+                value={bulkPercent}
+                onChange={(e) => setBulkPercent(e.target.value)}
+                disabled={bulkLoading}
+                className="w-24 pl-3 pr-7 py-2 rounded-xl border-2 border-amber-300 bg-white text-sm font-black text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#D40000] text-center shadow-xs"
+              />
+              <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs font-black text-gray-500">
+                %
+              </span>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => handleBulkPriceAdjust('increase')}
+              disabled={bulkLoading}
+              className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-3.5 py-2 rounded-xl text-xs shadow-sm transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
+            >
+              {bulkLoading ? (
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+              ) : (
+                <TrendingUp className="w-3.5 h-3.5" />
+              )}
+              <span>Increase Prices (+{bulkPercent}%)</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleBulkPriceAdjust('decrease')}
+              disabled={bulkLoading}
+              className="inline-flex items-center gap-1.5 bg-[#D40000] hover:bg-[#B00000] text-white font-extrabold px-3.5 py-2 rounded-xl text-xs shadow-sm transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
+            >
+              {bulkLoading ? (
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+              ) : (
+                <TrendingDown className="w-3.5 h-3.5" />
+              )}
+              <span>Decrease Prices (-{bulkPercent}%)</span>
+            </button>
+          </div>
+        </div>
+
         {/* Search & Category Filter Toolbar */}
         <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="relative w-full sm:w-80">
@@ -455,18 +553,18 @@ export default function ManageCrackersClient({
           </div>
         </div>
 
-        {/* Crackers Table: Clean, no item code or image */}
+        {/* Crackers Table: Clean, no item code, image, or content column */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead className="bg-gray-50 text-gray-600 font-extrabold uppercase border-b">
                 <tr>
-                  <th className="py-3 px-4">Cracker Name</th>
-                  <th className="py-3 px-4">Category / Content</th>
-                  <th className="py-3 px-4">Selling Price (₹)</th>
-                  <th className="py-3 px-4">Actual Price (Strike ₹)</th>
-                  <th className="py-3 px-4 text-center">Store Visibility</th>
-                  <th className="py-3 px-4 text-right">Actions</th>
+                  <th className="py-3 px-3 sm:px-4">Cracker Name</th>
+                  <th className="py-3 px-2 sm:px-4">Category</th>
+                  <th className="py-3 px-2 sm:px-4">Selling Price (₹)</th>
+                  <th className="py-3 px-2 sm:px-4">Actual Price (Strike ₹)</th>
+                  <th className="py-3 px-2 sm:px-4 text-center">Store Visibility</th>
+                  <th className="py-3 px-3 sm:px-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 font-medium">
@@ -481,47 +579,28 @@ export default function ManageCrackersClient({
                         : cracker.originalPrice || '';
                     const isEdited =
                       pendingEdit?.price !== undefined ||
-                      pendingEdit?.originalPrice !== undefined ||
-                      pendingEdit?.piecesContent !== undefined;
+                      pendingEdit?.originalPrice !== undefined;
 
                     return (
                       <tr key={cracker.id} className="hover:bg-amber-50/20 transition-colors">
                         {/* Name */}
-                        <td className="py-3.5 px-4">
-                          <p className="font-extrabold text-gray-900 text-sm">
+                        <td className="py-3 px-3 sm:px-4">
+                          <p className="font-extrabold text-gray-900 text-xs sm:text-sm">
                             {cracker.name}
                           </p>
                         </td>
 
-                        {/* Category & Content */}
-                        <td className="py-3.5 px-4">
-                          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5">
-                            <span className="bg-amber-50 text-amber-900 font-extrabold px-2 py-0.5 rounded-md border border-amber-200 text-[11px] shrink-0">
-                              {cracker.category || 'General'}
-                            </span>
-                            <div className="flex items-center gap-1">
-                              <input
-                                type="text"
-                                placeholder="10Pcs"
-                                value={
-                                  pendingEdit?.piecesContent !== undefined
-                                    ? pendingEdit.piecesContent
-                                    : cracker.piecesContent || ''
-                                }
-                                onChange={(e) =>
-                                  handleInlineChange(cracker.id, 'piecesContent', e.target.value)
-                                }
-                                className="w-16 px-1.5 py-0.5 bg-gray-50 border border-gray-300 rounded text-[11px] font-bold text-gray-700 focus:bg-white focus:ring-1 focus:ring-[#D40000]"
-                                title="Content (e.g. 10Pcs, 1Box)"
-                              />
-                            </div>
-                          </div>
+                        {/* Category */}
+                        <td className="py-3 px-2 sm:px-4 whitespace-nowrap">
+                          <span className="bg-amber-50 text-amber-900 font-extrabold px-2 py-0.5 rounded-md border border-amber-200 text-[10px] sm:text-[11px] inline-block">
+                            {cracker.category || 'General'}
+                          </span>
                         </td>
 
                         {/* Selling Price */}
-                        <td className="py-3.5 px-4">
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-gray-500 font-bold">₹</span>
+                        <td className="py-3 px-2 sm:px-4 whitespace-nowrap">
+                          <div className="flex items-center gap-1 sm:gap-1.5">
+                            <span className="text-gray-500 font-bold text-xs">₹</span>
                             <input
                               type="number"
                               min="1"
@@ -533,15 +612,15 @@ export default function ManageCrackersClient({
                                   parseFloat(e.target.value) || 0
                                 )
                               }
-                              className="w-20 px-2.5 py-1 bg-gray-50 border border-gray-300 rounded-lg text-xs font-black text-gray-900 focus:bg-white focus:ring-1 focus:ring-[#D40000]"
+                              className="w-16 sm:w-20 px-2 py-1 bg-gray-50 border border-gray-300 rounded-lg text-xs font-black text-gray-900 focus:bg-white focus:ring-1 focus:ring-[#D40000]"
                             />
                           </div>
                         </td>
 
                         {/* Actual Strikethrough Price */}
-                        <td className="py-3.5 px-4">
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-gray-400 font-bold line-through">₹</span>
+                        <td className="py-3 px-2 sm:px-4 whitespace-nowrap">
+                          <div className="flex items-center gap-1 sm:gap-1.5">
+                            <span className="text-gray-400 font-bold line-through text-xs">₹</span>
                             <input
                               type="number"
                               min="0"
@@ -554,7 +633,7 @@ export default function ManageCrackersClient({
                                   parseFloat(e.target.value) || 0
                                 )
                               }
-                              className="w-20 px-2.5 py-1 bg-gray-50 border border-gray-300 rounded-lg text-xs font-semibold text-gray-600 focus:bg-white focus:ring-1 focus:ring-[#D40000]"
+                              className="w-16 sm:w-20 px-2 py-1 bg-gray-50 border border-gray-300 rounded-lg text-xs font-semibold text-gray-600 focus:bg-white focus:ring-1 focus:ring-[#D40000]"
                             />
                             {isEdited && (
                               <button
@@ -574,36 +653,36 @@ export default function ManageCrackersClient({
                         </td>
 
                         {/* Store Visibility */}
-                        <td className="py-3.5 px-4 text-center">
+                        <td className="py-3 px-2 sm:px-4 text-center whitespace-nowrap">
                           <button
                             type="button"
                             onClick={() => handleToggleAvailability(cracker)}
-                            className="inline-flex items-center gap-1.5 cursor-pointer transition-transform hover:scale-105"
+                            className="inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer transition-transform hover:scale-105"
                             title="Click to toggle store visibility"
                           >
                             {cracker.isAvailable ? (
-                              <span className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 text-xs font-black px-3.5 py-1 rounded-full border border-emerald-300 shadow-xs">
-                                <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-                                ON (Visible)
+                              <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 text-[10px] sm:text-xs font-black px-2.5 sm:px-3.5 py-1 rounded-full border border-emerald-300 shadow-xs">
+                                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-600 animate-pulse" />
+                                ON
                               </span>
                             ) : (
-                              <span className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-500 text-xs font-bold px-3.5 py-1 rounded-full border border-gray-300">
-                                <span className="w-2 h-2 rounded-full bg-gray-400" />
-                                OFF (Hidden)
+                              <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-500 text-[10px] sm:text-xs font-bold px-2.5 sm:px-3.5 py-1 rounded-full border border-gray-300">
+                                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-400" />
+                                OFF
                               </span>
                             )}
                           </button>
                         </td>
 
                         {/* Actions */}
-                        <td className="py-3.5 px-4 text-right">
-                          <div className="flex items-center justify-end gap-2">
+                        <td className="py-3 px-3 sm:px-4 text-right whitespace-nowrap">
+                          <div className="flex items-center justify-end gap-1 sm:gap-2">
                             <button
                               onClick={() => openEditModal(cracker)}
                               className="p-1.5 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors cursor-pointer"
                               title="Edit Cracker"
                             >
-                              <Edit2 className="w-4 h-4" />
+                              <Edit2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                             </button>
 
                             <button
@@ -611,7 +690,7 @@ export default function ManageCrackersClient({
                               className="p-1.5 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
                               title="Delete Cracker"
                             >
-                              <Trash2 className="w-4 h-4" />
+                              <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                             </button>
                           </div>
                         </td>
@@ -661,32 +740,18 @@ export default function ManageCrackersClient({
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                      Content (e.g. 10Pcs)
-                    </label>
-                    <input
-                      type="text"
-                      value={formPiecesContent}
-                      onChange={(e) => setFormPiecesContent(e.target.value)}
-                      placeholder="10Pcs / 5Pcs"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D40000]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                      Storefront Visibility
-                    </label>
-                    <select
-                      value={formIsAvailable ? 'true' : 'false'}
-                      onChange={(e) => setFormIsAvailable(e.target.value === 'true')}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D40000]"
-                    >
-                      <option value="true">ON (Visible in Store)</option>
-                      <option value="false">OFF (Hidden from Store)</option>
-                    </select>
-                  </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                    Storefront Visibility
+                  </label>
+                  <select
+                    value={formIsAvailable ? 'true' : 'false'}
+                    onChange={(e) => setFormIsAvailable(e.target.value === 'true')}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D40000]"
+                  >
+                    <option value="true">ON (Visible in Store)</option>
+                    <option value="false">OFF (Hidden from Store)</option>
+                  </select>
                 </div>
 
                 {/* Selling price & Actual Strikethrough Price */}

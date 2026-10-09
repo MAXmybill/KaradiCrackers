@@ -139,26 +139,26 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="bg-white min-h-screen py-10 sm:py-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-white min-h-screen py-4 sm:py-16">
+      <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
         <Link
           href="/cart"
-          className="inline-flex items-center gap-1.5 text-sm font-bold text-gray-600 hover:text-[#D40000] mb-6"
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-gray-600 hover:text-[#D40000] mb-4 sm:mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Cart</span>
         </Link>
 
-        <div className="bg-white rounded-3xl border-2 border-[#D40000] p-6 sm:p-10 shadow-lg relative overflow-hidden">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-[#D40000] p-4 sm:p-10 shadow-lg relative overflow-hidden">
           {/* Header */}
-          <div className="border-b-2 border-red-100 pb-6 mb-8 text-center sm:text-left">
-            <span className="text-xs font-black uppercase tracking-wider text-[#D40000] bg-red-50 px-3 py-1 rounded-full border border-red-200">
+          <div className="border-b-2 border-red-100 pb-4 sm:pb-6 mb-6 sm:mb-8 text-center sm:text-left">
+            <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-[#D40000] bg-red-50 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-red-200">
               Express Counter Booking
             </span>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-950 mt-2">
+            <h1 className="text-xl sm:text-3xl font-extrabold text-gray-950 mt-1.5 sm:mt-2">
               CUSTOMER CHECKOUT
             </h1>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-xs sm:text-sm text-gray-600 mt-0.5 sm:mt-1">
               Provide your details to generate your invoice. Payment is made at the counter during pickup.
             </p>
           </div>

@@ -77,19 +77,19 @@ export default function CartPage() {
   }
 
   return (
-    <div className="bg-white min-h-screen py-10 sm:py-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-white min-h-screen py-4 sm:py-16">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className="mb-8 flex items-center justify-between border-b-2 border-red-100 pb-4">
+        <div className="mb-4 sm:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-red-100 pb-3 sm:pb-4">
           <div>
-            <h1 className="text-3xl font-extrabold text-gray-950">MY SHOPPING CART</h1>
-            <p className="text-sm text-gray-600 mt-1">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-950">MY SHOPPING CART</h1>
+            <p className="text-xs sm:text-sm text-gray-600 mt-0.5 sm:mt-1">
               Review your items before generating your shop pickup invoice.
             </p>
           </div>
           <button
             onClick={clearCart}
-            className="text-xs font-bold text-red-600 hover:text-red-800 bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg border border-red-200 transition-colors cursor-pointer"
+            className="self-start sm:self-auto text-xs font-bold text-red-600 hover:text-red-800 bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg border border-red-200 transition-colors cursor-pointer"
           >
             Clear Entire Cart
           </button>
@@ -109,13 +109,8 @@ export default function CartPage() {
                     <Sparkles className="w-6 h-6 text-[#D40000]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-base line-clamp-1">{item.name}</h3>
+                    <h3 className="font-bold text-gray-900 text-sm sm:text-base line-clamp-1">{item.name}</h3>
                     <div className="flex items-center gap-2 mt-0.5">
-                      {item.piecesContent && (
-                        <span className="text-[10px] font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded">
-                          {item.piecesContent}
-                        </span>
-                      )}
                       {item.category && (
                         <span className="text-[10px] font-semibold text-gray-500 uppercase">
                           {item.category}
@@ -124,11 +119,11 @@ export default function CartPage() {
                     </div>
                     {showPricing && (
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-sm font-black text-[#D40000]">
+                        <span className="text-xs sm:text-sm font-black text-[#D40000]">
                           ₹{item.price} each
                         </span>
                         {item.originalPrice && item.originalPrice > item.price && (
-                          <span className="text-xs text-gray-400 line-through">
+                          <span className="text-[11px] sm:text-xs text-gray-400 line-through">
                             ₹{item.originalPrice}
                           </span>
                         )}

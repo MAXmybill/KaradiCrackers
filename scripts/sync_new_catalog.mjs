@@ -219,7 +219,29 @@ const rawCatalog = [
   { cat: "FANCY ITEMS", name: "Chit Put (Mothers)", price: 45, pieces: "1 Box", img: IMG_FANCY },
   { cat: "FANCY ITEMS", name: "Starwell Race Car", price: 140, pieces: "1 Pc", img: IMG_KIDS },
   { cat: "FANCY ITEMS", name: "King Star Red Robo", price: 150, pieces: "1 Pc", img: IMG_KIDS },
-  { cat: "FANCY ITEMS", name: "Pizza", price: 130, pieces: "1 Box", img: IMG_FANCY }
+  { cat: "FANCY ITEMS", name: "Pizza", price: 130, pieces: "1 Box", img: IMG_FANCY },
+
+  // 14. Gift Boxes
+  { cat: "GIFT BOXES", name: "25 Items (10 pcs pack)", price: 300, pieces: "1 Box", img: IMG_FANCY },
+  { cat: "GIFT BOXES", name: "35 Items (10 pcs pack)", price: 430, pieces: "1 Box", img: IMG_FANCY },
+  { cat: "GIFT BOXES", name: "50 Items (10 pcs pack)", price: 750, pieces: "1 Box", img: IMG_FANCY },
+  { cat: "GIFT BOXES", name: "60 Items (10 pcs pack)", price: 950, pieces: "1 Box", img: IMG_FANCY },
+
+  // 15. Wala (Arul)
+  { cat: "WALA", name: "28 Giant", price: 28, pieces: "1 Pkt", img: IMG_BOMB },
+  { cat: "WALA", name: "56 Giant", price: 55, pieces: "1 Pkt", img: IMG_BOMB2 },
+  { cat: "WALA", name: "Shower", price: 40, pieces: "1 Box", img: IMG_FLOWER },
+  { cat: "WALA", name: "100 Wala", price: 45, pieces: "1 Box", img: IMG_BOMB },
+  { cat: "WALA", name: "1000 HC", price: 120, pieces: "1 Box", img: IMG_BOMB },
+  { cat: "WALA", name: "2000 HC", price: 240, pieces: "1 Box", img: IMG_BOMB2 },
+  { cat: "WALA", name: "5000 HC", price: 600, pieces: "1 Box", img: IMG_BOMB },
+  { cat: "WALA", name: "10000 HC", price: 1200, pieces: "1 Box", img: IMG_BOMB2 },
+
+  // 16. Wala FC
+  { cat: "WALA FC", name: "1000 FC", price: 220, pieces: "1 Box", img: IMG_BOMB },
+  { cat: "WALA FC", name: "2000 FC", price: 440, pieces: "1 Box", img: IMG_BOMB2 },
+  { cat: "WALA FC", name: "5000 FC", price: 1100, pieces: "1 Box", img: IMG_BOMB },
+  { cat: "WALA FC", name: "10000 FC", price: 2200, pieces: "1 Box", img: IMG_BOMB2 }
 ];
 
 // Generate structured Cracker objects

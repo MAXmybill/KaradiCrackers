@@ -75,29 +75,29 @@ _I will visit the shop and collect my order._`;
   const encodedWhatsAppUrl = `https://wa.me/${shopWhatsapp}?text=${encodeURIComponent(rawMessage)}`;
 
   return (
-    <div className="bg-white min-h-screen py-10 sm:py-16">
+    <div className="bg-white min-h-screen py-4 sm:py-16">
       <OrderConfetti />
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl border-2 border-[#D40000] p-6 sm:p-10 shadow-xl relative overflow-hidden">
+      <div className="max-w-3xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-[#D40000] p-4 sm:p-10 shadow-xl relative overflow-hidden">
           {/* Top Yellow Ribbon */}
-          <div className="h-3 bg-[#FFC400] -mx-6 sm:-mx-10 -mt-6 sm:-mt-10 mb-8" />
+          <div className="h-2.5 sm:h-3 bg-[#FFC400] -mx-4 sm:-mx-10 -mt-4 sm:-mt-10 mb-6 sm:mb-8" />
 
           {/* Success Checkmark & Title */}
-          <div className="text-center space-y-3 mb-8">
-            <div className="w-20 h-20 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto shadow-inner border-2 border-emerald-200">
-              <CheckCircle2 className="w-12 h-12" />
+          <div className="text-center space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto shadow-inner border-2 border-emerald-200">
+              <CheckCircle2 className="w-10 h-10 sm:w-12 sm:h-12" />
             </div>
-            <span className="text-xs font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-emerald-200">
               Order Registered Successfully
             </span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-950">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-gray-950">
               THANK YOU, {order.customerName.toUpperCase()}!
             </h1>
-            <p className="text-sm text-gray-600 max-w-lg mx-auto">
+            <p className="text-xs sm:text-sm text-gray-600 max-w-lg mx-auto">
               Your Diwali cracker reservation is placed. Your unique order number is:
             </p>
-            <div className="inline-block bg-[#D40000] text-[#FFC400] font-black text-xl sm:text-2xl px-6 py-2 rounded-2xl shadow-md border-2 border-[#FFC400]">
+            <div className="inline-block bg-[#D40000] text-[#FFC400] font-black text-lg sm:text-2xl px-5 sm:px-6 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl shadow-md border-2 border-[#FFC400]">
               {order.orderNumber}
             </div>
           </div>

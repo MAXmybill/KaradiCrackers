@@ -26,37 +26,37 @@ export default function Header() {
         <Sparkles className="w-3.5 h-3.5 text-[#FFC400] animate-pulse" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center justify-between">
         {/* Brand Logo & Title */}
-        <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
-          <div className="relative w-12 h-12 sm:w-16 sm:h-16 group-hover:scale-105 transition-transform shrink-0">
+        <Link href="/" className="flex items-center gap-1.5 sm:gap-3 group shrink-0 min-w-0">
+          <div className="relative w-9 h-9 sm:w-16 sm:h-16 group-hover:scale-105 transition-transform shrink-0">
             <Image
               src="/logo.png"
               alt="Karadi Crackers Logo"
               fill
-              sizes="(max-width: 640px) 48px, 64px"
+              sizes="(max-width: 640px) 36px, 64px"
               className="object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
               priority
             />
           </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-extrabold text-lg sm:text-2xl md:text-3xl tracking-tight text-[#FFC400] drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
+          <div className="min-w-0">
+            <div className="flex items-center gap-1">
+              <span className="font-extrabold text-base sm:text-2xl md:text-3xl tracking-tight text-[#FFC400] drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] truncate">
                 KARADI CRACKERS
               </span>
             </div>
-            <p className="text-[10px] sm:text-xs text-white/90 font-medium tracking-wide flex items-center gap-1">
+            <p className="text-[9px] sm:text-xs text-white/90 font-medium tracking-wide flex items-center gap-1">
               <span>Light up your Diwali!</span>
-              <Flame className="w-3 h-3 text-[#FFC400] inline" />
+              <Flame className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#FFC400] inline" />
             </p>
           </div>
         </Link>
 
         {/* Navigation links & Cart */}
-        <div className="flex items-center gap-2 sm:gap-6">
+        <div className="flex items-center gap-1.5 sm:gap-6 shrink-0">
           <Link
             href="/crackers"
-            className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-white hover:text-[#FFC400] transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg hover:bg-black/10"
+            className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-white hover:text-[#FFC400] transition-colors py-1 px-2 sm:px-3 rounded-lg hover:bg-black/10"
           >
             <span>Catalog</span>
           </Link>
@@ -65,14 +65,14 @@ export default function Header() {
           <Link
             href="/cart"
             id="cart-nav-button"
-            className="relative flex items-center gap-2 bg-[#FFC400] hover:bg-[#FFE082] text-black font-bold px-4 py-2.5 rounded-full shadow-lg transition-all transform active:scale-95 border-2 border-white"
+            className="relative flex items-center gap-1.5 sm:gap-2 bg-[#FFC400] hover:bg-[#FFE082] text-black font-bold px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-full shadow-lg transition-all transform active:scale-95 border border-white sm:border-2"
           >
-            <ShoppingCart className="w-5 h-5 text-[#D40000]" />
-            <span className="text-sm hidden sm:inline text-[#D40000] font-black">Cart</span>
+            <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 text-[#D40000]" />
+            <span className="text-xs sm:text-sm hidden sm:inline text-[#D40000] font-black">Cart</span>
             {totalItems > 0 && (
               <span
                 id="cart-count-badge"
-                className="absolute -top-2 -right-2 bg-[#D40000] text-white text-xs font-black w-6 h-6 rounded-full flex items-center justify-center border-2 border-white shadow-md animate-bounce"
+                className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 bg-[#D40000] text-white text-[10px] sm:text-xs font-black w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center border-2 border-white shadow-md animate-bounce"
               >
                 {totalItems}
               </span>
