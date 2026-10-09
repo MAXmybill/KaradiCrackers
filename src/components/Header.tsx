@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCartStore } from '@/lib/cartStore';
-import { ShoppingCart, Sparkles, Flame, ShieldCheck, PhoneCall } from 'lucide-react';
+import { ShoppingCart, Sparkles, ShieldCheck, PhoneCall } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -27,29 +27,16 @@ export default function Header() {
       </div>
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center justify-between">
-        {/* Brand Logo & Title */}
-        <Link href="/" className="flex items-center gap-1.5 sm:gap-3 group shrink-0 min-w-0">
-          <div className="relative w-9 h-9 sm:w-16 sm:h-16 group-hover:scale-105 transition-transform shrink-0">
-            <Image
-              src="/logo.png"
-              alt="Karadi Crackers Logo"
-              fill
-              sizes="(max-width: 640px) 36px, 64px"
-              className="object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
-              priority
-            />
-          </div>
-          <div className="min-w-0">
-            <div className="flex items-center gap-1">
-              <span className="font-extrabold text-base sm:text-2xl md:text-3xl text-[#FFC400] drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] truncate">
-                KARADI CRACKERS
-              </span>
-            </div>
-            <p className="text-[9px] sm:text-xs text-white/90 font-medium tracking-wide flex items-center gap-1">
-              <span>Light up your Diwali!</span>
-              <Flame className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#FFC400] inline" />
-            </p>
-          </div>
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center group shrink-0 relative z-20" aria-label="Karadi Crackers Home">
+          <Image
+            src="/icon.png"
+            alt="Karadi Crackers"
+            width={550}
+            height={226}
+            priority
+            className="h-[84px] sm:h-[130px] md:h-[150px] lg:h-[165px] w-auto max-w-[210px] sm:max-w-none object-contain -my-4 sm:-my-8 md:-my-10 lg:-my-12 group-hover:scale-105 transition-transform drop-shadow-[0_6px_16px_rgba(0,0,0,0.45)]"
+          />
         </Link>
 
         {/* Navigation links & Cart */}
