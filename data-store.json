@@ -12,21 +12,21 @@
       "category": "SATTAI",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-sat-002",
       "name": "4\" Twinkling Stars",
       "itemCode": "#KC1002",
       "piecesContent": "1 Box",
-      "price": 38,
+      "price": 37,
       "originalPrice": 85,
       "quantity": 200,
       "isAvailable": true,
       "category": "SATTAI",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-003",
@@ -40,7 +40,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-004",
@@ -54,7 +54,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-005",
@@ -68,7 +68,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-006",
@@ -82,35 +82,35 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-007",
       "name": "10cm Electric Sparklers",
       "itemCode": "#KC1007",
       "piecesContent": "10 Pcs",
-      "price": 13.5,
+      "price": 13,
       "originalPrice": 30,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-008",
       "name": "10cm Crackling Sparklers",
       "itemCode": "#KC1008",
       "piecesContent": "10 Pcs",
-      "price": 14.5,
+      "price": 14,
       "originalPrice": 35,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-009",
@@ -124,35 +124,35 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-010",
       "name": "10cm Green Sparklers",
       "itemCode": "#KC1010",
       "piecesContent": "10 Pcs",
-      "price": 15.5,
+      "price": 15,
       "originalPrice": 35,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-011",
       "name": "10cm Red Sparklers",
       "itemCode": "#KC1011",
       "piecesContent": "10 Pcs",
-      "price": 16.5,
+      "price": 17,
       "originalPrice": 40,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-012",
@@ -166,7 +166,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-013",
@@ -180,7 +180,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-014",
@@ -194,7 +194,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-015",
@@ -208,21 +208,21 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-016",
       "name": "15cm Electric Sparklers",
       "itemCode": "#KC1016",
       "piecesContent": "10 Pcs",
-      "price": 27,
-      "originalPrice": 60,
+      "price": 26,
+      "originalPrice": 59,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-017",
@@ -236,7 +236,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-018",
@@ -250,7 +250,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-019",
@@ -258,27 +258,27 @@
       "itemCode": "#KC1019",
       "piecesContent": "10 Pcs",
       "price": 30,
-      "originalPrice": 70,
+      "originalPrice": 69,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-020",
       "name": "30cm Electric Sparklers",
       "itemCode": "#KC1020",
       "piecesContent": "5 Pcs",
-      "price": 27,
-      "originalPrice": 60,
+      "price": 26,
+      "originalPrice": 59,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-021",
@@ -292,7 +292,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-022",
@@ -306,7 +306,7 @@
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-023",
@@ -314,69 +314,69 @@
       "itemCode": "#KC1023",
       "piecesContent": "5 Pcs",
       "price": 30,
-      "originalPrice": 70,
+      "originalPrice": 69,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-024",
       "name": "50cm Electric Sparklers",
       "itemCode": "#KC1024",
       "piecesContent": "5 Pcs",
-      "price": 110,
-      "originalPrice": 255,
+      "price": 109,
+      "originalPrice": 253,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-spa-025",
       "name": "50cm Colour Sparklers",
       "itemCode": "#KC1025",
       "piecesContent": "5 Pcs",
-      "price": 120,
-      "originalPrice": 275,
+      "price": 119,
+      "originalPrice": 273,
       "quantity": 200,
       "isAvailable": true,
       "category": "SPARKLERS",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-mat-026",
       "name": "Royal Matches",
       "itemCode": "#KC1026",
       "piecesContent": "10 In 1 Box",
-      "price": 150,
-      "originalPrice": 345,
+      "price": 149,
+      "originalPrice": 342,
       "quantity": 200,
       "isAvailable": true,
       "category": "MATCH BOXES",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-027",
       "name": "Ashoka Chakkra",
       "itemCode": "#KC1027",
       "piecesContent": "10 Pcs",
-      "price": 38,
+      "price": 37,
       "originalPrice": 85,
       "quantity": 200,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-028",
@@ -384,41 +384,41 @@
       "itemCode": "#KC1028",
       "piecesContent": "10 Pcs",
       "price": 50,
-      "originalPrice": 115,
+      "originalPrice": 114,
       "quantity": 200,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-029",
       "name": "DEL Chakkra",
       "itemCode": "#KC1029",
       "piecesContent": "10 Pcs",
-      "price": 98,
-      "originalPrice": 225,
+      "price": 97,
+      "originalPrice": 223,
       "quantity": 200,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-030",
       "name": "Spinner Special",
       "itemCode": "#KC1030",
       "piecesContent": "10 Pcs",
-      "price": 60,
-      "originalPrice": 140,
+      "price": 59,
+      "originalPrice": 139,
       "quantity": 200,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-031",
@@ -426,27 +426,27 @@
       "itemCode": "#KC1031",
       "piecesContent": "10 Pcs",
       "price": 85,
-      "originalPrice": 195,
+      "originalPrice": 194,
       "quantity": 200,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-032",
       "name": "Wire Chakkra",
       "itemCode": "#KC1032",
       "piecesContent": "10 Pcs",
-      "price": 115,
-      "originalPrice": 265,
+      "price": 114,
+      "originalPrice": 263,
       "quantity": 200,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-033",
@@ -460,35 +460,35 @@
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-034",
       "name": "Spr DEL Chakkra",
       "itemCode": "#KC1034",
       "piecesContent": "10 Pcs",
-      "price": 110,
-      "originalPrice": 255,
+      "price": 109,
+      "originalPrice": 253,
       "quantity": 200,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-035",
       "name": "Whistle Chakkra",
       "itemCode": "#KC1035",
       "piecesContent": "5 Pcs",
-      "price": 120,
-      "originalPrice": 275,
+      "price": 119,
+      "originalPrice": 273,
       "quantity": 200,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-cha-036",
@@ -496,237 +496,237 @@
       "itemCode": "#KC1036",
       "piecesContent": "5 Pcs",
       "price": 95,
-      "originalPrice": 220,
+      "originalPrice": 218,
       "quantity": 200,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-037",
       "name": "FP. Big",
       "itemCode": "#KC1037",
       "piecesContent": "10 Pcs",
-      "price": 60,
-      "originalPrice": 140,
+      "price": 59,
+      "originalPrice": 139,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-038",
       "name": "FP. SPL",
       "itemCode": "#KC1038",
       "piecesContent": "10 Pcs",
-      "price": 70,
-      "originalPrice": 160,
+      "price": 69,
+      "originalPrice": 158,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-039",
       "name": "FP. Ashoka",
       "itemCode": "#KC1039",
       "piecesContent": "10 Pcs",
-      "price": 90,
-      "originalPrice": 205,
+      "price": 89,
+      "originalPrice": 204,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-040",
       "name": "FP. Giant",
       "itemCode": "#KC1040",
       "piecesContent": "10 Pcs",
-      "price": 98,
-      "originalPrice": 225,
+      "price": 97,
+      "originalPrice": 223,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-041",
       "name": "FP. Deluxe",
       "itemCode": "#KC1041",
       "piecesContent": "10 Pcs",
-      "price": 120,
-      "originalPrice": 275,
+      "price": 119,
+      "originalPrice": 273,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-042",
       "name": "FP. Col-Koti",
       "itemCode": "#KC1042",
       "piecesContent": "10 Pcs",
-      "price": 145,
-      "originalPrice": 335,
+      "price": 144,
+      "originalPrice": 332,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-043",
       "name": "FP. Elegant",
       "itemCode": "#KC1043",
       "piecesContent": "5 Pcs",
-      "price": 250,
-      "originalPrice": 575,
+      "price": 248,
+      "originalPrice": 570,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-044",
       "name": "FP. MULTI. COLOUR POTS",
       "itemCode": "#KC1044",
       "piecesContent": "5 Pcs",
-      "price": 360,
-      "originalPrice": 830,
+      "price": 356,
+      "originalPrice": 822,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-045",
       "name": "MINI TRICOLOUR",
       "itemCode": "#KC1045",
       "piecesContent": "5 Pcs",
-      "price": 146,
-      "originalPrice": 335,
+      "price": 144,
+      "originalPrice": 332,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-046",
       "name": "TRICOLOUR Flower Pots",
       "itemCode": "#KC1046",
       "piecesContent": "5 Pcs",
-      "price": 165,
-      "originalPrice": 380,
+      "price": 164,
+      "originalPrice": 376,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-047",
       "name": "Tim Tim Flower Pots",
       "itemCode": "#KC1047",
       "piecesContent": "5 Pcs",
-      "price": 130,
-      "originalPrice": 300,
+      "price": 129,
+      "originalPrice": 297,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-048",
       "name": "Colour Change Tim",
       "itemCode": "#KC1048",
       "piecesContent": "5 Pcs",
-      "price": 150,
-      "originalPrice": 345,
+      "price": 149,
+      "originalPrice": 342,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-049",
       "name": "2 in 1 Tim",
       "itemCode": "#KC1049",
       "piecesContent": "5 Pcs",
-      "price": 140,
-      "originalPrice": 320,
+      "price": 139,
+      "originalPrice": 317,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-050",
       "name": "Tim Jasmin",
       "itemCode": "#KC1050",
       "piecesContent": "5 Pcs",
-      "price": 145,
-      "originalPrice": 335,
+      "price": 144,
+      "originalPrice": 332,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-051",
       "name": "Tim Asaraf",
       "itemCode": "#KC1051",
       "piecesContent": "5 Pcs",
-      "price": 155,
-      "originalPrice": 355,
+      "price": 154,
+      "originalPrice": 352,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-flo-052",
       "name": "Tim Magic Star",
       "itemCode": "#KC1052",
       "piecesContent": "5 Pcs",
-      "price": 160,
-      "originalPrice": 370,
+      "price": 158,
+      "originalPrice": 366,
       "quantity": 200,
       "isAvailable": true,
       "category": "FLOWER POTS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-053",
@@ -740,35 +740,35 @@
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-054",
       "name": "Lion Bomb",
       "itemCode": "#KC1054",
       "piecesContent": "10 Pcs",
-      "price": 60,
-      "originalPrice": 140,
+      "price": 59,
+      "originalPrice": 139,
       "quantity": 200,
       "isAvailable": true,
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-055",
       "name": "Hulk Bomb",
       "itemCode": "#KC1055",
       "piecesContent": "10 Pcs",
-      "price": 60,
-      "originalPrice": 140,
+      "price": 59,
+      "originalPrice": 139,
       "quantity": 200,
       "isAvailable": true,
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-056",
@@ -782,7 +782,7 @@
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-057",
@@ -796,7 +796,7 @@
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-058",
@@ -810,7 +810,7 @@
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-059",
@@ -824,21 +824,21 @@
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-060",
       "name": "Digital Bomb",
       "itemCode": "#KC1060",
       "piecesContent": "1 Box (10 Pcs)",
-      "price": 160,
-      "originalPrice": 370,
+      "price": 158,
+      "originalPrice": 366,
       "quantity": 200,
       "isAvailable": true,
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-061",
@@ -852,21 +852,21 @@
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-062",
       "name": "Gypsy Bomb",
       "itemCode": "#KC1062",
       "piecesContent": "10 Pcs",
-      "price": 125,
-      "originalPrice": 290,
+      "price": 124,
+      "originalPrice": 287,
       "quantity": 200,
       "isAvailable": true,
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-063",
@@ -874,13 +874,13 @@
       "itemCode": "#KC1063",
       "piecesContent": "10 Pcs",
       "price": 65,
-      "originalPrice": 150,
+      "originalPrice": 149,
       "quantity": 200,
       "isAvailable": true,
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-064",
@@ -888,27 +888,27 @@
       "itemCode": "#KC1064",
       "piecesContent": "10 Pcs",
       "price": 40,
-      "originalPrice": 90,
+      "originalPrice": 89,
       "quantity": 200,
       "isAvailable": true,
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-ved-065",
       "name": "King Rider Bomb",
       "itemCode": "#KC1065",
       "piecesContent": "10 Pcs",
-      "price": 180,
-      "originalPrice": 415,
+      "price": 178,
+      "originalPrice": 411,
       "quantity": 200,
       "isAvailable": true,
       "category": "VEDI & BOMBS",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-pap-066",
@@ -916,41 +916,41 @@
       "itemCode": "#KC1066",
       "piecesContent": "1 Pc",
       "price": 35,
-      "originalPrice": 80,
+      "originalPrice": 79,
       "quantity": 200,
       "isAvailable": true,
       "category": "PAPER BOMB",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-pap-067",
       "name": "1/2 Kg Paper Bomb",
       "itemCode": "#KC1067",
       "piecesContent": "1 Pc",
-      "price": 70,
-      "originalPrice": 160,
+      "price": 69,
+      "originalPrice": 158,
       "quantity": 200,
       "isAvailable": true,
       "category": "PAPER BOMB",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-pap-068",
       "name": "1kg Paper Bomb",
       "itemCode": "#KC1068",
       "piecesContent": "1 Pc",
-      "price": 140,
-      "originalPrice": 320,
+      "price": 139,
+      "originalPrice": 317,
       "quantity": 200,
       "isAvailable": true,
       "category": "PAPER BOMB",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-069",
@@ -958,13 +958,13 @@
       "itemCode": "#KC1069",
       "piecesContent": "1 Pkt (100 Pcs)",
       "price": 35,
-      "originalPrice": 80,
+      "originalPrice": 79,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-070",
@@ -978,21 +978,21 @@
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-071",
       "name": "Big Thar Car",
       "itemCode": "#KC1071",
       "piecesContent": "1 Pc",
-      "price": 120,
-      "originalPrice": 275,
+      "price": 119,
+      "originalPrice": 273,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-072",
@@ -1000,27 +1000,27 @@
       "itemCode": "#KC1072",
       "piecesContent": "1 Pc",
       "price": 75,
-      "originalPrice": 175,
+      "originalPrice": 174,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-073",
       "name": "Men In Black Gun",
       "itemCode": "#KC1073",
       "piecesContent": "1 Pc",
-      "price": 180,
-      "originalPrice": 415,
+      "price": 178,
+      "originalPrice": 411,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-074",
@@ -1034,105 +1034,105 @@
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-075",
       "name": "Sahara Pistol - 320",
       "itemCode": "#KC1075",
       "piecesContent": "1 Pc",
-      "price": 320,
-      "originalPrice": 735,
+      "price": 317,
+      "originalPrice": 728,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-076",
       "name": "Sahara Pistol - 140",
       "itemCode": "#KC1076",
       "piecesContent": "1 Pc",
-      "price": 140,
-      "originalPrice": 320,
+      "price": 139,
+      "originalPrice": 317,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-077",
       "name": "Sahara - 80",
       "itemCode": "#KC1077",
       "piecesContent": "1 Pc",
-      "price": 80,
-      "originalPrice": 185,
+      "price": 79,
+      "originalPrice": 184,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-078",
       "name": "Big Giant Gun",
       "itemCode": "#KC1078",
       "piecesContent": "1 Pc",
-      "price": 210,
-      "originalPrice": 485,
+      "price": 208,
+      "originalPrice": 481,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-079",
       "name": "Elephant Toys",
       "itemCode": "#KC1079",
       "piecesContent": "1 Box",
-      "price": 145,
-      "originalPrice": 335,
+      "price": 144,
+      "originalPrice": 332,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-080",
       "name": "Tik Tok",
       "itemCode": "#KC1080",
       "piecesContent": "1 Box",
-      "price": 130,
-      "originalPrice": 300,
+      "price": 129,
+      "originalPrice": 297,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-kid-081",
       "name": "Cylinder Novelty",
       "itemCode": "#KC1081",
       "piecesContent": "1 Box",
-      "price": 115,
-      "originalPrice": 265,
+      "price": 114,
+      "originalPrice": 263,
       "quantity": 200,
       "isAvailable": true,
       "category": "KIDS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-roc-082",
@@ -1140,27 +1140,27 @@
       "itemCode": "#KC1082",
       "piecesContent": "10 Pcs",
       "price": 95,
-      "originalPrice": 220,
+      "originalPrice": 218,
       "quantity": 200,
       "isAvailable": true,
       "category": "ROCKETS",
       "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-roc-083",
       "name": "Three Sound Rocket",
       "itemCode": "#KC1083",
       "piecesContent": "10 Pcs",
-      "price": 110,
-      "originalPrice": 255,
+      "price": 109,
+      "originalPrice": 253,
       "quantity": 200,
       "isAvailable": true,
       "category": "ROCKETS",
       "imageUrl": "https://images.unsplash.com/photo-1519750783826-e2420f4d687f?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-roc-084",
@@ -1168,447 +1168,447 @@
       "itemCode": "#KC1084",
       "piecesContent": "10 Pcs",
       "price": 85,
-      "originalPrice": 195,
+      "originalPrice": 194,
       "quantity": 200,
       "isAvailable": true,
       "category": "ROCKETS",
       "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-085",
       "name": "4\" Single Pipe",
       "itemCode": "#KC1085",
       "piecesContent": "1 Pc",
-      "price": 180,
-      "originalPrice": 415,
+      "price": 178,
+      "originalPrice": 411,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-086",
       "name": "2\" Single Pipe",
       "itemCode": "#KC1086",
       "piecesContent": "1 Pc",
-      "price": 90,
-      "originalPrice": 205,
+      "price": 89,
+      "originalPrice": 204,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-087",
       "name": "2\" (2pcs) Pipe",
       "itemCode": "#KC1087",
       "piecesContent": "2 Pcs",
-      "price": 160,
-      "originalPrice": 370,
+      "price": 158,
+      "originalPrice": 366,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-088",
       "name": "2½ Fancy 3 pcs",
       "itemCode": "#KC1088",
       "piecesContent": "3 Pcs",
-      "price": 240,
-      "originalPrice": 550,
+      "price": 238,
+      "originalPrice": 545,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-089",
       "name": "Starvell 4\" (2pcs)",
       "itemCode": "#KC1089",
       "piecesContent": "2 Pcs",
-      "price": 320,
-      "originalPrice": 735,
+      "price": 317,
+      "originalPrice": 728,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-090",
       "name": "Tesco 4\" (2pcs)",
       "itemCode": "#KC1090",
       "piecesContent": "2 Pcs",
-      "price": 320,
-      "originalPrice": 735,
+      "price": 317,
+      "originalPrice": 728,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-091",
       "name": "Pandyas 3½ Single",
       "itemCode": "#KC1091",
       "piecesContent": "1 Pc",
-      "price": 160,
-      "originalPrice": 370,
+      "price": 158,
+      "originalPrice": 366,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-092",
       "name": "3½ Double Ball (Sastha)",
       "itemCode": "#KC1092",
       "piecesContent": "1 Pc",
-      "price": 210,
-      "originalPrice": 485,
+      "price": 208,
+      "originalPrice": 481,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-093",
       "name": "6\" Pipe Sastha",
       "itemCode": "#KC1093",
       "piecesContent": "1 Pc",
-      "price": 380,
-      "originalPrice": 875,
+      "price": 376,
+      "originalPrice": 867,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-094",
       "name": "Wow Star Purple 4\"",
       "itemCode": "#KC1094",
       "piecesContent": "1 Pc",
-      "price": 220,
-      "originalPrice": 505,
+      "price": 218,
+      "originalPrice": 501,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-095",
       "name": "Wow Star Golden 4\"",
       "itemCode": "#KC1095",
       "piecesContent": "1 Pc",
-      "price": 220,
-      "originalPrice": 505,
+      "price": 218,
+      "originalPrice": 501,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-096",
       "name": "Tesco Ring o Ring",
       "itemCode": "#KC1096",
       "piecesContent": "1 Box",
-      "price": 190,
-      "originalPrice": 435,
+      "price": 188,
+      "originalPrice": 431,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-097",
       "name": "1½ Tesco (3pcs)",
       "itemCode": "#KC1097",
       "piecesContent": "3 Pcs",
-      "price": 210,
-      "originalPrice": 485,
+      "price": 208,
+      "originalPrice": 481,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-098",
       "name": "1½ Tesco Single",
       "itemCode": "#KC1098",
       "piecesContent": "1 Pc",
-      "price": 80,
-      "originalPrice": 185,
+      "price": 79,
+      "originalPrice": 184,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-099",
       "name": "Riko 4\" (3Pcs)",
       "itemCode": "#KC1099",
       "piecesContent": "3 Pcs",
-      "price": 390,
-      "originalPrice": 895,
+      "price": 386,
+      "originalPrice": 887,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-100",
       "name": "2\" Tesco (3pcs)",
       "itemCode": "#KC1100",
       "piecesContent": "3 Pcs",
-      "price": 250,
-      "originalPrice": 575,
+      "price": 248,
+      "originalPrice": 570,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-101",
       "name": "Tesco Chickoo (2Pcs)",
       "itemCode": "#KC1101",
       "piecesContent": "2 Pcs",
-      "price": 180,
-      "originalPrice": 415,
+      "price": 178,
+      "originalPrice": 411,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-102",
       "name": "Dancing Shooter (silver)",
       "itemCode": "#KC1102",
       "piecesContent": "1 Pc",
-      "price": 150,
-      "originalPrice": 345,
+      "price": 149,
+      "originalPrice": 342,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY PIPES",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-day-103",
       "name": "15 Shot Colour Smoke",
       "itemCode": "#KC1103",
       "piecesContent": "1 Box",
-      "price": 260,
-      "originalPrice": 600,
+      "price": 257,
+      "originalPrice": 594,
       "quantity": 200,
       "isAvailable": true,
       "category": "DAY FANCY",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-day-104",
       "name": "90 Watts Smoke",
       "itemCode": "#KC1104",
       "piecesContent": "1 Box",
-      "price": 90,
-      "originalPrice": 205,
+      "price": 89,
+      "originalPrice": 204,
       "quantity": 200,
       "isAvailable": true,
       "category": "DAY FANCY",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-day-105",
       "name": "Siren Small",
       "itemCode": "#KC1105",
       "piecesContent": "1 Box",
-      "price": 80,
-      "originalPrice": 185,
+      "price": 79,
+      "originalPrice": 184,
       "quantity": 200,
       "isAvailable": true,
       "category": "DAY FANCY",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-day-106",
       "name": "Siren Big (5+5)",
       "itemCode": "#KC1106",
       "piecesContent": "1 Box (10 Pcs)",
-      "price": 150,
-      "originalPrice": 345,
+      "price": 149,
+      "originalPrice": 342,
       "quantity": 200,
       "isAvailable": true,
       "category": "DAY FANCY",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-nig-107",
       "name": "12 Shot \"",
       "itemCode": "#KC1107",
       "piecesContent": "1 Pc",
-      "price": 145,
-      "originalPrice": 335,
+      "price": 144,
+      "originalPrice": 332,
       "quantity": 200,
       "isAvailable": true,
       "category": "NIGHT SHOTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-nig-108",
       "name": "12 Shot \" Legends",
       "itemCode": "#KC1108",
       "piecesContent": "1 Pc",
-      "price": 150,
-      "originalPrice": 345,
+      "price": 149,
+      "originalPrice": 342,
       "quantity": 200,
       "isAvailable": true,
       "category": "NIGHT SHOTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-nig-109",
       "name": "30 Shot \"",
       "itemCode": "#KC1109",
       "piecesContent": "1 Pc",
-      "price": 320,
-      "originalPrice": 735,
+      "price": 317,
+      "originalPrice": 728,
       "quantity": 200,
       "isAvailable": true,
       "category": "NIGHT SHOTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-nig-110",
       "name": "60 Shot Maan",
       "itemCode": "#KC1110",
       "piecesContent": "1 Pc",
-      "price": 620,
-      "originalPrice": 1425,
+      "price": 614,
+      "originalPrice": 1411,
       "quantity": 200,
       "isAvailable": true,
       "category": "NIGHT SHOTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-nig-111",
       "name": "120 Shot \"",
       "itemCode": "#KC1111",
       "piecesContent": "1 Pc",
-      "price": 1150,
-      "originalPrice": 2645,
+      "price": 1139,
+      "originalPrice": 2619,
       "quantity": 200,
       "isAvailable": true,
       "category": "NIGHT SHOTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-nig-112",
       "name": "240 Shot \"",
       "itemCode": "#KC1112",
       "piecesContent": "1 Pc",
-      "price": 2200,
-      "originalPrice": 5060,
+      "price": 2178,
+      "originalPrice": 5009,
       "quantity": 200,
       "isAvailable": true,
       "category": "NIGHT SHOTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-nig-113",
       "name": "30 Setout, 2.5\"",
       "itemCode": "#KC1113",
       "piecesContent": "1 Box",
-      "price": 750,
-      "originalPrice": 1725,
+      "price": 743,
+      "originalPrice": 1708,
       "quantity": 200,
       "isAvailable": true,
       "category": "NIGHT SHOTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-nig-114",
       "name": "25 Setout, 3\"",
       "itemCode": "#KC1114",
       "piecesContent": "1 Box",
-      "price": 850,
-      "originalPrice": 1955,
+      "price": 842,
+      "originalPrice": 1936,
       "quantity": 200,
       "isAvailable": true,
       "category": "NIGHT SHOTS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-115",
       "name": "Sun Star",
       "itemCode": "#KC1115",
       "piecesContent": "1 Box",
-      "price": 90,
-      "originalPrice": 205,
+      "price": 89,
+      "originalPrice": 204,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-116",
@@ -1616,13 +1616,13 @@
       "itemCode": "#KC1116",
       "piecesContent": "1 Box",
       "price": 95,
-      "originalPrice": 220,
+      "originalPrice": 218,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-117",
@@ -1636,161 +1636,161 @@
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-118",
       "name": "Monkey Star Starvell",
       "itemCode": "#KC1118",
       "piecesContent": "1 Box",
-      "price": 140,
-      "originalPrice": 320,
+      "price": 139,
+      "originalPrice": 317,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-119",
       "name": "SINGLE CONE",
       "itemCode": "#KC1119",
       "piecesContent": "1 Pc",
-      "price": 100,
-      "originalPrice": 230,
+      "price": 99,
+      "originalPrice": 228,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-120",
       "name": "1000 Watts Mega Fountains",
       "itemCode": "#KC1120",
       "piecesContent": "1 Pc",
-      "price": 180,
-      "originalPrice": 415,
+      "price": 178,
+      "originalPrice": 411,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-121",
       "name": "2000 Watts Mega Fountains",
       "itemCode": "#KC1121",
       "piecesContent": "1 Pc",
-      "price": 320,
-      "originalPrice": 735,
+      "price": 317,
+      "originalPrice": 728,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-122",
       "name": "5000 Watts Mega Fountains",
       "itemCode": "#KC1122",
       "piecesContent": "1 Pc",
-      "price": 650,
-      "originalPrice": 1495,
+      "price": 644,
+      "originalPrice": 1481,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-123",
       "name": "Teddy 5pcs",
       "itemCode": "#KC1123",
       "piecesContent": "5 Pcs",
-      "price": 110,
-      "originalPrice": 255,
+      "price": 109,
+      "originalPrice": 253,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-124",
       "name": "Penta Force",
       "itemCode": "#KC1124",
       "piecesContent": "1 Box",
-      "price": 120,
-      "originalPrice": 275,
+      "price": 119,
+      "originalPrice": 273,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-125",
       "name": "Planet Wheel (2 Pcs)",
       "itemCode": "#KC1125",
       "piecesContent": "2 Pcs",
-      "price": 130,
-      "originalPrice": 300,
+      "price": 129,
+      "originalPrice": 297,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-126",
       "name": "Ice Fountains",
       "itemCode": "#KC1126",
       "piecesContent": "4 Pcs",
-      "price": 70,
-      "originalPrice": 160,
+      "price": 69,
+      "originalPrice": 158,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-127",
       "name": "Mega Crackling Coconut (3 Pcs)",
       "itemCode": "#KC1127",
       "piecesContent": "3 Pcs",
-      "price": 210,
-      "originalPrice": 485,
+      "price": 208,
+      "originalPrice": 481,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-128",
       "name": "Welcome Shower (Water Queen)",
       "itemCode": "#KC1128",
       "piecesContent": "1 Box",
-      "price": 160,
-      "originalPrice": 370,
+      "price": 158,
+      "originalPrice": 366,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-129",
@@ -1798,13 +1798,13 @@
       "itemCode": "#KC1129",
       "piecesContent": "1 Box",
       "price": 75,
-      "originalPrice": 175,
+      "originalPrice": 174,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-130",
@@ -1812,13 +1812,13 @@
       "itemCode": "#KC1130",
       "piecesContent": "1 Box",
       "price": 85,
-      "originalPrice": 195,
+      "originalPrice": 194,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-131",
@@ -1826,97 +1826,97 @@
       "itemCode": "#KC1131",
       "piecesContent": "1 Pc",
       "price": 75,
-      "originalPrice": 175,
+      "originalPrice": 174,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-132",
       "name": "Tin 2Pcs Pack",
       "itemCode": "#KC1132",
       "piecesContent": "2 Pcs",
-      "price": 135,
-      "originalPrice": 310,
+      "price": 134,
+      "originalPrice": 307,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-133",
       "name": "LOLLIPOP",
       "itemCode": "#KC1133",
       "piecesContent": "1 Box",
-      "price": 130,
-      "originalPrice": 300,
+      "price": 129,
+      "originalPrice": 297,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-134",
       "name": "Chin Chan Starvell",
       "itemCode": "#KC1134",
       "piecesContent": "1 Box",
-      "price": 88,
-      "originalPrice": 200,
+      "price": 87,
+      "originalPrice": 198,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-135",
       "name": "Lemontree Ayyan",
       "itemCode": "#KC1135",
       "piecesContent": "1 Box",
-      "price": 100,
-      "originalPrice": 230,
+      "price": 99,
+      "originalPrice": 228,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-136",
       "name": "Thirumalas Lemon Tree",
       "itemCode": "#KC1136",
       "piecesContent": "1 Box",
-      "price": 100,
-      "originalPrice": 230,
+      "price": 99,
+      "originalPrice": 228,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-137",
       "name": "i CONE",
       "itemCode": "#KC1137",
       "piecesContent": "1 Box",
-      "price": 140,
-      "originalPrice": 320,
+      "price": 139,
+      "originalPrice": 317,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-138",
@@ -1924,27 +1924,27 @@
       "itemCode": "#KC1138",
       "piecesContent": "1 Box",
       "price": 95,
-      "originalPrice": 220,
+      "originalPrice": 218,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-139",
       "name": "Twix",
       "itemCode": "#KC1139",
       "piecesContent": "1 Box",
-      "price": 115,
-      "originalPrice": 265,
+      "price": 114,
+      "originalPrice": 263,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-140",
@@ -1952,13 +1952,13 @@
       "itemCode": "#KC1140",
       "piecesContent": "1 Box",
       "price": 65,
-      "originalPrice": 150,
+      "originalPrice": 149,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-141",
@@ -1966,13 +1966,13 @@
       "itemCode": "#KC1141",
       "piecesContent": "1 Box",
       "price": 65,
-      "originalPrice": 150,
+      "originalPrice": 149,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-142",
@@ -1980,69 +1980,69 @@
       "itemCode": "#KC1142",
       "piecesContent": "1 Box",
       "price": 65,
-      "originalPrice": 150,
+      "originalPrice": 149,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-143",
       "name": "Bada Peacock",
       "itemCode": "#KC1143",
       "piecesContent": "1 Box",
-      "price": 280,
-      "originalPrice": 645,
+      "price": 277,
+      "originalPrice": 639,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-144",
       "name": "Mega Peacock",
       "itemCode": "#KC1144",
       "piecesContent": "1 Box",
-      "price": 125,
-      "originalPrice": 290,
+      "price": 124,
+      "originalPrice": 287,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-145",
       "name": "MOTU PATLU",
       "itemCode": "#KC1145",
       "piecesContent": "1 Box",
-      "price": 237,
-      "originalPrice": 545,
+      "price": 234,
+      "originalPrice": 540,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-146",
       "name": "4×4 Wheel",
       "itemCode": "#KC1146",
       "piecesContent": "1 Box",
-      "price": 160,
-      "originalPrice": 370,
+      "price": 158,
+      "originalPrice": 366,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-147",
@@ -2050,41 +2050,41 @@
       "itemCode": "#KC1147",
       "piecesContent": "1 Box",
       "price": 35,
-      "originalPrice": 80,
+      "originalPrice": 79,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-148",
       "name": "FLY JET",
       "itemCode": "#KC1148",
       "piecesContent": "1 Box",
-      "price": 115,
-      "originalPrice": 265,
+      "price": 114,
+      "originalPrice": 263,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-149",
       "name": "WATER PENCIL",
       "itemCode": "#KC1149",
       "piecesContent": "1 Box",
-      "price": 115,
-      "originalPrice": 265,
+      "price": 114,
+      "originalPrice": 263,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-150",
@@ -2098,105 +2098,105 @@
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-151",
       "name": "Starwell Race Car",
       "itemCode": "#KC1151",
       "piecesContent": "1 Pc",
-      "price": 140,
-      "originalPrice": 320,
+      "price": 139,
+      "originalPrice": 317,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-152",
       "name": "King Star Red Robo",
       "itemCode": "#KC1152",
       "piecesContent": "1 Pc",
-      "price": 150,
-      "originalPrice": 345,
+      "price": 149,
+      "originalPrice": 342,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-fan-153",
       "name": "Pizza",
       "itemCode": "#KC1153",
       "piecesContent": "1 Box",
-      "price": 130,
-      "originalPrice": 300,
+      "price": 129,
+      "originalPrice": 297,
       "quantity": 200,
       "isAvailable": true,
       "category": "FANCY ITEMS",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-gif-154",
       "name": "25 Items (10 pcs pack)",
       "itemCode": "#KC1154",
       "piecesContent": "1 Box",
-      "price": 300,
-      "originalPrice": 690,
+      "price": 297,
+      "originalPrice": 683,
       "quantity": 200,
       "isAvailable": true,
       "category": "GIFT BOXES",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-gif-155",
       "name": "35 Items (10 pcs pack)",
       "itemCode": "#KC1155",
       "piecesContent": "1 Box",
-      "price": 430,
-      "originalPrice": 990,
+      "price": 426,
+      "originalPrice": 980,
       "quantity": 200,
       "isAvailable": true,
       "category": "GIFT BOXES",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-gif-156",
       "name": "50 Items (10 pcs pack)",
       "itemCode": "#KC1156",
       "piecesContent": "1 Box",
-      "price": 750,
-      "originalPrice": 1725,
+      "price": 743,
+      "originalPrice": 1708,
       "quantity": 200,
       "isAvailable": true,
       "category": "GIFT BOXES",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-gif-157",
       "name": "60 Items (10 pcs pack)",
       "itemCode": "#KC1157",
       "piecesContent": "1 Box",
-      "price": 950,
-      "originalPrice": 2185,
+      "price": 941,
+      "originalPrice": 2164,
       "quantity": 200,
       "isAvailable": true,
       "category": "GIFT BOXES",
       "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-158",
@@ -2210,7 +2210,7 @@
       "category": "WALA",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-159",
@@ -2218,13 +2218,13 @@
       "itemCode": "#KC1159",
       "piecesContent": "1 Pkt",
       "price": 55,
-      "originalPrice": 125,
+      "originalPrice": 124,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-160",
@@ -2232,13 +2232,13 @@
       "itemCode": "#KC1160",
       "piecesContent": "1 Box",
       "price": 40,
-      "originalPrice": 90,
+      "originalPrice": 89,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA",
       "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-161",
@@ -2252,119 +2252,119 @@
       "category": "WALA",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-162",
       "name": "1000 HC",
       "itemCode": "#KC1162",
       "piecesContent": "1 Box",
-      "price": 120,
-      "originalPrice": 275,
+      "price": 119,
+      "originalPrice": 273,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-163",
       "name": "2000 HC",
       "itemCode": "#KC1163",
       "piecesContent": "1 Box",
-      "price": 240,
-      "originalPrice": 550,
+      "price": 238,
+      "originalPrice": 545,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-164",
       "name": "5000 HC",
       "itemCode": "#KC1164",
       "piecesContent": "1 Box",
-      "price": 600,
-      "originalPrice": 1380,
+      "price": 594,
+      "originalPrice": 1366,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-165",
       "name": "10000 HC",
       "itemCode": "#KC1165",
       "piecesContent": "1 Box",
-      "price": 1200,
-      "originalPrice": 2760,
+      "price": 1188,
+      "originalPrice": 2732,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-166",
       "name": "1000 FC",
       "itemCode": "#KC1166",
       "piecesContent": "1 Box",
-      "price": 220,
-      "originalPrice": 505,
+      "price": 218,
+      "originalPrice": 501,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA FC",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-167",
       "name": "2000 FC",
       "itemCode": "#KC1167",
       "piecesContent": "1 Box",
-      "price": 440,
-      "originalPrice": 1010,
+      "price": 436,
+      "originalPrice": 1000,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA FC",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-168",
       "name": "5000 FC",
       "itemCode": "#KC1168",
       "piecesContent": "1 Box",
-      "price": 1100,
-      "originalPrice": 2530,
+      "price": 1089,
+      "originalPrice": 2505,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA FC",
       "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     },
     {
       "id": "kc-wal-169",
       "name": "10000 FC",
       "itemCode": "#KC1169",
       "piecesContent": "1 Box",
-      "price": 2200,
-      "originalPrice": 5060,
+      "price": 2178,
+      "originalPrice": 5009,
       "quantity": 200,
       "isAvailable": true,
       "category": "WALA FC",
       "imageUrl": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:03:10.493Z"
+      "updatedAt": "2026-10-09T14:18:11.662Z"
     }
   ],
   "orders": [

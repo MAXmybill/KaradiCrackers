@@ -351,11 +351,11 @@ export default function CrackersCatalogClient({
                           {showPricing && (
                             <td className="py-3 px-4 text-center align-middle whitespace-nowrap">
                               <div className="flex flex-col items-center">
-                                <span className="text-sm sm:text-base font-black text-[#D40000]">
+                                <span className="text-sm sm:text-base font-black text-[#D40000] font-rupee">
                                   ₹{cracker.price}
                                 </span>
                                 {cracker.originalPrice && cracker.originalPrice > cracker.price && (
-                                  <span className="text-[11px] font-semibold text-gray-400 line-through">
+                                  <span className="text-[11px] font-semibold text-gray-400 line-through font-rupee">
                                     ₹{cracker.originalPrice}
                                   </span>
                                 )}
@@ -401,7 +401,7 @@ export default function CrackersCatalogClient({
                           {showPricing && (
                             <td className="py-3 px-4 sm:px-6 text-right align-middle whitespace-nowrap">
                               <span
-                                className={`text-xs sm:text-sm font-black ${
+                                className={`text-xs sm:text-sm font-black font-rupee ${
                                   qty > 0 ? 'text-[#D40000]' : 'text-gray-400'
                                 }`}
                               >
@@ -420,6 +420,7 @@ export default function CrackersCatalogClient({
               <div className="block sm:hidden divide-y divide-gray-100">
                 {categoryCrackers.map((cracker) => {
                   const qty = getItemCartQty(cracker.id);
+                  const lineTotal = cracker.price * qty;
 
                   return (
                     <div
@@ -428,23 +429,23 @@ export default function CrackersCatalogClient({
                         qty > 0 ? 'bg-amber-50/40' : 'bg-white'
                       }`}
                     >
-                      {/* Left: Product Name */}
-                      <div className="min-w-0 flex-1 pr-1">
-                        <h3 className="font-extrabold text-gray-900 uppercase tracking-tight text-[11px] leading-tight truncate" title={cracker.name}>
+                      {/* Left: Product Name (Full name visible, wraps naturally if long) */}
+                      <div className="min-w-0 flex-1 pr-1.5">
+                        <h3 className="font-extrabold text-gray-900 uppercase tracking-tight text-[11px] sm:text-xs leading-snug break-words">
                           {cracker.name}
                         </h3>
                       </div>
 
-                      {/* Right: Price + Stepper in Single Line (No inline line total) */}
+                      {/* Right: Price + Stepper + Line Total in Single Line */}
                       <div className="flex items-center gap-2 shrink-0">
-                        {/* Unit Price */}
+                        {/* Unit Price (Only if showPricing is enabled) */}
                         {showPricing && (
-                          <div className="text-right leading-none shrink-0">
-                            <span className="text-xs sm:text-sm font-black text-[#D40000] block">
+                          <div className="text-right leading-none shrink-0 w-10">
+                            <span className="text-xs font-black text-[#D40000] block font-rupee">
                               ₹{cracker.price}
                             </span>
                             {cracker.originalPrice && cracker.originalPrice > cracker.price && (
-                              <span className="text-[9px] text-gray-400 line-through block mt-0.5">
+                              <span className="text-[9px] text-gray-400 line-through block mt-0.5 font-rupee">
                                 ₹{cracker.originalPrice}
                               </span>
                             )}
@@ -482,6 +483,19 @@ export default function CrackersCatalogClient({
                             <Plus className="w-2.5 h-2.5" />
                           </button>
                         </div>
+
+                        {/* Inline Line Total (Shown if pricing is enabled) */}
+                        {showPricing && (
+                          <div className="text-right leading-none shrink-0 w-11">
+                            <span
+                              className={`text-xs font-black block font-rupee ${
+                                qty > 0 ? 'text-[#D40000]' : 'text-gray-400'
+                              }`}
+                            >
+                              ₹{lineTotal}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   );

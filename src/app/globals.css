@@ -10,6 +10,15 @@
   }
 }
 
+/* Crisp & Official Indian Rupee Font Fallback (Segoe UI, Inter, Roboto, Arial) */
+.font-rupee,
+.currency-inr {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-feature-settings: "cv05", "cv08", "cv10";
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
 /* Festive Sunburst Ray Background Pattern */
 .bg-sunburst {
   background-color: #D40000;

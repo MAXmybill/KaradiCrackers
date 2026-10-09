@@ -42,6 +42,7 @@ export default function ManageCrackersClient({
   // Bulk price percentage adjustment state
   const [bulkPercent, setBulkPercent] = useState<string>('10');
   const [bulkLoading, setBulkLoading] = useState(false);
+  const [bulkConfirmAction, setBulkConfirmAction] = useState<'increase' | 'decrease' | null>(null);
 
   // Store Settings (Pricing Visibility & Discount Percentage)
   const [settings, setSettings] = useState<StoreSettings>(
@@ -140,17 +141,22 @@ export default function ManageCrackersClient({
     }
   };
 
-  // Bulk Price Adjust (Increase or Decrease by percentage across ALL products)
-  const handleBulkPriceAdjust = async (action: 'increase' | 'decrease') => {
+  // Open Bulk Price Confirm Dialog (White Custom Modal)
+  const openBulkConfirm = (action: 'increase' | 'decrease') => {
     const pct = parseFloat(bulkPercent);
     if (isNaN(pct) || pct <= 0) {
       toast.error('Please enter a valid percentage greater than 0');
       return;
     }
+    setBulkConfirmAction(action);
+  };
 
+  // Execute confirmed bulk adjustment
+  const executeBulkPriceAdjust = async () => {
+    if (!bulkConfirmAction) return;
+    const action = bulkConfirmAction;
+    const pct = parseFloat(bulkPercent);
     const actionText = action === 'increase' ? 'increase' : 'decrease';
-    const confirmMsg = `Are you sure you want to ${actionText.toUpperCase()} prices of ALL ${crackers.length} products by ${pct}%?`;
-    if (!window.confirm(confirmMsg)) return;
 
     setBulkLoading(true);
     try {
@@ -166,6 +172,7 @@ export default function ManageCrackersClient({
         setCrackers(data.crackers);
       }
       toast.success(data.message || `All product prices ${actionText}d by ${pct}%!`);
+      setBulkConfirmAction(null);
     } catch (err: any) {
       toast.error(err.message || 'Failed to adjust prices');
     } finally {
@@ -495,11 +502,11 @@ export default function ManageCrackersClient({
 
             <button
               type="button"
-              onClick={() => handleBulkPriceAdjust('increase')}
+              onClick={() => openBulkConfirm('increase')}
               disabled={bulkLoading}
               className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-3.5 py-2 rounded-xl text-xs shadow-sm transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
             >
-              {bulkLoading ? (
+              {bulkLoading && bulkConfirmAction === 'increase' ? (
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
               ) : (
                 <TrendingUp className="w-3.5 h-3.5" />
@@ -509,11 +516,11 @@ export default function ManageCrackersClient({
 
             <button
               type="button"
-              onClick={() => handleBulkPriceAdjust('decrease')}
+              onClick={() => openBulkConfirm('decrease')}
               disabled={bulkLoading}
               className="inline-flex items-center gap-1.5 bg-[#D40000] hover:bg-[#B00000] text-white font-extrabold px-3.5 py-2 rounded-xl text-xs shadow-sm transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
             >
-              {bulkLoading ? (
+              {bulkLoading && bulkConfirmAction === 'decrease' ? (
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
               ) : (
                 <TrendingDown className="w-3.5 h-3.5" />
@@ -880,6 +887,74 @@ export default function ManageCrackersClient({
           </div>
         )}
 
+        {/* Bulk Price Adjustment Confirmation Dialog (White Custom Modal) */}
+        {bulkConfirmAction && (
+          <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
+            <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 border-2 border-[#FFC400] shadow-2xl text-center animate-in zoom-in-95 duration-200">
+              <div
+                className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                  bulkConfirmAction === 'increase'
+                    ? 'bg-emerald-50 text-emerald-600 border border-emerald-200'
+                    : 'bg-red-50 text-[#D40000] border border-red-200'
+                }`}
+              >
+                {bulkConfirmAction === 'increase' ? (
+                  <TrendingUp className="w-7 h-7" />
+                ) : (
+                  <TrendingDown className="w-7 h-7" />
+                )}
+              </div>
+
+              <h4 className="text-xl font-black text-gray-950 mb-2">
+                {bulkConfirmAction === 'increase' ? 'Increase All Prices?' : 'Decrease All Prices?'}
+              </h4>
+
+              <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+                Are you sure you want to{' '}
+                <span
+                  className={`font-black uppercase ${
+                    bulkConfirmAction === 'increase' ? 'text-emerald-700' : 'text-[#D40000]'
+                  }`}
+                >
+                  {bulkConfirmAction}
+                </span>{' '}
+                the selling prices of all{' '}
+                <span className="font-extrabold text-gray-900">{crackers.length} products</span> by{' '}
+                <span className="font-black text-gray-950 bg-amber-100 px-2 py-0.5 rounded-md border border-amber-300">
+                  {bulkPercent}%
+                </span>
+                ? This will update the entire catalog immediately.
+              </p>
+
+              <div className="flex items-center gap-3 justify-center">
+                <button
+                  type="button"
+                  onClick={() => setBulkConfirmAction(null)}
+                  disabled={bulkLoading}
+                  className="px-5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm font-bold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={executeBulkPriceAdjust}
+                  disabled={bulkLoading}
+                  className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white text-xs sm:text-sm font-black shadow-md transition-all active:scale-95 cursor-pointer disabled:opacity-50 ${
+                    bulkConfirmAction === 'increase'
+                      ? 'bg-emerald-600 hover:bg-emerald-700'
+                      : 'bg-[#D40000] hover:bg-[#B00000]'
+                  }`}
+                >
+                  {bulkLoading && <Loader2 className="w-4 h-4 animate-spin" />}
+                  <span>
+                    Yes, {bulkConfirmAction === 'increase' ? 'Increase' : 'Decrease'} by {bulkPercent}%
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Delete Confirmation Dialog */}
         {deleteTarget && (
           <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
@@ -893,12 +968,14 @@ export default function ManageCrackersClient({
               </p>
               <div className="flex items-center gap-3 justify-center">
                 <button
+                  type="button"
                   onClick={() => setDeleteTarget(null)}
                   className="px-4 py-2 rounded-xl border border-gray-300 text-xs font-bold text-gray-700 hover:bg-gray-50 cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
+                  type="button"
                   onClick={handleDeleteConfirm}
                   className="px-5 py-2 rounded-xl bg-red-600 text-white text-xs font-bold hover:bg-red-700 shadow-md cursor-pointer"
                 >

@@ -56,7 +56,7 @@ export default function FloatingCart() {
             <p className="text-[11px] uppercase tracking-wider text-amber-200 font-extrabold leading-none">
               {totalItems} {totalItems === 1 ? 'Item' : 'Items'} Added
             </p>
-            <p className="text-lg font-black text-white leading-tight mt-0.5">
+            <p className="text-lg font-black text-white leading-tight mt-0.5 font-rupee">
               ₹{totalAmount.toLocaleString('en-IN')}
             </p>
           </div>
