@@ -63,6 +63,7 @@ export default function ManageCrackersClient({
   const [formName, setFormName] = useState('');
   const [formPrice, setFormPrice] = useState(''); // Selling price
   const [formOriginalPrice, setFormOriginalPrice] = useState(''); // Actual / MRP strikethrough price
+  const [formPiecesContent, setFormPiecesContent] = useState(''); // Packaging content e.g. 10 Pcs, 1 Box
   const [formCategory, setFormCategory] = useState('');
   const [isCustomCategory, setIsCustomCategory] = useState(false);
   const [formIsAvailable, setFormIsAvailable] = useState(true);
@@ -81,9 +82,11 @@ export default function ManageCrackersClient({
 
   // Filtered list
   const filteredCrackers = crackers.filter((c) => {
+    const term = searchTerm.trim().toLowerCase();
     const matchesSearch =
-      c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (c.category && c.category.toLowerCase().includes(searchTerm.toLowerCase()));
+      c.name.toLowerCase().includes(term) ||
+      (c.itemCode && c.itemCode.toLowerCase().includes(term)) ||
+      (c.category && c.category.toLowerCase().includes(term));
 
     const matchesCategory =
       categoryFilter === 'ALL' || (c.category && c.category === categoryFilter);
@@ -271,6 +274,7 @@ export default function ManageCrackersClient({
     setFormName(cracker.name);
     setFormPrice(String(cracker.price));
     setFormOriginalPrice(cracker.originalPrice ? String(cracker.originalPrice) : '');
+    setFormPiecesContent(cracker.piecesContent || '');
     setFormCategory(cracker.category || 'SPARKLERS');
     setIsCustomCategory(false);
     setFormIsAvailable(cracker.isAvailable);
@@ -283,6 +287,7 @@ export default function ManageCrackersClient({
     setFormName('');
     setFormPrice('');
     setFormOriginalPrice('');
+    setFormPiecesContent('');
     setFormCategory(existingCategories[0] || 'SPARKLERS');
     setIsCustomCategory(false);
     setFormIsAvailable(true);
@@ -300,6 +305,7 @@ export default function ManageCrackersClient({
       name: formName.trim(),
       price: parseFloat(formPrice),
       originalPrice: formOriginalPrice ? parseFloat(formOriginalPrice) : undefined,
+      piecesContent: formPiecesContent.trim() || undefined,
       quantity: 999999, // unlimited stock
       category: chosenCategory,
       isAvailable: formIsAvailable,
@@ -568,6 +574,7 @@ export default function ManageCrackersClient({
                 <tr>
                   <th className="py-3 px-3 sm:px-4">Cracker Name</th>
                   <th className="py-3 px-2 sm:px-4">Category</th>
+                  <th className="py-3 px-2 sm:px-4">Content</th>
                   <th className="py-3 px-2 sm:px-4">Selling Price (₹)</th>
                   <th className="py-3 px-2 sm:px-4">Actual Price (Strike ₹)</th>
                   <th className="py-3 px-2 sm:px-4 text-center">Store Visibility</th>
@@ -590,17 +597,38 @@ export default function ManageCrackersClient({
 
                     return (
                       <tr key={cracker.id} className="hover:bg-amber-50/20 transition-colors">
-                        {/* Name */}
+                        {/* Name with Subtle Item Code and Content Below */}
                         <td className="py-3 px-3 sm:px-4">
-                          <p className="font-extrabold text-gray-900 text-xs sm:text-sm">
-                            {cracker.name}
-                          </p>
+                          <div>
+                            <p className="font-extrabold text-gray-900 text-xs sm:text-sm">
+                              {cracker.name}
+                            </p>
+                            <div className="flex items-center gap-1.5 mt-0.5">
+                              {cracker.itemCode && (
+                                <span className="font-mono text-[10px] font-semibold text-gray-400 tracking-wide">
+                                  {cracker.itemCode}
+                                </span>
+                              )}
+                              {cracker.piecesContent && (
+                                <span className="font-mono text-[10px] font-semibold text-gray-400 tracking-wide before:content-['•'] before:mr-1.5 before:text-gray-300">
+                                  {cracker.piecesContent}
+                                </span>
+                              )}
+                            </div>
+                          </div>
                         </td>
 
                         {/* Category */}
                         <td className="py-3 px-2 sm:px-4 whitespace-nowrap">
                           <span className="bg-amber-50 text-amber-900 font-extrabold px-2 py-0.5 rounded-md border border-amber-200 text-[10px] sm:text-[11px] inline-block">
                             {cracker.category || 'General'}
+                          </span>
+                        </td>
+
+                        {/* Content Column */}
+                        <td className="py-3 px-2 sm:px-4 whitespace-nowrap">
+                          <span className="font-mono text-[11px] font-bold text-gray-600 bg-gray-100/90 px-2 py-0.5 rounded-md border border-gray-200 inline-block">
+                            {cracker.piecesContent || '-'}
                           </span>
                         </td>
 
@@ -706,7 +734,7 @@ export default function ManageCrackersClient({
                   })
                 ) : (
                   <tr>
-                    <td colSpan={6} className="py-8 text-center text-gray-400 text-xs">
+                    <td colSpan={7} className="py-8 text-center text-gray-400 text-xs">
                       No crackers found.
                     </td>
                   </tr>
@@ -747,18 +775,35 @@ export default function ManageCrackersClient({
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                    Storefront Visibility
-                  </label>
-                  <select
-                    value={formIsAvailable ? 'true' : 'false'}
-                    onChange={(e) => setFormIsAvailable(e.target.value === 'true')}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D40000]"
-                  >
-                    <option value="true">ON (Visible in Store)</option>
-                    <option value="false">OFF (Hidden from Store)</option>
-                  </select>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Packaging Content
+                    </label>
+                    <input
+                      type="text"
+                      value={formPiecesContent}
+                      onChange={(e) => setFormPiecesContent(e.target.value)}
+                      placeholder="e.g. 10 Pcs, 1 Box, 5 Pcs"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D40000] font-medium"
+                    />
+                    <p className="text-[10px] text-gray-500 mt-0.5">e.g. 10 Pcs, 1 Box</p>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Storefront Visibility
+                    </label>
+                    <select
+                      value={formIsAvailable ? 'true' : 'false'}
+                      onChange={(e) => setFormIsAvailable(e.target.value === 'true')}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D40000]"
+                    >
+                      <option value="true">ON (Visible in Store)</option>
+                      <option value="false">OFF (Hidden from Store)</option>
+                    </select>
+                    <p className="text-[10px] text-gray-500 mt-0.5">Catalog visibility</p>
+                  </div>
                 </div>
 
                 {/* Selling price & Actual Strikethrough Price */}

@@ -84,9 +84,11 @@ export default function CrackersCatalogClient({
     return crackersList.filter((item) => {
       if (!item.isAvailable) return false;
 
+      const term = searchTerm.trim().toLowerCase();
       const matchesSearch =
-        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (item.category && item.category.toLowerCase().includes(searchTerm.toLowerCase()));
+        item.name.toLowerCase().includes(term) ||
+        (item.itemCode && item.itemCode.toLowerCase().includes(term)) ||
+        (item.category && item.category.toLowerCase().includes(term));
 
       const matchesCategory =
         selectedCategories.length === 0 ||
@@ -342,11 +344,25 @@ export default function CrackersCatalogClient({
                             qty > 0 ? 'bg-amber-50/25' : ''
                           }`}
                         >
-                          {/* Product Name */}
+                          {/* Product Name with Subtle Item Code and Content Below */}
                           <td className="py-3 px-4 sm:px-6 align-middle">
-                            <h3 className="font-extrabold text-gray-900 uppercase tracking-tight text-xs sm:text-sm leading-snug">
-                              {cracker.name}
-                            </h3>
+                            <div>
+                              <h3 className="font-extrabold text-gray-900 uppercase tracking-tight text-xs sm:text-sm leading-snug">
+                                {cracker.name}
+                              </h3>
+                              <div className="flex items-center gap-2 mt-0.5">
+                                {cracker.itemCode && (
+                                  <span className="font-mono text-[10px] font-semibold text-gray-400 tracking-wide">
+                                    {cracker.itemCode}
+                                  </span>
+                                )}
+                                {cracker.piecesContent && (
+                                  <span className="font-mono text-[10px] font-semibold text-gray-400 tracking-wide before:content-['•'] before:mr-2 before:text-gray-300">
+                                    {cracker.piecesContent}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
                           </td>
 
                           {/* Unit Price (Only if showPricing is ON) */}
@@ -431,11 +447,23 @@ export default function CrackersCatalogClient({
                         qty > 0 ? 'bg-amber-50/40' : 'bg-white'
                       }`}
                     >
-                      {/* Left: Product Name (Full name visible, wraps naturally if long) */}
+                      {/* Left: Product Name with Subtle Item Code & Content Below */}
                       <div className="min-w-0 flex-1 pr-1.5">
                         <h3 className="font-extrabold text-gray-900 uppercase tracking-tight text-[11px] sm:text-xs leading-snug break-words">
                           {cracker.name}
                         </h3>
+                        <div className="flex items-center gap-1.5 mt-0.5">
+                          {cracker.itemCode && (
+                            <span className="font-mono text-[9px] font-semibold text-gray-400 tracking-wide leading-none">
+                              {cracker.itemCode}
+                            </span>
+                          )}
+                          {cracker.piecesContent && (
+                            <span className="font-mono text-[9px] font-semibold text-gray-400 tracking-wide leading-none before:content-['•'] before:mr-1.5 before:text-gray-300">
+                              {cracker.piecesContent}
+                            </span>
+                          )}
+                        </div>
                       </div>
 
                       {/* Right: Price + Stepper + Line Total in Single Line */}

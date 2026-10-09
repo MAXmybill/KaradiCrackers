@@ -244,11 +244,11 @@ const rawCatalog = [
   { cat: "WALA FC", name: "10000 FC", price: 2200, pieces: "1 Box", img: IMG_BOMB2 }
 ];
 
-// Generate structured Cracker objects
+// Generate structured Cracker objects with itemCode format KC001, KC002, ...
 const now = new Date().toISOString();
-let codeCounter = 1001;
+let codeCounter = 1;
 const crackers = rawCatalog.map((item, index) => {
-  const codeNum = codeCounter++;
+  const codeNum = String(codeCounter++).padStart(3, '0');
   const idPrefix = item.cat.substring(0, 3).toLowerCase();
   const padIndex = String(index + 1).padStart(3, '0');
   const id = `kc-${idPrefix}-${padIndex}`;
@@ -257,7 +257,7 @@ const crackers = rawCatalog.map((item, index) => {
   return {
     id,
     name: item.name,
-    itemCode: `#KC${codeNum}`,
+    itemCode: `KC${codeNum}`,
     piecesContent: item.pieces,
     price: item.price,
     originalPrice,

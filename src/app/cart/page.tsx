@@ -109,7 +109,14 @@ export default function CartPage() {
                     <Sparkles className="w-6 h-6 text-[#D40000]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-sm sm:text-base line-clamp-1">{item.name}</h3>
+                    <div className="flex items-center gap-2">
+                      {item.itemCode && (
+                        <span className="font-mono text-[10px] font-black bg-amber-100 text-[#D40000] border border-amber-300 px-1.5 py-0.5 rounded shrink-0">
+                          {item.itemCode}
+                        </span>
+                      )}
+                      <h3 className="font-bold text-gray-900 text-sm sm:text-base line-clamp-1">{item.name}</h3>
+                    </div>
                     <div className="flex items-center gap-2 mt-0.5">
                       {item.category && (
                         <span className="text-[10px] font-semibold text-gray-500 uppercase">

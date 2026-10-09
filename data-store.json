@@ -3,7 +3,7 @@
     {
       "id": "kc-sat-001",
       "name": "1.5\" Twinkling Stars",
-      "itemCode": "#KC1001",
+      "itemCode": "KC001",
       "piecesContent": "1 Box",
       "price": 18,
       "originalPrice": 40,
@@ -17,7 +17,7 @@
     {
       "id": "kc-sat-002",
       "name": "4\" Twinkling Stars",
-      "itemCode": "#KC1002",
+      "itemCode": "KC002",
       "piecesContent": "1 Box",
       "price": 37,
       "originalPrice": 85,
@@ -31,7 +31,7 @@
     {
       "id": "kc-spa-003",
       "name": "7cm Electric Sparklers",
-      "itemCode": "#KC1003",
+      "itemCode": "KC003",
       "piecesContent": "10 Pcs",
       "price": 7,
       "originalPrice": 15,
@@ -45,7 +45,7 @@
     {
       "id": "kc-spa-004",
       "name": "7cm Crackling Sparklers",
-      "itemCode": "#KC1004",
+      "itemCode": "KC004",
       "piecesContent": "10 Pcs",
       "price": 8,
       "originalPrice": 20,
@@ -59,7 +59,7 @@
     {
       "id": "kc-spa-005",
       "name": "7cm Green Sparklers",
-      "itemCode": "#KC1005",
+      "itemCode": "KC005",
       "piecesContent": "10 Pcs",
       "price": 9,
       "originalPrice": 20,
@@ -73,7 +73,7 @@
     {
       "id": "kc-spa-006",
       "name": "7cm Red Sparklers",
-      "itemCode": "#KC1006",
+      "itemCode": "KC006",
       "piecesContent": "10 Pcs",
       "price": 10,
       "originalPrice": 25,
@@ -87,7 +87,7 @@
     {
       "id": "kc-spa-007",
       "name": "10cm Electric Sparklers",
-      "itemCode": "#KC1007",
+      "itemCode": "KC007",
       "piecesContent": "10 Pcs",
       "price": 13,
       "originalPrice": 30,
@@ -101,7 +101,7 @@
     {
       "id": "kc-spa-008",
       "name": "10cm Crackling Sparklers",
-      "itemCode": "#KC1008",
+      "itemCode": "KC008",
       "piecesContent": "10 Pcs",
       "price": 14,
       "originalPrice": 35,
@@ -115,7 +115,7 @@
     {
       "id": "kc-spa-009",
       "name": "10cm Supreme Pink Sparklers",
-      "itemCode": "#KC1009",
+      "itemCode": "KC009",
       "piecesContent": "10 Pcs",
       "price": 15,
       "originalPrice": 35,
@@ -129,7 +129,7 @@
     {
       "id": "kc-spa-010",
       "name": "10cm Green Sparklers",
-      "itemCode": "#KC1010",
+      "itemCode": "KC010",
       "piecesContent": "10 Pcs",
       "price": 15,
       "originalPrice": 35,
@@ -143,7 +143,7 @@
     {
       "id": "kc-spa-011",
       "name": "10cm Red Sparklers",
-      "itemCode": "#KC1011",
+      "itemCode": "KC011",
       "piecesContent": "10 Pcs",
       "price": 17,
       "originalPrice": 40,
@@ -157,7 +157,7 @@
     {
       "id": "kc-spa-012",
       "name": "12cm Electric Sparklers",
-      "itemCode": "#KC1012",
+      "itemCode": "KC012",
       "piecesContent": "10 Pcs",
       "price": 17,
       "originalPrice": 40,
@@ -171,7 +171,7 @@
     {
       "id": "kc-spa-013",
       "name": "12cm Crackling Sparklers",
-      "itemCode": "#KC1013",
+      "itemCode": "KC013",
       "piecesContent": "10 Pcs",
       "price": 18,
       "originalPrice": 40,
@@ -185,7 +185,7 @@
     {
       "id": "kc-spa-014",
       "name": "12cm Green Sparklers",
-      "itemCode": "#KC1014",
+      "itemCode": "KC014",
       "piecesContent": "10 Pcs",
       "price": 19,
       "originalPrice": 45,
@@ -199,7 +199,7 @@
     {
       "id": "kc-spa-015",
       "name": "12cm Red Sparklers",
-      "itemCode": "#KC1015",
+      "itemCode": "KC015",
       "piecesContent": "10 Pcs",
       "price": 20,
       "originalPrice": 45,
@@ -213,7 +213,7 @@
     {
       "id": "kc-spa-016",
       "name": "15cm Electric Sparklers",
-      "itemCode": "#KC1016",
+      "itemCode": "KC016",
       "piecesContent": "10 Pcs",
       "price": 26,
       "originalPrice": 59,
@@ -227,7 +227,7 @@
     {
       "id": "kc-spa-017",
       "name": "15cm Crackling Sparklers",
-      "itemCode": "#KC1017",
+      "itemCode": "KC017",
       "piecesContent": "10 Pcs",
       "price": 28,
       "originalPrice": 65,
@@ -241,7 +241,7 @@
     {
       "id": "kc-spa-018",
       "name": "15cm Green Sparklers",
-      "itemCode": "#KC1018",
+      "itemCode": "KC018",
       "piecesContent": "10 Pcs",
       "price": 29,
       "originalPrice": 65,
@@ -255,7 +255,7 @@
     {
       "id": "kc-spa-019",
       "name": "15cm Red Sparklers",
-      "itemCode": "#KC1019",
+      "itemCode": "KC019",
       "piecesContent": "10 Pcs",
       "price": 30,
       "originalPrice": 69,
@@ -269,7 +269,7 @@
     {
       "id": "kc-spa-020",
       "name": "30cm Electric Sparklers",
-      "itemCode": "#KC1020",
+      "itemCode": "KC020",
       "piecesContent": "5 Pcs",
       "price": 26,
       "originalPrice": 59,
@@ -283,7 +283,7 @@
     {
       "id": "kc-spa-021",
       "name": "30cm Crackling Sparklers",
-      "itemCode": "#KC1021",
+      "itemCode": "KC021",
       "piecesContent": "5 Pcs",
       "price": 28,
       "originalPrice": 65,
@@ -297,7 +297,7 @@
     {
       "id": "kc-spa-022",
       "name": "30cm Green Sparklers",
-      "itemCode": "#KC1022",
+      "itemCode": "KC022",
       "piecesContent": "5 Pcs",
       "price": 29,
       "originalPrice": 65,
@@ -311,7 +311,7 @@
     {
       "id": "kc-spa-023",
       "name": "30cm Red Sparklers",
-      "itemCode": "#KC1023",
+      "itemCode": "KC023",
       "piecesContent": "5 Pcs",
       "price": 30,
       "originalPrice": 69,
@@ -325,7 +325,7 @@
     {
       "id": "kc-spa-024",
       "name": "50cm Electric Sparklers",
-      "itemCode": "#KC1024",
+      "itemCode": "KC024",
       "piecesContent": "5 Pcs",
       "price": 109,
       "originalPrice": 253,
@@ -339,7 +339,7 @@
     {
       "id": "kc-spa-025",
       "name": "50cm Colour Sparklers",
-      "itemCode": "#KC1025",
+      "itemCode": "KC025",
       "piecesContent": "5 Pcs",
       "price": 119,
       "originalPrice": 273,
@@ -353,7 +353,7 @@
     {
       "id": "kc-mat-026",
       "name": "Royal Matches",
-      "itemCode": "#KC1026",
+      "itemCode": "KC026",
       "piecesContent": "10 In 1 Box",
       "price": 149,
       "originalPrice": 342,
@@ -367,21 +367,21 @@
     {
       "id": "kc-cha-027",
       "name": "Ashoka Chakkra",
-      "itemCode": "#KC1027",
+      "itemCode": "KC027",
       "piecesContent": "10 Pcs",
       "price": 37,
       "originalPrice": 85,
-      "quantity": 200,
+      "quantity": 195,
       "isAvailable": true,
       "category": "CHAKKRA & SPINNERS",
       "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80",
       "createdAt": "2026-10-09T14:03:10.493Z",
-      "updatedAt": "2026-10-09T14:18:11.662Z"
+      "updatedAt": "2026-10-09T15:01:11.860Z"
     },
     {
       "id": "kc-cha-028",
       "name": "SPL Chakkra",
-      "itemCode": "#KC1028",
+      "itemCode": "KC028",
       "piecesContent": "10 Pcs",
       "price": 50,
       "originalPrice": 114,
@@ -395,7 +395,7 @@
     {
       "id": "kc-cha-029",
       "name": "DEL Chakkra",
-      "itemCode": "#KC1029",
+      "itemCode": "KC029",
       "piecesContent": "10 Pcs",
       "price": 97,
       "originalPrice": 223,
@@ -409,7 +409,7 @@
     {
       "id": "kc-cha-030",
       "name": "Spinner Special",
-      "itemCode": "#KC1030",
+      "itemCode": "KC030",
       "piecesContent": "10 Pcs",
       "price": 59,
       "originalPrice": 139,
@@ -423,7 +423,7 @@
     {
       "id": "kc-cha-031",
       "name": "Spinner Deluxe",
-      "itemCode": "#KC1031",
+      "itemCode": "KC031",
       "piecesContent": "10 Pcs",
       "price": 85,
       "originalPrice": 194,
@@ -437,7 +437,7 @@
     {
       "id": "kc-cha-032",
       "name": "Wire Chakkra",
-      "itemCode": "#KC1032",
+      "itemCode": "KC032",
       "piecesContent": "10 Pcs",
       "price": 114,
       "originalPrice": 263,
@@ -451,7 +451,7 @@
     {
       "id": "kc-cha-033",
       "name": "Reverse Chakkra",
-      "itemCode": "#KC1033",
+      "itemCode": "KC033",
       "piecesContent": "10 Pcs",
       "price": 45,
       "originalPrice": 105,
@@ -465,7 +465,7 @@
     {
       "id": "kc-cha-034",
       "name": "Spr DEL Chakkra",
-      "itemCode": "#KC1034",
+      "itemCode": "KC034",
       "piecesContent": "10 Pcs",
       "price": 109,
       "originalPrice": 253,
@@ -479,7 +479,7 @@
     {
       "id": "kc-cha-035",
       "name": "Whistle Chakkra",
-      "itemCode": "#KC1035",
+      "itemCode": "KC035",
       "piecesContent": "5 Pcs",
       "price": 119,
       "originalPrice": 273,
@@ -493,7 +493,7 @@
     {
       "id": "kc-cha-036",
       "name": "Dancing Chakkra",
-      "itemCode": "#KC1036",
+      "itemCode": "KC036",
       "piecesContent": "5 Pcs",
       "price": 95,
       "originalPrice": 218,
@@ -507,7 +507,7 @@
     {
       "id": "kc-flo-037",
       "name": "FP. Big",
-      "itemCode": "#KC1037",
+      "itemCode": "KC037",
       "piecesContent": "10 Pcs",
       "price": 59,
       "originalPrice": 139,
@@ -521,7 +521,7 @@
     {
       "id": "kc-flo-038",
       "name": "FP. SPL",
-      "itemCode": "#KC1038",
+      "itemCode": "KC038",
       "piecesContent": "10 Pcs",
       "price": 69,
       "originalPrice": 158,
@@ -535,7 +535,7 @@
     {
       "id": "kc-flo-039",
       "name": "FP. Ashoka",
-      "itemCode": "#KC1039",
+      "itemCode": "KC039",
       "piecesContent": "10 Pcs",
       "price": 89,
       "originalPrice": 204,
@@ -549,7 +549,7 @@
     {
       "id": "kc-flo-040",
       "name": "FP. Giant",
-      "itemCode": "#KC1040",
+      "itemCode": "KC040",
       "piecesContent": "10 Pcs",
       "price": 97,
       "originalPrice": 223,
@@ -563,7 +563,7 @@
     {
       "id": "kc-flo-041",
       "name": "FP. Deluxe",
-      "itemCode": "#KC1041",
+      "itemCode": "KC041",
       "piecesContent": "10 Pcs",
       "price": 119,
       "originalPrice": 273,
@@ -577,7 +577,7 @@
     {
       "id": "kc-flo-042",
       "name": "FP. Col-Koti",
-      "itemCode": "#KC1042",
+      "itemCode": "KC042",
       "piecesContent": "10 Pcs",
       "price": 144,
       "originalPrice": 332,
@@ -591,7 +591,7 @@
     {
       "id": "kc-flo-043",
       "name": "FP. Elegant",
-      "itemCode": "#KC1043",
+      "itemCode": "KC043",
       "piecesContent": "5 Pcs",
       "price": 248,
       "originalPrice": 570,
@@ -605,7 +605,7 @@
     {
       "id": "kc-flo-044",
       "name": "FP. MULTI. COLOUR POTS",
-      "itemCode": "#KC1044",
+      "itemCode": "KC044",
       "piecesContent": "5 Pcs",
       "price": 356,
       "originalPrice": 822,
@@ -619,7 +619,7 @@
     {
       "id": "kc-flo-045",
       "name": "MINI TRICOLOUR",
-      "itemCode": "#KC1045",
+      "itemCode": "KC045",
       "piecesContent": "5 Pcs",
       "price": 144,
       "originalPrice": 332,
@@ -633,7 +633,7 @@
     {
       "id": "kc-flo-046",
       "name": "TRICOLOUR Flower Pots",
-      "itemCode": "#KC1046",
+      "itemCode": "KC046",
       "piecesContent": "5 Pcs",
       "price": 164,
       "originalPrice": 376,
@@ -647,7 +647,7 @@
     {
       "id": "kc-flo-047",
       "name": "Tim Tim Flower Pots",
-      "itemCode": "#KC1047",
+      "itemCode": "KC047",
       "piecesContent": "5 Pcs",
       "price": 129,
       "originalPrice": 297,
@@ -661,7 +661,7 @@
     {
       "id": "kc-flo-048",
       "name": "Colour Change Tim",
-      "itemCode": "#KC1048",
+      "itemCode": "KC048",
       "piecesContent": "5 Pcs",
       "price": 149,
       "originalPrice": 342,
@@ -675,7 +675,7 @@
     {
       "id": "kc-flo-049",
       "name": "2 in 1 Tim",
-      "itemCode": "#KC1049",
+      "itemCode": "KC049",
       "piecesContent": "5 Pcs",
       "price": 139,
       "originalPrice": 317,
@@ -689,7 +689,7 @@
     {
       "id": "kc-flo-050",
       "name": "Tim Jasmin",
-      "itemCode": "#KC1050",
+      "itemCode": "KC050",
       "piecesContent": "5 Pcs",
       "price": 144,
       "originalPrice": 332,
@@ -703,7 +703,7 @@
     {
       "id": "kc-flo-051",
       "name": "Tim Asaraf",
-      "itemCode": "#KC1051",
+      "itemCode": "KC051",
       "piecesContent": "5 Pcs",
       "price": 154,
       "originalPrice": 352,
@@ -717,7 +717,7 @@
     {
       "id": "kc-flo-052",
       "name": "Tim Magic Star",
-      "itemCode": "#KC1052",
+      "itemCode": "KC052",
       "piecesContent": "5 Pcs",
       "price": 158,
       "originalPrice": 366,
@@ -731,7 +731,7 @@
     {
       "id": "kc-ved-053",
       "name": "Jallikattu",
-      "itemCode": "#KC1053",
+      "itemCode": "KC053",
       "piecesContent": "10 Pcs",
       "price": 45,
       "originalPrice": 105,
@@ -745,7 +745,7 @@
     {
       "id": "kc-ved-054",
       "name": "Lion Bomb",
-      "itemCode": "#KC1054",
+      "itemCode": "KC054",
       "piecesContent": "10 Pcs",
       "price": 59,
       "originalPrice": 139,
@@ -759,7 +759,7 @@
     {
       "id": "kc-ved-055",
       "name": "Hulk Bomb",
-      "itemCode": "#KC1055",
+      "itemCode": "KC055",
       "piecesContent": "10 Pcs",
       "price": 59,
       "originalPrice": 139,
@@ -773,7 +773,7 @@
     {
       "id": "kc-ved-056",
       "name": "3 1/2\" Lakshmi Vedi",
-      "itemCode": "#KC1056",
+      "itemCode": "KC056",
       "piecesContent": "1 Pkt (8 Pcs)",
       "price": 18,
       "originalPrice": 40,
@@ -787,7 +787,7 @@
     {
       "id": "kc-ved-057",
       "name": "4\" Lakshmi Vedi",
-      "itemCode": "#KC1057",
+      "itemCode": "KC057",
       "piecesContent": "1 Pkt (8 Pcs)",
       "price": 22,
       "originalPrice": 50,
@@ -801,7 +801,7 @@
     {
       "id": "kc-ved-058",
       "name": "4\" Deluxe Lakshmi",
-      "itemCode": "#KC1058",
+      "itemCode": "KC058",
       "piecesContent": "1 Pkt (8 Pcs)",
       "price": 25,
       "originalPrice": 55,
@@ -815,7 +815,7 @@
     {
       "id": "kc-ved-059",
       "name": "Gold Lakshmi",
-      "itemCode": "#KC1059",
+      "itemCode": "KC059",
       "piecesContent": "1 Pkt (8 Pcs)",
       "price": 25,
       "originalPrice": 55,
@@ -829,7 +829,7 @@
     {
       "id": "kc-ved-060",
       "name": "Digital Bomb",
-      "itemCode": "#KC1060",
+      "itemCode": "KC060",
       "piecesContent": "1 Box (10 Pcs)",
       "price": 158,
       "originalPrice": 366,
@@ -843,7 +843,7 @@
     {
       "id": "kc-ved-061",
       "name": "2 3/4\" Kuruvi",
-      "itemCode": "#KC1061",
+      "itemCode": "KC061",
       "piecesContent": "1 Pkt (8 Pcs)",
       "price": 15,
       "originalPrice": 35,
@@ -857,7 +857,7 @@
     {
       "id": "kc-ved-062",
       "name": "Gypsy Bomb",
-      "itemCode": "#KC1062",
+      "itemCode": "KC062",
       "piecesContent": "10 Pcs",
       "price": 124,
       "originalPrice": 287,
@@ -871,7 +871,7 @@
     {
       "id": "kc-ved-063",
       "name": "Hydro Bomb",
-      "itemCode": "#KC1063",
+      "itemCode": "KC063",
       "piecesContent": "10 Pcs",
       "price": 65,
       "originalPrice": 149,
@@ -885,7 +885,7 @@
     {
       "id": "kc-ved-064",
       "name": "2 Sound Bomb",
-      "itemCode": "#KC1064",
+      "itemCode": "KC064",
       "piecesContent": "10 Pcs",
       "price": 40,
       "originalPrice": 89,
@@ -899,7 +899,7 @@
     {
       "id": "kc-ved-065",
       "name": "King Rider Bomb",
-      "itemCode": "#KC1065",
+      "itemCode": "KC065",
       "piecesContent": "10 Pcs",
       "price": 178,
       "originalPrice": 411,
@@ -913,7 +913,7 @@
     {
       "id": "kc-pap-066",
       "name": "1/4 Kg Paper Bomb",
-      "itemCode": "#KC1066",
+      "itemCode": "KC066",
       "piecesContent": "1 Pc",
       "price": 35,
       "originalPrice": 79,
@@ -927,7 +927,7 @@
     {
       "id": "kc-pap-067",
       "name": "1/2 Kg Paper Bomb",
-      "itemCode": "#KC1067",
+      "itemCode": "KC067",
       "piecesContent": "1 Pc",
       "price": 69,
       "originalPrice": 158,
@@ -941,7 +941,7 @@
     {
       "id": "kc-pap-068",
       "name": "1kg Paper Bomb",
-      "itemCode": "#KC1068",
+      "itemCode": "KC068",
       "piecesContent": "1 Pc",
       "price": 139,
       "originalPrice": 317,
@@ -955,7 +955,7 @@
     {
       "id": "kc-kid-069",
       "name": "Red Bijli",
-      "itemCode": "#KC1069",
+      "itemCode": "KC069",
       "piecesContent": "1 Pkt (100 Pcs)",
       "price": 35,
       "originalPrice": 79,
@@ -969,7 +969,7 @@
     {
       "id": "kc-kid-070",
       "name": "Snake Tablet",
-      "itemCode": "#KC1070",
+      "itemCode": "KC070",
       "piecesContent": "1 Box (10 Pcs)",
       "price": 20,
       "originalPrice": 45,
@@ -983,7 +983,7 @@
     {
       "id": "kc-kid-071",
       "name": "Big Thar Car",
-      "itemCode": "#KC1071",
+      "itemCode": "KC071",
       "piecesContent": "1 Pc",
       "price": 119,
       "originalPrice": 273,
@@ -997,7 +997,7 @@
     {
       "id": "kc-kid-072",
       "name": "Cylinder Fountain",
-      "itemCode": "#KC1072",
+      "itemCode": "KC072",
       "piecesContent": "1 Pc",
       "price": 75,
       "originalPrice": 174,
@@ -1011,7 +1011,7 @@
     {
       "id": "kc-kid-073",
       "name": "Men In Black Gun",
-      "itemCode": "#KC1073",
+      "itemCode": "KC073",
       "piecesContent": "1 Pc",
       "price": 178,
       "originalPrice": 411,
@@ -1025,7 +1025,7 @@
     {
       "id": "kc-kid-074",
       "name": "Ring Caps",
-      "itemCode": "#KC1074",
+      "itemCode": "KC074",
       "piecesContent": "1 Box (9 Rings)",
       "price": 25,
       "originalPrice": 55,
@@ -1039,7 +1039,7 @@
     {
       "id": "kc-kid-075",
       "name": "Sahara Pistol - 320",
-      "itemCode": "#KC1075",
+      "itemCode": "KC075",
       "piecesContent": "1 Pc",
       "price": 317,
       "originalPrice": 728,
@@ -1053,7 +1053,7 @@
     {
       "id": "kc-kid-076",
       "name": "Sahara Pistol - 140",
-      "itemCode": "#KC1076",
+      "itemCode": "KC076",
       "piecesContent": "1 Pc",
       "price": 139,
       "originalPrice": 317,
@@ -1067,7 +1067,7 @@
     {
       "id": "kc-kid-077",
       "name": "Sahara - 80",
-      "itemCode": "#KC1077",
+      "itemCode": "KC077",
       "piecesContent": "1 Pc",
       "price": 79,
       "originalPrice": 184,
@@ -1081,7 +1081,7 @@
     {
       "id": "kc-kid-078",
       "name": "Big Giant Gun",
-      "itemCode": "#KC1078",
+      "itemCode": "KC078",
       "piecesContent": "1 Pc",
       "price": 208,
       "originalPrice": 481,
@@ -1095,7 +1095,7 @@
     {
       "id": "kc-kid-079",
       "name": "Elephant Toys",
-      "itemCode": "#KC1079",
+      "itemCode": "KC079",
       "piecesContent": "1 Box",
       "price": 144,
       "originalPrice": 332,
@@ -1109,7 +1109,7 @@
     {
       "id": "kc-kid-080",
       "name": "Tik Tok",
-      "itemCode": "#KC1080",
+      "itemCode": "KC080",
       "piecesContent": "1 Box",
       "price": 129,
       "originalPrice": 297,
@@ -1123,7 +1123,7 @@
     {
       "id": "kc-kid-081",
       "name": "Cylinder Novelty",
-      "itemCode": "#KC1081",
+      "itemCode": "KC081",
       "piecesContent": "1 Box",
       "price": 114,
       "originalPrice": 263,
@@ -1137,7 +1137,7 @@
     {
       "id": "kc-roc-082",
       "name": "Whistling Rocket",
-      "itemCode": "#KC1082",
+      "itemCode": "KC082",
       "piecesContent": "10 Pcs",
       "price": 95,
       "originalPrice": 218,
@@ -1151,7 +1151,7 @@
     {
       "id": "kc-roc-083",
       "name": "Three Sound Rocket",
-      "itemCode": "#KC1083",
+      "itemCode": "KC083",
       "piecesContent": "10 Pcs",
       "price": 109,
       "originalPrice": 253,
@@ -1165,7 +1165,7 @@
     {
       "id": "kc-roc-084",
       "name": "Two Sound Rocket",
-      "itemCode": "#KC1084",
+      "itemCode": "KC084",
       "piecesContent": "10 Pcs",
       "price": 85,
       "originalPrice": 194,
@@ -1179,7 +1179,7 @@
     {
       "id": "kc-fan-085",
       "name": "4\" Single Pipe",
-      "itemCode": "#KC1085",
+      "itemCode": "KC085",
       "piecesContent": "1 Pc",
       "price": 178,
       "originalPrice": 411,
@@ -1193,7 +1193,7 @@
     {
       "id": "kc-fan-086",
       "name": "2\" Single Pipe",
-      "itemCode": "#KC1086",
+      "itemCode": "KC086",
       "piecesContent": "1 Pc",
       "price": 89,
       "originalPrice": 204,
@@ -1207,7 +1207,7 @@
     {
       "id": "kc-fan-087",
       "name": "2\" (2pcs) Pipe",
-      "itemCode": "#KC1087",
+      "itemCode": "KC087",
       "piecesContent": "2 Pcs",
       "price": 158,
       "originalPrice": 366,
@@ -1221,7 +1221,7 @@
     {
       "id": "kc-fan-088",
       "name": "2½ Fancy 3 pcs",
-      "itemCode": "#KC1088",
+      "itemCode": "KC088",
       "piecesContent": "3 Pcs",
       "price": 238,
       "originalPrice": 545,
@@ -1235,7 +1235,7 @@
     {
       "id": "kc-fan-089",
       "name": "Starvell 4\" (2pcs)",
-      "itemCode": "#KC1089",
+      "itemCode": "KC089",
       "piecesContent": "2 Pcs",
       "price": 317,
       "originalPrice": 728,
@@ -1249,7 +1249,7 @@
     {
       "id": "kc-fan-090",
       "name": "Tesco 4\" (2pcs)",
-      "itemCode": "#KC1090",
+      "itemCode": "KC090",
       "piecesContent": "2 Pcs",
       "price": 317,
       "originalPrice": 728,
@@ -1263,7 +1263,7 @@
     {
       "id": "kc-fan-091",
       "name": "Pandyas 3½ Single",
-      "itemCode": "#KC1091",
+      "itemCode": "KC091",
       "piecesContent": "1 Pc",
       "price": 158,
       "originalPrice": 366,
@@ -1277,7 +1277,7 @@
     {
       "id": "kc-fan-092",
       "name": "3½ Double Ball (Sastha)",
-      "itemCode": "#KC1092",
+      "itemCode": "KC092",
       "piecesContent": "1 Pc",
       "price": 208,
       "originalPrice": 481,
@@ -1291,7 +1291,7 @@
     {
       "id": "kc-fan-093",
       "name": "6\" Pipe Sastha",
-      "itemCode": "#KC1093",
+      "itemCode": "KC093",
       "piecesContent": "1 Pc",
       "price": 376,
       "originalPrice": 867,
@@ -1305,7 +1305,7 @@
     {
       "id": "kc-fan-094",
       "name": "Wow Star Purple 4\"",
-      "itemCode": "#KC1094",
+      "itemCode": "KC094",
       "piecesContent": "1 Pc",
       "price": 218,
       "originalPrice": 501,
@@ -1319,7 +1319,7 @@
     {
       "id": "kc-fan-095",
       "name": "Wow Star Golden 4\"",
-      "itemCode": "#KC1095",
+      "itemCode": "KC095",
       "piecesContent": "1 Pc",
       "price": 218,
       "originalPrice": 501,
@@ -1333,7 +1333,7 @@
     {
       "id": "kc-fan-096",
       "name": "Tesco Ring o Ring",
-      "itemCode": "#KC1096",
+      "itemCode": "KC096",
       "piecesContent": "1 Box",
       "price": 188,
       "originalPrice": 431,
@@ -1347,7 +1347,7 @@
     {
       "id": "kc-fan-097",
       "name": "1½ Tesco (3pcs)",
-      "itemCode": "#KC1097",
+      "itemCode": "KC097",
       "piecesContent": "3 Pcs",
       "price": 208,
       "originalPrice": 481,
@@ -1361,7 +1361,7 @@
     {
       "id": "kc-fan-098",
       "name": "1½ Tesco Single",
-      "itemCode": "#KC1098",
+      "itemCode": "KC098",
       "piecesContent": "1 Pc",
       "price": 79,
       "originalPrice": 184,
@@ -1375,7 +1375,7 @@
     {
       "id": "kc-fan-099",
       "name": "Riko 4\" (3Pcs)",
-      "itemCode": "#KC1099",
+      "itemCode": "KC099",
       "piecesContent": "3 Pcs",
       "price": 386,
       "originalPrice": 887,
@@ -1389,7 +1389,7 @@
     {
       "id": "kc-fan-100",
       "name": "2\" Tesco (3pcs)",
-      "itemCode": "#KC1100",
+      "itemCode": "KC100",
       "piecesContent": "3 Pcs",
       "price": 248,
       "originalPrice": 570,
@@ -1403,7 +1403,7 @@
     {
       "id": "kc-fan-101",
       "name": "Tesco Chickoo (2Pcs)",
-      "itemCode": "#KC1101",
+      "itemCode": "KC101",
       "piecesContent": "2 Pcs",
       "price": 178,
       "originalPrice": 411,
@@ -1417,7 +1417,7 @@
     {
       "id": "kc-fan-102",
       "name": "Dancing Shooter (silver)",
-      "itemCode": "#KC1102",
+      "itemCode": "KC102",
       "piecesContent": "1 Pc",
       "price": 149,
       "originalPrice": 342,
@@ -1431,7 +1431,7 @@
     {
       "id": "kc-day-103",
       "name": "15 Shot Colour Smoke",
-      "itemCode": "#KC1103",
+      "itemCode": "KC103",
       "piecesContent": "1 Box",
       "price": 257,
       "originalPrice": 594,
@@ -1445,7 +1445,7 @@
     {
       "id": "kc-day-104",
       "name": "90 Watts Smoke",
-      "itemCode": "#KC1104",
+      "itemCode": "KC104",
       "piecesContent": "1 Box",
       "price": 89,
       "originalPrice": 204,
@@ -1459,7 +1459,7 @@
     {
       "id": "kc-day-105",
       "name": "Siren Small",
-      "itemCode": "#KC1105",
+      "itemCode": "KC105",
       "piecesContent": "1 Box",
       "price": 79,
       "originalPrice": 184,
@@ -1473,7 +1473,7 @@
     {
       "id": "kc-day-106",
       "name": "Siren Big (5+5)",
-      "itemCode": "#KC1106",
+      "itemCode": "KC106",
       "piecesContent": "1 Box (10 Pcs)",
       "price": 149,
       "originalPrice": 342,
@@ -1487,7 +1487,7 @@
     {
       "id": "kc-nig-107",
       "name": "12 Shot \"",
-      "itemCode": "#KC1107",
+      "itemCode": "KC107",
       "piecesContent": "1 Pc",
       "price": 144,
       "originalPrice": 332,
@@ -1501,7 +1501,7 @@
     {
       "id": "kc-nig-108",
       "name": "12 Shot \" Legends",
-      "itemCode": "#KC1108",
+      "itemCode": "KC108",
       "piecesContent": "1 Pc",
       "price": 149,
       "originalPrice": 342,
@@ -1515,7 +1515,7 @@
     {
       "id": "kc-nig-109",
       "name": "30 Shot \"",
-      "itemCode": "#KC1109",
+      "itemCode": "KC109",
       "piecesContent": "1 Pc",
       "price": 317,
       "originalPrice": 728,
@@ -1529,7 +1529,7 @@
     {
       "id": "kc-nig-110",
       "name": "60 Shot Maan",
-      "itemCode": "#KC1110",
+      "itemCode": "KC110",
       "piecesContent": "1 Pc",
       "price": 614,
       "originalPrice": 1411,
@@ -1543,7 +1543,7 @@
     {
       "id": "kc-nig-111",
       "name": "120 Shot \"",
-      "itemCode": "#KC1111",
+      "itemCode": "KC111",
       "piecesContent": "1 Pc",
       "price": 1139,
       "originalPrice": 2619,
@@ -1557,7 +1557,7 @@
     {
       "id": "kc-nig-112",
       "name": "240 Shot \"",
-      "itemCode": "#KC1112",
+      "itemCode": "KC112",
       "piecesContent": "1 Pc",
       "price": 2178,
       "originalPrice": 5009,
@@ -1571,7 +1571,7 @@
     {
       "id": "kc-nig-113",
       "name": "30 Setout, 2.5\"",
-      "itemCode": "#KC1113",
+      "itemCode": "KC113",
       "piecesContent": "1 Box",
       "price": 743,
       "originalPrice": 1708,
@@ -1585,7 +1585,7 @@
     {
       "id": "kc-nig-114",
       "name": "25 Setout, 3\"",
-      "itemCode": "#KC1114",
+      "itemCode": "KC114",
       "piecesContent": "1 Box",
       "price": 842,
       "originalPrice": 1936,
@@ -1599,7 +1599,7 @@
     {
       "id": "kc-fan-115",
       "name": "Sun Star",
-      "itemCode": "#KC1115",
+      "itemCode": "KC115",
       "piecesContent": "1 Box",
       "price": 89,
       "originalPrice": 204,
@@ -1613,7 +1613,7 @@
     {
       "id": "kc-fan-116",
       "name": "Moon Light",
-      "itemCode": "#KC1116",
+      "itemCode": "KC116",
       "piecesContent": "1 Box",
       "price": 95,
       "originalPrice": 218,
@@ -1627,7 +1627,7 @@
     {
       "id": "kc-fan-117",
       "name": "KitKat Jeyams",
-      "itemCode": "#KC1117",
+      "itemCode": "KC117",
       "piecesContent": "1 Box",
       "price": 18,
       "originalPrice": 40,
@@ -1641,7 +1641,7 @@
     {
       "id": "kc-fan-118",
       "name": "Monkey Star Starvell",
-      "itemCode": "#KC1118",
+      "itemCode": "KC118",
       "piecesContent": "1 Box",
       "price": 139,
       "originalPrice": 317,
@@ -1655,7 +1655,7 @@
     {
       "id": "kc-fan-119",
       "name": "SINGLE CONE",
-      "itemCode": "#KC1119",
+      "itemCode": "KC119",
       "piecesContent": "1 Pc",
       "price": 99,
       "originalPrice": 228,
@@ -1669,7 +1669,7 @@
     {
       "id": "kc-fan-120",
       "name": "1000 Watts Mega Fountains",
-      "itemCode": "#KC1120",
+      "itemCode": "KC120",
       "piecesContent": "1 Pc",
       "price": 178,
       "originalPrice": 411,
@@ -1683,7 +1683,7 @@
     {
       "id": "kc-fan-121",
       "name": "2000 Watts Mega Fountains",
-      "itemCode": "#KC1121",
+      "itemCode": "KC121",
       "piecesContent": "1 Pc",
       "price": 317,
       "originalPrice": 728,
@@ -1697,7 +1697,7 @@
     {
       "id": "kc-fan-122",
       "name": "5000 Watts Mega Fountains",
-      "itemCode": "#KC1122",
+      "itemCode": "KC122",
       "piecesContent": "1 Pc",
       "price": 644,
       "originalPrice": 1481,
@@ -1711,7 +1711,7 @@
     {
       "id": "kc-fan-123",
       "name": "Teddy 5pcs",
-      "itemCode": "#KC1123",
+      "itemCode": "KC123",
       "piecesContent": "5 Pcs",
       "price": 109,
       "originalPrice": 253,
@@ -1725,7 +1725,7 @@
     {
       "id": "kc-fan-124",
       "name": "Penta Force",
-      "itemCode": "#KC1124",
+      "itemCode": "KC124",
       "piecesContent": "1 Box",
       "price": 119,
       "originalPrice": 273,
@@ -1739,7 +1739,7 @@
     {
       "id": "kc-fan-125",
       "name": "Planet Wheel (2 Pcs)",
-      "itemCode": "#KC1125",
+      "itemCode": "KC125",
       "piecesContent": "2 Pcs",
       "price": 129,
       "originalPrice": 297,
@@ -1753,7 +1753,7 @@
     {
       "id": "kc-fan-126",
       "name": "Ice Fountains",
-      "itemCode": "#KC1126",
+      "itemCode": "KC126",
       "piecesContent": "4 Pcs",
       "price": 69,
       "originalPrice": 158,
@@ -1767,7 +1767,7 @@
     {
       "id": "kc-fan-127",
       "name": "Mega Crackling Coconut (3 Pcs)",
-      "itemCode": "#KC1127",
+      "itemCode": "KC127",
       "piecesContent": "3 Pcs",
       "price": 208,
       "originalPrice": 481,
@@ -1781,7 +1781,7 @@
     {
       "id": "kc-fan-128",
       "name": "Welcome Shower (Water Queen)",
-      "itemCode": "#KC1128",
+      "itemCode": "KC128",
       "piecesContent": "1 Box",
       "price": 158,
       "originalPrice": 366,
@@ -1795,7 +1795,7 @@
     {
       "id": "kc-fan-129",
       "name": "WATERQUEEN (ALL)",
-      "itemCode": "#KC1129",
+      "itemCode": "KC129",
       "piecesContent": "1 Box",
       "price": 75,
       "originalPrice": 174,
@@ -1809,7 +1809,7 @@
     {
       "id": "kc-fan-130",
       "name": "Lucky Butterfly",
-      "itemCode": "#KC1130",
+      "itemCode": "KC130",
       "piecesContent": "1 Box",
       "price": 85,
       "originalPrice": 194,
@@ -1823,7 +1823,7 @@
     {
       "id": "kc-fan-131",
       "name": "Tin Single Pc",
-      "itemCode": "#KC1131",
+      "itemCode": "KC131",
       "piecesContent": "1 Pc",
       "price": 75,
       "originalPrice": 174,
@@ -1837,7 +1837,7 @@
     {
       "id": "kc-fan-132",
       "name": "Tin 2Pcs Pack",
-      "itemCode": "#KC1132",
+      "itemCode": "KC132",
       "piecesContent": "2 Pcs",
       "price": 134,
       "originalPrice": 307,
@@ -1851,7 +1851,7 @@
     {
       "id": "kc-fan-133",
       "name": "LOLLIPOP",
-      "itemCode": "#KC1133",
+      "itemCode": "KC133",
       "piecesContent": "1 Box",
       "price": 129,
       "originalPrice": 297,
@@ -1865,7 +1865,7 @@
     {
       "id": "kc-fan-134",
       "name": "Chin Chan Starvell",
-      "itemCode": "#KC1134",
+      "itemCode": "KC134",
       "piecesContent": "1 Box",
       "price": 87,
       "originalPrice": 198,
@@ -1879,7 +1879,7 @@
     {
       "id": "kc-fan-135",
       "name": "Lemontree Ayyan",
-      "itemCode": "#KC1135",
+      "itemCode": "KC135",
       "piecesContent": "1 Box",
       "price": 99,
       "originalPrice": 228,
@@ -1893,7 +1893,7 @@
     {
       "id": "kc-fan-136",
       "name": "Thirumalas Lemon Tree",
-      "itemCode": "#KC1136",
+      "itemCode": "KC136",
       "piecesContent": "1 Box",
       "price": 99,
       "originalPrice": 228,
@@ -1907,7 +1907,7 @@
     {
       "id": "kc-fan-137",
       "name": "i CONE",
-      "itemCode": "#KC1137",
+      "itemCode": "KC137",
       "piecesContent": "1 Box",
       "price": 139,
       "originalPrice": 317,
@@ -1921,7 +1921,7 @@
     {
       "id": "kc-fan-138",
       "name": "Selfie Stick",
-      "itemCode": "#KC1138",
+      "itemCode": "KC138",
       "piecesContent": "1 Box",
       "price": 95,
       "originalPrice": 218,
@@ -1935,7 +1935,7 @@
     {
       "id": "kc-fan-139",
       "name": "Twix",
-      "itemCode": "#KC1139",
+      "itemCode": "KC139",
       "piecesContent": "1 Box",
       "price": 114,
       "originalPrice": 263,
@@ -1949,7 +1949,7 @@
     {
       "id": "kc-fan-140",
       "name": "COLOUR RAIN",
-      "itemCode": "#KC1140",
+      "itemCode": "KC140",
       "piecesContent": "1 Box",
       "price": 65,
       "originalPrice": 149,
@@ -1963,7 +1963,7 @@
     {
       "id": "kc-fan-141",
       "name": "FEATHER PEACOCK",
-      "itemCode": "#KC1141",
+      "itemCode": "KC141",
       "piecesContent": "1 Box",
       "price": 65,
       "originalPrice": 149,
@@ -1977,7 +1977,7 @@
     {
       "id": "kc-fan-142",
       "name": "GOLDEN PROPS",
-      "itemCode": "#KC1142",
+      "itemCode": "KC142",
       "piecesContent": "1 Box",
       "price": 65,
       "originalPrice": 149,
@@ -1991,7 +1991,7 @@
     {
       "id": "kc-fan-143",
       "name": "Bada Peacock",
-      "itemCode": "#KC1143",
+      "itemCode": "KC143",
       "piecesContent": "1 Box",
       "price": 277,
       "originalPrice": 639,
@@ -2005,7 +2005,7 @@
     {
       "id": "kc-fan-144",
       "name": "Mega Peacock",
-      "itemCode": "#KC1144",
+      "itemCode": "KC144",
       "piecesContent": "1 Box",
       "price": 124,
       "originalPrice": 287,
@@ -2019,7 +2019,7 @@
     {
       "id": "kc-fan-145",
       "name": "MOTU PATLU",
-      "itemCode": "#KC1145",
+      "itemCode": "KC145",
       "piecesContent": "1 Box",
       "price": 234,
       "originalPrice": 540,
@@ -2033,7 +2033,7 @@
     {
       "id": "kc-fan-146",
       "name": "4×4 Wheel",
-      "itemCode": "#KC1146",
+      "itemCode": "KC146",
       "piecesContent": "1 Box",
       "price": 158,
       "originalPrice": 366,
@@ -2047,7 +2047,7 @@
     {
       "id": "kc-fan-147",
       "name": "Polo",
-      "itemCode": "#KC1147",
+      "itemCode": "KC147",
       "piecesContent": "1 Box",
       "price": 35,
       "originalPrice": 79,
@@ -2061,7 +2061,7 @@
     {
       "id": "kc-fan-148",
       "name": "FLY JET",
-      "itemCode": "#KC1148",
+      "itemCode": "KC148",
       "piecesContent": "1 Box",
       "price": 114,
       "originalPrice": 263,
@@ -2075,7 +2075,7 @@
     {
       "id": "kc-fan-149",
       "name": "WATER PENCIL",
-      "itemCode": "#KC1149",
+      "itemCode": "KC149",
       "piecesContent": "1 Box",
       "price": 114,
       "originalPrice": 263,
@@ -2089,7 +2089,7 @@
     {
       "id": "kc-fan-150",
       "name": "Chit Put (Mothers)",
-      "itemCode": "#KC1150",
+      "itemCode": "KC150",
       "piecesContent": "1 Box",
       "price": 45,
       "originalPrice": 105,
@@ -2103,7 +2103,7 @@
     {
       "id": "kc-fan-151",
       "name": "Starwell Race Car",
-      "itemCode": "#KC1151",
+      "itemCode": "KC151",
       "piecesContent": "1 Pc",
       "price": 139,
       "originalPrice": 317,
@@ -2117,7 +2117,7 @@
     {
       "id": "kc-fan-152",
       "name": "King Star Red Robo",
-      "itemCode": "#KC1152",
+      "itemCode": "KC152",
       "piecesContent": "1 Pc",
       "price": 149,
       "originalPrice": 342,
@@ -2131,7 +2131,7 @@
     {
       "id": "kc-fan-153",
       "name": "Pizza",
-      "itemCode": "#KC1153",
+      "itemCode": "KC153",
       "piecesContent": "1 Box",
       "price": 129,
       "originalPrice": 297,
@@ -2145,7 +2145,7 @@
     {
       "id": "kc-gif-154",
       "name": "25 Items (10 pcs pack)",
-      "itemCode": "#KC1154",
+      "itemCode": "KC154",
       "piecesContent": "1 Box",
       "price": 297,
       "originalPrice": 683,
@@ -2159,7 +2159,7 @@
     {
       "id": "kc-gif-155",
       "name": "35 Items (10 pcs pack)",
-      "itemCode": "#KC1155",
+      "itemCode": "KC155",
       "piecesContent": "1 Box",
       "price": 426,
       "originalPrice": 980,
@@ -2173,7 +2173,7 @@
     {
       "id": "kc-gif-156",
       "name": "50 Items (10 pcs pack)",
-      "itemCode": "#KC1156",
+      "itemCode": "KC156",
       "piecesContent": "1 Box",
       "price": 743,
       "originalPrice": 1708,
@@ -2187,7 +2187,7 @@
     {
       "id": "kc-gif-157",
       "name": "60 Items (10 pcs pack)",
-      "itemCode": "#KC1157",
+      "itemCode": "KC157",
       "piecesContent": "1 Box",
       "price": 941,
       "originalPrice": 2164,
@@ -2201,7 +2201,7 @@
     {
       "id": "kc-wal-158",
       "name": "28 Giant",
-      "itemCode": "#KC1158",
+      "itemCode": "KC158",
       "piecesContent": "1 Pkt",
       "price": 28,
       "originalPrice": 65,
@@ -2215,7 +2215,7 @@
     {
       "id": "kc-wal-159",
       "name": "56 Giant",
-      "itemCode": "#KC1159",
+      "itemCode": "KC159",
       "piecesContent": "1 Pkt",
       "price": 55,
       "originalPrice": 124,
@@ -2229,7 +2229,7 @@
     {
       "id": "kc-wal-160",
       "name": "Shower",
-      "itemCode": "#KC1160",
+      "itemCode": "KC160",
       "piecesContent": "1 Box",
       "price": 40,
       "originalPrice": 89,
@@ -2243,7 +2243,7 @@
     {
       "id": "kc-wal-161",
       "name": "100 Wala",
-      "itemCode": "#KC1161",
+      "itemCode": "KC161",
       "piecesContent": "1 Box",
       "price": 45,
       "originalPrice": 105,
@@ -2257,7 +2257,7 @@
     {
       "id": "kc-wal-162",
       "name": "1000 HC",
-      "itemCode": "#KC1162",
+      "itemCode": "KC162",
       "piecesContent": "1 Box",
       "price": 119,
       "originalPrice": 273,
@@ -2271,7 +2271,7 @@
     {
       "id": "kc-wal-163",
       "name": "2000 HC",
-      "itemCode": "#KC1163",
+      "itemCode": "KC163",
       "piecesContent": "1 Box",
       "price": 238,
       "originalPrice": 545,
@@ -2285,7 +2285,7 @@
     {
       "id": "kc-wal-164",
       "name": "5000 HC",
-      "itemCode": "#KC1164",
+      "itemCode": "KC164",
       "piecesContent": "1 Box",
       "price": 594,
       "originalPrice": 1366,
@@ -2299,7 +2299,7 @@
     {
       "id": "kc-wal-165",
       "name": "10000 HC",
-      "itemCode": "#KC1165",
+      "itemCode": "KC165",
       "piecesContent": "1 Box",
       "price": 1188,
       "originalPrice": 2732,
@@ -2313,7 +2313,7 @@
     {
       "id": "kc-wal-166",
       "name": "1000 FC",
-      "itemCode": "#KC1166",
+      "itemCode": "KC166",
       "piecesContent": "1 Box",
       "price": 218,
       "originalPrice": 501,
@@ -2327,7 +2327,7 @@
     {
       "id": "kc-wal-167",
       "name": "2000 FC",
-      "itemCode": "#KC1167",
+      "itemCode": "KC167",
       "piecesContent": "1 Box",
       "price": 436,
       "originalPrice": 1000,
@@ -2341,7 +2341,7 @@
     {
       "id": "kc-wal-168",
       "name": "5000 FC",
-      "itemCode": "#KC1168",
+      "itemCode": "KC168",
       "piecesContent": "1 Box",
       "price": 1089,
       "originalPrice": 2505,
@@ -2355,7 +2355,7 @@
     {
       "id": "kc-wal-169",
       "name": "10000 FC",
-      "itemCode": "#KC1169",
+      "itemCode": "KC169",
       "piecesContent": "1 Box",
       "price": 2178,
       "originalPrice": 5009,
@@ -2368,6 +2368,30 @@
     }
   ],
   "orders": [
+    {
+      "id": "ord-mv13f4hy-x7gp",
+      "orderNumber": "KC-2026-0007",
+      "customerName": "rahul",
+      "customerPhone": "9745632104",
+      "subtotal": 148,
+      "discountPercentage": 20,
+      "discountAmount": 30,
+      "total": 118,
+      "status": "ORDERED",
+      "items": [
+        {
+          "crackerId": "kc-cha-027",
+          "name": "Ashoka Chakkra",
+          "price": 37,
+          "originalPrice": 85,
+          "itemCode": "#KC1027",
+          "piecesContent": "10 Pcs",
+          "quantity": 4
+        }
+      ],
+      "createdAt": "2026-10-09T15:01:11.859Z",
+      "updatedAt": "2026-10-09T15:01:11.859Z"
+    },
     {
       "id": "ord-musn04if-dhwk",
       "orderNumber": "KC-2026-0001",

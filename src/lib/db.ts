@@ -120,27 +120,35 @@ export async function getCrackers(availableOnly = false): Promise<Cracker[]> {
     const snapshot = await getDocs(q);
     if (!snapshot.empty) {
       const firestoreItems: Cracker[] = [];
-      const firestoreIds = new Set<string>();
+      const firestoreMap = new Map<string, any>();
       snapshot.forEach((d) => {
-        const item = { id: d.id, ...(d.data() as any) } as Cracker;
-        firestoreItems.push(item);
-        firestoreIds.add(item.id);
+        firestoreMap.set(d.id, { id: d.id, ...d.data() });
       });
 
-      // Also ensure any items in local store (like newly added Gift Boxes, Wala) are merged and seeded
-      let hasMissing = false;
-      for (const localItem of store.crackers) {
-        if (!firestoreIds.has(localItem.id)) {
-          firestoreItems.push(localItem);
-          hasMissing = true;
-          // Seed missing item to Firestore asynchronously in background
-          setDoc(doc(db, 'crackers', localItem.id), localItem).catch(() => {});
+      // Build catalog using store's exact sequence and itemCode (KC001, KC002, ...)
+      const fullList: Cracker[] = store.crackers.map((localItem) => {
+        const remote = firestoreMap.get(localItem.id);
+        if (remote) {
+          return {
+            ...localItem,
+            ...remote,
+            // Keep clean sequential KC001... code
+            itemCode: localItem.itemCode || remote.itemCode,
+          };
         }
-      }
+        return localItem;
+      });
+
+      // Include any extra remote documents not in local store
+      firestoreMap.forEach((remote, id) => {
+        if (!store.crackers.some((c) => c.id === id)) {
+          fullList.push(remote as Cracker);
+        }
+      });
 
       return availableOnly
-        ? firestoreItems.filter((c) => c.isAvailable)
-        : firestoreItems;
+        ? fullList.filter((c) => c.isAvailable)
+        : fullList;
     } else {
       // If Firestore collection is empty, seed it with the local store crackers
       for (const cracker of store.crackers) {
