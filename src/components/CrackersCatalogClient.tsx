@@ -293,46 +293,48 @@ export default function CrackersCatalogClient({
         </div>
       </div>
 
-      {/* Category Wise Product Listing - Responsive Table/Cards Layout without CONTENT column */}
+      {/* Category Wise Product Listing - Unified Single Header Table */}
       {Object.keys(groupedByCategory).length > 0 ? (
-        <div className="space-y-6">
-          {Object.entries(groupedByCategory).map(([categoryName, categoryCrackers]) => (
-            <div
-              key={categoryName}
-              className="bg-white rounded-2xl sm:rounded-3xl border-2 border-red-100 shadow-xs overflow-hidden"
-            >
-              {/* Category Header Row - Karadi Red & Gold Theme */}
-              <div className="py-2.5 sm:py-3.5 px-3.5 sm:px-6 bg-[#D40000] text-white flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
-                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFC400] shadow-sm shrink-0" />
-                  <h2 className="text-xs sm:text-base font-black tracking-wider uppercase text-white truncate">
-                    {categoryName}
-                  </h2>
-                </div>
-                <span className="text-[11px] sm:text-xs font-black bg-[#FFC400] text-gray-950 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-xs shrink-0">
-                  {categoryCrackers.length} {categoryCrackers.length === 1 ? 'item' : 'items'}
-                </span>
-              </div>
+        <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-red-100 shadow-xs overflow-hidden">
+          {/* Desktop / Tablet: One single unified table with ONE header row at the top */}
+          <div className="hidden sm:block overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                {showPricing ? (
+                  <tr className="bg-gray-100/90 text-gray-700 text-[11px] font-black uppercase tracking-wider border-b border-gray-200">
+                    <th className="py-2.5 px-4 sm:px-6">PRODUCT NAME</th>
+                    <th className="py-2.5 px-4 text-center w-36">UNIT PRICE</th>
+                    <th className="py-2.5 px-4 text-center w-40">QUANTITY</th>
+                    <th className="py-2.5 px-4 sm:px-6 text-right w-32">TOTAL</th>
+                  </tr>
+                ) : (
+                  <tr className="bg-gray-100/90 text-gray-700 text-[11px] font-black uppercase tracking-wider border-b border-gray-200">
+                    <th className="py-2.5 px-4 sm:px-6">PRODUCT NAME</th>
+                    <th className="py-2.5 px-4 text-center w-44">QUANTITY</th>
+                  </tr>
+                )}
+              </thead>
+              <tbody className="divide-y divide-gray-100 text-xs sm:text-sm">
+                {Object.entries(groupedByCategory).map(([categoryName, categoryCrackers]) => (
+                  <React.Fragment key={categoryName}>
+                    {/* Category Divider Banner (Slim, compact row) */}
+                    <tr className="bg-[#D40000] text-white">
+                      <td colSpan={showPricing ? 4 : 2} className="py-1.5 px-4 sm:px-6">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span className="w-2 h-2 rounded-full bg-[#FFC400] shrink-0" />
+                            <span className="text-xs sm:text-sm font-black tracking-wider uppercase text-white truncate">
+                              {categoryName}
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-black bg-[#FFC400] text-gray-950 px-2 py-0.5 rounded-full shadow-xs shrink-0">
+                            {categoryCrackers.length} {categoryCrackers.length === 1 ? 'item' : 'items'}
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
 
-              {/* Desktop / Tablet Table View (hidden on small screens < sm) */}
-              <div className="hidden sm:block overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    {showPricing ? (
-                      <tr className="bg-gray-100/90 text-gray-700 text-[11px] font-black uppercase tracking-wider border-b border-gray-200">
-                        <th className="py-2.5 px-4 sm:px-6">PRODUCT NAME</th>
-                        <th className="py-2.5 px-4 text-center w-36">UNIT PRICE</th>
-                        <th className="py-2.5 px-4 text-center w-40">QUANTITY</th>
-                        <th className="py-2.5 px-4 sm:px-6 text-right w-32">TOTAL</th>
-                      </tr>
-                    ) : (
-                      <tr className="bg-gray-100/90 text-gray-700 text-[11px] font-black uppercase tracking-wider border-b border-gray-200">
-                        <th className="py-2.5 px-4 sm:px-6">PRODUCT NAME</th>
-                        <th className="py-2.5 px-4 text-center w-44">QUANTITY</th>
-                      </tr>
-                    )}
-                  </thead>
-                  <tbody className="divide-y divide-gray-100 text-xs sm:text-sm">
+                    {/* Crackers in this category */}
                     {categoryCrackers.map((cracker) => {
                       const qty = getItemCartQty(cracker.id);
                       const lineTotal = cracker.price * qty;
@@ -345,12 +347,12 @@ export default function CrackersCatalogClient({
                           }`}
                         >
                           {/* Product Name with Subtle Item Code and Content Below */}
-                          <td className="py-3 px-4 sm:px-6 align-middle">
+                          <td className="py-2.5 sm:py-3 px-4 sm:px-6 align-middle">
                             <div>
-                              <h3 className="font-extrabold text-gray-900 uppercase tracking-tight text-xs sm:text-sm leading-snug">
+                              <h3 className="font-bold text-gray-900 text-xs sm:text-sm leading-normal">
                                 {cracker.name}
                               </h3>
-                              <div className="flex items-center gap-2 mt-0.5">
+                              <div className="flex items-center gap-2 mt-1">
                                 {cracker.itemCode && (
                                   <span className="font-mono text-[10px] font-semibold text-gray-400 tracking-wide">
                                     {cracker.itemCode}
@@ -367,7 +369,7 @@ export default function CrackersCatalogClient({
 
                           {/* Unit Price (Only if showPricing is ON) */}
                           {showPricing && (
-                            <td className="py-3 px-4 text-center align-middle whitespace-nowrap">
+                            <td className="py-2 sm:py-2.5 px-4 text-center align-middle whitespace-nowrap">
                               <div className="flex flex-col items-center">
                                 <span className="text-sm sm:text-base font-black text-[#D40000] font-rupee">
                                   ₹{cracker.price}
@@ -382,8 +384,8 @@ export default function CrackersCatalogClient({
                           )}
 
                           {/* Quantity Stepper */}
-                          <td className="py-3 px-4 text-center align-middle whitespace-nowrap">
-                            <div className="inline-flex items-center bg-gray-50 border border-gray-300 rounded-xl p-0.5 sm:p-1 shadow-2xs">
+                          <td className="py-2 sm:py-2.5 px-4 text-center align-middle whitespace-nowrap">
+                            <div className="inline-flex items-center bg-gray-50 border border-gray-300 rounded-xl p-0.5 shadow-2xs">
                               <button
                                 type="button"
                                 onClick={() => handleQtyChange(cracker, -1)}
@@ -417,7 +419,7 @@ export default function CrackersCatalogClient({
 
                           {/* Line Total (Only if showPricing is ON) */}
                           {showPricing && (
-                            <td className="py-3 px-4 sm:px-6 text-right align-middle whitespace-nowrap">
+                            <td className="py-2 sm:py-2.5 px-4 sm:px-6 text-right align-middle whitespace-nowrap">
                               <span
                                 className={`text-xs sm:text-sm font-black font-rupee ${
                                   qty > 0 ? 'text-[#D40000]' : 'text-gray-400'
@@ -430,109 +432,128 @@ export default function CrackersCatalogClient({
                         </tr>
                       );
                     })}
-                  </tbody>
-                </table>
-              </div>
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-              {/* Mobile Single-Line Row View (Optimized for 320px - 640px screens) */}
-              <div className="block sm:hidden divide-y divide-gray-100">
-                {categoryCrackers.map((cracker) => {
-                  const qty = getItemCartQty(cracker.id);
-                  const lineTotal = cracker.price * qty;
+          {/* Mobile Single-Line Row View (Optimized for 320px - 640px screens) */}
+          <div className="block sm:hidden divide-y divide-gray-100">
+            {Object.entries(groupedByCategory).map(([categoryName, categoryCrackers]) => (
+              <div key={categoryName}>
+                {/* Slim Category Divider */}
+                <div className="py-1 px-3 bg-[#D40000] text-white flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <span className="w-2 h-2 rounded-full bg-[#FFC400] shrink-0" />
+                    <span className="text-[11px] font-black uppercase tracking-wider text-white truncate">
+                      {categoryName}
+                    </span>
+                  </div>
+                  <span className="text-[9px] font-black bg-[#FFC400] text-gray-950 px-2 py-0.2 rounded-full shrink-0">
+                    {categoryCrackers.length} {categoryCrackers.length === 1 ? 'item' : 'items'}
+                  </span>
+                </div>
 
-                  return (
-                    <div
-                      key={cracker.id}
-                      className={`px-3 py-2.5 flex items-center justify-between gap-2 transition-colors ${
-                        qty > 0 ? 'bg-amber-50/40' : 'bg-white'
-                      }`}
-                    >
-                      {/* Left: Product Name with Subtle Item Code & Content Below */}
-                      <div className="min-w-0 flex-1 pr-1.5">
-                        <h3 className="font-extrabold text-gray-900 uppercase tracking-tight text-[11px] sm:text-xs leading-snug break-words">
-                          {cracker.name}
-                        </h3>
-                        <div className="flex items-center gap-1.5 mt-0.5">
-                          {cracker.itemCode && (
-                            <span className="font-mono text-[9px] font-semibold text-gray-400 tracking-wide leading-none">
-                              {cracker.itemCode}
-                            </span>
-                          )}
-                          {cracker.piecesContent && (
-                            <span className="font-mono text-[9px] font-semibold text-gray-400 tracking-wide leading-none before:content-['•'] before:mr-1.5 before:text-gray-300">
-                              {cracker.piecesContent}
-                            </span>
-                          )}
-                        </div>
-                      </div>
+                <div className="divide-y divide-gray-100">
+                  {categoryCrackers.map((cracker) => {
+                    const qty = getItemCartQty(cracker.id);
+                    const lineTotal = cracker.price * qty;
 
-                      {/* Right: Price + Stepper + Line Total in Single Line */}
-                      <div className="flex items-center gap-2 shrink-0">
-                        {/* Unit Price (Only if showPricing is enabled) */}
-                        {showPricing && (
-                          <div className="text-right leading-none shrink-0 w-10">
-                            <span className="text-xs font-black text-[#D40000] block font-rupee">
-                              ₹{cracker.price}
-                            </span>
-                            {cracker.originalPrice && cracker.originalPrice > cracker.price && (
-                              <span className="text-[9px] text-gray-400 line-through block mt-0.5 font-rupee">
-                                ₹{cracker.originalPrice}
+                    return (
+                      <div
+                        key={cracker.id}
+                        className={`px-3 py-2 flex items-center justify-between gap-2 transition-colors ${
+                          qty > 0 ? 'bg-amber-50/40' : 'bg-white'
+                        }`}
+                      >
+                        {/* Left: Product Name with Subtle Item Code & Content Below */}
+                        <div className="min-w-0 flex-1 pr-1.5">
+                          <h3 className="font-bold text-gray-900 text-xs leading-normal break-words">
+                            {cracker.name}
+                          </h3>
+                          <div className="flex items-center gap-1.5 mt-1">
+                            {cracker.itemCode && (
+                              <span className="font-mono text-[9px] font-semibold text-gray-400 tracking-wide leading-none">
+                                {cracker.itemCode}
+                              </span>
+                            )}
+                            {cracker.piecesContent && (
+                              <span className="font-mono text-[9px] font-semibold text-gray-400 tracking-wide leading-none before:content-['•'] before:mr-1.5 before:text-gray-300">
+                                {cracker.piecesContent}
                               </span>
                             )}
                           </div>
-                        )}
-
-                        {/* Quantity Stepper */}
-                        <div className="inline-flex items-center bg-gray-50 border border-gray-300 rounded-lg p-0.5 shadow-2xs shrink-0">
-                          <button
-                            type="button"
-                            onClick={() => handleQtyChange(cracker, -1)}
-                            disabled={qty <= 0}
-                            suppressHydrationWarning
-                            className="w-6 h-6 rounded-md bg-white text-gray-700 hover:text-red-600 hover:bg-red-50 flex items-center justify-center font-bold text-xs transition-colors disabled:opacity-25 disabled:cursor-not-allowed shadow-xs cursor-pointer active:scale-90"
-                            aria-label="Decrease quantity"
-                          >
-                            <Minus className="w-2.5 h-2.5" />
-                          </button>
-                          <input
-                            type="number"
-                            min="0"
-                            value={qty === 0 ? '' : qty}
-                            placeholder="0"
-                            onChange={(e) => handleDirectInput(cracker, e.target.value)}
-                            suppressHydrationWarning
-                            className="w-7 text-center font-black text-xs text-gray-900 bg-transparent focus:outline-none"
-                          />
-                          <button
-                            type="button"
-                            onClick={() => handleQtyChange(cracker, 1)}
-                            suppressHydrationWarning
-                            className="w-6 h-6 rounded-md bg-[#FFC400] text-black hover:bg-[#FFE082] flex items-center justify-center font-black text-xs transition-colors shadow-xs cursor-pointer active:scale-90"
-                            aria-label="Increase quantity"
-                          >
-                            <Plus className="w-2.5 h-2.5" />
-                          </button>
                         </div>
 
-                        {/* Inline Line Total (Shown if pricing is enabled) */}
-                        {showPricing && (
-                          <div className="text-right leading-none shrink-0 w-11">
-                            <span
-                              className={`text-xs font-black block font-rupee ${
-                                qty > 0 ? 'text-[#D40000]' : 'text-gray-400'
-                              }`}
+                        {/* Right: Price + Stepper + Line Total in Single Line */}
+                        <div className="flex items-center gap-2 shrink-0">
+                          {/* Unit Price (Only if showPricing is enabled) */}
+                          {showPricing && (
+                            <div className="text-right leading-none shrink-0 w-10">
+                              <span className="text-xs font-black text-[#D40000] block font-rupee">
+                                ₹{cracker.price}
+                              </span>
+                              {cracker.originalPrice && cracker.originalPrice > cracker.price && (
+                                <span className="text-[9px] text-gray-400 line-through block mt-0.5 font-rupee">
+                                  ₹{cracker.originalPrice}
+                                </span>
+                              )}
+                            </div>
+                          )}
+
+                          {/* Quantity Stepper */}
+                          <div className="inline-flex items-center bg-gray-50 border border-gray-300 rounded-lg p-0.5 shadow-2xs shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => handleQtyChange(cracker, -1)}
+                              disabled={qty <= 0}
+                              suppressHydrationWarning
+                              className="w-6 h-6 rounded-md bg-white text-gray-700 hover:text-red-600 hover:bg-red-50 flex items-center justify-center font-bold text-xs transition-colors disabled:opacity-25 disabled:cursor-not-allowed shadow-xs cursor-pointer active:scale-90"
+                              aria-label="Decrease quantity"
                             >
-                              ₹{lineTotal}
-                            </span>
+                              <Minus className="w-2.5 h-2.5" />
+                            </button>
+                            <input
+                              type="number"
+                              min="0"
+                              value={qty === 0 ? '' : qty}
+                              placeholder="0"
+                              onChange={(e) => handleDirectInput(cracker, e.target.value)}
+                              suppressHydrationWarning
+                              className="w-7 text-center font-black text-xs text-gray-900 bg-transparent focus:outline-none"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => handleQtyChange(cracker, 1)}
+                              suppressHydrationWarning
+                              className="w-6 h-6 rounded-md bg-[#FFC400] text-black hover:bg-[#FFE082] flex items-center justify-center font-black text-xs transition-colors shadow-xs cursor-pointer active:scale-90"
+                              aria-label="Increase quantity"
+                            >
+                              <Plus className="w-2.5 h-2.5" />
+                            </button>
                           </div>
-                        )}
+
+                          {/* Inline Line Total (Shown if pricing is enabled) */}
+                          {showPricing && (
+                            <div className="text-right leading-none shrink-0 w-11">
+                              <span
+                                className={`text-xs font-black block font-rupee ${
+                                  qty > 0 ? 'text-[#D40000]' : 'text-gray-400'
+                                }`}
+                              >
+                                ₹{lineTotal}
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       ) : (
         <div className="bg-white rounded-3xl p-8 sm:p-12 text-center border-2 border-dashed border-gray-200 my-8">

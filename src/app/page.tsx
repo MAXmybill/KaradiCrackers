@@ -27,7 +27,7 @@ export default async function HomePage() {
                 <span>Diwali 2026 Cracker Booking is Live</span>
               </div>
 
-              <h1 className="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#FFC400] drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)] leading-tight">
+              <h1 className="text-3xl sm:text-6xl lg:text-7xl font-extrabold text-[#FFC400] drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)] leading-tight">
                 LIGHT UP YOUR DIWALI!
               </h1>
 
@@ -97,7 +97,7 @@ export default async function HomePage() {
             <span className="text-xs font-black uppercase tracking-wider text-[#D40000] bg-red-50 px-3.5 py-1.5 rounded-full border border-red-200">
               Simple 4-Step Process
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-950 mt-3 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-950 mt-3">
               HOW IT WORKS
             </h2>
             <p className="mt-2 text-gray-600 text-base">

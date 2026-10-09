@@ -7,16 +7,27 @@
     --brand-yellow: #FFC400;
     --brand-yellow-light: #FFE082;
     --brand-yellow-dark: #FFA000;
+    --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  html,
+  body {
+    font-family: var(--font-helvetica);
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Crisp & Official Indian Rupee Font Fallback (Segoe UI, Inter, Roboto, Arial) */
+/* Crisp & Official Indian Rupee Font Fallback (Helvetica, Arial, sans-serif) */
 .font-rupee,
 .currency-inr {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-feature-settings: "cv05", "cv08", "cv10";
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
 }
 
 /* Festive Sunburst Ray Background Pattern */

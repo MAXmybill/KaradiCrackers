@@ -600,7 +600,7 @@ export default function ManageCrackersClient({
                         {/* Name with Subtle Item Code and Content Below */}
                         <td className="py-3 px-3 sm:px-4">
                           <div>
-                            <p className="font-extrabold text-gray-900 text-xs sm:text-sm">
+                            <p className="font-bold text-gray-900 text-xs sm:text-sm leading-normal">
                               {cracker.name}
                             </p>
                             <div className="flex items-center gap-1.5 mt-0.5">

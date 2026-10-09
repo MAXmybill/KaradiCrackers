@@ -22,7 +22,7 @@ export default async function CrackersPage() {
               <Sparkles className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 text-[#FFC400]" />
               <span>Diwali 2026 Price List</span>
             </div>
-            <h1 className="text-lg sm:text-4xl font-extrabold text-gray-950 tracking-tight leading-tight truncate">
+            <h1 className="text-lg sm:text-4xl font-extrabold text-gray-950 leading-tight truncate">
               CRACKERS CATALOG
             </h1>
             <p className="hidden sm:block text-xs sm:text-sm text-gray-600 mt-1">
@@ -50,7 +50,7 @@ export default async function CrackersPage() {
                   <span className="text-[9px] sm:text-[10px] font-black uppercase text-amber-200 hidden sm:block">
                     Diwali Special
                   </span>
-                  <span className="text-xs sm:text-xl font-black text-[#FFC400] tracking-tight block mt-0.5">
+                  <span className="text-xs sm:text-xl font-black text-[#FFC400] block mt-0.5 font-rupee">
                     {settings.discountPercentage}% OFF
                   </span>
                 </div>

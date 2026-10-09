@@ -41,7 +41,7 @@ export default function Header() {
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-1">
-              <span className="font-extrabold text-base sm:text-2xl md:text-3xl tracking-tight text-[#FFC400] drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] truncate">
+              <span className="font-extrabold text-base sm:text-2xl md:text-3xl text-[#FFC400] drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] truncate">
                 KARADI CRACKERS
               </span>
             </div>
