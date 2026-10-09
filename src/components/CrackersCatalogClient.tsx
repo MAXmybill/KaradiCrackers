@@ -23,6 +23,7 @@ import { toast } from 'sonner';
 interface CrackersCatalogClientProps {
   initialCrackers: Cracker[];
   settings: StoreSettings;
+  forceShowPricing?: boolean;
 }
 
 const SYNC_INTERVAL_SECONDS = 120; // Auto-syncs every 2 minutes
@@ -30,6 +31,7 @@ const SYNC_INTERVAL_SECONDS = 120; // Auto-syncs every 2 minutes
 export default function CrackersCatalogClient({
   initialCrackers,
   settings: initialSettings,
+  forceShowPricing = false,
 }: CrackersCatalogClientProps) {
   const [crackersList, setCrackersList] = useState<Cracker[]>(initialCrackers);
   const [currentSettings, setCurrentSettings] = useState<StoreSettings>(initialSettings);
@@ -46,7 +48,7 @@ export default function CrackersCatalogClient({
   const { items, addItem, updateQuantity, removeItem, getTotalAmount, getTotalItems } =
     useCartStore();
 
-  const showPricing = currentSettings?.showPricing ?? true;
+  const showPricing = forceShowPricing ? true : (currentSettings?.showPricing ?? true);
   const discountPercentage = currentSettings?.discountPercentage ?? 20;
 
   // Close dropdown on click outside

@@ -53,12 +53,19 @@ export default function Header() {
         </Link>
 
         {/* Navigation links & Cart */}
-        <div className="flex items-center gap-1.5 sm:gap-6 shrink-0">
+        <div className="flex items-center gap-1 sm:gap-3 shrink-0">
           <Link
             href="/crackers"
-            className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-white hover:text-[#FFC400] transition-colors py-1 px-2 sm:px-3 rounded-lg hover:bg-black/10"
+            className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-white hover:text-[#FFC400] transition-colors py-1 px-2 sm:px-2.5 rounded-lg hover:bg-black/10"
           >
             <span>Catalog</span>
+          </Link>
+
+          <Link
+            href="/online"
+            className="inline-flex items-center gap-1 text-xs sm:text-sm font-black text-amber-200 hover:text-white transition-colors py-1 px-2 sm:px-2.5 rounded-lg hover:bg-black/10 border border-amber-300/40"
+          >
+            <span>Online</span>
           </Link>
 
           {/* Cart Icon Button */}

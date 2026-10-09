@@ -17,9 +17,10 @@ export default function FloatingCart() {
 
   if (!mounted) return null;
 
-  // Do not show on crackers catalog (has its own sticky billing bar), cart, checkout, order confirmation, or admin pages
+  // Do not show on crackers catalog or online catalog (have their own sticky bottom bar), cart, checkout, order confirmation, or admin pages
   if (
     pathname?.startsWith('/crackers') ||
+    pathname?.startsWith('/online') ||
     pathname?.startsWith('/cart') ||
     pathname?.startsWith('/checkout') ||
     pathname?.startsWith('/order') ||

@@ -54,7 +54,7 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
         <Footer />
         <FloatingCart />
-        <Toaster richColors position="top-right" />
+        <Toaster richColors position="bottom-right" offset="80px" />
       </body>
     </html>
   );
