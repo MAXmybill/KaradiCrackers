@@ -321,6 +321,29 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     });
   }
 
+  // Extra Counter Discount if applied
+  if (order.extraDiscountAmount && order.extraDiscountAmount > 0) {
+    currentY -= 15;
+    const extraLabel =
+      order.extraDiscountType === 'percentage'
+        ? `COUNTER EXTRA (${order.extraDiscountValue}%):`
+        : 'COUNTER EXTRA DISC:';
+    page.drawText(extraLabel, {
+      x: width - 240,
+      y: currentY,
+      size: 9,
+      font: fontRegular,
+      color: rgb(0.1, 0.6, 0.2),
+    });
+    page.drawText(`- Rs. ${Number(order.extraDiscountAmount).toFixed(2)}`, {
+      x: width - 130,
+      y: currentY,
+      size: 9,
+      font: fontBold,
+      color: rgb(0.1, 0.6, 0.2),
+    });
+  }
+
   // Grand Total Box
   currentY -= 15;
   page.drawRectangle({

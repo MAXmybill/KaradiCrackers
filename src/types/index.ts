@@ -41,6 +41,10 @@ export interface Order {
   discountPercentage: number;
   discountAmount: number;
   total: number; // Final total after discount
+  originalTotal?: number; // Pre-counter discount total
+  extraDiscountType?: 'flat' | 'percentage';
+  extraDiscountValue?: number;
+  extraDiscountAmount?: number;
   status: OrderStatus;
   items: OrderItem[];
   createdAt: string;

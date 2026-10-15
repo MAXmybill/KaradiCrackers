@@ -465,7 +465,16 @@ export async function createOrder(data: {
   return { success: true, order };
 }
 
-export async function updateOrderStatus(orderId: string, status: OrderStatus): Promise<Order | null> {
+export async function updateOrderStatus(
+  orderId: string,
+  status: OrderStatus,
+  extraDiscount?: {
+    type?: 'flat' | 'percentage';
+    value?: number;
+    amount?: number;
+    finalTotal?: number;
+  }
+): Promise<Order | null> {
   const store = loadLocalStore();
   const order = store.orders.find((o) => o.id === orderId) || (await getOrders()).find((o) => o.id === orderId);
   if (!order) return null;
@@ -474,6 +483,21 @@ export async function updateOrderStatus(orderId: string, status: OrderStatus): P
   order.status = status;
   order.updatedAt = now;
 
+  if (extraDiscount && typeof extraDiscount.finalTotal === 'number') {
+    if (order.originalTotal === undefined) {
+      order.originalTotal = order.total;
+    }
+    order.extraDiscountType = extraDiscount.type;
+    order.extraDiscountValue = extraDiscount.value;
+    order.extraDiscountAmount = extraDiscount.amount;
+    order.total = Math.max(0, Math.round(extraDiscount.finalTotal));
+  } else if (status === 'ORDERED' && order.originalTotal !== undefined) {
+    order.total = order.originalTotal;
+    delete order.extraDiscountType;
+    delete order.extraDiscountValue;
+    delete order.extraDiscountAmount;
+  }
+
   const idx = store.orders.findIndex((o) => o.id === orderId);
   if (idx !== -1) {
     store.orders[idx] = order;
@@ -481,13 +505,9 @@ export async function updateOrderStatus(orderId: string, status: OrderStatus): P
   }
 
   try {
-    await updateDoc(doc(db, 'orders', orderId), { status, updatedAt: now });
+    await setDoc(doc(db, 'orders', orderId), order, { merge: true });
   } catch (err) {
-    try {
-      await setDoc(doc(db, 'orders', orderId), order, { merge: true });
-    } catch (e) {
-      console.warn('Firestore update order status error:', e);
-    }
+    console.warn('Firestore update order status error:', err);
   }
 
   return order;

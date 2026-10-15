@@ -9,13 +9,13 @@ export async function PATCH(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { status } = body;
+    const { status, extraDiscount } = body;
 
     if (!['ORDERED', 'DELIVERED'].includes(status)) {
       return NextResponse.json({ success: false, error: 'Invalid order status' }, { status: 400 });
     }
 
-    const updated = await updateOrderStatus(id, status as OrderStatus);
+    const updated = await updateOrderStatus(id, status as OrderStatus, extraDiscount);
     if (!updated) {
       return NextResponse.json({ success: false, error: 'Order not found' }, { status: 404 });
     }
