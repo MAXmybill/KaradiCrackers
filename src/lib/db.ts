@@ -276,30 +276,35 @@ export async function deleteCracker(id: string): Promise<boolean> {
 
 export async function bulkUpdateCrackerPrices(
   percentage: number,
-  type: 'increase' | 'decrease'
+  type: 'increase' | 'decrease',
+  selectedCategories?: string[]
 ): Promise<{ count: number; crackers: Cracker[] }> {
   const store = loadLocalStore();
   const now = new Date().toISOString();
   const factor = type === 'increase' ? 1 + percentage / 100 : Math.max(0.01, 1 - percentage / 100);
 
-  const updatedCrackers = store.crackers.map((c) => {
-    let newPrice = Math.round(c.price * factor);
-    if (newPrice < 1) newPrice = 1;
+  const categorySet = selectedCategories && selectedCategories.length > 0 
+    ? new Set(selectedCategories.map((c) => c.trim().toUpperCase())) 
+    : null;
 
-    let newOriginalPrice = c.originalPrice;
-    if (newOriginalPrice) {
-      newOriginalPrice = Math.round(newOriginalPrice * factor);
-      if (newOriginalPrice < newPrice) {
-        newOriginalPrice = Math.round(newPrice * 2);
-      }
+  let updatedCount = 0;
+  const updatedCrackers = store.crackers.map((c) => {
+    const crackerCat = (c.category || '').trim().toUpperCase();
+    const shouldUpdate = !categorySet || categorySet.has(crackerCat);
+
+    if (shouldUpdate) {
+      let newPrice = Math.round(c.price * factor);
+      if (newPrice < 1) newPrice = 1;
+      updatedCount++;
+
+      return {
+        ...c,
+        price: newPrice, // Update ONLY selling price
+        updatedAt: now,
+      };
     }
 
-    return {
-      ...c,
-      price: newPrice,
-      originalPrice: newOriginalPrice,
-      updatedAt: now,
-    };
+    return c;
   });
 
   store.crackers = updatedCrackers;
@@ -310,15 +315,18 @@ export async function bulkUpdateCrackerPrices(
     let batch = writeBatch(db);
     let count = 0;
     for (const c of updatedCrackers) {
-      batch.update(doc(db, 'crackers', c.id), {
-        price: c.price,
-        originalPrice: c.originalPrice,
-        updatedAt: now,
-      });
-      count++;
-      if (count % 400 === 0) {
-        await batch.commit();
-        batch = writeBatch(db);
+      const crackerCat = (c.category || '').trim().toUpperCase();
+      const shouldUpdate = !categorySet || categorySet.has(crackerCat);
+      if (shouldUpdate) {
+        batch.update(doc(db, 'crackers', c.id), {
+          price: c.price,
+          updatedAt: now,
+        });
+        count++;
+        if (count % 400 === 0) {
+          await batch.commit();
+          batch = writeBatch(db);
+        }
       }
     }
     if (count % 400 !== 0) {
@@ -328,7 +336,7 @@ export async function bulkUpdateCrackerPrices(
     console.warn('Firestore bulk price update error:', err);
   }
 
-  return { count: updatedCrackers.length, crackers: updatedCrackers };
+  return { count: updatedCount, crackers: updatedCrackers };
 }
 
 // -------------------------------------------------------------

@@ -44,6 +44,70 @@ export default function ManageCrackersClient({
   const [bulkPercent, setBulkPercent] = useState<string>('10');
   const [bulkLoading, setBulkLoading] = useState(false);
   const [bulkConfirmAction, setBulkConfirmAction] = useState<'increase' | 'decrease' | null>(null);
+  const [selectedBulkCategories, setSelectedBulkCategories] = useState<string[]>([]);
+
+  // Open Bulk Price Confirm Dialog (White Custom Modal) with all categories checked by default
+  const openBulkConfirm = (action: 'increase' | 'decrease') => {
+    const pct = parseFloat(bulkPercent);
+    if (isNaN(pct) || pct <= 0) {
+      toast.error('Please enter a valid percentage greater than 0');
+      return;
+    }
+    // By default, select all existing categories
+    setSelectedBulkCategories([...existingCategories]);
+    setBulkConfirmAction(action);
+  };
+
+  const toggleBulkCategory = (category: string) => {
+    setSelectedBulkCategories((prev) =>
+      prev.includes(category) ? prev.filter((c) => c !== category) : [...prev, category]
+    );
+  };
+
+  const selectAllBulkCategories = () => {
+    if (selectedBulkCategories.length === existingCategories.length) {
+      setSelectedBulkCategories([]);
+    } else {
+      setSelectedBulkCategories([...existingCategories]);
+    }
+  };
+
+  // Execute confirmed bulk adjustment
+  const executeBulkPriceAdjust = async () => {
+    if (!bulkConfirmAction) return;
+    if (selectedBulkCategories.length === 0) {
+      toast.error('Please select at least one category to update');
+      return;
+    }
+    const action = bulkConfirmAction;
+    const pct = parseFloat(bulkPercent);
+    const actionText = action === 'increase' ? 'increase' : 'decrease';
+
+    setBulkLoading(true);
+    try {
+      const res = await fetch('/api/admin/crackers/bulk-price', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          percentage: pct,
+          action,
+          categories: selectedBulkCategories,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.error);
+
+      if (data.crackers && Array.isArray(data.crackers)) {
+        setCrackers(data.crackers);
+      }
+      toast.success(data.message || `Selling prices ${actionText}d by ${pct}%!`);
+      setBulkConfirmAction(null);
+    } catch (err: any) {
+      toast.error(err.message || 'Failed to adjust prices');
+    } finally {
+      setBulkLoading(false);
+    }
+  };
 
   // Store Settings (Pricing Visibility & Discount Percentage)
   const [settings, setSettings] = useState<StoreSettings>(
@@ -142,45 +206,6 @@ export default function ManageCrackersClient({
       toast.error(err.message || 'Failed to update discount');
     } finally {
       setSavingSettings(false);
-    }
-  };
-
-  // Open Bulk Price Confirm Dialog (White Custom Modal)
-  const openBulkConfirm = (action: 'increase' | 'decrease') => {
-    const pct = parseFloat(bulkPercent);
-    if (isNaN(pct) || pct <= 0) {
-      toast.error('Please enter a valid percentage greater than 0');
-      return;
-    }
-    setBulkConfirmAction(action);
-  };
-
-  // Execute confirmed bulk adjustment
-  const executeBulkPriceAdjust = async () => {
-    if (!bulkConfirmAction) return;
-    const action = bulkConfirmAction;
-    const pct = parseFloat(bulkPercent);
-    const actionText = action === 'increase' ? 'increase' : 'decrease';
-
-    setBulkLoading(true);
-    try {
-      const res = await fetch('/api/admin/crackers/bulk-price', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ percentage: pct, action }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.error);
-
-      if (data.crackers && Array.isArray(data.crackers)) {
-        setCrackers(data.crackers);
-      }
-      toast.success(data.message || `All product prices ${actionText}d by ${pct}%!`);
-      setBulkConfirmAction(null);
-    } catch (err: any) {
-      toast.error(err.message || 'Failed to adjust prices');
-    } finally {
-      setBulkLoading(false);
     }
   };
 
@@ -944,65 +969,124 @@ export default function ManageCrackersClient({
 
         {/* Bulk Price Adjustment Confirmation Dialog (White Custom Modal) */}
         {bulkConfirmAction && (
-          <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-            <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 border-2 border-[#FFC400] shadow-2xl text-center animate-in zoom-in-95 duration-200">
+          <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
+            <div className="bg-white rounded-3xl max-w-lg w-full p-5 sm:p-7 border-2 border-[#FFC400] shadow-2xl animate-in zoom-in-95 duration-200 relative overflow-hidden">
+              {/* Full Loading Overlay during bulk update */}
+              {bulkLoading && (
+                <div className="absolute inset-0 bg-white/95 backdrop-blur-xs z-20 flex flex-col items-center justify-center p-6 text-center animate-in fade-in duration-150">
+                  <div className="w-14 h-14 rounded-2xl bg-amber-100 text-[#D40000] flex items-center justify-center mb-3 shadow-inner">
+                    <Loader2 className="w-8 h-8 animate-spin" />
+                  </div>
+                  <h4 className="text-base sm:text-lg font-black text-gray-950 mb-1">
+                    Updating Product Selling Prices...
+                  </h4>
+                  <p className="text-xs text-gray-600 max-w-xs">
+                    Please wait while selling prices are updated in Firestore and the local database.
+                  </p>
+                </div>
+              )}
+
               <div
-                className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-xs ${
                   bulkConfirmAction === 'increase'
                     ? 'bg-emerald-50 text-emerald-600 border border-emerald-200'
                     : 'bg-red-50 text-[#D40000] border border-red-200'
                 }`}
               >
                 {bulkConfirmAction === 'increase' ? (
-                  <TrendingUp className="w-7 h-7" />
+                  <TrendingUp className="w-6 h-6" />
                 ) : (
-                  <TrendingDown className="w-7 h-7" />
+                  <TrendingDown className="w-6 h-6" />
                 )}
               </div>
 
-              <h4 className="text-xl font-black text-gray-950 mb-2">
-                {bulkConfirmAction === 'increase' ? 'Increase All Prices?' : 'Decrease All Prices?'}
+              <h4 className="text-lg sm:text-xl font-black text-gray-950 text-center mb-1">
+                {bulkConfirmAction === 'increase' ? 'Increase Selling Prices' : 'Decrease Selling Prices'}
               </h4>
 
-              <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-                Are you sure you want to{' '}
-                <span
-                  className={`font-black uppercase ${
-                    bulkConfirmAction === 'increase' ? 'text-emerald-700' : 'text-[#D40000]'
-                  }`}
-                >
-                  {bulkConfirmAction}
-                </span>{' '}
-                the selling prices of all{' '}
-                <span className="font-extrabold text-gray-900">{crackers.length} products</span> by{' '}
-                <span className="font-black text-gray-950 bg-amber-100 px-2 py-0.5 rounded-md border border-amber-300">
+              <p className="text-xs text-gray-600 text-center mb-4">
+                Update only the selling price by{' '}
+                <span className="font-black text-gray-950 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
                   {bulkPercent}%
                 </span>
-                ? This will update the entire catalog immediately.
+                . Actual (MRP) price remains unchanged.
               </p>
 
-              <div className="flex items-center gap-3 justify-center">
+              {/* Category Checkbox Selection Box */}
+              <div className="mb-5 bg-gray-50 p-3 rounded-2xl border border-gray-200 text-left">
+                <div className="flex items-center justify-between pb-2 mb-2 border-b border-gray-200">
+                  <span className="text-xs font-black text-gray-800 uppercase tracking-wide">
+                    Select Categories ({selectedBulkCategories.length}/{existingCategories.length})
+                  </span>
+                  <button
+                    type="button"
+                    onClick={selectAllBulkCategories}
+                    className="text-xs font-bold text-[#D40000] hover:underline cursor-pointer"
+                  >
+                    {selectedBulkCategories.length === existingCategories.length
+                      ? 'Uncheck All'
+                      : 'Check All'}
+                  </button>
+                </div>
+
+                <div className="max-h-44 overflow-y-auto space-y-1.5 pr-1">
+                  {existingCategories.map((cat) => {
+                    const isChecked = selectedBulkCategories.includes(cat);
+                    const { tamil } = getCategoryDisplayName(cat);
+                    return (
+                      <label
+                        key={cat}
+                        onClick={() => toggleBulkCategory(cat)}
+                        className={`flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl cursor-pointer text-xs font-bold transition-colors ${
+                          isChecked
+                            ? 'bg-amber-100/60 text-gray-900 border border-amber-300/60'
+                            : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100'
+                        }`}
+                      >
+                        <div
+                          className={`w-4 h-4 rounded border flex items-center justify-center transition-colors shrink-0 ${
+                            isChecked
+                              ? 'bg-[#D40000] border-[#D40000] text-white'
+                              : 'border-gray-300 bg-white'
+                          }`}
+                        >
+                          {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                        </div>
+                        <div className="min-w-0 flex items-center gap-1.5 flex-wrap">
+                          <span className="truncate">{cat}</span>
+                          {tamil && (
+                            <span className="text-[10px] text-gray-500 font-normal truncate">
+                              ({tamil})
+                            </span>
+                          )}
+                        </div>
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 justify-end pt-2 border-t">
                 <button
                   type="button"
                   onClick={() => setBulkConfirmAction(null)}
                   disabled={bulkLoading}
-                  className="px-5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm font-bold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-50"
+                  className="px-4 py-2 rounded-xl border border-gray-300 text-xs sm:text-sm font-bold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-50"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={executeBulkPriceAdjust}
-                  disabled={bulkLoading}
-                  className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white text-xs sm:text-sm font-black shadow-md transition-all active:scale-95 cursor-pointer disabled:opacity-50 ${
+                  disabled={bulkLoading || selectedBulkCategories.length === 0}
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white text-xs sm:text-sm font-black shadow-md transition-all active:scale-95 cursor-pointer disabled:opacity-50 ${
                     bulkConfirmAction === 'increase'
                       ? 'bg-emerald-600 hover:bg-emerald-700'
                       : 'bg-[#D40000] hover:bg-[#B00000]'
                   }`}
                 >
-                  {bulkLoading && <Loader2 className="w-4 h-4 animate-spin" />}
                   <span>
-                    Yes, {bulkConfirmAction === 'increase' ? 'Increase' : 'Decrease'} by {bulkPercent}%
+                    Update {selectedBulkCategories.length} Categories ({bulkConfirmAction === 'increase' ? '+' : '-'}{bulkPercent}%)
                   </span>
                 </button>
               </div>

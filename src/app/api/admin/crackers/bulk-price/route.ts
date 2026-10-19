@@ -7,6 +7,7 @@ export const dynamic = 'force-dynamic';
 const bulkPriceSchema = z.object({
   percentage: z.number().min(0.1, 'Percentage must be greater than 0').max(100, 'Percentage cannot exceed 100'),
   action: z.enum(['increase', 'decrease']),
+  categories: z.array(z.string()).optional(),
 });
 
 export async function POST(request: NextRequest) {
@@ -20,8 +21,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { percentage, action } = parsed.data;
-    const result = await bulkUpdateCrackerPrices(percentage, action);
+    const { percentage, action, categories } = parsed.data;
+    const result = await bulkUpdateCrackerPrices(percentage, action, categories);
 
     return NextResponse.json({
       success: true,
