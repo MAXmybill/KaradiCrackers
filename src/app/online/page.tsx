@@ -37,23 +37,23 @@ export default async function OnlineCrackersPage() {
             </p>
           </div>
 
-          {/* Right Badges: Exactly matched size, words only without percentages */}
-          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-            <div className="w-20 sm:w-36 h-10 sm:h-16 bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-1 sm:px-3 py-1 rounded-xl sm:rounded-2xl border-2 border-[#FFC400] shadow-sm flex flex-col items-center justify-center text-center">
-              <span className="text-[8px] sm:text-[11px] font-black uppercase text-amber-200 tracking-wider leading-tight">
-                Diwali Special
+          {/* Right Badges: Identical compact containers with short, punchy words */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            <div className="w-16 sm:w-28 h-8 sm:h-12 bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-1 sm:px-2 py-0.5 rounded-lg sm:rounded-xl border border-[#FFC400] shadow-2xs flex flex-col items-center justify-center text-center">
+              <span className="text-[7.5px] sm:text-[9.5px] font-bold uppercase text-amber-200 tracking-wider leading-none">
+                Diwali
               </span>
-              <span className="text-[9px] sm:text-sm font-black text-[#FFC400] uppercase tracking-wide leading-none mt-0.5 sm:mt-1">
+              <span className="text-[9px] sm:text-xs font-black text-[#FFC400] uppercase tracking-wide leading-tight mt-0.5">
                 Best Offer
               </span>
             </div>
 
-            <div className="w-20 sm:w-36 h-10 sm:h-16 bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-1 sm:px-3 py-1 rounded-xl sm:rounded-2xl border-2 border-[#FFC400] shadow-sm flex flex-col items-center justify-center text-center">
-              <span className="text-[8px] sm:text-[11px] font-black uppercase text-amber-200 tracking-wider leading-tight">
-                Unique Crackers
+            <div className="w-16 sm:w-28 h-8 sm:h-12 bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-1 sm:px-2 py-0.5 rounded-lg sm:rounded-xl border border-[#FFC400] shadow-2xs flex flex-col items-center justify-center text-center">
+              <span className="text-[7.5px] sm:text-[9.5px] font-bold uppercase text-amber-200 tracking-wider leading-none">
+                Sivakasi
               </span>
-              <span className="text-[9px] sm:text-sm font-black text-[#FFC400] uppercase tracking-wide leading-none mt-0.5 sm:mt-1">
-                Sivakasi Direct
+              <span className="text-[9px] sm:text-xs font-black text-[#FFC400] uppercase tracking-wide leading-tight mt-0.5">
+                Direct
               </span>
             </div>
           </div>
