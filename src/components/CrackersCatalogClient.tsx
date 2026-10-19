@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
+import { getCategoryDisplayName, CATEGORY_TAMIL_NAMES } from '@/lib/categoryTranslations';
 
 interface CrackersCatalogClientProps {
   initialCrackers: Cracker[];
@@ -260,6 +261,7 @@ export default function CrackersCatalogClient({
 
                   {availableCategories.map((cat) => {
                     const isChecked = selectedCategories.includes(cat);
+                    const { tamil } = getCategoryDisplayName(cat);
                     return (
                       <label
                         key={cat}
@@ -267,7 +269,7 @@ export default function CrackersCatalogClient({
                         className="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg hover:bg-amber-50 cursor-pointer text-xs font-semibold text-gray-800 transition-colors"
                       >
                         <div
-                          className={`w-4 h-4 rounded border flex items-center justify-center transition-colors ${
+                          className={`w-4 h-4 rounded border flex items-center justify-center transition-colors shrink-0 ${
                             isChecked
                               ? 'bg-[#D40000] border-[#D40000] text-white'
                               : 'border-gray-300 bg-white'
@@ -275,7 +277,14 @@ export default function CrackersCatalogClient({
                         >
                           {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
                         </div>
-                        <span className="truncate">{cat}</span>
+                        <div className="min-w-0">
+                          <span className="truncate block font-bold">{cat}</span>
+                          {tamil && (
+                            <span className="text-[10px] text-gray-500 font-normal block truncate">
+                              {tamil}
+                            </span>
+                          )}
+                        </div>
                       </label>
                     );
                   })}
@@ -315,24 +324,31 @@ export default function CrackersCatalogClient({
                 )}
               </thead>
               <tbody className="divide-y divide-gray-100 text-xs sm:text-sm">
-                {Object.entries(groupedByCategory).map(([categoryName, categoryCrackers]) => (
-                  <React.Fragment key={categoryName}>
-                    {/* Category Divider Banner (Slim, compact row) */}
-                    <tr className="bg-[#D40000] text-white">
-                      <td colSpan={showPricing ? 4 : 2} className="py-1.5 px-4 sm:px-6">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 min-w-0">
-                            <span className="w-2 h-2 rounded-full bg-[#FFC400] shrink-0" />
-                            <span className="text-xs sm:text-sm font-black tracking-wider uppercase text-white truncate">
-                              {categoryName}
+                {Object.entries(groupedByCategory).map(([categoryName, categoryCrackers]) => {
+                  const { tamil } = getCategoryDisplayName(categoryName);
+                  return (
+                    <React.Fragment key={categoryName}>
+                      {/* Category Divider Banner (Slim, compact row with Tamil name) */}
+                      <tr className="bg-[#D40000] text-white">
+                        <td colSpan={showPricing ? 4 : 2} className="py-2 px-4 sm:px-6">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 min-w-0 flex-wrap">
+                              <span className="w-2 h-2 rounded-full bg-[#FFC400] shrink-0" />
+                              <span className="text-xs sm:text-sm font-black tracking-wider uppercase text-white">
+                                {categoryName}
+                              </span>
+                              {tamil && (
+                                <span className="text-[11px] sm:text-xs font-bold text-amber-200 bg-black/25 px-2 py-0.5 rounded-md border border-amber-300/30">
+                                  {tamil}
+                                </span>
+                              )}
+                            </div>
+                            <span className="text-[10px] font-black bg-[#FFC400] text-gray-950 px-2 py-0.5 rounded-full shadow-xs shrink-0 ml-2">
+                              {categoryCrackers.length} {categoryCrackers.length === 1 ? 'item' : 'items'}
                             </span>
                           </div>
-                          <span className="text-[10px] font-black bg-[#FFC400] text-gray-950 px-2 py-0.5 rounded-full shadow-xs shrink-0">
-                            {categoryCrackers.length} {categoryCrackers.length === 1 ? 'item' : 'items'}
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
+                        </td>
+                      </tr>
 
                     {/* Crackers in this category */}
                     {categoryCrackers.map((cracker) => {
@@ -433,27 +449,35 @@ export default function CrackersCatalogClient({
                       );
                     })}
                   </React.Fragment>
-                ))}
+                );
+              })}
               </tbody>
             </table>
           </div>
 
           {/* Mobile Single-Line Row View (Optimized for 320px - 640px screens) */}
           <div className="block sm:hidden divide-y divide-gray-100">
-            {Object.entries(groupedByCategory).map(([categoryName, categoryCrackers]) => (
-              <div key={categoryName}>
-                {/* Slim Category Divider */}
-                <div className="py-1 px-3 bg-[#D40000] text-white flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 min-w-0">
-                    <span className="w-2 h-2 rounded-full bg-[#FFC400] shrink-0" />
-                    <span className="text-[11px] font-black uppercase tracking-wider text-white truncate">
-                      {categoryName}
+            {Object.entries(groupedByCategory).map(([categoryName, categoryCrackers]) => {
+              const { tamil } = getCategoryDisplayName(categoryName);
+              return (
+                <div key={categoryName}>
+                  {/* Slim Category Divider with Tamil Name */}
+                  <div className="py-1 px-3 bg-[#D40000] text-white flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
+                      <span className="w-2 h-2 rounded-full bg-[#FFC400] shrink-0" />
+                      <span className="text-[11px] font-black uppercase tracking-wider text-white">
+                        {categoryName}
+                      </span>
+                      {tamil && (
+                        <span className="text-[9.5px] font-bold text-amber-200 bg-black/25 px-1.5 py-0.2 rounded border border-amber-300/30">
+                          {tamil}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-[9px] font-black bg-[#FFC400] text-gray-950 px-2 py-0.2 rounded-full shrink-0 ml-1">
+                      {categoryCrackers.length} {categoryCrackers.length === 1 ? 'item' : 'items'}
                     </span>
                   </div>
-                  <span className="text-[9px] font-black bg-[#FFC400] text-gray-950 px-2 py-0.2 rounded-full shrink-0">
-                    {categoryCrackers.length} {categoryCrackers.length === 1 ? 'item' : 'items'}
-                  </span>
-                </div>
 
                 <div className="divide-y divide-gray-100">
                   {categoryCrackers.map((cracker) => {
@@ -552,7 +576,8 @@ export default function CrackersCatalogClient({
                   })}
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
         </div>
       ) : (

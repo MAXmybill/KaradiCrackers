@@ -22,6 +22,7 @@ import {
   TrendingDown,
 } from 'lucide-react';
 import { toast } from 'sonner';
+import { getCategoryDisplayName } from '@/lib/categoryTranslations';
 
 interface ManageCrackersClientProps {
   initialCrackers: Cracker[];
@@ -557,11 +558,14 @@ export default function ManageCrackersClient({
               className="w-full sm:w-auto px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs font-bold text-gray-800 focus:outline-none focus:ring-1 focus:ring-[#D40000]"
             >
               <option value="ALL">All Categories ({crackers.length})</option>
-              {existingCategories.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
+              {existingCategories.map((c) => {
+                const { tamil } = getCategoryDisplayName(c);
+                return (
+                  <option key={c} value={c}>
+                    {c} {tamil ? `(${tamil})` : ''}
+                  </option>
+                );
+              })}
             </select>
           </div>
         </div>
@@ -594,6 +598,7 @@ export default function ManageCrackersClient({
                     const isEdited =
                       pendingEdit?.price !== undefined ||
                       pendingEdit?.originalPrice !== undefined;
+                    const { tamil: categoryTamil } = getCategoryDisplayName(cracker.category || '');
 
                     return (
                       <tr key={cracker.id} className="hover:bg-amber-50/20 transition-colors">
@@ -620,9 +625,14 @@ export default function ManageCrackersClient({
 
                         {/* Category */}
                         <td className="py-3 px-2 sm:px-4 whitespace-nowrap">
-                          <span className="bg-amber-50 text-amber-900 font-extrabold px-2 py-0.5 rounded-md border border-amber-200 text-[10px] sm:text-[11px] inline-block">
+                          <span className="bg-amber-50 text-amber-900 font-extrabold px-2 py-0.5 rounded-md border border-amber-200 text-[10px] sm:text-[11px] block">
                             {cracker.category || 'General'}
                           </span>
+                          {categoryTamil && (
+                            <span className="text-[9.5px] text-gray-500 font-semibold block mt-0.5">
+                              {categoryTamil}
+                            </span>
+                          )}
                         </td>
 
                         {/* Content Column */}
