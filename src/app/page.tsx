@@ -17,7 +17,13 @@ export default async function HomePage() {
         {/* Subtle decorative glow & overlay */}
         <div className="absolute inset-0 bg-radial-gradient from-transparent via-red-900/30 to-black/40 pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Gentle festive sparkle accents floating over the exact same old background */}
+        <div className="absolute top-12 left-10 w-2.5 h-2.5 bg-[#FFC400] rounded-full blur-[0.5px] animate-sparkle-1 pointer-events-none opacity-80" />
+        <div className="absolute top-20 right-24 w-2 h-2 bg-amber-200 rounded-full blur-[0.5px] animate-sparkle-2 pointer-events-none opacity-75" />
+        <div className="absolute bottom-14 left-1/4 w-2.5 h-2.5 bg-yellow-300 rounded-full blur-[0.5px] animate-sparkle-3 pointer-events-none opacity-80" />
+        <div className="absolute top-1/2 right-12 w-2 h-2 bg-[#FFC400] rounded-full blur-[0.5px] animate-sparkle-2 pointer-events-none opacity-75" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
 
             {/* Left Content */}
@@ -37,15 +43,15 @@ export default async function HomePage() {
 
               {/* Badges row */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 pt-1 sm:pt-2">
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg border border-white/20 text-[11px] sm:text-sm">
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg border border-white/20 text-[11px] sm:text-sm shadow">
                   <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFC400]" />
                   <span>100% Verified Stock</span>
                 </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg border border-white/20 text-[11px] sm:text-sm">
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg border border-white/20 text-[11px] sm:text-sm shadow">
                   <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFC400]" />
                   <span>Instant PDF Invoice</span>
                 </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg border border-white/20 text-[11px] sm:text-sm">
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg border border-white/20 text-[11px] sm:text-sm shadow">
                   <Store className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFC400]" />
                   <span>Zero Online Payment</span>
                 </div>
@@ -73,7 +79,7 @@ export default async function HomePage() {
 
             {/* Right Mascot Logo Banner */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 transform hover:scale-105 transition-transform duration-500 drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)]">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 animate-mascot-float transform hover:scale-105 transition-transform duration-500 drop-shadow-[0_12px_28px_rgba(0,0,0,0.55)]">
                 <Image
                   src="/logo.png"
                   alt="Karadi Crackers Panda Mascot"

@@ -40,6 +40,57 @@
   );
 }
 
+/* Animated Sunburst Rotation */
+@keyframes sunburst-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.animate-sunburst {
+  animation: sunburst-rotate 45s linear infinite;
+  will-change: transform;
+}
+
+@keyframes mascot-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-mascot-float {
+  animation: mascot-float 4s ease-in-out infinite;
+}
+
+@keyframes sparkle-twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.7) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(45deg);
+  }
+}
+
+.animate-sparkle-1 {
+  animation: sparkle-twinkle 3s ease-in-out infinite;
+}
+
+.animate-sparkle-2 {
+  animation: sparkle-twinkle 2.4s ease-in-out infinite 0.7s;
+}
+
+.animate-sparkle-3 {
+  animation: sparkle-twinkle 3.6s ease-in-out infinite 1.4s;
+}
+
 .bg-sunburst-subtle {
   background-color: #FFF5F5;
   background-image: radial-gradient(#FFE0B2 1px, transparent 1px);
