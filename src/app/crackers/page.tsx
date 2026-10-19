@@ -17,12 +17,12 @@ export default async function CrackersPage() {
         {/* Page Header - Ultra Compact Single Line */}
         <div className="mb-2 sm:mb-4 text-left border-b border-red-100 pb-1.5 sm:pb-3 flex items-center justify-between gap-2">
           {/* Left Title */}
-          <div className="min-w-0">
-            <div className="inline-flex items-center gap-1 text-[8px] sm:text-[11px] font-black uppercase text-[#D40000] bg-red-100/70 px-2 sm:px-2.5 py-0.5 rounded-full mb-0.5">
+          <div className="min-w-0 flex-1">
+            <div className="inline-flex items-center gap-1 text-[7.5px] sm:text-[11px] font-black uppercase text-[#D40000] bg-red-100/70 px-1.5 sm:px-2.5 py-0.5 rounded-full mb-0.5">
               <Sparkles className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-[#FFC400]" />
               <span>Diwali 2026 Price List</span>
             </div>
-            <h1 className="text-base sm:text-2xl lg:text-3xl font-black text-gray-950 leading-none tracking-tight truncate">
+            <h1 className="text-xs xs:text-sm sm:text-2xl lg:text-3xl font-black text-gray-950 leading-tight tracking-tight whitespace-nowrap">
               CRACKERS CATALOG
             </h1>
           </div>
