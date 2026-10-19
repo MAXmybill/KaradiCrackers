@@ -19,11 +19,12 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-[#D40000] text-white shadow-md border-b-4 border-[#FFC400]">
       {/* Top micro banner */}
-      <div className="bg-[#B00000] text-center text-xs py-1 px-4 font-medium text-amber-200 flex items-center justify-center gap-2">
-        <Sparkles className="w-3.5 h-3.5 text-[#FFC400] animate-pulse" />
-        <span>Diwali 2026 Bookings Open! Sivakasi Direct Factory Prices</span>
-        <span className="hidden sm:inline">• Visit Store & Collect at Counter</span>
-        <Sparkles className="w-3.5 h-3.5 text-[#FFC400] animate-pulse" />
+      <div className="bg-[#B00000] text-center text-xs py-1.5 px-3 sm:px-4 font-semibold text-amber-200 flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
+        <Sparkles className="w-3.5 h-3.5 text-[#FFC400] animate-pulse shrink-0" />
+        <span className="font-extrabold text-[#FFC400] bg-red-950/40 px-3 py-0.5 rounded-full border border-amber-300/30 text-xs sm:text-sm tracking-wide">
+          🎁 Shop for ₹3000 & above to receive FREE Unique Cracker Gifts!
+        </span>
+        <Sparkles className="w-3.5 h-3.5 text-[#FFC400] animate-pulse shrink-0" />
       </div>
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center justify-between">

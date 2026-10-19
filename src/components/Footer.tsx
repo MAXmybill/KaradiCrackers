@@ -5,9 +5,9 @@ import { MapPin, Phone, MessageCircle, Clock, Sparkles, ShieldCheck } from 'luci
 export default function Footer() {
   const shopAddress =
     process.env.NEXT_PUBLIC_SHOP_ADDRESS ||
-    '12, Sivakasi Main Road, Near Gandhi Statue, Virudhunagar / Sivakasi, Tamil Nadu - 626123';
-  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 98765 43210';
-  const shopWhatsapp = process.env.NEXT_PUBLIC_SHOP_WHATSAPP || '919876543210';
+    'Arasan steels, 120 feet road, Near Old Royal Enfield Showroom, Soodamanipuram, Karaikudi';
+  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 9994593969';
+  const shopWhatsapp = process.env.NEXT_PUBLIC_SHOP_WHATSAPP || '918072044403';
 
   return (
     <footer className="bg-[#B00000] text-white border-t-4 border-[#FFC400]">
@@ -91,20 +91,26 @@ export default function Footer() {
           {/* Store Location & Contact */}
           <div>
             <h4 className="text-lg font-bold text-[#FFC400] mb-4 border-b border-red-700 pb-2">
-              Visit Our Shop
+              Visit Our Shop & Enquiry
             </h4>
             <div className="space-y-3 text-sm text-gray-200">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-5 h-5 text-[#FFC400] shrink-0 mt-0.5" />
                 <span className="leading-snug">{shopAddress}</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#FFC400] shrink-0" />
-                <span>{shopPhone}</span>
+              <div className="flex items-start gap-2.5">
+                <Phone className="w-4 h-4 text-[#FFC400] shrink-0 mt-0.5" />
+                <div className="space-y-0.5 font-mono text-xs sm:text-sm">
+                  <a href="tel:+918072044403" className="block hover:text-[#FFC400]">+91 80720 44403</a>
+                  <a href="tel:+919786848686" className="block hover:text-[#FFC400]">+91 97868 48686</a>
+                  <a href="tel:+919994593969" className="block hover:text-[#FFC400]">+91 99945 93969</a>
+                </div>
               </div>
               <div className="flex items-center gap-2.5">
                 <MessageCircle className="w-4 h-4 text-[#FFC400] shrink-0" />
-                <span>WhatsApp: +{shopWhatsapp}</span>
+                <a href={`https://wa.me/${shopWhatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#FFC400]">
+                  WhatsApp: +{shopWhatsapp}
+                </a>
               </div>
             </div>
           </div>

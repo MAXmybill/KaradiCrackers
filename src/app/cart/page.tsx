@@ -477,6 +477,28 @@ export default function CartPage() {
                       <span>Packaging & Quality Box</span>
                       <span className="font-bold text-emerald-600">FREE</span>
                     </div>
+
+                    {/* FREE Gift on ₹3000 Offer Box */}
+                    {netPayable >= 3000 ? (
+                      <div className="p-2 bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-300 rounded-xl text-amber-950 flex items-center gap-2 shadow-2xs">
+                        <span className="text-base shrink-0">🎁</span>
+                        <div className="leading-tight">
+                          <p className="text-[11px] font-black text-amber-900">
+                            FREE Unique Cracker Gift Unlocked!
+                          </p>
+                          <p className="text-[10px] text-amber-800">
+                            Collect your special gift packet at counter pickup.
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="p-2 bg-amber-50/90 border border-dashed border-amber-300 rounded-xl text-amber-900 flex items-center gap-2">
+                        <span className="text-base shrink-0">✨</span>
+                        <p className="text-[10.5px] font-bold leading-tight">
+                          Add <span className="font-black text-[#D40000]">₹{3000 - netPayable}</span> more to get <span className="font-black underline">FREE Unique Cracker Gifts!</span>
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   {/* Highlight Net Final Total Box */}

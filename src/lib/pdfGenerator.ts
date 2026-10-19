@@ -77,21 +77,21 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     color: white,
   });
 
-  const shopAddress = process.env.NEXT_PUBLIC_SHOP_ADDRESS || '12, Sivakasi Main Road, Sivakasi, Tamil Nadu - 626123';
-  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 98765 43210';
+  const shopAddress = process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Arasan steels, 120 feet road, Near Old Royal Enfield Showroom, Soodamanipuram, Karaikudi';
+  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 9994593969';
 
   page.drawText(`Store: ${shopAddress}`, {
     x: headerLeftX,
     y: height - 88,
-    size: 8.5,
+    size: 8,
     font: fontRegular,
     color: white,
   });
 
-  page.drawText(`Phone: ${shopPhone} | WhatsApp: +${process.env.NEXT_PUBLIC_SHOP_WHATSAPP || '919876543210'}`, {
+  page.drawText(`Enquiry: ${shopPhone}`, {
     x: headerLeftX,
     y: height - 102,
-    size: 8.5,
+    size: 8,
     font: fontRegular,
     color: white,
   });

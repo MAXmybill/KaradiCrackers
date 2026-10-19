@@ -138,12 +138,12 @@ _I will visit the shop and collect my order._`;
             </p>
             <div className="text-xs font-semibold text-gray-700 space-y-1 bg-white/70 p-3 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#D40000]" />
-                <span>{process.env.NEXT_PUBLIC_SHOP_ADDRESS || '12, Sivakasi Main Road, Sivakasi, Tamil Nadu'}</span>
+                <MapPin className="w-4 h-4 text-[#D40000] shrink-0 mt-0.5" />
+                <span>{process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Arasan steels, 120 feet road, Near Old Royal Enfield Showroom, Soodamanipuram, Karaikudi'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#D40000]" />
-                <span>Contact: {process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 98765 43210'}</span>
+                <Phone className="w-4 h-4 text-[#D40000] shrink-0" />
+                <span>Contact: {process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 9994593969'}</span>
               </div>
             </div>
           </div>
