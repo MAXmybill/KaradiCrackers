@@ -21,38 +21,35 @@ export default async function OnlineCrackersPage() {
   return (
     <div className="bg-white min-h-screen pb-12 sm:pb-16 pt-2 sm:pt-8">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        {/* Page Header - Fully Responsive, No Truncation, Perfectly Fitted Badges */}
-        <div className="mb-3 sm:mb-6 text-left border-b border-red-100 pb-3 sm:pb-5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
+        {/* Page Header - Ultra Compact Single Line */}
+        <div className="mb-2 sm:mb-4 text-left border-b border-red-100 pb-1.5 sm:pb-3 flex items-center justify-between gap-2">
           {/* Left Title */}
-          <div className="shrink-0 max-w-full">
-            <div className="inline-flex items-center gap-1 text-[9px] sm:text-xs font-black uppercase text-[#D40000] bg-red-100/70 px-2 sm:px-3 py-0.5 rounded-full mb-1">
-              <Globe className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 text-[#FFC400]" />
+          <div className="min-w-0">
+            <div className="inline-flex items-center gap-1 text-[8px] sm:text-[11px] font-black uppercase text-[#D40000] bg-red-100/70 px-2 sm:px-2.5 py-0.5 rounded-full mb-0.5">
+              <Globe className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-[#FFC400]" />
               <span>Online Direct Price List 2026</span>
             </div>
-            <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-gray-950 leading-tight">
+            <h1 className="text-base sm:text-2xl lg:text-3xl font-black text-gray-950 leading-none tracking-tight truncate">
               ONLINE CRACKERS CATALOG
             </h1>
-            <p className="hidden sm:block text-xs sm:text-sm text-gray-600 mt-1">
-              Full transparent pricing guaranteed online. Select quantities and reserve for counter pickup.
-            </p>
           </div>
 
-          {/* Right Badges: Exactly matched size, comfortable height and zero clipping */}
-          <div className="flex items-center gap-2 shrink-0 ml-auto sm:ml-0">
-            <div className="w-24 sm:w-28 min-h-[36px] sm:min-h-[46px] bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-2 py-1.5 rounded-xl border border-[#FFC400] shadow-xs flex flex-col items-center justify-center text-center">
-              <span className="text-[9px] sm:text-[10px] font-bold uppercase text-amber-200 tracking-wider leading-none">
+          {/* Right Badges: Sleek, compact identical slim pills taking minimum space */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <div className="bg-[#D40000] text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl border border-[#FFC400] text-center shadow-2xs leading-none">
+              <span className="text-[7.5px] sm:text-[9px] font-bold uppercase text-amber-200 block leading-tight">
                 DIWALI
               </span>
-              <span className="text-[10px] sm:text-xs font-black text-[#FFC400] uppercase tracking-wide leading-none mt-1">
+              <span className="text-[9px] sm:text-[11px] font-black text-[#FFC400] uppercase tracking-wide block mt-0.5">
                 BEST OFFER
               </span>
             </div>
 
-            <div className="w-24 sm:w-28 min-h-[36px] sm:min-h-[46px] bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-2 py-1.5 rounded-xl border border-[#FFC400] shadow-xs flex flex-col items-center justify-center text-center">
-              <span className="text-[9px] sm:text-[10px] font-bold uppercase text-amber-200 tracking-wider leading-none">
+            <div className="bg-[#D40000] text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl border border-[#FFC400] text-center shadow-2xs leading-none">
+              <span className="text-[7.5px] sm:text-[9px] font-bold uppercase text-amber-200 block leading-tight">
                 UNIQUE
               </span>
-              <span className="text-[10px] sm:text-xs font-black text-[#FFC400] uppercase tracking-wide leading-none mt-1">
+              <span className="text-[9px] sm:text-[11px] font-black text-[#FFC400] uppercase tracking-wide block mt-0.5">
                 CRACKERS
               </span>
             </div>
