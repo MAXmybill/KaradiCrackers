@@ -69,7 +69,7 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     color: tertiaryYellow,
   });
 
-  page.drawText('Diwali 2026 Special | Sivakasi Direct Factory Fireworks', {
+  page.drawText('Diwali 2026 Special Booking', {
     x: headerLeftX,
     y: height - 72,
     size: 10,
@@ -420,8 +420,8 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     color: primaryRed,
   });
 
-  page.drawText('Karadi Crackers • Quality Fireworks Direct from Sivakasi', {
-    x: 165,
+  page.drawText('Karadi Crackers', {
+    x: 260,
     y: 25,
     size: 8,
     font: fontRegular,

@@ -19,8 +19,7 @@ export default function Footer() {
               <Image src="/logo.jpg" alt="Karadi Logo" width={40} height={40} className="rounded-full" />
             </div>
             <div>
-              <h4 className="font-extrabold text-[#FFC400] text-lg">Karadi Crackers - Safe & Genuine</h4>
-              <p className="text-xs text-amber-100">100% Sivakasi Standard Green Crackers • Lowest Direct Rates</p>
+              <h4 className="font-extrabold text-[#FFC400] text-lg">Karadi Crackers</h4>
             </div>
           </div>
           <div className="flex items-center gap-4 text-xs text-amber-200">
@@ -118,10 +117,7 @@ export default function Footer() {
 
         {/* Bottom copyright */}
         <div className="mt-12 pt-6 border-t border-red-800 flex flex-col sm:flex-row items-center justify-between text-xs text-red-200 gap-3">
-          <p>© {new Date().getFullYear()} Karadi Crackers. All rights reserved. Sivakasi Fireworks.</p>
-          <div className="flex items-center gap-4">
-            <span>Safety Guidelines Followed</span>
-          </div>
+          <p>© {new Date().getFullYear()} Karadi Crackers. All rights reserved.</p>
         </div>
       </div>
     </footer>

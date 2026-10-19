@@ -32,8 +32,7 @@ export default async function HomePage() {
               </h1>
 
               <p className="text-sm sm:text-xl text-white/95 max-w-2xl font-medium leading-relaxed drop-shadow">
-                Pure Sivakasi factory-quality fireworks at wholesale rates. Choose your favorites,
-                generate an instant order invoice, send it on WhatsApp, and collect directly at our counter!
+                Choose your favorite crackers, generate an instant order invoice, send it on WhatsApp, and collect directly at our counter!
               </p>
 
               {/* Badges row */}
