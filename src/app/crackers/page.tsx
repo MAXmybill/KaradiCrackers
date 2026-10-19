@@ -30,7 +30,7 @@ export default async function CrackersPage() {
             </p>
           </div>
 
-          {/* Right Badges: Identical compact containers with short, punchy words */}
+          {/* Right Badges: Identical compact containers with words only */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             <div className="w-16 sm:w-28 h-8 sm:h-12 bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-1 sm:px-2 py-0.5 rounded-lg sm:rounded-xl border border-[#FFC400] shadow-2xs flex flex-col items-center justify-center text-center">
               <span className="text-[7.5px] sm:text-[9.5px] font-bold uppercase text-amber-200 tracking-wider leading-none">
@@ -43,10 +43,10 @@ export default async function CrackersPage() {
 
             <div className="w-16 sm:w-28 h-8 sm:h-12 bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-1 sm:px-2 py-0.5 rounded-lg sm:rounded-xl border border-[#FFC400] shadow-2xs flex flex-col items-center justify-center text-center">
               <span className="text-[7.5px] sm:text-[9.5px] font-bold uppercase text-amber-200 tracking-wider leading-none">
-                Sivakasi
+                Unique
               </span>
               <span className="text-[9px] sm:text-xs font-black text-[#FFC400] uppercase tracking-wide leading-tight mt-0.5">
-                Direct
+                Crackers
               </span>
             </div>
           </div>
