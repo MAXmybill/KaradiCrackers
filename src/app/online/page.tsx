@@ -37,39 +37,25 @@ export default async function OnlineCrackersPage() {
             </p>
           </div>
 
-          {/* Right Badges: Sleek compact inline pills on mobile, rich cards on desktop */}
+          {/* Right Badges: Exactly matched size, height, and typography */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {settings?.discountPercentage && settings.discountPercentage > 0 ? (
-              <div className="bg-gradient-to-r from-[#D40000] to-[#B00000] text-white px-2 sm:px-3.5 py-1 sm:py-2.5 rounded-lg sm:rounded-2xl border border-[#FFC400] text-center shadow-xs flex items-center gap-1.5">
-                <div className="relative w-4 h-4 sm:w-8 sm:h-8 rounded overflow-hidden border border-[#FFC400]/50 shrink-0 hidden xs:block">
-                  <Image
-                    src="/cracker-spark.jpg"
-                    alt="Sparkler"
-                    fill
-                    sizes="32px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="text-right sm:text-left leading-none">
-                  <span className="text-[8px] sm:text-[10px] font-bold uppercase text-amber-200 block sm:hidden">
-                    SPECIAL
-                  </span>
-                  <span className="text-[9px] sm:text-[10px] font-black uppercase text-amber-200 hidden sm:block">
-                    Diwali Special
-                  </span>
-                  <span className="text-xs sm:text-xl font-black text-[#FFC400] block mt-0.5 font-rupee">
-                    {settings.discountPercentage}% OFF
-                  </span>
-                </div>
+              <div className="w-20 sm:w-36 h-10 sm:h-16 bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-1 sm:px-3 py-1 rounded-xl sm:rounded-2xl border-2 border-[#FFC400] shadow-sm flex flex-col items-center justify-center text-center">
+                <span className="text-[8px] sm:text-[11px] font-black uppercase text-amber-200 tracking-wider leading-tight">
+                  Diwali Special
+                </span>
+                <span className="text-xs sm:text-lg font-black text-[#FFC400] font-rupee leading-none mt-0.5">
+                  {settings.discountPercentage}% OFF
+                </span>
               </div>
             ) : null}
 
-            <div className="bg-[#D40000] text-white px-2 sm:px-3.5 py-1 sm:py-2.5 rounded-lg sm:rounded-2xl border border-[#FFC400] text-center shadow-xs leading-none">
-              <span className="text-[8px] sm:text-xs font-semibold block text-amber-200">
-                100% Sivakasi
+            <div className="w-20 sm:w-36 h-10 sm:h-16 bg-gradient-to-br from-[#D40000] to-[#9E0000] text-white px-1 sm:px-3 py-1 rounded-xl sm:rounded-2xl border-2 border-[#FFC400] shadow-sm flex flex-col items-center justify-center text-center">
+              <span className="text-[8px] sm:text-[11px] font-black uppercase text-amber-200 tracking-wider leading-tight">
+                Unique Crackers
               </span>
-              <span className="text-[9px] sm:text-sm font-black text-[#FFC400] block mt-0.5">
-                Fresh
+              <span className="text-[9px] sm:text-sm font-black text-[#FFC400] uppercase tracking-wide leading-none mt-0.5">
+                100% Sivakasi
               </span>
             </div>
           </div>
