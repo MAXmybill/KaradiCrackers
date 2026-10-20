@@ -77,8 +77,8 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     color: white,
   });
 
-  const shopAddress = process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Arasan steels, 120 feet road, Near Old Royal Enfield Showroom, Soodamanipuram, Karaikudi';
-  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 9994593969';
+  const shopAddress = process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Karadicrackers, 100 Feet Road, Opp to Ramraj Cotton, Karaikudi';
+  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542 / +91 9994593969';
 
   page.drawText(`Store: ${shopAddress}`, {
     x: headerLeftX,

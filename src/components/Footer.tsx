@@ -5,8 +5,8 @@ import { MapPin, Phone, MessageCircle, Clock, Sparkles, ShieldCheck } from 'luci
 export default function Footer() {
   const shopAddress =
     process.env.NEXT_PUBLIC_SHOP_ADDRESS ||
-    'Arasan steels, 120 feet road, Near Old Royal Enfield Showroom, Soodamanipuram, Karaikudi';
-  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 9994593969';
+    'Karadicrackers, 100 Feet Road, Opp to Ramraj Cotton, Karaikudi';
+  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542 / +91 9994593969';
   const shopWhatsapp = process.env.NEXT_PUBLIC_SHOP_WHATSAPP || '918072044403';
 
   return (
@@ -102,6 +102,7 @@ export default function Footer() {
                 <div className="space-y-0.5 font-mono text-xs sm:text-sm">
                   <a href="tel:+918072044403" className="block hover:text-[#FFC400]">+91 80720 44403</a>
                   <a href="tel:+919786848686" className="block hover:text-[#FFC400]">+91 97868 48686</a>
+                  <a href="tel:+918682830542" className="block hover:text-[#FFC400]">+91 86828 30542</a>
                   <a href="tel:+919994593969" className="block hover:text-[#FFC400]">+91 99945 93969</a>
                 </div>
               </div>

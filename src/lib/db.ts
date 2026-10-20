@@ -110,7 +110,6 @@ export async function updateStoreSettings(updates: Partial<StoreSettings>): Prom
 // -------------------------------------------------------------
 
 export async function getCrackers(availableOnly = false): Promise<Cracker[]> {
-  const store = loadLocalStore();
   try {
     const colRef = collection(db, 'crackers');
     let q = query(colRef);
@@ -119,52 +118,34 @@ export async function getCrackers(availableOnly = false): Promise<Cracker[]> {
     }
     const snapshot = await getDocs(q);
     if (!snapshot.empty) {
-      const firestoreItems: Cracker[] = [];
-      const firestoreMap = new Map<string, any>();
+      const items: Cracker[] = [];
       snapshot.forEach((d) => {
-        firestoreMap.set(d.id, { id: d.id, ...d.data() });
+        items.push({ id: d.id, ...(d.data() as any) } as Cracker);
       });
 
-      // Build catalog using store's exact sequence and itemCode (KC001, KC002, ...)
-      const fullList: Cracker[] = store.crackers.map((localItem) => {
-        const remote = firestoreMap.get(localItem.id);
-        if (remote) {
-          return {
-            ...localItem,
-            ...remote,
-            // Keep clean sequential KC001... code
-            itemCode: localItem.itemCode || remote.itemCode,
-          };
-        }
-        return localItem;
+      // Sort items logically by itemCode if present (e.g. KC001, KC002, ...)
+      items.sort((a, b) => {
+        const codeA = a.itemCode || '';
+        const codeB = b.itemCode || '';
+        return codeA.localeCompare(codeB, undefined, { numeric: true, sensitivity: 'base' });
       });
 
-      // Include any extra remote documents not in local store
-      firestoreMap.forEach((remote, id) => {
-        if (!store.crackers.some((c) => c.id === id)) {
-          fullList.push(remote as Cracker);
-        }
-      });
+      // Update local storage cache with live Firestore records
+      const store = loadLocalStore();
+      store.crackers = items;
+      saveLocalStore(store);
 
-      return availableOnly
-        ? fullList.filter((c) => c.isAvailable)
-        : fullList;
-    } else {
-      // If Firestore collection is empty, seed it with the local store crackers
-      for (const cracker of store.crackers) {
-        await setDoc(doc(db, 'crackers', cracker.id), cracker).catch(() => {});
-      }
-      return availableOnly
-        ? store.crackers.filter((c) => c.isAvailable)
-        : store.crackers;
+      return items;
     }
   } catch (error) {
     console.warn('Firestore fetch failed, using local persistent fallback:', error);
-    if (availableOnly) {
-      return store.crackers.filter((c) => c.isAvailable);
-    }
-    return store.crackers;
   }
+
+  // Fallback to local store only if Firestore is completely unreachable
+  const store = loadLocalStore();
+  return availableOnly
+    ? store.crackers.filter((c) => c.isAvailable)
+    : store.crackers;
 }
 
 export async function getCrackerById(id: string): Promise<Cracker | null> {
@@ -216,12 +197,21 @@ export async function createCracker(data: Omit<Cracker, 'id' | 'createdAt' | 'up
 
 export async function updateCracker(id: string, updates: Partial<Cracker>): Promise<Cracker | null> {
   const now = new Date().toISOString();
-  const store = loadLocalStore();
-  const idx = store.crackers.findIndex((c) => c.id === id);
+  let current: Cracker | null = null;
 
-  let current = idx !== -1 ? store.crackers[idx] : null;
+  try {
+    const docRef = doc(db, 'crackers', id);
+    const snap = await getDoc(docRef);
+    if (snap.exists()) {
+      current = { id: snap.id, ...(snap.data() as any) };
+    }
+  } catch (err) {
+    console.warn('Firestore fetch before update warning:', err);
+  }
+
   if (!current) {
-    current = await getCrackerById(id);
+    const store = loadLocalStore();
+    current = store.crackers.find((c) => c.id === id) || null;
   }
   if (!current) return null;
 
@@ -242,34 +232,38 @@ export async function updateCracker(id: string, updates: Partial<Cracker>): Prom
     updated.quantity = 0;
   }
 
-  if (idx !== -1) {
-    store.crackers[idx] = updated;
-    saveLocalStore(store);
+  // 1. Update in Firestore
+  try {
+    await setDoc(doc(db, 'crackers', id), updated, { merge: true });
+  } catch (err) {
+    console.warn('Firestore update cracker error:', err);
   }
 
-  try {
-    await updateDoc(doc(db, 'crackers', id), updated as any);
-  } catch (err) {
-    try {
-      await setDoc(doc(db, 'crackers', id), updated, { merge: true });
-    } catch (e) {
-      console.warn('Firestore update cracker error:', e);
-    }
+  // 2. Synchronize local store
+  const store = loadLocalStore();
+  const idx = store.crackers.findIndex((c) => c.id === id);
+  if (idx !== -1) {
+    store.crackers[idx] = updated;
+  } else {
+    store.crackers.push(updated);
   }
+  saveLocalStore(store);
 
   return updated;
 }
 
 export async function deleteCracker(id: string): Promise<boolean> {
-  const store = loadLocalStore();
-  store.crackers = store.crackers.filter((c) => c.id !== id);
-  saveLocalStore(store);
-
+  // 1. Delete from Firestore
   try {
     await deleteDoc(doc(db, 'crackers', id));
   } catch (err) {
     console.warn('Firestore delete cracker error:', err);
   }
+
+  // 2. Delete from local cache
+  const store = loadLocalStore();
+  store.crackers = store.crackers.filter((c) => c.id !== id);
+  saveLocalStore(store);
 
   return true;
 }

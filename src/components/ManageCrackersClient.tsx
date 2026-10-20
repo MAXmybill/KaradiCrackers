@@ -413,7 +413,7 @@ export default function ManageCrackersClient({
               resetForm();
               setIsAddModalOpen(true);
             }}
-            className="inline-flex items-center gap-2 bg-[#D40000] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm hover:bg-[#B00000] transition-all shadow-md active:scale-95 cursor-pointer border border-[#FFC400]"
+            className="inline-flex items-center gap-2 bg-[#6A1B9A] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm hover:bg-[#4A148C] transition-all shadow-md active:scale-95 cursor-pointer border border-purple-300"
           >
             <Plus className="w-4 h-4" />
             <span>Add New Cracker</span>
@@ -956,7 +956,7 @@ export default function ManageCrackersClient({
                   <button
                     type="submit"
                     disabled={formSubmitting}
-                    className="px-6 py-2.5 rounded-xl bg-[#D40000] text-white font-extrabold text-sm hover:bg-[#B00000] shadow-md flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl bg-[#6A1B9A] text-white font-extrabold text-sm hover:bg-[#4A148C] shadow-md flex items-center gap-2 cursor-pointer border border-purple-300"
                   >
                     {formSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
                     <span>{editingCracker ? 'Save Changes' : 'Create Cracker'}</span>

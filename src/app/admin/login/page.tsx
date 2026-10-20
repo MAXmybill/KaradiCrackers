@@ -54,14 +54,14 @@ function AdminLoginForm() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-160px)] bg-sunburst-subtle flex items-center justify-center py-8 sm:py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full bg-white rounded-3xl border-2 border-[#D40000] p-6 sm:p-10 shadow-2xl relative my-auto">
+    <div className="min-h-[calc(100vh-160px)] bg-slate-50 flex items-center justify-center py-8 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full bg-white rounded-3xl border-2 border-[#7B1FA2] p-6 sm:p-10 shadow-2xl relative my-auto">
 
         <div className="text-center mb-8">
           <div className="relative w-24 h-24 mx-auto mb-2">
             <Image src="/logo.png" alt="Karadi Crackers Logo" fill sizes="96px" className="object-contain drop-shadow-md" />
           </div>
-          <span className="text-xs font-black uppercase tracking-wider text-[#D40000] bg-red-50 px-3 py-1 rounded-full border border-red-200">
+          <span className="text-xs font-black uppercase tracking-wider text-[#7B1FA2] bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
             Protected Staff Area
           </span>
           <h1 className="text-2xl font-extrabold text-gray-950 mt-2">
@@ -92,7 +92,7 @@ function AdminLoginForm() {
                 value={adminId}
                 onChange={(e) => setAdminId(e.target.value)}
                 placeholder="karadicrackers"
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#D40000] focus:bg-white"
+                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#7B1FA2] focus:bg-white"
               />
             </div>
           </div>
@@ -109,7 +109,7 @@ function AdminLoginForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••••"
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#D40000] focus:bg-white"
+                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#7B1FA2] focus:bg-white"
               />
             </div>
           </div>
@@ -117,7 +117,7 @@ function AdminLoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 px-4 bg-[#D40000] hover:bg-[#B00000] text-white font-extrabold rounded-xl shadow-md transition-all border-2 border-[#FFC400] flex items-center justify-center gap-2 text-sm active:scale-95 disabled:opacity-60 cursor-pointer"
+            className="w-full py-3.5 px-4 bg-[#6A1B9A] hover:bg-[#4A148C] text-white font-extrabold rounded-xl shadow-md transition-all border-2 border-purple-300 flex items-center justify-center gap-2 text-sm active:scale-95 disabled:opacity-60 cursor-pointer"
           >
             {loading ? (
               <>

@@ -50,7 +50,7 @@ export default async function AdminDashboardPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/admin/crackers"
-              className="inline-flex items-center gap-2 bg-[#D40000] text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm hover:bg-[#B00000] transition-colors shadow-sm"
+              className="inline-flex items-center gap-2 bg-[#7B1FA2] text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm hover:bg-[#6A1B9A] transition-colors shadow-sm"
             >
               <Package className="w-4 h-4" />
               <span>Manage Products</span>
@@ -124,7 +124,7 @@ export default async function AdminDashboardPage() {
               <h2 className="text-base font-extrabold text-gray-900">Recent Customer Bookings</h2>
               <Link
                 href="/admin/orders"
-                className="text-xs font-bold text-[#D40000] hover:underline flex items-center gap-1"
+                className="text-xs font-bold text-[#7B1FA2] hover:underline flex items-center gap-1"
               >
                 <span>View All Orders</span>
                 <ArrowRight className="w-3.5 h-3.5" />
