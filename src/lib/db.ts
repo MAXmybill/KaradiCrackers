@@ -18,6 +18,25 @@ const DEFAULT_SETTINGS: StoreSettings = {
   discountPercentage: 20,
 };
 
+// Helper to remove any undefined fields so Firestore setDoc does not throw errors
+function sanitizeFirestoreData<T extends Record<string, any>>(obj: T): T {
+  const result: any = {};
+  for (const [key, value] of Object.entries(obj)) {
+    if (value !== undefined) {
+      if (Array.isArray(value)) {
+        result[key] = value.map((item) =>
+          typeof item === 'object' && item !== null ? sanitizeFirestoreData(item) : item
+        );
+      } else if (typeof value === 'object' && value !== null) {
+        result[key] = sanitizeFirestoreData(value);
+      } else {
+        result[key] = value;
+      }
+    }
+  }
+  return result;
+}
+
 // -------------------------------------------------------------
 // STORE SETTINGS REPOSITORY (100% FIRESTORE)
 // -------------------------------------------------------------
@@ -104,7 +123,7 @@ export async function createCracker(data: Omit<Cracker, 'id' | 'createdAt' | 'up
     updatedAt: now,
   };
 
-  await setDoc(doc(db, 'crackers', id), newCracker);
+  await setDoc(doc(db, 'crackers', id), sanitizeFirestoreData(newCracker));
   return newCracker;
 }
 
@@ -130,7 +149,7 @@ export async function updateCracker(id: string, updates: Partial<Cracker>): Prom
     updated.quantity = 0;
   }
 
-  await setDoc(doc(db, 'crackers', id), updated, { merge: true });
+  await setDoc(doc(db, 'crackers', id), sanitizeFirestoreData(updated), { merge: true });
   return updated;
 }
 
@@ -308,7 +327,7 @@ export async function createOrder(data: {
     updatedAt: now,
   };
 
-  await setDoc(doc(db, 'orders', orderId), order);
+  await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order));
   return { success: true, order };
 }
 
@@ -345,6 +364,6 @@ export async function updateOrderStatus(
     delete order.extraDiscountAmount;
   }
 
-  await setDoc(doc(db, 'orders', orderId), order, { merge: true });
+  await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order), { merge: true });
   return order;
 }
