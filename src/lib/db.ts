@@ -1,5 +1,4 @@
 import { Cracker, Order, OrderStatus, StoreSettings } from '@/types';
-import { INITIAL_CRACKERS } from './seedData';
 import { db } from './firebase';
 import {
   collection,
@@ -7,65 +6,20 @@ import {
   getDocs,
   getDoc,
   setDoc,
-  updateDoc,
   deleteDoc,
   query,
   where,
   orderBy,
+  writeBatch,
 } from 'firebase/firestore';
-import fs from 'fs';
-import path from 'path';
-
-// Local storage fallback cache/persistence file
-const DB_FILE_PATH = path.join(process.cwd(), 'data-store.json');
 
 const DEFAULT_SETTINGS: StoreSettings = {
   showPricing: true,
-  discountPercentage: 20, // default 20% discount as requested
+  discountPercentage: 20,
 };
 
-interface DataStore {
-  crackers: Cracker[];
-  orders: Order[];
-  settings?: StoreSettings;
-}
-
-function loadLocalStore(): DataStore {
-  try {
-    if (fs.existsSync(DB_FILE_PATH)) {
-      const data = fs.readFileSync(DB_FILE_PATH, 'utf-8');
-      const parsed = JSON.parse(data);
-      if (!parsed.settings) {
-        parsed.settings = { ...DEFAULT_SETTINGS };
-      }
-      return parsed;
-    }
-  } catch (err) {
-    console.error('Error reading local data store:', err);
-  }
-
-  // Initial default seed
-  const now = new Date().toISOString();
-  const crackers: Cracker[] = INITIAL_CRACKERS.map((c) => ({
-    ...c,
-    createdAt: now,
-    updatedAt: now,
-  }));
-  const store: DataStore = { crackers, orders: [], settings: { ...DEFAULT_SETTINGS } };
-  saveLocalStore(store);
-  return store;
-}
-
-function saveLocalStore(store: DataStore) {
-  try {
-    fs.writeFileSync(DB_FILE_PATH, JSON.stringify(store, null, 2), 'utf-8');
-  } catch (err) {
-    console.error('Error writing local data store:', err);
-  }
-}
-
 // -------------------------------------------------------------
-// STORE SETTINGS REPOSITORY
+// STORE SETTINGS REPOSITORY (100% FIRESTORE)
 // -------------------------------------------------------------
 
 export async function getStoreSettings(): Promise<StoreSettings> {
@@ -76,11 +30,9 @@ export async function getStoreSettings(): Promise<StoreSettings> {
       return { ...DEFAULT_SETTINGS, ...(snap.data() as StoreSettings) };
     }
   } catch (err) {
-    console.warn('Firestore getStoreSettings error, using fallback:', err);
+    console.error('Firestore getStoreSettings error:', err);
   }
-
-  const store = loadLocalStore();
-  return store.settings || { ...DEFAULT_SETTINGS };
+  return { ...DEFAULT_SETTINGS };
 }
 
 export async function updateStoreSettings(updates: Partial<StoreSettings>): Promise<StoreSettings> {
@@ -92,74 +44,44 @@ export async function updateStoreSettings(updates: Partial<StoreSettings>): Prom
     updatedAt: now,
   };
 
-  const store = loadLocalStore();
-  store.settings = updated;
-  saveLocalStore(store);
-
-  try {
-    await setDoc(doc(db, 'settings', 'store'), updated, { merge: true });
-  } catch (err) {
-    console.warn('Firestore setStoreSettings error:', err);
-  }
-
+  await setDoc(doc(db, 'settings', 'store'), updated, { merge: true });
   return updated;
 }
 
 // -------------------------------------------------------------
-// CRACKERS REPOSITORY
+// CRACKERS REPOSITORY (100% FIRESTORE)
 // -------------------------------------------------------------
 
 export async function getCrackers(availableOnly = false): Promise<Cracker[]> {
-  try {
-    const colRef = collection(db, 'crackers');
-    let q = query(colRef);
-    if (availableOnly) {
-      q = query(colRef, where('isAvailable', '==', true));
-    }
-    const snapshot = await getDocs(q);
-    if (!snapshot.empty) {
-      const items: Cracker[] = [];
-      snapshot.forEach((d) => {
-        items.push({ id: d.id, ...(d.data() as any) } as Cracker);
-      });
-
-      // Sort items logically by itemCode if present (e.g. KC001, KC002, ...)
-      items.sort((a, b) => {
-        const codeA = a.itemCode || '';
-        const codeB = b.itemCode || '';
-        return codeA.localeCompare(codeB, undefined, { numeric: true, sensitivity: 'base' });
-      });
-
-      // Update local storage cache with live Firestore records
-      const store = loadLocalStore();
-      store.crackers = items;
-      saveLocalStore(store);
-
-      return items;
-    }
-  } catch (error) {
-    console.warn('Firestore fetch failed, using local persistent fallback:', error);
+  const colRef = collection(db, 'crackers');
+  let q = query(colRef);
+  if (availableOnly) {
+    q = query(colRef, where('isAvailable', '==', true));
   }
 
-  // Fallback to local store only if Firestore is completely unreachable
-  const store = loadLocalStore();
-  return availableOnly
-    ? store.crackers.filter((c) => c.isAvailable)
-    : store.crackers;
+  const snapshot = await getDocs(q);
+  const items: Cracker[] = [];
+  snapshot.forEach((d) => {
+    items.push({ id: d.id, ...(d.data() as any) } as Cracker);
+  });
+
+  // Sort items logically by itemCode if present (e.g. KC001, KC002, ...)
+  items.sort((a, b) => {
+    const codeA = a.itemCode || '';
+    const codeB = b.itemCode || '';
+    return codeA.localeCompare(codeB, undefined, { numeric: true, sensitivity: 'base' });
+  });
+
+  return items;
 }
 
 export async function getCrackerById(id: string): Promise<Cracker | null> {
-  try {
-    const docRef = doc(db, 'crackers', id);
-    const snap = await getDoc(docRef);
-    if (snap.exists()) {
-      return { id: snap.id, ...(snap.data() as any) };
-    }
-  } catch (error) {
-    console.warn('Firestore getCrackerById error, using fallback:', error);
+  const docRef = doc(db, 'crackers', id);
+  const snap = await getDoc(docRef);
+  if (snap.exists()) {
+    return { id: snap.id, ...(snap.data() as any) };
   }
-  const store = loadLocalStore();
-  return store.crackers.find((c) => c.id === id) || null;
+  return null;
 }
 
 export async function createCracker(data: Omit<Cracker, 'id' | 'createdAt' | 'updatedAt'>): Promise<Cracker> {
@@ -182,37 +104,13 @@ export async function createCracker(data: Omit<Cracker, 'id' | 'createdAt' | 'up
     updatedAt: now,
   };
 
-  try {
-    await setDoc(doc(db, 'crackers', id), newCracker);
-  } catch (err) {
-    console.warn('Firestore set cracker error:', err);
-  }
-
-  const store = loadLocalStore();
-  store.crackers.unshift(newCracker);
-  saveLocalStore(store);
-
+  await setDoc(doc(db, 'crackers', id), newCracker);
   return newCracker;
 }
 
 export async function updateCracker(id: string, updates: Partial<Cracker>): Promise<Cracker | null> {
   const now = new Date().toISOString();
-  let current: Cracker | null = null;
-
-  try {
-    const docRef = doc(db, 'crackers', id);
-    const snap = await getDoc(docRef);
-    if (snap.exists()) {
-      current = { id: snap.id, ...(snap.data() as any) };
-    }
-  } catch (err) {
-    console.warn('Firestore fetch before update warning:', err);
-  }
-
-  if (!current) {
-    const store = loadLocalStore();
-    current = store.crackers.find((c) => c.id === id) || null;
-  }
+  const current = await getCrackerById(id);
   if (!current) return null;
 
   const updated: Cracker = {
@@ -232,39 +130,12 @@ export async function updateCracker(id: string, updates: Partial<Cracker>): Prom
     updated.quantity = 0;
   }
 
-  // 1. Update in Firestore
-  try {
-    await setDoc(doc(db, 'crackers', id), updated, { merge: true });
-  } catch (err) {
-    console.warn('Firestore update cracker error:', err);
-  }
-
-  // 2. Synchronize local store
-  const store = loadLocalStore();
-  const idx = store.crackers.findIndex((c) => c.id === id);
-  if (idx !== -1) {
-    store.crackers[idx] = updated;
-  } else {
-    store.crackers.push(updated);
-  }
-  saveLocalStore(store);
-
+  await setDoc(doc(db, 'crackers', id), updated, { merge: true });
   return updated;
 }
 
 export async function deleteCracker(id: string): Promise<boolean> {
-  // 1. Delete from Firestore
-  try {
-    await deleteDoc(doc(db, 'crackers', id));
-  } catch (err) {
-    console.warn('Firestore delete cracker error:', err);
-  }
-
-  // 2. Delete from local cache
-  const store = loadLocalStore();
-  store.crackers = store.crackers.filter((c) => c.id !== id);
-  saveLocalStore(store);
-
+  await deleteDoc(doc(db, 'crackers', id));
   return true;
 }
 
@@ -273,16 +144,22 @@ export async function bulkUpdateCrackerPrices(
   type: 'increase' | 'decrease',
   selectedCategories?: string[]
 ): Promise<{ count: number; crackers: Cracker[] }> {
-  const store = loadLocalStore();
+  const crackers = await getCrackers(false);
   const now = new Date().toISOString();
   const factor = type === 'increase' ? 1 + percentage / 100 : Math.max(0.01, 1 - percentage / 100);
 
-  const categorySet = selectedCategories && selectedCategories.length > 0 
-    ? new Set(selectedCategories.map((c) => c.trim().toUpperCase())) 
-    : null;
+  const categorySet =
+    selectedCategories && selectedCategories.length > 0
+      ? new Set(selectedCategories.map((c) => c.trim().toUpperCase()))
+      : null;
 
   let updatedCount = 0;
-  const updatedCrackers = store.crackers.map((c) => {
+  let batch = writeBatch(db);
+  let batchOps = 0;
+
+  const updatedCrackers: Cracker[] = [];
+
+  for (const c of crackers) {
     const crackerCat = (c.category || '').trim().toUpperCase();
     const shouldUpdate = !categorySet || categorySet.has(crackerCat);
 
@@ -291,50 +168,37 @@ export async function bulkUpdateCrackerPrices(
       if (newPrice < 1) newPrice = 1;
       updatedCount++;
 
-      return {
+      const updated = {
         ...c,
         price: newPrice, // Update ONLY selling price
         updatedAt: now,
       };
-    }
+      updatedCrackers.push(updated);
 
-    return c;
-  });
+      batch.update(doc(db, 'crackers', c.id), {
+        price: newPrice,
+        updatedAt: now,
+      });
+      batchOps++;
 
-  store.crackers = updatedCrackers;
-  saveLocalStore(store);
-
-  try {
-    const { writeBatch } = await import('firebase/firestore');
-    let batch = writeBatch(db);
-    let count = 0;
-    for (const c of updatedCrackers) {
-      const crackerCat = (c.category || '').trim().toUpperCase();
-      const shouldUpdate = !categorySet || categorySet.has(crackerCat);
-      if (shouldUpdate) {
-        batch.update(doc(db, 'crackers', c.id), {
-          price: c.price,
-          updatedAt: now,
-        });
-        count++;
-        if (count % 400 === 0) {
-          await batch.commit();
-          batch = writeBatch(db);
-        }
+      if (batchOps % 400 === 0) {
+        await batch.commit();
+        batch = writeBatch(db);
       }
+    } else {
+      updatedCrackers.push(c);
     }
-    if (count % 400 !== 0) {
-      await batch.commit();
-    }
-  } catch (err) {
-    console.warn('Firestore bulk price update error:', err);
+  }
+
+  if (batchOps % 400 !== 0) {
+    await batch.commit();
   }
 
   return { count: updatedCount, crackers: updatedCrackers };
 }
 
 // -------------------------------------------------------------
-// ORDERS REPOSITORY
+// ORDERS REPOSITORY (100% FIRESTORE)
 // -------------------------------------------------------------
 
 export async function getOrders(): Promise<Order[]> {
@@ -342,36 +206,26 @@ export async function getOrders(): Promise<Order[]> {
     const colRef = collection(db, 'orders');
     const q = query(colRef, orderBy('createdAt', 'desc'));
     const snapshot = await getDocs(q);
-    if (!snapshot.empty) {
-      const orders: Order[] = [];
-      snapshot.forEach((d) => {
-        orders.push({ id: d.id, ...(d.data() as any) });
-      });
-      return orders;
-    }
+    const orders: Order[] = [];
+    snapshot.forEach((d) => {
+      orders.push({ id: d.id, ...(d.data() as any) });
+    });
+    return orders;
   } catch (error) {
-    console.warn('Firestore getOrders error, using fallback:', error);
+    console.error('Firestore getOrders error:', error);
+    return [];
   }
-
-  const store = loadLocalStore();
-  return store.orders.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 }
 
 export async function getOrderByNumber(orderNumber: string): Promise<Order | null> {
-  try {
-    const colRef = collection(db, 'orders');
-    const q = query(colRef, where('orderNumber', '==', orderNumber.trim()));
-    const snapshot = await getDocs(q);
-    if (!snapshot.empty) {
-      const docData = snapshot.docs[0];
-      return { id: docData.id, ...(docData.data() as any) };
-    }
-  } catch (error) {
-    console.warn('Firestore getOrderByNumber error, using fallback:', error);
+  const colRef = collection(db, 'orders');
+  const q = query(colRef, where('orderNumber', '==', orderNumber.trim()));
+  const snapshot = await getDocs(q);
+  if (!snapshot.empty) {
+    const docData = snapshot.docs[0];
+    return { id: docData.id, ...(docData.data() as any) };
   }
-
-  const store = loadLocalStore();
-  return store.orders.find((o) => o.orderNumber.toUpperCase() === orderNumber.toUpperCase().trim()) || null;
+  return null;
 }
 
 export async function createOrder(data: {
@@ -379,7 +233,7 @@ export async function createOrder(data: {
   customerPhone: string;
   items: { crackerId: string; quantity: number }[];
 }): Promise<{ success: boolean; order?: Order; error?: string }> {
-  // Fetch current crackers and settings
+  // Fetch live current crackers and store settings directly from Firestore
   const [crackers, settings] = await Promise.all([getCrackers(false), getStoreSettings()]);
   const now = new Date().toISOString();
 
@@ -421,7 +275,7 @@ export async function createOrder(data: {
   const discountAmount = Math.round((subtotal * discountPercentage) / 100);
   const grandTotal = Math.max(0, subtotal - discountAmount);
 
-  // Record item sales
+  // Update product inventory in Firestore
   for (const it of verifiedItems) {
     const cracker = crackers.find((c) => c.id === it.crackerId);
     if (cracker) {
@@ -454,16 +308,7 @@ export async function createOrder(data: {
     updatedAt: now,
   };
 
-  try {
-    await setDoc(doc(db, 'orders', orderId), order);
-  } catch (err) {
-    console.warn('Firestore createOrder setDoc error:', err);
-  }
-
-  const store = loadLocalStore();
-  store.orders.unshift(order);
-  saveLocalStore(store);
-
+  await setDoc(doc(db, 'orders', orderId), order);
   return { success: true, order };
 }
 
@@ -477,10 +322,10 @@ export async function updateOrderStatus(
     finalTotal?: number;
   }
 ): Promise<Order | null> {
-  const store = loadLocalStore();
-  const order = store.orders.find((o) => o.id === orderId) || (await getOrders()).find((o) => o.id === orderId);
-  if (!order) return null;
+  const orderDoc = await getDoc(doc(db, 'orders', orderId));
+  if (!orderDoc.exists()) return null;
 
+  const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
   const now = new Date().toISOString();
   order.status = status;
   order.updatedAt = now;
@@ -500,17 +345,6 @@ export async function updateOrderStatus(
     delete order.extraDiscountAmount;
   }
 
-  const idx = store.orders.findIndex((o) => o.id === orderId);
-  if (idx !== -1) {
-    store.orders[idx] = order;
-    saveLocalStore(store);
-  }
-
-  try {
-    await setDoc(doc(db, 'orders', orderId), order, { merge: true });
-  } catch (err) {
-    console.warn('Firestore update order status error:', err);
-  }
-
+  await setDoc(doc(db, 'orders', orderId), order, { merge: true });
   return order;
 }
