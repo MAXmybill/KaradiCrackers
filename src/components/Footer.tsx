@@ -6,7 +6,7 @@ export default function Footer() {
   const shopAddress =
     process.env.NEXT_PUBLIC_SHOP_ADDRESS ||
     'Karadicrackers, 100 Feet Road, Opp to Ramraj Cotton, Karaikudi';
-  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542 / +91 9994593969';
+  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542';
   const shopWhatsapp = process.env.NEXT_PUBLIC_SHOP_WHATSAPP || '918072044403';
 
   return (
@@ -103,14 +103,19 @@ export default function Footer() {
                   <a href="tel:+918072044403" className="block hover:text-[#FFC400]">+91 80720 44403</a>
                   <a href="tel:+919786848686" className="block hover:text-[#FFC400]">+91 97868 48686</a>
                   <a href="tel:+918682830542" className="block hover:text-[#FFC400]">+91 86828 30542</a>
-                  <a href="tel:+919994593969" className="block hover:text-[#FFC400]">+91 99945 93969</a>
                 </div>
               </div>
-              <div className="flex items-center gap-2.5">
-                <MessageCircle className="w-4 h-4 text-[#FFC400] shrink-0" />
-                <a href={`https://wa.me/${shopWhatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#FFC400]">
-                  WhatsApp: +{shopWhatsapp}
-                </a>
+              <div className="flex items-start gap-2.5 pt-1">
+                <MessageCircle className="w-4 h-4 text-[#FFC400] shrink-0 mt-0.5" />
+                <div className="space-y-1 font-mono text-xs sm:text-sm">
+                  <span className="block text-amber-200 font-sans text-xs font-bold">WhatsApp Enquiries:</span>
+                  <a href="https://wa.me/918072044403" target="_blank" rel="noopener noreferrer" className="block hover:text-[#FFC400]">
+                    +91 80720 44403
+                  </a>
+                  <a href="https://wa.me/917708467470" target="_blank" rel="noopener noreferrer" className="block hover:text-[#FFC400]">
+                    +91 77084 67470
+                  </a>
+                </div>
               </div>
             </div>
           </div>

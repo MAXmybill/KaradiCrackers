@@ -104,16 +104,27 @@ _I will visit the shop and collect my order._`;
 
           {/* Action Buttons: WhatsApp & Download PDF */}
           <div className="space-y-3 mb-8">
-            {/* WhatsApp Express Button */}
-            <a
-              href={encodedWhatsAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-4 px-6 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-2xl shadow-lg transition-transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 text-base sm:text-lg border-2 border-white"
-            >
-              <MessageSquare className="w-6 h-6 fill-current" />
-              <span>Send on WhatsApp</span>
-            </a>
+            {/* WhatsApp Express Buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <a
+                href={`https://wa.me/918072044403?text=${encodeURIComponent(rawMessage)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-2xl shadow-md transition-transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-sm sm:text-base border border-white"
+              >
+                <MessageSquare className="w-5 h-5 fill-current" />
+                <span>Send WhatsApp (+91 80720 44403)</span>
+              </a>
+              <a
+                href={`https://wa.me/917708467470?text=${encodeURIComponent(rawMessage)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3.5 px-4 bg-[#128C7E] hover:bg-[#075E54] text-white font-extrabold rounded-2xl shadow-md transition-transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-sm sm:text-base border border-white"
+              >
+                <MessageSquare className="w-5 h-5 fill-current" />
+                <span>Send WhatsApp (+91 77084 67470)</span>
+              </a>
+            </div>
 
             {/* Download PDF Button */}
             <a
@@ -143,7 +154,7 @@ _I will visit the shop and collect my order._`;
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#D40000] shrink-0" />
-                <span>Contact: {process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542 / +91 9994593969'}</span>
+                <span>Contact: {process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542'}</span>
               </div>
             </div>
           </div>
