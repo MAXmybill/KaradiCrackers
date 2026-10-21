@@ -1,7 +1,7 @@
 // Tamil names and translations for cracker categories in Sivakasi cracker stores
 
 export const CATEGORY_TAMIL_NAMES: Record<string, string> = {
-  'SATTAI': 'சாட்டை & ட்விங்க்ளிங் ஸ்டார்ஸ்',
+  'SATTAI': 'சாட்டை',
   'SPARKLERS': 'கம்பி மத்தாப்பு',
   'MATCH BOXES': 'தீப்பெட்டி ரகங்கள்',
   'CHAKKRA & SPINNERS': 'சக்கரம் & ஸ்பின்னர்ஸ்',
@@ -9,11 +9,11 @@ export const CATEGORY_TAMIL_NAMES: Record<string, string> = {
   'GUJARAT POTS': 'குஜராத் பாட்ஸ் (ரிம்ஜிம்)',
   'BOMBS': 'வெடி & அணுகுண்டு',
   'PAPER BOMBS': 'பேப்பர் பாம்ப்',
-  'KIDS': 'சிறுவர் பட்டாசு & பொம்மைகள்',
+  'KIDS': 'சிறுவர் பட்டாசு',
   'ROCKETS': 'ராக்கெட் ரகங்கள்',
   'FANCY PIPES': 'ஃபேன்சி ஸ்கை ஷாட்ஸ் (பைப்)',
-  'DAY FANCY': 'பகல் ஃபேன்சி (வண்ணப் புகை)',
-  'NIGHT SHOTS': 'மல்டி கலர் நைட் ஷாட்ஸ்',
+  'DAY FANCY': 'பகல் ஃபேன்சி',
+  'NIGHT SHOTS': 'நைட் ஷாட்ஸ்',
   'NIGHT FANCY': 'இரவு ஃபேன்சி ரகங்கள்',
   'GIFT BOXES': 'கிஃப்ட் பாக்ஸ் ரகங்கள்',
   'WALA': 'சரவெடி / வாலா',

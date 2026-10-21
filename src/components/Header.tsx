@@ -19,12 +19,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-[#D40000] text-white shadow-md border-b-4 border-[#FFC400]">
       {/* Top micro banner */}
-      <div className="bg-[#B00000] text-center text-xs py-1.5 px-3 sm:px-4 font-semibold text-amber-200 flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
-        <Sparkles className="w-3.5 h-3.5 text-[#FFC400] animate-pulse shrink-0" />
-        <span className="font-extrabold text-[#FFC400] bg-red-950/40 px-3 py-0.5 rounded-full border border-amber-300/30 text-xs sm:text-sm tracking-wide">
-          🎁 Shop for ₹3000 & above to receive FREE Unique Cracker Gifts!
+      <div className="bg-[#B00000] text-center text-xs py-1.5 px-3 sm:px-4 font-semibold text-amber-200 flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+        <span className="font-black bg-[#FFC400] text-black px-2.5 py-0.5 rounded-full text-xs sm:text-xs tracking-wide shadow-xs flex items-center gap-1">
+          <Sparkles className="w-3.5 h-3.5 text-[#D40000]" />
+          10% Instant Discount
         </span>
-        <Sparkles className="w-3.5 h-3.5 text-[#FFC400] animate-pulse shrink-0" />
+        <span className="hidden sm:inline text-amber-300 font-bold">•</span>
+        <span className="font-extrabold text-[#FFC400] bg-red-950/40 px-3 py-0.5 rounded-full border border-amber-300/30 text-xs sm:text-sm tracking-wide flex items-center gap-1.5">
+          <span>🎁 Shop for ₹5000 & above to receive FREE Unique Cracker Gifts!</span>
+        </span>
       </div>
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center justify-between">
