@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getStoreSettings, updateStoreSettings } from '@/lib/db';
+import { revalidatePath } from 'next/cache';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 const settingsSchema = z.object({
   showPricing: z.boolean().optional(),
@@ -31,6 +33,9 @@ export async function PATCH(request: Request) {
     }
 
     const updated = await updateStoreSettings(parsed.data);
+    revalidatePath('/crackers');
+    revalidatePath('/admin/crackers');
+    revalidatePath('/');
     return NextResponse.json({ success: true, settings: updated });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });

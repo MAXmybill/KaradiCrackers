@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { updateCracker, deleteCracker, getCrackerById } from '@/lib/db';
+import { revalidatePath } from 'next/cache';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function GET(
   request: NextRequest,
@@ -30,6 +32,9 @@ export async function PATCH(
     if (!updated) {
       return NextResponse.json({ success: false, error: 'Cracker not found' }, { status: 404 });
     }
+    revalidatePath('/crackers');
+    revalidatePath('/admin/crackers');
+    revalidatePath('/');
     return NextResponse.json({ success: true, cracker: updated });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
@@ -46,6 +51,9 @@ export async function DELETE(
     if (!ok) {
       return NextResponse.json({ success: false, error: 'Cracker not found' }, { status: 404 });
     }
+    revalidatePath('/crackers');
+    revalidatePath('/admin/crackers');
+    revalidatePath('/');
     return NextResponse.json({ success: true, message: 'Cracker removed successfully' });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });

@@ -135,6 +135,9 @@ export async function updateCracker(id: string, updates: Partial<Cracker>): Prom
   const updated: Cracker = {
     ...current,
     ...updates,
+    name: updates.name !== undefined ? updates.name.trim() : current.name,
+    category: updates.category !== undefined ? updates.category.trim() : current.category,
+    imageUrl: updates.imageUrl !== undefined ? updates.imageUrl : current.imageUrl,
     price: updates.price !== undefined ? Number(updates.price) : current.price,
     originalPrice:
       updates.originalPrice !== undefined ? Number(updates.originalPrice) : current.originalPrice,

@@ -2,6 +2,8 @@ import { getCrackers, getStoreSettings } from '@/lib/db';
 import ManageCrackersClient from '@/components/ManageCrackersClient';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';
 
 export default async function AdminCrackersPage() {
   const [crackers, settings] = await Promise.all([

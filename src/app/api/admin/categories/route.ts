@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getStoreSettings, updateStoreSettings, renameCategoryInFirestore } from '@/lib/db';
 import { CATEGORY_TAMIL_NAMES } from '@/lib/categoryTranslations';
+import { revalidatePath } from 'next/cache';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 const updateCategorySchema = z.object({
   action: z.enum(['add', 'update', 'delete']),
@@ -61,6 +63,10 @@ export async function POST(request: NextRequest) {
       custom[targetKey] = tamil;
 
       await updateStoreSettings({ categoryTranslations: custom });
+
+      revalidatePath('/crackers');
+      revalidatePath('/admin/crackers');
+      revalidatePath('/');
 
       return NextResponse.json({
         success: true,
