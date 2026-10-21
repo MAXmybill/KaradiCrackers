@@ -229,7 +229,7 @@ export default function CartPage() {
                           {showPricing && (
                             <td className="py-2.5 sm:py-3 px-3 text-center align-middle whitespace-nowrap">
                               <div className="flex flex-col items-center">
-                                <span className="text-xs sm:text-sm font-black text-[#D40000] font-rupee">
+                                <span className="text-xs sm:text-sm font-black text-[#6D28D9] font-rupee">
                                   ₹{item.price}
                                 </span>
                                 {item.originalPrice && item.originalPrice > item.price && (
@@ -273,7 +273,7 @@ export default function CartPage() {
                           {/* Line Total */}
                           {showPricing && (
                             <td className="py-2.5 sm:py-3 px-4 text-right align-middle whitespace-nowrap">
-                              <span className="text-xs sm:text-sm font-black font-rupee text-[#D40000]">
+                              <span className="text-xs sm:text-sm font-black font-rupee text-[#6D28D9]">
                                 ₹{lineTotal}
                               </span>
                             </td>
@@ -336,7 +336,7 @@ export default function CartPage() {
                         {/* Unit Price */}
                         {showPricing && (
                           <div className="text-right leading-none shrink-0 w-9">
-                            <span className="text-[11px] font-black text-[#D40000] block font-rupee">
+                            <span className="text-[11px] font-black text-[#6D28D9] block font-rupee">
                               ₹{item.price}
                             </span>
                             {item.originalPrice && item.originalPrice > item.price && (
@@ -377,7 +377,7 @@ export default function CartPage() {
                         {/* Line Total */}
                         {showPricing && (
                           <div className="text-right leading-none shrink-0 w-11">
-                            <span className="text-[11px] font-black block font-rupee text-[#D40000]">
+                            <span className="text-[11px] font-black block font-rupee text-[#6D28D9]">
                               ₹{lineTotal}
                             </span>
                           </div>
@@ -502,12 +502,12 @@ export default function CartPage() {
                   </div>
 
                   {/* Highlight Net Final Total Box */}
-                  <div className="bg-amber-50/70 p-2.5 rounded-xl border border-dashed border-[#D40000]/60">
+                  <div className="bg-purple-50/70 p-2.5 rounded-xl border border-dashed border-[#6D28D9]/40">
                     <div className="flex justify-between items-baseline">
                       <span className="text-[11px] font-black uppercase text-gray-700 tracking-wider">
                         Net Final Total
                       </span>
-                      <span className="text-xl sm:text-2xl font-black text-[#D40000] font-rupee tracking-tight leading-none">
+                      <span className="text-xl sm:text-2xl font-black text-[#6D28D9] font-rupee tracking-tight leading-none">
                         ₹{netPayable}
                       </span>
                     </div>

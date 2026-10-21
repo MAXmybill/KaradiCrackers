@@ -387,7 +387,7 @@ export default function CrackersCatalogClient({
                           {showPricing && (
                             <td className="py-2 sm:py-2.5 px-4 text-center align-middle whitespace-nowrap">
                               <div className="flex flex-col items-center">
-                                <span className="text-sm sm:text-base font-black text-[#D40000] font-rupee">
+                                <span className="text-sm sm:text-base font-black text-[#6D28D9] font-rupee">
                                   ₹{cracker.price}
                                 </span>
                                 {cracker.originalPrice && cracker.originalPrice > cracker.price && (
@@ -438,7 +438,7 @@ export default function CrackersCatalogClient({
                             <td className="py-2 sm:py-2.5 px-4 sm:px-6 text-right align-middle whitespace-nowrap">
                               <span
                                 className={`text-xs sm:text-sm font-black font-rupee ${
-                                  qty > 0 ? 'text-[#D40000]' : 'text-gray-400'
+                                  qty > 0 ? 'text-[#6D28D9]' : 'text-gray-400'
                                 }`}
                               >
                                 ₹{lineTotal}
@@ -515,7 +515,7 @@ export default function CrackersCatalogClient({
                           {/* Unit Price (Only if showPricing is enabled) */}
                           {showPricing && (
                             <div className="text-right leading-none shrink-0 w-10">
-                              <span className="text-xs font-black text-[#D40000] block font-rupee">
+                              <span className="text-xs font-black text-[#6D28D9] block font-rupee">
                                 ₹{cracker.price}
                               </span>
                               {cracker.originalPrice && cracker.originalPrice > cracker.price && (
@@ -563,7 +563,7 @@ export default function CrackersCatalogClient({
                             <div className="text-right leading-none shrink-0 w-11">
                               <span
                                 className={`text-xs font-black block font-rupee ${
-                                  qty > 0 ? 'text-[#D40000]' : 'text-gray-400'
+                                  qty > 0 ? 'text-[#6D28D9]' : 'text-gray-400'
                                 }`}
                               >
                                 ₹{lineTotal}
