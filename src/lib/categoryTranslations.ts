@@ -24,10 +24,14 @@ export const CATEGORY_TAMIL_NAMES: Record<string, string> = {
 /**
  * Returns formatted category label with Tamil name
  * Example: "SPARKLERS (கம்பி மத்தாப்பு)"
+ * Supports dynamic store-configured category translations from Firestore settings
  */
-export function getCategoryDisplayName(categoryName: string): { english: string; tamil: string; combined: string } {
+export function getCategoryDisplayName(
+  categoryName: string,
+  customTranslations?: Record<string, string>
+): { english: string; tamil: string; combined: string } {
   const upper = (categoryName || '').toUpperCase().trim();
-  const tamil = CATEGORY_TAMIL_NAMES[upper] || '';
+  const tamil = customTranslations?.[upper] || customTranslations?.[categoryName] || CATEGORY_TAMIL_NAMES[upper] || '';
   return {
     english: categoryName,
     tamil,

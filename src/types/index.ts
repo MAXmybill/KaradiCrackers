@@ -16,6 +16,7 @@ export interface Cracker {
 export interface StoreSettings {
   showPricing: boolean; // toggle whether unit & row prices are visible to customer
   discountPercentage: number; // e.g. 20 (percent discount on total)
+  categoryTranslations?: Record<string, string>; // e.g. { "SATTAI": "சாட்டை" }
   updatedAt?: string;
 }
 

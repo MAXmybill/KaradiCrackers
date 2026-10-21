@@ -216,6 +216,42 @@ export async function bulkUpdateCrackerPrices(
   return { count: updatedCount, crackers: updatedCrackers };
 }
 
+export async function renameCategoryInFirestore(
+  oldCategory: string,
+  newCategory: string
+): Promise<{ count: number }> {
+  const oldNormalized = oldCategory.trim().toUpperCase();
+  const newNormalized = newCategory.trim().toUpperCase();
+  if (oldNormalized === newNormalized) return { count: 0 };
+
+  const crackers = await getCrackers(false);
+  const now = new Date().toISOString();
+  let count = 0;
+  let batch = writeBatch(db);
+  let batchOps = 0;
+
+  for (const c of crackers) {
+    if ((c.category || '').trim().toUpperCase() === oldNormalized) {
+      batch.update(doc(db, 'crackers', c.id), {
+        category: newNormalized,
+        updatedAt: now,
+      });
+      batchOps++;
+      count++;
+      if (batchOps % 400 === 0) {
+        await batch.commit();
+        batch = writeBatch(db);
+      }
+    }
+  }
+
+  if (batchOps % 400 !== 0) {
+    await batch.commit();
+  }
+
+  return { count };
+}
+
 // -------------------------------------------------------------
 // ORDERS REPOSITORY (100% FIRESTORE)
 // -------------------------------------------------------------

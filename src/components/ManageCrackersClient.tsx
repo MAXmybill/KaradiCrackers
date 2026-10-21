@@ -20,6 +20,7 @@ import {
   EyeOff,
   TrendingUp,
   TrendingDown,
+  FolderEdit,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { getCategoryDisplayName } from '@/lib/categoryTranslations';
@@ -39,6 +40,13 @@ export default function ManageCrackersClient({
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [editingCracker, setEditingCracker] = useState<Cracker | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<Cracker | null>(null);
+
+  // Category Management Modal State
+  const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
+  const [editingCategoryKey, setEditingCategoryKey] = useState<string | null>(null);
+  const [newCategoryName, setNewCategoryName] = useState('');
+  const [categoryTamilName, setCategoryTamilName] = useState('');
+  const [categorySubmitting, setCategorySubmitting] = useState(false);
 
   // Bulk price percentage adjustment state
   const [bulkPercent, setBulkPercent] = useState<string>('10');
@@ -189,6 +197,67 @@ export default function ManageCrackersClient({
   const handleDiscountChange = async (val: number) => {
     const clamped = Math.min(100, Math.max(0, val));
     setSettings((prev) => ({ ...prev, discountPercentage: clamped }));
+  };
+
+  // Save or update category (English and Tamil names)
+  const handleSaveCategory = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newCategoryName.trim()) {
+      toast.error('Category name in English is required');
+      return;
+    }
+
+    setCategorySubmitting(true);
+    const oldCat = editingCategoryKey || newCategoryName.trim();
+    const newCat = newCategoryName.trim().toUpperCase();
+    const tamil = categoryTamilName.trim();
+
+    try {
+      const res = await fetch('/api/admin/categories', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: editingCategoryKey ? 'update' : 'add',
+          categoryKey: oldCat,
+          newCategoryKey: newCat,
+          tamilName: tamil,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.error);
+
+      // Update local settings state with new custom translations
+      setSettings((prev) => ({
+        ...prev,
+        categoryTranslations: data.customTranslations,
+      }));
+
+      // If category name was renamed in English, update all affected crackers locally
+      if (editingCategoryKey && oldCat.toUpperCase() !== newCat) {
+        setCrackers((prev) =>
+          prev.map((c) =>
+            (c.category || '').toUpperCase() === oldCat.toUpperCase()
+              ? { ...c, category: newCat }
+              : c
+          )
+        );
+      }
+
+      toast.success(
+        editingCategoryKey
+          ? `Updated category "${newCat}"`
+          : `Added new category "${newCat}"`
+      );
+
+      // Reset modal state
+      setEditingCategoryKey(null);
+      setNewCategoryName('');
+      setCategoryTamilName('');
+    } catch (err: any) {
+      toast.error(err.message || 'Failed to update category');
+    } finally {
+      setCategorySubmitting(false);
+    }
   };
 
   const handleSaveDiscount = async () => {
@@ -408,16 +477,31 @@ export default function ManageCrackersClient({
             </p>
           </div>
 
-          <button
-            onClick={() => {
-              resetForm();
-              setIsAddModalOpen(true);
-            }}
-            className="inline-flex items-center gap-2 bg-[#6A1B9A] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm hover:bg-[#4A148C] transition-all shadow-md active:scale-95 cursor-pointer border border-purple-300"
-          >
-            <Plus className="w-4 h-4" />
-            <span>Add New Cracker</span>
-          </button>
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <button
+              onClick={() => {
+                setEditingCategoryKey(null);
+                setNewCategoryName('');
+                setCategoryTamilName('');
+                setIsCategoryModalOpen(true);
+              }}
+              className="inline-flex items-center gap-2 bg-[#FFC400] text-black font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm hover:bg-[#FFE082] transition-all shadow-md active:scale-95 cursor-pointer border-2 border-white"
+            >
+              <FolderEdit className="w-4 h-4 text-[#D40000]" />
+              <span>Manage Categories (English & Tamil)</span>
+            </button>
+
+            <button
+              onClick={() => {
+                resetForm();
+                setIsAddModalOpen(true);
+              }}
+              className="inline-flex items-center gap-2 bg-[#6A1B9A] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm hover:bg-[#4A148C] transition-all shadow-md active:scale-95 cursor-pointer border border-purple-300"
+            >
+              <Plus className="w-4 h-4" />
+              <span>Add New Cracker</span>
+            </button>
+          </div>
         </div>
 
         {/* Global Store Settings Bar: Red & Festive Gold Styling */}
@@ -584,7 +668,7 @@ export default function ManageCrackersClient({
             >
               <option value="ALL">All Categories ({crackers.length})</option>
               {existingCategories.map((c) => {
-                const { tamil } = getCategoryDisplayName(c);
+                const { tamil } = getCategoryDisplayName(c, settings.categoryTranslations);
                 return (
                   <option key={c} value={c}>
                     {c} {tamil ? `(${tamil})` : ''}
@@ -623,7 +707,10 @@ export default function ManageCrackersClient({
                     const isEdited =
                       pendingEdit?.price !== undefined ||
                       pendingEdit?.originalPrice !== undefined;
-                    const { tamil: categoryTamil } = getCategoryDisplayName(cracker.category || '');
+                    const { tamil: categoryTamil } = getCategoryDisplayName(
+                      cracker.category || '',
+                      settings.categoryTranslations
+                    );
 
                     return (
                       <tr key={cracker.id} className="hover:bg-amber-50/20 transition-colors">
@@ -1032,7 +1119,7 @@ export default function ManageCrackersClient({
                 <div className="max-h-44 overflow-y-auto space-y-1.5 pr-1">
                   {existingCategories.map((cat) => {
                     const isChecked = selectedBulkCategories.includes(cat);
-                    const { tamil } = getCategoryDisplayName(cat);
+                    const { tamil } = getCategoryDisplayName(cat, settings.categoryTranslations);
                     return (
                       <label
                         key={cat}
@@ -1094,7 +1181,157 @@ export default function ManageCrackersClient({
           </div>
         )}
 
-        {/* Delete Confirmation Dialog */}
+        {/* Category Management Modal (Add new category & edit existing in English and Tamil) */}
+        {isCategoryModalOpen && (
+          <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+            <div className="bg-white rounded-3xl max-w-2xl w-full p-6 border-2 border-purple-400 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto">
+              <div className="flex items-center justify-between border-b pb-3 border-gray-100">
+                <div className="flex items-center gap-2">
+                  <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center">
+                    <FolderEdit className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-black text-gray-900">
+                      Manage Categories (English & Tamil)
+                    </h3>
+                    <p className="text-[11px] text-gray-500">
+                      Add new categories or update existing category names in both English and Tamil.
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsCategoryModalOpen(false)}
+                  className="p-1 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Add / Edit Category Form */}
+              <form onSubmit={handleSaveCategory} className="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 space-y-3">
+                <h4 className="text-xs font-black uppercase text-amber-950 flex items-center justify-between">
+                  <span>{editingCategoryKey ? `Edit Category: "${editingCategoryKey}"` : '+ Add New Category'}</span>
+                  {editingCategoryKey && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setEditingCategoryKey(null);
+                        setNewCategoryName('');
+                        setCategoryTamilName('');
+                      }}
+                      className="text-[11px] font-bold text-red-600 hover:underline cursor-pointer"
+                    >
+                      Cancel Edit Mode
+                    </button>
+                  )}
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Category Name (English) *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={newCategoryName}
+                      onChange={(e) => setNewCategoryName(e.target.value.toUpperCase())}
+                      placeholder="e.g. MEGA SPARKLERS"
+                      className="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs sm:text-sm font-bold bg-white focus:outline-none focus:ring-2 focus:ring-[#6A1B9A]"
+                    />
+                    <p className="text-[10px] text-gray-500 mt-0.5">Used for grouping items & filters</p>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Tamil Name (தமிழ் பெயர்)
+                    </label>
+                    <input
+                      type="text"
+                      value={categoryTamilName}
+                      onChange={(e) => setCategoryTamilName(e.target.value)}
+                      placeholder="e.g. மெகா கம்பி மத்தாப்பு"
+                      className="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs sm:text-sm font-semibold bg-white focus:outline-none focus:ring-2 focus:ring-[#6A1B9A]"
+                    />
+                    <p className="text-[10px] text-gray-500 mt-0.5">Displayed on store catalog dividers</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-end pt-1">
+                  <button
+                    type="submit"
+                    disabled={categorySubmitting}
+                    className="inline-flex items-center gap-2 bg-[#6A1B9A] hover:bg-[#4A148C] text-white font-extrabold px-4 py-2 rounded-xl text-xs sm:text-sm shadow-md transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
+                  >
+                    {categorySubmitting ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <Save className="w-4 h-4" />
+                    )}
+                    <span>{editingCategoryKey ? 'Save Category Changes' : '+ Add Category'}</span>
+                  </button>
+                </div>
+              </form>
+
+              {/* Existing Categories List */}
+              <div className="space-y-2">
+                <h4 className="text-xs font-black uppercase text-gray-700 tracking-wider">
+                  Existing Categories ({existingCategories.length})
+                </h4>
+
+                <div className="max-h-64 overflow-y-auto divide-y divide-gray-100 border border-gray-200 rounded-2xl">
+                  {existingCategories.map((cat) => {
+                    const { tamil } = getCategoryDisplayName(cat, settings.categoryTranslations);
+                    const isCurrentlyEditing = editingCategoryKey === cat;
+                    return (
+                      <div
+                        key={cat}
+                        className={`p-3 flex items-center justify-between gap-3 text-xs ${
+                          isCurrentlyEditing ? 'bg-purple-50 font-bold' : 'hover:bg-gray-50'
+                        }`}
+                      >
+                        <div className="min-w-0">
+                          <p className="font-extrabold text-gray-900 text-xs sm:text-sm">
+                            {cat}
+                          </p>
+                          <p className="text-xs text-purple-700 font-semibold">
+                            {tamil ? `தமிழ்: ${tamil}` : <span className="text-gray-400 italic">No Tamil translation set</span>}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center gap-2 shrink-0">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setEditingCategoryKey(cat);
+                              setNewCategoryName(cat);
+                              setCategoryTamilName(tamil || '');
+                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-100 text-purple-900 font-bold hover:bg-purple-200 transition-colors cursor-pointer text-xs"
+                          >
+                            <Edit2 className="w-3.5 h-3.5 text-purple-700" />
+                            <span>Edit Names</span>
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="flex justify-end pt-2 border-t border-gray-100">
+                <button
+                  type="button"
+                  onClick={() => setIsCategoryModalOpen(false)}
+                  className="px-5 py-2 rounded-xl bg-gray-200 text-gray-800 text-xs font-bold hover:bg-gray-300 transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         {deleteTarget && (
           <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
             <div className="bg-white rounded-3xl max-w-sm w-full p-6 border-2 border-red-500 shadow-2xl text-center">

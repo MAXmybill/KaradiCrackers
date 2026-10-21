@@ -261,7 +261,7 @@ export default function CrackersCatalogClient({
 
                   {availableCategories.map((cat) => {
                     const isChecked = selectedCategories.includes(cat);
-                    const { tamil } = getCategoryDisplayName(cat);
+                    const { tamil } = getCategoryDisplayName(cat, currentSettings?.categoryTranslations);
                     return (
                       <label
                         key={cat}
@@ -325,7 +325,7 @@ export default function CrackersCatalogClient({
               </thead>
               <tbody className="divide-y divide-gray-100 text-xs sm:text-sm">
                 {Object.entries(groupedByCategory).map(([categoryName, categoryCrackers]) => {
-                  const { tamil } = getCategoryDisplayName(categoryName);
+                  const { tamil } = getCategoryDisplayName(categoryName, currentSettings?.categoryTranslations);
                   return (
                     <React.Fragment key={categoryName}>
                       {/* Category Divider Banner (Slim, compact row with Tamil name) */}
@@ -458,7 +458,7 @@ export default function CrackersCatalogClient({
           {/* Mobile Single-Line Row View (Optimized for 320px - 640px screens) */}
           <div className="block sm:hidden divide-y divide-gray-100">
             {Object.entries(groupedByCategory).map(([categoryName, categoryCrackers]) => {
-              const { tamil } = getCategoryDisplayName(categoryName);
+              const { tamil } = getCategoryDisplayName(categoryName, currentSettings?.categoryTranslations);
               return (
                 <div key={categoryName}>
                   {/* Slim Category Divider with Tamil Name */}

@@ -7,6 +7,7 @@ export const dynamic = 'force-dynamic';
 const settingsSchema = z.object({
   showPricing: z.boolean().optional(),
   discountPercentage: z.number().min(0).max(100).optional(),
+  categoryTranslations: z.record(z.string(), z.string()).optional(),
 });
 
 export async function GET() {
