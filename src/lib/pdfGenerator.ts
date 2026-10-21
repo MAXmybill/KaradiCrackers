@@ -77,7 +77,7 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     color: white,
   });
 
-  const shopAddress = process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Karadicrackers, 100 Feet Road, Opp to Ramraj Cotton, Karaikudi';
+  const shopAddress = process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Karadi Crackers, Opposite to Ramraj cotton Showroom, 100 feet road, Karaikudi.';
   const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542';
 
   page.drawText(`Store: ${shopAddress}`, {

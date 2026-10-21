@@ -150,7 +150,7 @@ _I will visit the shop and collect my order._`;
             <div className="text-xs font-semibold text-gray-700 space-y-1 bg-white/70 p-3 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-[#D40000] shrink-0 mt-0.5" />
-                <span>{process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Karadicrackers, 100 Feet Road, Opp to Ramraj Cotton, Karaikudi'}</span>
+                <span>{process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Karadi Crackers, Opposite to Ramraj cotton Showroom, 100 feet road, Karaikudi.'}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#D40000] shrink-0" />
