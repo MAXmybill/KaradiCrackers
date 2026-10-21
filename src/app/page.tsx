@@ -61,10 +61,13 @@ export default async function HomePage() {
               <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
                 <Link
                   href="/crackers"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#FFC400] hover:bg-[#FFE082] text-black font-extrabold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl shadow-xl transition-all transform hover:scale-105 active:scale-95 border-2 border-white group"
+                  className="w-full sm:w-auto relative inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#FFC400] hover:bg-[#FFE082] text-black font-extrabold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl shadow-xl transition-all transform hover:scale-105 active:scale-95 border-2 border-white group"
                 >
                   <ShoppingBag className="w-5 h-5 text-[#D40000]" />
                   <span>Shop Now</span>
+                  <span className="bg-[#D40000] text-[#FFC400] text-xs font-black px-2 py-0.5 rounded-full border border-white/60 shadow-sm animate-pulse">
+                    10% OFF
+                  </span>
                   <ArrowRight className="w-5 h-5 text-[#D40000] group-hover:translate-x-1 transition-transform" />
                 </Link>
 
