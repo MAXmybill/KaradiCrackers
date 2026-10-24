@@ -147,14 +147,28 @@ _I will visit the shop and collect my order._`;
             <p className="text-sm leading-relaxed mb-3">
               Visit our shop, tell your phone number (<strong>+91 {order.customerPhone}</strong>) or show your order number (<strong>{order.orderNumber}</strong>), collect your crackers, and pay directly at the counter.
             </p>
-            <div className="text-xs font-semibold text-gray-700 space-y-1 bg-white/70 p-3 rounded-xl border border-amber-200">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#D40000] shrink-0 mt-0.5" />
-                <span>{process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Karadi Crackers, Opposite to Ramraj cotton Showroom, 100 feet road, Karaikudi.'}</span>
+            <div className="text-xs font-semibold text-gray-700 space-y-2 bg-white/80 p-3 rounded-xl border border-amber-200">
+              <div className="text-gray-900 font-bold flex items-center gap-1.5 text-xs text-[#D40000]">
+                <MapPin className="w-4 h-4 text-[#D40000] shrink-0" />
+                <span>Collection Points (Both Branches Open):</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#D40000] shrink-0" />
-                <span>Contact: {process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542'}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-2">
+                <div className="p-2 bg-amber-50/60 rounded-lg border border-amber-200/80">
+                  <span className="font-black text-[#D40000] text-[11px] block">Branch 1: Arasan steels</span>
+                  <p className="text-[11px] text-gray-700 leading-tight mt-0.5">
+                    120 feet road, Near Old Royal Enfield Showroom, Karaikudi.
+                  </p>
+                </div>
+                <div className="p-2 bg-amber-50/60 rounded-lg border border-amber-200/80">
+                  <span className="font-black text-[#D40000] text-[11px] block">Branch 2: New Karadi crackers</span>
+                  <p className="text-[11px] text-gray-700 leading-tight mt-0.5">
+                    Opp to Ramraj cotton, 100 feet Road, Karaikudi.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 pt-1 border-t border-amber-100 pl-2">
+                <Phone className="w-3.5 h-3.5 text-[#D40000] shrink-0" />
+                <span className="text-[11px]">Contact: +91 8072044403 / +91 9786848686 / +91 8682830542</span>
               </div>
             </div>
           </div>

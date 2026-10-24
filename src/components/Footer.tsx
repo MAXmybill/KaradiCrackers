@@ -2,12 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Phone, MessageCircle, Clock, Sparkles, ShieldCheck } from 'lucide-react';
 
+import { STORE_BRANCHES, SHOP_PHONES, SHOP_WHATSAPP } from '@/lib/storeBranches';
+
 export default function Footer() {
-  const shopAddress =
-    process.env.NEXT_PUBLIC_SHOP_ADDRESS ||
-    'Karadi Crackers, Opposite to Ramraj cotton Showroom, 100 feet road, Karaikudi.';
-  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542';
-  const shopWhatsapp = process.env.NEXT_PUBLIC_SHOP_WHATSAPP || '918072044403';
+  const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || SHOP_PHONES;
+  const shopWhatsapp = process.env.NEXT_PUBLIC_SHOP_WHATSAPP || SHOP_WHATSAPP;
 
   return (
     <footer className="bg-[#B00000] text-white border-t-4 border-[#FFC400]">
@@ -87,19 +86,44 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Store Location & Contact */}
+          {/* Store Locations & Contact */}
           <div>
-            <h4 className="text-lg font-bold text-[#FFC400] mb-4 border-b border-red-700 pb-2">
-              Visit Our Shop & Enquiry
+            <h4 className="text-lg font-bold text-[#FFC400] mb-3 border-b border-red-700 pb-2">
+              Visit Our Branches
             </h4>
             <div className="space-y-3 text-sm text-gray-200">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-5 h-5 text-[#FFC400] shrink-0 mt-0.5" />
-                <span className="leading-snug">{shopAddress}</span>
+              {/* Branch 1: Arasan steels */}
+              <div className="bg-black/20 p-2.5 rounded-xl border border-red-400/30">
+                <div className="flex items-center gap-1.5 text-[#FFC400] font-black text-xs uppercase mb-1">
+                  <MapPin className="w-3.5 h-3.5 shrink-0" />
+                  <span>Arasan Branch</span>
+                </div>
+                <div className="text-xs text-gray-200 pl-5 leading-tight space-y-0.5">
+                  <p className="font-bold text-white">Arasan steels,</p>
+                  <p>120 feet road,</p>
+                  <p>Near Old Royal Enfield Showroom,</p>
+                  <p>Karaikudi.</p>
+                </div>
               </div>
-              <div className="flex items-start gap-2.5">
+
+              {/* Branch 2: New Karadi crackers (Ramraj) */}
+              <div className="bg-black/20 p-2.5 rounded-xl border border-red-400/30">
+                <div className="flex items-center gap-1.5 text-[#FFC400] font-black text-xs uppercase mb-1">
+                  <MapPin className="w-3.5 h-3.5 shrink-0" />
+                  <span>Ramraj Branch</span>
+                </div>
+                <div className="text-xs text-gray-200 pl-5 leading-tight space-y-0.5">
+                  <p className="font-bold text-white">New Karadi crackers,</p>
+                  <p>Opp to Ramraj cotton,</p>
+                  <p>100 feet Road,</p>
+                  <p>Karaikudi</p>
+                </div>
+              </div>
+
+              {/* Phones */}
+              <div className="flex items-start gap-2.5 pt-1">
                 <Phone className="w-4 h-4 text-[#FFC400] shrink-0 mt-0.5" />
-                <div className="space-y-0.5 font-mono text-xs sm:text-sm">
+                <div className="space-y-0.5 font-mono text-xs">
                   <a href="tel:+918072044403" className="block hover:text-[#FFC400]">+91 80720 44403</a>
                   <a href="tel:+919786848686" className="block hover:text-[#FFC400]">+91 97868 48686</a>
                   <a href="tel:+918682830542" className="block hover:text-[#FFC400]">+91 86828 30542</a>

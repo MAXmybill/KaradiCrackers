@@ -77,21 +77,30 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     color: white,
   });
 
-  const shopAddress = process.env.NEXT_PUBLIC_SHOP_ADDRESS || 'Karadi Crackers, Opposite to Ramraj cotton Showroom, 100 feet road, Karaikudi.';
+  const branch1Text = 'Branch 1: Arasan steels, 120 feet road, Near Old Royal Enfield Showroom, Karaikudi.';
+  const branch2Text = 'Branch 2: New Karadi crackers, Opp to Ramraj cotton, 100 feet Road, Karaikudi.';
   const shopPhone = process.env.NEXT_PUBLIC_SHOP_PHONE || '+91 8072044403 / +91 9786848686 / +91 8682830542';
 
-  page.drawText(`Store: ${shopAddress}`, {
+  page.drawText(branch1Text, {
     x: headerLeftX,
-    y: height - 88,
-    size: 8,
+    y: height - 86,
+    size: 7.5,
+    font: fontRegular,
+    color: white,
+  });
+
+  page.drawText(branch2Text, {
+    x: headerLeftX,
+    y: height - 97,
+    size: 7.5,
     font: fontRegular,
     color: white,
   });
 
   page.drawText(`Enquiry: ${shopPhone}`, {
     x: headerLeftX,
-    y: height - 102,
-    size: 8,
+    y: height - 109,
+    size: 7.5,
     font: fontRegular,
     color: white,
   });
