@@ -21,6 +21,8 @@ export interface StoreSettings {
 }
 
 export type OrderStatus = 'ORDERED' | 'DELIVERED';
+export type PaymentType = 'SETTLED' | 'CREDIT';
+export type Branch = 'BRANCH_1' | 'BRANCH_2';
 
 export interface OrderItem {
   id?: string;
@@ -47,6 +49,9 @@ export interface Order {
   extraDiscountValue?: number;
   extraDiscountAmount?: number;
   status: OrderStatus;
+  paymentType?: PaymentType; // 'SETTLED' (Paid) or 'CREDIT' (Unpaid credit)
+  branch?: Branch; // 'BRANCH_1' or 'BRANCH_2'
+  settledAt?: string;
   items: OrderItem[];
   createdAt: string;
   updatedAt: string;

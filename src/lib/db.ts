@@ -378,6 +378,10 @@ export async function updateOrderStatus(
     value?: number;
     amount?: number;
     finalTotal?: number;
+  },
+  options?: {
+    paymentType?: 'SETTLED' | 'CREDIT';
+    branch?: 'BRANCH_1' | 'BRANCH_2';
   }
 ): Promise<Order | null> {
   const orderDoc = await getDoc(doc(db, 'orders', orderId));
@@ -387,6 +391,17 @@ export async function updateOrderStatus(
   const now = new Date().toISOString();
   order.status = status;
   order.updatedAt = now;
+
+  if (options?.paymentType) {
+    order.paymentType = options.paymentType;
+    if (options.paymentType === 'SETTLED') {
+      order.settledAt = now;
+    }
+  }
+
+  if (options?.branch) {
+    order.branch = options.branch;
+  }
 
   if (extraDiscount && typeof extraDiscount.finalTotal === 'number') {
     if (order.originalTotal === undefined) {
@@ -402,6 +417,60 @@ export async function updateOrderStatus(
     delete order.extraDiscountValue;
     delete order.extraDiscountAmount;
   }
+
+  await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order), { merge: true });
+  return order;
+}
+
+export async function updateOrderItems(
+  orderId: string,
+  updatedItems: Order['items']
+): Promise<Order | null> {
+  const orderDoc = await getDoc(doc(db, 'orders', orderId));
+  if (!orderDoc.exists()) return null;
+
+  const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
+  const now = new Date().toISOString();
+
+  let newSubtotal = 0;
+  for (const it of updatedItems) {
+    newSubtotal += Number(it.price || 0) * Number(it.quantity || 0);
+  }
+
+  const discountPercentage = Math.max(0, Number(order.discountPercentage) || 0);
+  const discountAmount = Math.round((newSubtotal * discountPercentage) / 100);
+  let newTotal = Math.max(0, newSubtotal - discountAmount);
+
+  // Reapply extra counter discount if already present
+  if (order.extraDiscountType === 'percentage' && order.extraDiscountValue) {
+    const extraAmt = Math.round((newTotal * order.extraDiscountValue) / 100);
+    order.extraDiscountAmount = extraAmt;
+    newTotal = Math.max(0, newTotal - extraAmt);
+  } else if (order.extraDiscountType === 'flat' && order.extraDiscountValue) {
+    order.extraDiscountAmount = order.extraDiscountValue;
+    newTotal = Math.max(0, newTotal - order.extraDiscountValue);
+  }
+
+  order.items = updatedItems;
+  order.subtotal = newSubtotal;
+  order.discountAmount = discountAmount;
+  order.total = newTotal;
+  order.updatedAt = now;
+
+  await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order), { merge: true });
+  return order;
+}
+
+export async function settleOrderCredit(orderId: string): Promise<Order | null> {
+  const orderDoc = await getDoc(doc(db, 'orders', orderId));
+  if (!orderDoc.exists()) return null;
+
+  const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
+  const now = new Date().toISOString();
+
+  order.paymentType = 'SETTLED';
+  order.settledAt = now;
+  order.updatedAt = now;
 
   await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order), { merge: true });
   return order;

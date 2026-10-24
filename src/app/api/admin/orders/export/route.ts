@@ -12,6 +12,8 @@ export async function GET() {
       'Date',
       'Customer Name',
       'Phone Number',
+      'Branch',
+      'Payment Status',
       'Items Count',
       'Items Details',
       'Total (INR)',
@@ -25,11 +27,15 @@ export async function GET() {
 
     const rows = orders.map((o) => {
       const itemsSummary = o.items.map((i) => `${i.name} x${i.quantity}`).join('; ');
+      const branchLabel = o.branch === 'BRANCH_2' ? 'Branch 2' : o.branch === 'BRANCH_1' ? 'Branch 1' : 'Unassigned';
+      const paymentLabel = o.paymentType === 'CREDIT' ? 'Credit (Unpaid)' : o.paymentType === 'SETTLED' ? 'Settled (Paid)' : '-';
       return [
         escapeCsv(o.orderNumber),
         escapeCsv(new Date(o.createdAt).toLocaleString('en-IN')),
         escapeCsv(o.customerName),
         escapeCsv(o.customerPhone),
+        escapeCsv(branchLabel),
+        escapeCsv(paymentLabel),
         escapeCsv(o.items.reduce((acc, i) => acc + i.quantity, 0)),
         escapeCsv(itemsSummary),
         escapeCsv(o.total),

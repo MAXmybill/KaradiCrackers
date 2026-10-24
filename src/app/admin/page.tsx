@@ -25,8 +25,31 @@ export default async function AdminDashboardPage() {
   const totalOrders = orders.length;
   const orderedOrders = orders.filter((o) => o.status === 'ORDERED' || (o.status as any) === 'PENDING').length;
   const deliveredOrders = orders.filter((o) => o.status === 'DELIVERED' || (o.status as any) === 'COLLECTED').length;
-  const totalRevenue = orders
-    .filter((o) => o.status === 'DELIVERED' || (o.status as any) === 'COLLECTED')
+
+  // Branch 1 & Branch 2 breakdowns
+  const b1Orders = orders.filter((o) => o.branch === 'BRANCH_1');
+  const b2Orders = orders.filter((o) => o.branch === 'BRANCH_2');
+
+  const b1SettledRevenue = b1Orders
+    .filter((o) => o.paymentType === 'SETTLED' || (o.status === 'DELIVERED' && !o.paymentType))
+    .reduce((sum, o) => sum + o.total, 0);
+  const b1CreditAmount = b1Orders
+    .filter((o) => o.paymentType === 'CREDIT')
+    .reduce((sum, o) => sum + o.total, 0);
+
+  const b2SettledRevenue = b2Orders
+    .filter((o) => o.paymentType === 'SETTLED' || (o.status === 'DELIVERED' && !o.paymentType))
+    .reduce((sum, o) => sum + o.total, 0);
+  const b2CreditAmount = b2Orders
+    .filter((o) => o.paymentType === 'CREDIT')
+    .reduce((sum, o) => sum + o.total, 0);
+
+  // Overall totals across all branches
+  const totalSettledRevenue = orders
+    .filter((o) => o.paymentType === 'SETTLED' || (o.status === 'DELIVERED' && !o.paymentType))
+    .reduce((sum, o) => sum + o.total, 0);
+  const totalCreditAmount = orders
+    .filter((o) => o.paymentType === 'CREDIT')
     .reduce((sum, o) => sum + o.total, 0);
 
   const recentOrders = orders.slice(0, 6);
@@ -181,15 +204,64 @@ export default async function AdminDashboardPage() {
 
           {/* Quick Shortcuts & Inventory Alerts */}
           <div className="lg:col-span-4 space-y-6">
-            {/* Counter Revenue Card */}
-            <div className="bg-gradient-to-br from-[#D40000] to-red-900 text-white rounded-2xl p-6 shadow-md border-2 border-[#FFC400]">
-              <span className="text-xs uppercase font-extrabold tracking-wider text-amber-200">
-                Delivered Revenue
-              </span>
-              <div className="text-3xl font-black text-[#FFC400] mt-1">₹{totalRevenue}</div>
-              <p className="text-xs text-white/80 mt-2">
-                Collected from {deliveredOrders} delivered orders at shop counter.
-              </p>
+            {/* Branch 1, Branch 2 & All Branches Revenue & Credit Breakdown */}
+            <div className="bg-gradient-to-br from-[#4A148C] to-[#311B92] text-white rounded-2xl p-5 shadow-md border-2 border-purple-400 space-y-4">
+              <div className="flex items-center justify-between border-b border-purple-300/30 pb-2">
+                <span className="text-xs uppercase font-extrabold tracking-wider text-amber-300 flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-[#FFC400]" />
+                  Branches Financial Summary
+                </span>
+                <Link href="/admin/orders" className="text-[11px] text-purple-200 hover:text-white underline font-bold">
+                  Details →
+                </Link>
+              </div>
+
+              {/* Total Across All Branches */}
+              <div className="bg-black/25 p-3 rounded-xl border border-white/10 space-y-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-purple-200 block">
+                  All Branches Combined
+                </span>
+                <div className="flex items-baseline justify-between">
+                  <span className="text-xs text-emerald-300 font-bold">Settled (Paid):</span>
+                  <span className="text-xl font-black text-emerald-300">₹{totalSettledRevenue}</span>
+                </div>
+                <div className="flex items-baseline justify-between">
+                  <span className="text-xs text-amber-300 font-bold">Credit (Pending):</span>
+                  <span className="text-lg font-black text-amber-300">₹{totalCreditAmount}</span>
+                </div>
+              </div>
+
+              {/* Branch 1 Card */}
+              <div className="bg-white/10 p-3 rounded-xl border border-white/10 space-y-1">
+                <div className="flex justify-between items-center">
+                  <span className="text-xs font-black text-[#FFC400]">Branch 1</span>
+                  <span className="text-[10px] text-purple-200 font-semibold">{b1Orders.length} orders</span>
+                </div>
+                <div className="flex items-baseline justify-between text-xs">
+                  <span className="text-emerald-200">Settled:</span>
+                  <span className="font-bold text-emerald-300">₹{b1SettledRevenue}</span>
+                </div>
+                <div className="flex items-baseline justify-between text-xs">
+                  <span className="text-amber-200">Credit:</span>
+                  <span className="font-bold text-amber-300">₹{b1CreditAmount}</span>
+                </div>
+              </div>
+
+              {/* Branch 2 Card */}
+              <div className="bg-white/10 p-3 rounded-xl border border-white/10 space-y-1">
+                <div className="flex justify-between items-center">
+                  <span className="text-xs font-black text-[#FFC400]">Branch 2</span>
+                  <span className="text-[10px] text-purple-200 font-semibold">{b2Orders.length} orders</span>
+                </div>
+                <div className="flex items-baseline justify-between text-xs">
+                  <span className="text-emerald-200">Settled:</span>
+                  <span className="font-bold text-emerald-300">₹{b2SettledRevenue}</span>
+                </div>
+                <div className="flex items-baseline justify-between text-xs">
+                  <span className="text-amber-200">Credit:</span>
+                  <span className="font-bold text-amber-300">₹{b2CreditAmount}</span>
+                </div>
+              </div>
             </div>
 
             {/* Bulk Price Adjustment Shortcut Card */}
