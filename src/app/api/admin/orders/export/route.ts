@@ -27,7 +27,12 @@ export async function GET() {
 
     const rows = orders.map((o) => {
       const itemsSummary = o.items.map((i) => `${i.name} x${i.quantity}`).join('; ');
-      const branchLabel = o.branch === 'BRANCH_2' ? 'Branch 2' : o.branch === 'BRANCH_1' ? 'Branch 1' : 'Unassigned';
+      const branchLabel =
+        o.branch === 'BRANCH_2'
+          ? 'Ramraj Branch'
+          : o.branch === 'BRANCH_1'
+          ? 'Arasan Branch'
+          : 'Unassigned';
       const paymentLabel = o.paymentType === 'CREDIT' ? 'Credit (Unpaid)' : o.paymentType === 'SETTLED' ? 'Settled (Paid)' : '-';
       return [
         escapeCsv(o.orderNumber),

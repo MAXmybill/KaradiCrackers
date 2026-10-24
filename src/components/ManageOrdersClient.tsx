@@ -116,7 +116,7 @@ export default function ManageOrdersClient({
       }
 
       if (newStatus === 'DELIVERED') {
-        const branchLabel = branch === 'BRANCH_2' ? 'Branch 2' : 'Branch 1';
+        const branchLabel = branch === 'BRANCH_2' ? 'Ramraj Branch' : 'Arasan Branch';
         const payLabel = paymentType === 'CREDIT' ? 'CREDIT (Unpaid)' : 'SETTLED (Paid)';
         toast.success(
           `Order #${data.order.orderNumber} delivered from ${branchLabel} [${payLabel}]! Total: ₹${data.order.total}`
@@ -473,7 +473,7 @@ export default function ManageOrdersClient({
             </div>
           </div>
 
-          {/* BRANCH 1 */}
+          {/* ARASAN BRANCH */}
           <div
             onClick={() => setBranchTab('BRANCH_1')}
             className={`p-2.5 sm:p-3 rounded-xl border transition-all cursor-pointer ${
@@ -485,7 +485,7 @@ export default function ManageOrdersClient({
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[11px] font-black uppercase tracking-wider text-blue-900 flex items-center gap-1">
                 <Building2 className="w-3.5 h-3.5 text-blue-600" />
-                Branch 1
+                Arasan Branch
               </span>
               <span className="text-[10px] font-bold px-1.5 py-0.2 bg-blue-100 rounded text-blue-800">
                 ₹{financialSummary.b1.total}
@@ -503,7 +503,7 @@ export default function ManageOrdersClient({
             </div>
           </div>
 
-          {/* BRANCH 2 */}
+          {/* RAMRAJ BRANCH */}
           <div
             onClick={() => setBranchTab('BRANCH_2')}
             className={`p-2.5 sm:p-3 rounded-xl border transition-all cursor-pointer ${
@@ -515,7 +515,7 @@ export default function ManageOrdersClient({
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[11px] font-black uppercase tracking-wider text-purple-900 flex items-center gap-1">
                 <Building2 className="w-3.5 h-3.5 text-purple-600" />
-                Branch 2
+                Ramraj Branch
               </span>
               <span className="text-[10px] font-bold px-1.5 py-0.2 bg-purple-100 rounded text-purple-800">
                 ₹{financialSummary.b2.total}
@@ -543,8 +543,8 @@ export default function ManageOrdersClient({
               <span className="text-[10px] font-black uppercase text-gray-500 px-1.5">Branch:</span>
               {[
                 { id: 'ALL', label: 'All Branches' },
-                { id: 'BRANCH_1', label: 'Branch 1' },
-                { id: 'BRANCH_2', label: 'Branch 2' },
+                { id: 'BRANCH_1', label: 'Arasan Branch' },
+                { id: 'BRANCH_2', label: 'Ramraj Branch' },
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -662,9 +662,9 @@ export default function ManageOrdersClient({
 
                     const branchName =
                       ord.branch === 'BRANCH_2'
-                        ? 'Branch 2'
+                        ? 'Ramraj Branch'
                         : ord.branch === 'BRANCH_1'
-                        ? 'Branch 1'
+                        ? 'Arasan Branch'
                         : 'Unassigned';
 
                     const isCredit = ord.paymentType === 'CREDIT';
@@ -831,7 +831,7 @@ export default function ManageOrdersClient({
                     </span>
                     {editingOrder.branch && (
                       <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-blue-100 text-blue-800">
-                        {editingOrder.branch === 'BRANCH_2' ? 'Branch 2' : 'Branch 1'}
+                        {editingOrder.branch === 'BRANCH_2' ? 'Ramraj Branch' : 'Arasan Branch'}
                       </span>
                     )}
                   </div>
@@ -1112,10 +1112,10 @@ export default function ManageOrdersClient({
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-black text-xs text-blue-950">Branch 1</span>
+                      <span className="font-black text-xs text-blue-950">Arasan Branch</span>
                       {selectedBranch === 'BRANCH_1' && <Check className="w-3.5 h-3.5 text-blue-600" />}
                     </div>
-                    <span className="text-[9px] text-gray-500 block">Main Store</span>
+                    <span className="text-[9px] text-gray-500 block">Arasan</span>
                   </button>
 
                   <button
@@ -1128,10 +1128,10 @@ export default function ManageOrdersClient({
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-black text-xs text-purple-950">Branch 2</span>
+                      <span className="font-black text-xs text-purple-950">Ramraj Branch</span>
                       {selectedBranch === 'BRANCH_2' && <Check className="w-3.5 h-3.5 text-purple-600" />}
                     </div>
-                    <span className="text-[9px] text-gray-500 block">Extension</span>
+                    <span className="text-[9px] text-gray-500 block">Ramraj</span>
                   </button>
                 </div>
               </div>
@@ -1310,7 +1310,7 @@ export default function ManageOrdersClient({
                         {selectedPaymentType === 'CREDIT' ? 'Credit Due' : 'Revenue Collected'}
                       </span>
                       <span className="text-[9px] text-gray-500">
-                        {selectedBranch === 'BRANCH_2' ? 'Branch 2' : 'Branch 1'}
+                        {selectedBranch === 'BRANCH_2' ? 'Ramraj Branch' : 'Arasan Branch'}
                       </span>
                     </div>
                     <span
@@ -1346,7 +1346,7 @@ export default function ManageOrdersClient({
                 >
                   <CheckCircle className="w-3.5 h-3.5" />
                   <span>
-                    Confirm ({selectedBranch === 'BRANCH_2' ? 'B2' : 'B1'}) - ₹{calculatedFinalRevenue}
+                    Confirm ({selectedBranch === 'BRANCH_2' ? 'Ramraj' : 'Arasan'}) - ₹{calculatedFinalRevenue}
                   </span>
                 </button>
               </div>

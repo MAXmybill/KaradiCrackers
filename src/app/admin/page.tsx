@@ -231,10 +231,10 @@ export default async function AdminDashboardPage() {
                 </div>
               </div>
 
-              {/* Branch 1 Card */}
+              {/* Arasan Branch Card */}
               <div className="bg-white/10 p-3 rounded-xl border border-white/10 space-y-1">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-black text-[#FFC400]">Branch 1</span>
+                  <span className="text-xs font-black text-[#FFC400]">Arasan Branch</span>
                   <span className="text-[10px] text-purple-200 font-semibold">{b1Orders.length} orders</span>
                 </div>
                 <div className="flex items-baseline justify-between text-xs">
@@ -247,10 +247,10 @@ export default async function AdminDashboardPage() {
                 </div>
               </div>
 
-              {/* Branch 2 Card */}
+              {/* Ramraj Branch Card */}
               <div className="bg-white/10 p-3 rounded-xl border border-white/10 space-y-1">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-black text-[#FFC400]">Branch 2</span>
+                  <span className="text-xs font-black text-[#FFC400]">Ramraj Branch</span>
                   <span className="text-[10px] text-purple-200 font-semibold">{b2Orders.length} orders</span>
                 </div>
                 <div className="flex items-baseline justify-between text-xs">
