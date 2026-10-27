@@ -10,7 +10,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 144,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SATTAI",
+    "category": "Sattai",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -22,7 +22,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 336,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SATTAI",
+    "category": "Sattai",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -34,7 +34,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 152,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SATTAI",
+    "category": "Sattai",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -46,7 +46,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 56,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -58,7 +58,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 64,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -70,7 +70,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 72,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -82,7 +82,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 80,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -94,7 +94,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 112,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -106,7 +106,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 128,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -118,7 +118,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 136,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -130,7 +130,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 144,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -142,7 +142,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 208,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -154,7 +154,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 160,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -166,7 +166,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 176,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -178,7 +178,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 184,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -190,7 +190,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 208,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -202,7 +202,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 240,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -214,7 +214,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 280,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -226,7 +226,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 280,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -238,7 +238,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -250,7 +250,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 240,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -262,7 +262,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 280,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -274,7 +274,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 240,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -286,7 +286,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 240,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -298,7 +298,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 920,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -310,7 +310,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1040,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -322,7 +322,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 680,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -334,7 +334,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "SPARKLERS",
+    "category": "Sparklers",
     "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -346,7 +346,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Ground Chakkra",
     "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -358,7 +358,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Ground Chakkra",
     "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -370,7 +370,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 440,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Ground Chakkra",
     "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -382,7 +382,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Ground Chakkra",
     "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -394,7 +394,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 760,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -406,7 +406,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 720,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -418,7 +418,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 560,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -430,7 +430,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -442,7 +442,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1120,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -454,7 +454,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 920,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -466,7 +466,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -478,7 +478,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -490,7 +490,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1040,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -502,7 +502,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 720,
     "quantity": 200,
     "isAvailable": true,
-    "category": "CHAKKRA & SPINNERS",
+    "category": "Fancy Chakkras",
     "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -514,7 +514,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 520,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -526,7 +526,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 680,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -538,7 +538,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -550,7 +550,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -562,7 +562,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -574,7 +574,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1040,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -586,7 +586,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -598,7 +598,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -610,7 +610,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -622,7 +622,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1880,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -634,7 +634,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1880,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -646,7 +646,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2880,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -658,7 +658,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1280,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -670,7 +670,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -682,7 +682,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1168,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -694,7 +694,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -706,7 +706,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1720,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -718,7 +718,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 4400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FLOWER POTS",
+    "category": "Fancy Flower pots",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -730,7 +730,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 640,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -742,7 +742,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 720,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -754,7 +754,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 960,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -766,7 +766,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -778,7 +778,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Fancy Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -790,7 +790,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Fancy Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -802,7 +802,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Fancy Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -814,7 +814,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2520,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Fancy Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -826,7 +826,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Fancy Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -838,7 +838,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1920,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Fancy Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -850,7 +850,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 4800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GUJARAT POTS",
+    "category": "Fancy Gujarat F/P",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -862,7 +862,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 64,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -874,7 +874,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 144,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -886,7 +886,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 80,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -898,7 +898,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 104,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -910,7 +910,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 216,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -922,7 +922,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 304,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -934,7 +934,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -946,7 +946,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 296,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -958,7 +958,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 240,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -970,7 +970,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -982,7 +982,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 480,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -994,7 +994,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 240,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1006,7 +1006,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 224,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1018,7 +1018,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 440,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1030,7 +1030,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 560,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Mega Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1042,7 +1042,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 680,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Mega Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1054,7 +1054,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 880,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Mega Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1066,7 +1066,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1040,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Mega Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1078,7 +1078,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1160,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Mega Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1090,7 +1090,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1280,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Mega Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1102,7 +1102,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Mega Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1114,7 +1114,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1440,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Mega Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1126,7 +1126,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "BOMBS",
+    "category": "Mega Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1138,7 +1138,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "PAPER BOMBS",
+    "category": "Paper Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1150,7 +1150,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "PAPER BOMBS",
+    "category": "Paper Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1162,7 +1162,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "PAPER BOMBS",
+    "category": "Paper Bombs",
     "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1174,7 +1174,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 220,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1186,7 +1186,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 260,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1198,7 +1198,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1280,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1210,7 +1210,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1222,7 +1222,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 736,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1234,7 +1234,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 80,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1246,7 +1246,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2128,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1258,7 +1258,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 928,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1270,7 +1270,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 536,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1282,7 +1282,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 40,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1294,7 +1294,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 140,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1306,7 +1306,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 720,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1318,7 +1318,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1330,7 +1330,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 920,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1342,7 +1342,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1354,7 +1354,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1440,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1366,7 +1366,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1378,7 +1378,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1390,7 +1390,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1402,7 +1402,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1040,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1414,7 +1414,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1426,7 +1426,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1120,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1438,7 +1438,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "KIDS",
+    "category": "Kids Special",
     "imageUrl": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1450,7 +1450,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "ROCKETS",
+    "category": "Rockets",
     "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1462,7 +1462,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "ROCKETS",
+    "category": "Rockets",
     "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1474,7 +1474,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "ROCKETS",
+    "category": "Rockets",
     "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1486,7 +1486,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 736,
     "quantity": 200,
     "isAvailable": true,
-    "category": "ROCKETS",
+    "category": "Rockets",
     "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1498,7 +1498,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 960,
     "quantity": 200,
     "isAvailable": true,
-    "category": "ROCKETS",
+    "category": "Rockets",
     "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1510,7 +1510,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 520,
     "quantity": 200,
     "isAvailable": true,
-    "category": "ROCKETS",
+    "category": "Rockets",
     "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1522,7 +1522,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 720,
     "quantity": 200,
     "isAvailable": true,
-    "category": "ROCKETS",
+    "category": "Rockets",
     "imageUrl": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1534,7 +1534,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Sky shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1546,7 +1546,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 960,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Sky shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1558,7 +1558,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Sky shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1570,7 +1570,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1840,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Sky shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1582,7 +1582,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Sky shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1594,7 +1594,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Sky shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1606,7 +1606,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Sky shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1618,7 +1618,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2120,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1630,7 +1630,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1642,7 +1642,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1654,7 +1654,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 5200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1666,7 +1666,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 5600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1678,7 +1678,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1690,7 +1690,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1702,7 +1702,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1714,7 +1714,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1726,7 +1726,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2640,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1738,7 +1738,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2944,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1750,7 +1750,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2944,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1762,7 +1762,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2960,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1774,7 +1774,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 5200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1786,7 +1786,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 5600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1798,7 +1798,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 6240,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1810,7 +1810,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 8000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1822,7 +1822,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 12000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1834,7 +1834,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 6160,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1846,7 +1846,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 11600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1858,7 +1858,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3440,
     "quantity": 200,
     "isAvailable": true,
-    "category": "FANCY PIPES",
+    "category": "Mega Pipes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1870,7 +1870,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "DAY FANCY",
+    "category": "Day Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1882,7 +1882,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 728,
     "quantity": 200,
     "isAvailable": true,
-    "category": "DAY FANCY",
+    "category": "Day Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1894,7 +1894,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 720,
     "quantity": 200,
     "isAvailable": true,
-    "category": "DAY FANCY",
+    "category": "Day Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1906,7 +1906,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1080,
     "quantity": 200,
     "isAvailable": true,
-    "category": "DAY FANCY",
+    "category": "Day Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1918,7 +1918,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 8400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1930,7 +1930,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 8000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1942,7 +1942,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1160,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1954,7 +1954,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1966,7 +1966,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1978,7 +1978,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -1990,7 +1990,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2002,7 +2002,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 6000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2014,7 +2014,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 5600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2026,7 +2026,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 6160,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2038,7 +2038,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 11200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2050,7 +2050,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 22400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Night Shots",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2062,7 +2062,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 23200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Fan cake & set outs",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2074,7 +2074,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 24800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Fan cake & set outs",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2086,7 +2086,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 24000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Fan cake & set outs",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2098,7 +2098,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 5680,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Fan cake & set outs",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2110,7 +2110,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 18800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT SHOTS",
+    "category": "Fan cake & set outs",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2122,7 +2122,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 540,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2134,7 +2134,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 440,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2146,7 +2146,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2158,7 +2158,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 160,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2170,7 +2170,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 340,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2182,7 +2182,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2194,7 +2194,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1064,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2206,7 +2206,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2218,7 +2218,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1064,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2230,7 +2230,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2242,7 +2242,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2254,7 +2254,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2266,7 +2266,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2278,7 +2278,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 440,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2290,7 +2290,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1080,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2302,7 +2302,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2080,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2314,7 +2314,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2326,7 +2326,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2338,7 +2338,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 520,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2350,7 +2350,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 520,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2362,7 +2362,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 520,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2374,7 +2374,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1760,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2386,7 +2386,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1760,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2398,7 +2398,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1760,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2410,7 +2410,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 640,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2422,7 +2422,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2434,7 +2434,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2446,7 +2446,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 720,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2458,7 +2458,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1080,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2470,7 +2470,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1080,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2482,7 +2482,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1160,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2494,7 +2494,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 280,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2506,7 +2506,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1136,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2518,7 +2518,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 920,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2530,7 +2530,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2542,7 +2542,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 960,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2554,7 +2554,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 880,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2566,7 +2566,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1520,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2578,7 +2578,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2590,7 +2590,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2602,7 +2602,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2614,7 +2614,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2626,7 +2626,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 360,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2638,7 +2638,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1040,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2650,7 +2650,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 680,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2662,7 +2662,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2674,7 +2674,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2944,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2686,7 +2686,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2698,7 +2698,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 960,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2710,7 +2710,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2722,7 +2722,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2734,7 +2734,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1896,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2746,7 +2746,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1120,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2758,7 +2758,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1280,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2770,7 +2770,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 920,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2782,7 +2782,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3200,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2794,7 +2794,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2584,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2806,7 +2806,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2128,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2818,7 +2818,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 440,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2830,7 +2830,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1240,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2842,7 +2842,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 760,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2854,7 +2854,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 840,
     "quantity": 200,
     "isAvailable": true,
-    "category": "NIGHT FANCY",
+    "category": "Night Fancy",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -2866,8 +2866,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 120,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-249",
@@ -2878,8 +2878,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 280,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-250",
@@ -2890,8 +2890,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 560,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-251",
@@ -2902,8 +2902,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 320,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-252",
@@ -2914,8 +2914,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-253",
@@ -2926,8 +2926,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1120,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-254",
@@ -2938,8 +2938,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2080,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-255",
@@ -2950,8 +2950,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 1920,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Mega Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-256",
@@ -2962,8 +2962,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3800,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Mega Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-257",
@@ -2974,8 +2974,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 8400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Mega Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-258",
@@ -2986,8 +2986,8 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 17600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "WALA",
-    "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
+    "category": "Mega Wala",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80"
   },
   {
     "id": "kc-item-259",
@@ -2998,7 +2998,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 2400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GIFT BOXES",
+    "category": "Gift Boxes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -3010,7 +3010,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 3600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GIFT BOXES",
+    "category": "Gift Boxes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -3022,7 +3022,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 4400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GIFT BOXES",
+    "category": "Gift Boxes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -3034,7 +3034,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 6000,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GIFT BOXES",
+    "category": "Gift Boxes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -3046,7 +3046,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 7600,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GIFT BOXES",
+    "category": "Gift Boxes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   },
   {
@@ -3058,7 +3058,7 @@ export const INITIAL_CRACKERS: Omit<Cracker, 'createdAt' | 'updatedAt'>[] = [
     "originalPrice": 8400,
     "quantity": 200,
     "isAvailable": true,
-    "category": "GIFT BOXES",
+    "category": "Gift Boxes",
     "imageUrl": "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=600&auto=format&fit=crop&q=80"
   }
 ];

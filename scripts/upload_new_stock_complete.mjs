@@ -37,24 +37,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Normalized category mapping
+// Clean category mapping preserving all distinct categories from user's sheet
 function normalizeCategory(cat) {
-  const c = (cat || '').trim().toUpperCase();
-  if (c.includes('SATTAI')) return 'SATTAI';
-  if (c.includes('SPARKLER')) return 'SPARKLERS';
-  if (c.includes('GROUND CHAKKRA') || c.includes('FANCY CHAKKRA')) return 'CHAKKRA & SPINNERS';
-  if (c.includes('GUJARAT') || c.includes('RIM GIM')) return 'GUJARAT POTS';
-  if (c.includes('FLOWER POT')) return 'FLOWER POTS';
-  if (c.includes('MEGA BOMB') || c.includes('BOMB') && !c.includes('PAPER')) return 'BOMBS';
-  if (c.includes('PAPER BOMB')) return 'PAPER BOMBS';
-  if (c.includes('KIDS')) return 'KIDS';
-  if (c.includes('ROCKET')) return 'ROCKETS';
-  if (c.includes('SKY SHOT') || c.includes('MEGA PIPE') || c.includes('PIPE')) return 'FANCY PIPES';
-  if (c.includes('DAY FANCY')) return 'DAY FANCY';
-  if (c.includes('NIGHT  SHOT') || c.includes('NIGHT SHOT') || c.includes('FAN CAKE')) return 'NIGHT SHOTS';
-  if (c.includes('NIGHT FANCY')) return 'NIGHT FANCY';
-  if (c.includes('MEGA WALA') || c.includes('WALA')) return 'WALA';
-  if (c.includes('GIFT BOX')) return 'GIFT BOXES';
+  let c = (cat || '').trim();
+  // collapse double spaces like "Night  Shots" -> "Night Shots"
+  c = c.replace(/\s+/g, ' ');
   return c;
 }
 
@@ -70,25 +57,26 @@ const IMG_FANCY = 'https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?
 const IMG_KIDS = 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80';
 
 function getImageForCategory(cat, idx) {
-  switch (cat) {
-    case 'SPARKLERS':
-    case 'SATTAI':
-      return idx % 2 === 0 ? IMG_SPARK : IMG_SPARK2;
-    case 'CHAKKRA & SPINNERS':
-      return idx % 2 === 0 ? IMG_CHAKKAR : IMG_CHAKKAR2;
-    case 'FLOWER POTS':
-    case 'GUJARAT POTS':
-      return idx % 2 === 0 ? IMG_FLOWER : IMG_FLOWER2;
-    case 'ROCKETS':
-      return IMG_ROCKET;
-    case 'BOMBS':
-    case 'PAPER BOMBS':
-      return IMG_BOMB;
-    case 'KIDS':
-      return IMG_KIDS;
-    default:
-      return idx % 2 === 0 ? IMG_FANCY : IMG_FLOWER;
+  const upper = (cat || '').toUpperCase();
+  if (upper.includes('SPARKLER') || upper.includes('SATTAI')) {
+    return idx % 2 === 0 ? IMG_SPARK : IMG_SPARK2;
   }
+  if (upper.includes('CHAKKRA') || upper.includes('SPINNER')) {
+    return idx % 2 === 0 ? IMG_CHAKKAR : IMG_CHAKKAR2;
+  }
+  if (upper.includes('FLOWER') || upper.includes('GUJARAT')) {
+    return idx % 2 === 0 ? IMG_FLOWER : IMG_FLOWER2;
+  }
+  if (upper.includes('ROCKET')) {
+    return IMG_ROCKET;
+  }
+  if (upper.includes('BOMB') || upper.includes('WALA')) {
+    return IMG_BOMB;
+  }
+  if (upper.includes('KIDS')) {
+    return IMG_KIDS;
+  }
+  return idx % 2 === 0 ? IMG_FANCY : IMG_FLOWER;
 }
 
 function parseCatalog() {
@@ -189,7 +177,44 @@ async function run() {
     }
   }
 
-  console.log(`\nSUCCESS: Uploaded all ${upCount} new products to Firestore and deleted old stock.`);
+  // 5. Update categoryTranslations in settings document
+  console.log('5. Updating categoryTranslations in Firestore settings...');
+  const categoryTranslations = {
+    'Sattai': 'சாட்டை',
+    'Sparklers': 'கம்பி மத்தாப்பு',
+    'Ground Chakkra': 'தரை சக்கரம்',
+    'Fancy Chakkras': 'ஃபேன்சி சக்கரம்',
+    'Flower pots': 'பூந்தொட்டி / அனார்',
+    'Fancy Flower pots': 'ஃபேன்சி பூந்தொட்டி',
+    'Gujarat F/P': 'குஜராத் பாட்ஸ்',
+    'Fancy Gujarat F/P': 'ஃபேன்சி குஜராத் பாட்ஸ்',
+    'Bombs': 'வெடி & அணுகுண்டு',
+    'Mega Bombs': 'மெகா பாம்ப்',
+    'Paper Bombs': 'பேப்பர் பாம்ப்',
+    'Kids': 'சிறுவர் பட்டாசு',
+    'Kids Special': 'கிட்ஸ் ஸ்பெஷல்',
+    'Rockets': 'ராக்கெட் ரகங்கள்',
+    'Sky shots': 'ஸ்கை ஷாட்ஸ்',
+    'Mega Pipes': 'மெகா பைப்',
+    'Day Fancy': 'பகல் ஃபேன்சி',
+    'Night Shots': 'நைட் ஷாட்ஸ்',
+    'Fan cake & set outs': 'ஃபேன் கேக் & செட் அவுட்',
+    'Night Fancy': 'இரவு ஃபேன்சி ரகங்கள்',
+    'Wala': 'சரவெடி / வாலா',
+    'Mega Wala': 'மெகா வாலா சரவெடி',
+    'Gift Boxes': 'கிஃப்ட் பாக்ஸ் ரகங்கள்'
+  };
+
+  try {
+    await setDoc(doc(db, 'settings', 'store'), {
+      categoryTranslations
+    }, { merge: true });
+    console.log('Successfully updated categoryTranslations in settings/store.');
+  } catch (err) {
+    console.error('Warning: could not update settings/store:', err);
+  }
+
+  console.log(`\nSUCCESS: Uploaded all ${upCount} new products with correct categories to Firestore.`);
   process.exit(0);
 }
 
