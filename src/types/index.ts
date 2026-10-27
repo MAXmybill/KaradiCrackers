@@ -51,6 +51,7 @@ export interface Order {
   status: OrderStatus;
   paymentType?: PaymentType; // 'SETTLED' (Paid) or 'CREDIT' (Unpaid credit)
   branch?: Branch; // 'BRANCH_1' or 'BRANCH_2'
+  referredBy?: string; // Optional referral name or code
   settledAt?: string;
   items: OrderItem[];
   createdAt: string;

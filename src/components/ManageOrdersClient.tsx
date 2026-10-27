@@ -691,6 +691,11 @@ export default function ManageOrdersClient({
                         <td className="py-2.5 px-3">
                           <p className="font-bold text-gray-900 leading-tight">{ord.customerName}</p>
                           <p className="text-[11px] text-gray-500 font-mono">+91 {ord.customerPhone}</p>
+                          {ord.referredBy && (
+                            <span className="inline-flex items-center text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-1.5 py-0.2 rounded mt-0.5">
+                              Ref: {ord.referredBy}
+                            </span>
+                          )}
                         </td>
                         <td className="py-2.5 px-3">
                           <span
@@ -848,7 +853,7 @@ export default function ManageOrdersClient({
               </div>
 
               {/* Customer summary */}
-              <div className="bg-gray-50 rounded-lg p-2 mb-2 border border-gray-200 grid grid-cols-3 gap-1 text-[11px] shrink-0">
+              <div className="bg-gray-50 rounded-lg p-2 mb-2 border border-gray-200 grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-[11px] shrink-0">
                 <div>
                   <span className="text-gray-500 block text-[10px]">Customer</span>
                   <span className="font-bold text-gray-900 truncate block">{editingOrder.customerName}</span>
@@ -856,6 +861,12 @@ export default function ManageOrdersClient({
                 <div>
                   <span className="text-gray-500 block text-[10px]">Phone</span>
                   <span className="font-bold text-gray-900 font-mono">+91 {editingOrder.customerPhone}</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 block text-[10px]">Referred By</span>
+                  <span className="font-bold text-indigo-700 block truncate">
+                    {editingOrder.referredBy || 'None (Direct)'}
+                  </span>
                 </div>
                 <div>
                   <span className="text-gray-500 block text-[10px]">Date</span>

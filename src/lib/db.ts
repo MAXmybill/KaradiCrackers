@@ -289,6 +289,7 @@ export async function getOrderByNumber(orderNumber: string): Promise<Order | nul
 export async function createOrder(data: {
   customerName: string;
   customerPhone: string;
+  referredBy?: string;
   items: { crackerId: string; quantity: number }[];
 }): Promise<{ success: boolean; order?: Order; error?: string }> {
   // Fetch live current crackers and store settings directly from Firestore
@@ -356,6 +357,7 @@ export async function createOrder(data: {
     orderNumber,
     customerName: data.customerName.trim(),
     customerPhone: data.customerPhone.trim(),
+    referredBy: data.referredBy?.trim() ? data.referredBy.trim() : undefined,
     subtotal,
     discountPercentage,
     discountAmount,

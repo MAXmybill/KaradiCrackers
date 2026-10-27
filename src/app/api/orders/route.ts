@@ -7,6 +7,7 @@ const checkoutSchema = z.object({
   customerPhone: z
     .string()
     .regex(/^[6-9]\d{9}$/, 'Please enter a valid 10-digit Indian mobile number (e.g. 9876543210)'),
+  referredBy: z.string().optional(),
   items: z
     .array(
       z.object({
@@ -30,11 +31,12 @@ export async function POST(request: Request) {
       );
     }
 
-    const { customerName, customerPhone, items } = parsed.data;
+    const { customerName, customerPhone, referredBy, items } = parsed.data;
 
     const result = await createOrder({
       customerName,
       customerPhone,
+      referredBy,
       items,
     });
 

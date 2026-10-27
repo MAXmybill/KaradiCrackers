@@ -202,6 +202,16 @@ export async function generateInvoicePdf(order: Order): Promise<Uint8Array> {
     color: order.status === 'DELIVERED' ? rgb(0.1, 0.6, 0.2) : primaryRed,
   });
 
+  if (order.referredBy) {
+    page.drawText(`Ref: ${order.referredBy}`, {
+      x: width - 200,
+      y: currentY - 35,
+      size: 9,
+      font: fontRegular,
+      color: darkGray,
+    });
+  }
+
   // Table Header
   currentY -= 75;
   page.drawRectangle({

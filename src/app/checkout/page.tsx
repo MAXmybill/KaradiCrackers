@@ -30,6 +30,7 @@ export default function CheckoutPage() {
 
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
+  const [referredBy, setReferredBy] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [nameError, setNameError] = useState('');
   const [serverError, setServerError] = useState('');
@@ -128,6 +129,7 @@ export default function CheckoutPage() {
         body: JSON.stringify({
           customerName: customerName.trim(),
           customerPhone: cleanedPhone,
+          referredBy: referredBy.trim(),
           items: items.map((i) => ({
             crackerId: i.id,
             quantity: i.quantity,
@@ -266,6 +268,26 @@ export default function CheckoutPage() {
                   />
                 </div>
                 {phoneError && <p className="text-[10px] text-red-600 mt-1 font-semibold">{phoneError}</p>}
+              </div>
+
+              {/* Referred By Field */}
+              <div>
+                <label className="block text-xs font-bold text-gray-900 mb-1 flex items-center justify-between">
+                  <span className="flex items-center gap-1">
+                    <User className="w-3.5 h-3.5 text-gray-400" />
+                    <span>Referred By</span>
+                    <span className="text-gray-400 font-normal text-[10px]">(Optional)</span>
+                  </span>
+                  <span className="text-[10px] text-gray-400 font-normal">Friend / agent name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Vignesh / Store Staff"
+                  value={referredBy}
+                  onChange={(e) => setReferredBy(e.target.value)}
+                  disabled={isSubmitting}
+                  className="w-full px-3 py-2 sm:py-2.5 rounded-xl border border-gray-300 bg-gray-50/50 focus:bg-white text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#D40000] transition-all"
+                />
               </div>
 
               {/* Compact Collection Notice */}
