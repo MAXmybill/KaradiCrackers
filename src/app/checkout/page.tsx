@@ -35,6 +35,7 @@ export default function CheckoutPage() {
   const [nameError, setNameError] = useState('');
   const [serverError, setServerError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -51,11 +52,16 @@ export default function CheckoutPage() {
       });
   }, []);
 
-  if (!mounted || !settingsLoaded || !settings) {
+  if (!mounted || !settingsLoaded || !settings || isOrderPlaced) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center p-4">
-        <div className="w-10 h-10 border-3 border-[#D40000] border-t-[#FFC400] rounded-full animate-spin mx-auto mb-3" />
-        <p className="text-gray-800 font-extrabold text-sm">Preparing checkout...</p>
+      <div className="min-h-[70vh] flex flex-col items-center justify-center p-4">
+        <div className="w-12 h-12 border-4 border-[#D40000] border-t-[#FFC400] rounded-full animate-spin mx-auto mb-4" />
+        <h2 className="text-gray-900 font-black text-base sm:text-lg mb-1">
+          {isOrderPlaced ? 'Order confirmed! Generating invoice...' : 'Preparing checkout...'}
+        </h2>
+        <p className="text-gray-500 text-xs">
+          {isOrderPlaced ? 'Redirecting you to your official invoice in a moment.' : 'Please wait while we verify live stock.'}
+        </p>
       </div>
     );
   }
@@ -147,8 +153,9 @@ export default function CheckoutPage() {
       }
 
       toast.success('Invoice generated successfully!');
+      setIsOrderPlaced(true);
       clearCart();
-      router.push(`/order/${data.orderNumber}`);
+      router.replace(`/order/${data.orderNumber}`);
     } catch (err: any) {
       setServerError(err.message || 'Network error. Please try again.');
       toast.error('Network error. Please check your connection.');
