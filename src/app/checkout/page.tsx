@@ -72,7 +72,7 @@ export default function CheckoutPage() {
   const discountAmount = Math.round((subtotal * discountPercentage) / 100);
   const netPayable = Math.max(0, subtotal - discountAmount);
 
-  if (items.length === 0) {
+  if (items.length === 0 && !isSubmitting && !isOrderPlaced) {
     return (
       <div className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-amber-50/40 to-white px-4 py-8">
         <div className="max-w-md w-full bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#FFC400] shadow-lg text-center">
