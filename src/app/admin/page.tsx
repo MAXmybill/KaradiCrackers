@@ -25,10 +25,14 @@ export default async function AdminDashboardPage() {
   const totalOrders = orders.length;
   const orderedOrders = orders.filter((o) => o.status === 'ORDERED' || (o.status as any) === 'PENDING').length;
   const deliveredOrders = orders.filter((o) => o.status === 'DELIVERED' || (o.status as any) === 'COLLECTED').length;
+  const cancelledOrders = orders.filter((o) => o.status === 'CANCELLED').length;
 
-  // Branch 1 & Branch 2 breakdowns
-  const b1Orders = orders.filter((o) => o.branch === 'BRANCH_1');
-  const b2Orders = orders.filter((o) => o.branch === 'BRANCH_2');
+  // Active fulfilled orders (Strictly excluding CANCELLED orders)
+  const activeOrders = orders.filter((o) => o.status !== 'CANCELLED');
+
+  // Branch 1 & Branch 2 breakdowns (Strictly non-cancelled)
+  const b1Orders = activeOrders.filter((o) => o.branch === 'BRANCH_1');
+  const b2Orders = activeOrders.filter((o) => o.branch === 'BRANCH_2');
 
   const b1SettledRevenue = b1Orders
     .filter((o) => o.paymentType === 'SETTLED' || (o.status === 'DELIVERED' && !o.paymentType))
@@ -44,11 +48,11 @@ export default async function AdminDashboardPage() {
     .filter((o) => o.paymentType === 'CREDIT')
     .reduce((sum, o) => sum + o.total, 0);
 
-  // Overall totals across all branches
-  const totalSettledRevenue = orders
+  // Overall totals across all branches (Excludes CANCELLED orders)
+  const totalSettledRevenue = activeOrders
     .filter((o) => o.paymentType === 'SETTLED' || (o.status === 'DELIVERED' && !o.paymentType))
     .reduce((sum, o) => sum + o.total, 0);
-  const totalCreditAmount = orders
+  const totalCreditAmount = activeOrders
     .filter((o) => o.paymentType === 'CREDIT')
     .reduce((sum, o) => sum + o.total, 0);
 
@@ -186,6 +190,8 @@ export default async function AdminDashboardPage() {
                             className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${
                               ord.status === 'DELIVERED'
                                 ? 'bg-emerald-100 text-emerald-800'
+                                : ord.status === 'CANCELLED'
+                                ? 'bg-rose-100 text-rose-800 line-through'
                                 : 'bg-amber-100 text-amber-800'
                             }`}
                           >

@@ -60,6 +60,11 @@ export default function ManageOrdersClient({
   const [discountType, setDiscountType] = useState<'none' | 'flat' | 'percentage'>('none');
   const [discountValue, setDiscountValue] = useState<string>('');
 
+  // Cancellation modal state
+  const [cancellingOrder, setCancellingOrder] = useState<Order | null>(null);
+  const [cancelReasonInput, setCancelReasonInput] = useState('');
+  const [isCancelling, setIsCancelling] = useState(false);
+
   // Editing order items modal / state (works for inspecting order or adding/removing items)
   const [editingOrder, setEditingOrder] = useState<Order | null>(null);
   const [tempItems, setTempItems] = useState<OrderItem[]>([]);
@@ -181,6 +186,39 @@ export default function ManageOrdersClient({
       toast.error(err.message || 'Failed to settle credit');
     } finally {
       setUpdatingId(null);
+    }
+  };
+
+  // ACID Cancellation handler: updates order to CANCELLED and restores product stocks atomically
+  const handleConfirmCancelOrder = async () => {
+    if (!cancellingOrder) return;
+    setIsCancelling(true);
+    try {
+      const res = await fetch(`/api/admin/orders/${cancellingOrder.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'cancel_order',
+          cancelReason: cancelReasonInput.trim() || 'Cancelled by Store Admin',
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.error);
+
+      // Update state
+      setOrders((prev) => prev.map((o) => (o.id === cancellingOrder.id ? data.order : o)));
+      if (selectedOrder && selectedOrder.id === cancellingOrder.id) setSelectedOrder(data.order);
+      if (editingOrder && editingOrder.id === cancellingOrder.id) setEditingOrder(data.order);
+
+      toast.success(
+        `Bill #${cancellingOrder.orderNumber} successfully CANCELLED! Removed from revenue and items returned to stock.`
+      );
+      setCancellingOrder(null);
+      setCancelReasonInput('');
+    } catch (err: any) {
+      toast.error(err.message || 'Failed to cancel bill');
+    } finally {
+      setIsCancelling(false);
     }
   };
 
@@ -641,13 +679,15 @@ export default function ManageOrdersClient({
               )}
 
               <div className="flex items-center gap-0.5 bg-gray-100 p-0.5 rounded-lg">
-                {['ALL', 'ORDERED', 'DELIVERED'].map((st) => (
+                {['ALL', 'ORDERED', 'DELIVERED', 'CANCELLED'].map((st) => (
                   <button
                     key={st}
                     onClick={() => setStatusFilter(st)}
                     className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all cursor-pointer ${
                       statusFilter === st
-                        ? 'bg-[#D40000] text-white shadow-2xs'
+                        ? st === 'CANCELLED'
+                          ? 'bg-rose-600 text-white shadow-2xs'
+                          : 'bg-[#D40000] text-white shadow-2xs'
                         : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
@@ -761,7 +801,19 @@ export default function ManageOrdersClient({
                         </td>
                         <td className="py-2.5 px-3" onClick={(e) => e.stopPropagation()}>
                           <div className="flex flex-col gap-0.5 items-start">
-                            {ord.status === 'DELIVERED' ? (
+                            {ord.status === 'CANCELLED' ? (
+                              <div className="flex flex-col gap-0.5">
+                                <span className="inline-flex items-center gap-1 text-[10px] font-black px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 border border-rose-300">
+                                  <Ban className="w-2.5 h-2.5 text-rose-600" />
+                                  CANCELLED
+                                </span>
+                                {ord.cancelReason && (
+                                  <span className="text-[9px] text-gray-500 italic max-w-[140px] truncate" title={ord.cancelReason}>
+                                    {ord.cancelReason}
+                                  </span>
+                                )}
+                              </div>
+                            ) : ord.status === 'DELIVERED' ? (
                               <div className="flex items-center gap-1 flex-wrap">
                                 <span className="inline-flex items-center gap-0.5 text-[10px] font-black px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 border border-emerald-300">
                                   <CheckCircle className="w-2.5 h-2.5 text-emerald-600" />
@@ -821,6 +873,19 @@ export default function ManageOrdersClient({
                             >
                               <FileText className="w-3.5 h-3.5" />
                             </button>
+                            {ord.status !== 'CANCELLED' && (
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setCancellingOrder(ord);
+                                  setCancelReasonInput('');
+                                }}
+                                className="p-1 text-rose-600 hover:text-rose-800 hover:bg-rose-50 rounded transition-colors cursor-pointer"
+                                title="Cancel this Bill / Return to Stock"
+                              >
+                                <Ban className="w-3.5 h-3.5" />
+                              </button>
+                            )}
                           </div>
                         </td>
                       </tr>
@@ -1051,7 +1116,7 @@ export default function ManageOrdersClient({
                     <span>PDF</span>
                   </button>
 
-                  {editingOrder.status !== 'DELIVERED' && (
+                  {editingOrder.status !== 'DELIVERED' && editingOrder.status !== 'CANCELLED' && (
                     <button
                       type="button"
                       onClick={() => {
@@ -1063,6 +1128,23 @@ export default function ManageOrdersClient({
                     >
                       <Clock className="w-3 h-3" />
                       <span>Deliver Order</span>
+                    </button>
+                  )}
+
+                  {editingOrder.status !== 'CANCELLED' && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const ord = editingOrder;
+                        setEditingOrder(null);
+                        setCancellingOrder(ord);
+                        setCancelReasonInput('');
+                      }}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 text-[11px] font-bold shadow-2xs cursor-pointer"
+                      title="Cancel this Bill / Return to Stock"
+                    >
+                      <Ban className="w-3 h-3 text-rose-600" />
+                      <span>Cancel Bill</span>
                     </button>
                   )}
                 </div>
@@ -1386,6 +1468,84 @@ export default function ManageOrdersClient({
                   <span>
                     Confirm ({selectedBranch === 'BRANCH_2' ? 'Ramraj' : 'Arasan'}) - ₹{calculatedFinalRevenue}
                   </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+        {/* ========================================================================= */}
+        {/* COMPACT MODAL: CANCEL ORDER (ACID Transactional Bill Cancellation)       */}
+        {/* ========================================================================= */}
+        {cancellingOrder && (
+          <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3">
+            <div className="bg-white rounded-2xl max-w-md w-full p-5 border-2 border-rose-500 shadow-2xl relative flex flex-col text-xs">
+              <div className="flex items-center justify-between pb-2 border-b border-rose-100 mb-3">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 bg-rose-100 rounded-xl text-rose-700">
+                    <Ban className="w-5 h-5 text-rose-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-black text-sm text-gray-900">Cancel Bill / Order</h3>
+                    <p className="text-[11px] text-gray-500">
+                      Order #{cancellingOrder.orderNumber} • ₹{cancellingOrder.total}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setCancellingOrder(null)}
+                  className="p-1 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl mb-3 text-rose-950 space-y-1.5">
+                <p className="font-bold text-[11px] flex items-center gap-1 text-rose-700">
+                  <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                  <span>Important Financial & Inventory Notice:</span>
+                </p>
+                <ul className="list-disc pl-4 space-y-0.5 text-[10px] text-rose-900">
+                  <li><strong>Revenue impact:</strong> This bill of <strong>₹{cancellingOrder.total}</strong> will be <strong>removed from store revenue</strong> and branch collection reports.</li>
+                  <li><strong>ACID Inventory Restoration:</strong> All <strong>{cancellingOrder.items.reduce((sum, it) => sum + (it.quantity || 0), 0)} items</strong> will be <strong>atomically restored back to stock</strong> in real time.</li>
+                  <li>This action is permanently recorded with timestamp and reason.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-1 mb-4">
+                <label className="block text-[11px] font-bold text-gray-700">
+                  Reason for Cancellation (Optional):
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Customer cancelled, wrong items, test order..."
+                  value={cancelReasonInput}
+                  onChange={(e) => setCancelReasonInput(e.target.value)}
+                  className="w-full px-3 py-1.5 bg-gray-50 border border-gray-300 rounded-lg text-xs text-gray-900 focus:outline-none focus:ring-1 focus:ring-rose-500"
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-2 pt-2 border-t border-gray-100">
+                <button
+                  type="button"
+                  onClick={() => setCancellingOrder(null)}
+                  disabled={isCancelling}
+                  className="px-3 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:bg-gray-100 cursor-pointer disabled:opacity-50"
+                >
+                  Keep Order
+                </button>
+                <button
+                  type="button"
+                  onClick={handleConfirmCancelOrder}
+                  disabled={isCancelling}
+                  className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-xs font-black text-white bg-rose-600 hover:bg-rose-700 shadow-sm active:scale-95 cursor-pointer disabled:opacity-50"
+                >
+                  {isCancelling ? (
+                    <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                  ) : (
+                    <Ban className="w-3.5 h-3.5" />
+                  )}
+                  <span>{isCancelling ? 'Cancelling & Restoring...' : 'Confirm Cancellation'}</span>
                 </button>
               </div>
             </div>

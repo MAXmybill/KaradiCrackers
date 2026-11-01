@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { updateOrderStatus, updateOrderItems, settleOrderCredit, getOrderByNumber } from '@/lib/db';
+import { updateOrderStatus, updateOrderItems, settleOrderCredit, cancelOrder } from '@/lib/db';
 import { OrderStatus, PaymentType, Branch, OrderItem } from '@/types';
 import { revalidatePath } from 'next/cache';
 
@@ -13,11 +13,17 @@ export async function PATCH(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { action, status, extraDiscount, paymentType, branch, items } = body;
+    const { action, status, extraDiscount, paymentType, branch, items, cancelReason } = body;
 
     let updated = null;
 
-    if (action === 'update_items') {
+    if (action === 'cancel_order' || status === 'CANCELLED') {
+      const cancelResult = await cancelOrder(id, cancelReason);
+      if (!cancelResult.success) {
+        return NextResponse.json({ success: false, error: cancelResult.error }, { status: 400 });
+      }
+      updated = cancelResult.order;
+    } else if (action === 'update_items') {
       if (!Array.isArray(items)) {
         return NextResponse.json({ success: false, error: 'Items must be an array' }, { status: 400 });
       }
@@ -26,7 +32,7 @@ export async function PATCH(
       updated = await settleOrderCredit(id);
     } else {
       // Default: Status change (with optional paymentType and branch)
-      if (status && !['ORDERED', 'DELIVERED'].includes(status)) {
+      if (status && !['ORDERED', 'DELIVERED', 'CANCELLED'].includes(status)) {
         return NextResponse.json({ success: false, error: 'Invalid order status' }, { status: 400 });
       }
 

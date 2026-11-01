@@ -11,6 +11,7 @@ import {
   where,
   orderBy,
   writeBatch,
+  runTransaction,
 } from 'firebase/firestore';
 
 const DEFAULT_SETTINGS: StoreSettings = {
@@ -292,84 +293,120 @@ export async function createOrder(data: {
   referredBy?: string;
   items: { crackerId: string; quantity: number }[];
 }): Promise<{ success: boolean; order?: Order; error?: string }> {
-  // Fetch live current crackers and store settings directly from Firestore
-  const [crackers, settings] = await Promise.all([getCrackers(false), getStoreSettings()]);
-  const now = new Date().toISOString();
+  try {
+    const settings = await getStoreSettings();
+    const ordersSnap = await getDocs(collection(db, 'orders'));
+    const currentYear = new Date().getFullYear();
+    const orderSequence = String(ordersSnap.size + 1).padStart(4, '0');
+    const orderNumber = `KC-${currentYear}-${orderSequence}`;
+    const orderId = `ord-${Date.now().toString(36)}-${Math.random().toString(36).substring(2, 6)}`;
+    const now = new Date().toISOString();
 
-  let subtotal = 0;
-  const verifiedItems: {
-    crackerId: string;
-    name: string;
-    price: number;
-    originalPrice?: number;
-    itemCode?: string;
-    piecesContent?: string;
-    quantity: number;
-  }[] = [];
+    const createdOrder = await runTransaction(db, async (transaction) => {
+      // 1. Transaction Read Phase: Fetch all cracker documents
+      const crackerReads: {
+        crackerRef: any;
+        cracker: Cracker;
+        requestedQty: number;
+      }[] = [];
 
-  for (const itemReq of data.items) {
-    const cracker = crackers.find((c) => c.id === itemReq.crackerId);
-    if (!cracker) {
-      return { success: false, error: 'One or more items in your cart could not be found.' };
-    }
-    if (!cracker.isAvailable) {
-      return { success: false, error: `"${cracker.name}" is currently out of stock.` };
-    }
-    if (itemReq.quantity <= 0) {
-      return { success: false, error: `Invalid quantity for "${cracker.name}".` };
-    }
-    subtotal += cracker.price * itemReq.quantity;
-    verifiedItems.push({
-      crackerId: cracker.id,
-      name: cracker.name,
-      price: cracker.price,
-      originalPrice: cracker.originalPrice,
-      itemCode: cracker.itemCode,
-      piecesContent: cracker.piecesContent,
-      quantity: itemReq.quantity,
+      let subtotal = 0;
+      const verifiedItems: {
+        crackerId: string;
+        name: string;
+        price: number;
+        originalPrice?: number;
+        itemCode?: string;
+        piecesContent?: string;
+        quantity: number;
+      }[] = [];
+
+      for (const itemReq of data.items) {
+        if (!itemReq.crackerId || itemReq.quantity <= 0) {
+          throw new Error('Invalid cart item quantity');
+        }
+
+        const crackerRef = doc(db, 'crackers', itemReq.crackerId);
+        const crackerDoc = await transaction.get(crackerRef);
+
+        if (!crackerDoc.exists()) {
+          throw new Error('One or more items in your cart could not be found');
+        }
+
+        const cracker = { id: crackerDoc.id, ...(crackerDoc.data() as any) } as Cracker;
+
+        if (!cracker.isAvailable) {
+          throw new Error(`"${cracker.name}" is currently out of stock`);
+        }
+
+        // Verify stock sufficiency
+        const currentStock = Number(cracker.quantity) || 0;
+        if (currentStock < itemReq.quantity) {
+          throw new Error(
+            `Insufficient stock for "${cracker.name}". Available: ${currentStock}, Requested: ${itemReq.quantity}`
+          );
+        }
+
+        crackerReads.push({
+          crackerRef,
+          cracker,
+          requestedQty: itemReq.quantity,
+        });
+
+        subtotal += cracker.price * itemReq.quantity;
+        verifiedItems.push({
+          crackerId: cracker.id,
+          name: cracker.name,
+          price: cracker.price,
+          originalPrice: cracker.originalPrice,
+          itemCode: cracker.itemCode,
+          piecesContent: cracker.piecesContent,
+          quantity: itemReq.quantity,
+        });
+      }
+
+      // Calculate totals
+      const discountPercentage = Math.max(0, Number(settings.discountPercentage) || 0);
+      const discountAmount = Math.round((subtotal * discountPercentage) / 100);
+      const grandTotal = Math.max(0, subtotal - discountAmount);
+
+      // 2. Transaction Write Phase: Deduct inventory atomically
+      for (const { crackerRef, cracker, requestedQty } of crackerReads) {
+        const remainingStock = Math.max(0, (Number(cracker.quantity) || 0) - requestedQty);
+        transaction.update(crackerRef, {
+          quantity: remainingStock,
+          isAvailable: cracker.isAvailable,
+          updatedAt: now,
+        });
+      }
+
+      // 3. Transaction Write Phase: Save order atomically
+      const orderRef = doc(db, 'orders', orderId);
+      const orderData: Order = {
+        id: orderId,
+        orderNumber,
+        customerName: data.customerName.trim(),
+        customerPhone: data.customerPhone.trim(),
+        referredBy: data.referredBy?.trim() ? data.referredBy.trim() : undefined,
+        subtotal,
+        discountPercentage,
+        discountAmount,
+        total: grandTotal,
+        status: 'ORDERED',
+        items: verifiedItems,
+        createdAt: now,
+        updatedAt: now,
+      };
+
+      transaction.set(orderRef, sanitizeFirestoreData(orderData));
+      return orderData;
     });
+
+    return { success: true, order: createdOrder };
+  } catch (err: any) {
+    console.error('ACID createOrder error:', err);
+    return { success: false, error: err.message || 'Failed to place order' };
   }
-
-  const discountPercentage = Math.max(0, Number(settings.discountPercentage) || 0);
-  const discountAmount = Math.round((subtotal * discountPercentage) / 100);
-  const grandTotal = Math.max(0, subtotal - discountAmount);
-
-  // Update product inventory in Firestore
-  for (const it of verifiedItems) {
-    const cracker = crackers.find((c) => c.id === it.crackerId);
-    if (cracker) {
-      const newQty = Math.max(0, cracker.quantity - it.quantity);
-      await updateCracker(cracker.id, {
-        quantity: newQty,
-        isAvailable: cracker.isAvailable,
-      });
-    }
-  }
-
-  const orders = await getOrders();
-  const currentYear = new Date().getFullYear();
-  const orderSequence = String(orders.length + 1).padStart(4, '0');
-  const orderNumber = `KC-${currentYear}-${orderSequence}`;
-  const orderId = `ord-${Date.now().toString(36)}-${Math.random().toString(36).substring(2, 6)}`;
-
-  const order: Order = {
-    id: orderId,
-    orderNumber,
-    customerName: data.customerName.trim(),
-    customerPhone: data.customerPhone.trim(),
-    referredBy: data.referredBy?.trim() ? data.referredBy.trim() : undefined,
-    subtotal,
-    discountPercentage,
-    discountAmount,
-    total: grandTotal,
-    status: 'ORDERED',
-    items: verifiedItems,
-    createdAt: now,
-    updatedAt: now,
-  };
-
-  await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order));
-  return { success: true, order };
 }
 
 export async function updateOrderStatus(
@@ -428,39 +465,111 @@ export async function updateOrderItems(
   orderId: string,
   updatedItems: Order['items']
 ): Promise<Order | null> {
-  const orderDoc = await getDoc(doc(db, 'orders', orderId));
-  if (!orderDoc.exists()) return null;
+  try {
+    const now = new Date().toISOString();
 
-  const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
-  const now = new Date().toISOString();
+    const result = await runTransaction(db, async (transaction) => {
+      const orderRef = doc(db, 'orders', orderId);
+      const orderDoc = await transaction.get(orderRef);
+      if (!orderDoc.exists()) throw new Error('Order not found');
 
-  let newSubtotal = 0;
-  for (const it of updatedItems) {
-    newSubtotal += Number(it.price || 0) * Number(it.quantity || 0);
+      const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
+      if (order.status === 'CANCELLED') {
+        throw new Error('Cannot edit items of a cancelled order');
+      }
+
+      // Map previous quantities by crackerId
+      const prevQuantities = new Map<string, number>();
+      for (const it of order.items || []) {
+        if (it.crackerId) {
+          prevQuantities.set(it.crackerId, (prevQuantities.get(it.crackerId) || 0) + Number(it.quantity || 0));
+        }
+      }
+
+      // Map new quantities by crackerId
+      const newQuantities = new Map<string, number>();
+      for (const it of updatedItems || []) {
+        if (it.crackerId) {
+          newQuantities.set(it.crackerId, (newQuantities.get(it.crackerId) || 0) + Number(it.quantity || 0));
+        }
+      }
+
+      // Identify all affected cracker IDs
+      const allCrackerIds = new Set([...Array.from(prevQuantities.keys()), ...Array.from(newQuantities.keys())]);
+
+      // Transaction Read Phase: Read all affected crackers
+      const crackerUpdates: { ref: any; newStock: number }[] = [];
+
+      for (const cId of Array.from(allCrackerIds)) {
+        const prevQty = prevQuantities.get(cId) || 0;
+        const newQty = newQuantities.get(cId) || 0;
+        const delta = newQty - prevQty; // Positive: customer wants more; Negative: customer wants less
+
+        if (delta !== 0) {
+          const crackerRef = doc(db, 'crackers', cId);
+          const crackerDoc = await transaction.get(crackerRef);
+          if (crackerDoc.exists()) {
+            const currentStock = Number(crackerDoc.data().quantity) || 0;
+            if (delta > 0 && currentStock < delta) {
+              throw new Error(
+                `Insufficient stock for "${crackerDoc.data().name}". Available additional: ${currentStock}, Requested: ${delta}`
+              );
+            }
+            const updatedStock = Math.max(0, currentStock - delta);
+            crackerUpdates.push({ ref: crackerRef, newStock: updatedStock });
+          }
+        }
+      }
+
+      // Recalculate order financials
+      let newSubtotal = 0;
+      for (const it of updatedItems) {
+        newSubtotal += Number(it.price || 0) * Number(it.quantity || 0);
+      }
+
+      const discountPercentage = Math.max(0, Number(order.discountPercentage) || 0);
+      const discountAmount = Math.round((newSubtotal * discountPercentage) / 100);
+      let newTotal = Math.max(0, newSubtotal - discountAmount);
+
+      // Reapply extra counter discount if present
+      if (order.extraDiscountType === 'percentage' && order.extraDiscountValue) {
+        const extraAmt = Math.round((newTotal * order.extraDiscountValue) / 100);
+        order.extraDiscountAmount = extraAmt;
+        newTotal = Math.max(0, newTotal - extraAmt);
+      } else if (order.extraDiscountType === 'flat' && order.extraDiscountValue) {
+        order.extraDiscountAmount = order.extraDiscountValue;
+        newTotal = Math.max(0, newTotal - order.extraDiscountValue);
+      }
+
+      // Transaction Write Phase: Apply cracker stock adjustments
+      for (const { ref, newStock } of crackerUpdates) {
+        transaction.update(ref, { quantity: newStock, updatedAt: now });
+      }
+
+      // Transaction Write Phase: Update order document
+      order.items = updatedItems;
+      order.subtotal = newSubtotal;
+      order.discountAmount = discountAmount;
+      order.total = newTotal;
+      order.updatedAt = now;
+
+      transaction.update(orderRef, sanitizeFirestoreData({
+        items: updatedItems,
+        subtotal: newSubtotal,
+        discountAmount,
+        total: newTotal,
+        extraDiscountAmount: order.extraDiscountAmount,
+        updatedAt: now,
+      }));
+
+      return order;
+    });
+
+    return result;
+  } catch (err: any) {
+    console.error('ACID updateOrderItems error:', err);
+    throw err;
   }
-
-  const discountPercentage = Math.max(0, Number(order.discountPercentage) || 0);
-  const discountAmount = Math.round((newSubtotal * discountPercentage) / 100);
-  let newTotal = Math.max(0, newSubtotal - discountAmount);
-
-  // Reapply extra counter discount if already present
-  if (order.extraDiscountType === 'percentage' && order.extraDiscountValue) {
-    const extraAmt = Math.round((newTotal * order.extraDiscountValue) / 100);
-    order.extraDiscountAmount = extraAmt;
-    newTotal = Math.max(0, newTotal - extraAmt);
-  } else if (order.extraDiscountType === 'flat' && order.extraDiscountValue) {
-    order.extraDiscountAmount = order.extraDiscountValue;
-    newTotal = Math.max(0, newTotal - order.extraDiscountValue);
-  }
-
-  order.items = updatedItems;
-  order.subtotal = newSubtotal;
-  order.discountAmount = discountAmount;
-  order.total = newTotal;
-  order.updatedAt = now;
-
-  await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order), { merge: true });
-  return order;
 }
 
 export async function settleOrderCredit(orderId: string): Promise<Order | null> {
@@ -477,3 +586,86 @@ export async function settleOrderCredit(orderId: string): Promise<Order | null> 
   await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order), { merge: true });
   return order;
 }
+
+/**
+ * ACID Transactional Order Cancellation:
+ * Atomicity: Order cancellation and inventory restoration occur together in a single transaction;
+ *            if anything fails, the entire transaction rolls back.
+ * Consistency: Product stock counts cannot become negative, and cancelled orders retain their snapshot.
+ * Isolation: Firestore transaction locks documents, preventing concurrent races or double cancellations.
+ * Durability: Changes are committed and persisted across Firestore nodes before returning.
+ */
+export async function cancelOrder(
+  orderId: string,
+  cancelReason?: string
+): Promise<{ success: boolean; order?: Order; error?: string }> {
+  try {
+    const result = await runTransaction(db, async (transaction) => {
+      const orderRef = doc(db, 'orders', orderId);
+      const orderDoc = await transaction.get(orderRef);
+
+      if (!orderDoc.exists()) {
+        throw new Error('Order not found');
+      }
+
+      const orderData = orderDoc.data() as Order;
+
+      if (orderData.status === 'CANCELLED') {
+        throw new Error('Order is already cancelled');
+      }
+
+      // Read phase: Fetch all cracker documents inside transaction
+      const crackerReads: { crackerRef: any; currentQuantity: number; addQuantity: number }[] = [];
+      const items = orderData.items || [];
+
+      for (const item of items) {
+        if (item.crackerId && item.quantity > 0) {
+          const crackerRef = doc(db, 'crackers', item.crackerId);
+          const crackerDoc = await transaction.get(crackerRef);
+          if (crackerDoc.exists()) {
+            const currentQuantity = Number(crackerDoc.data().quantity) || 0;
+            crackerReads.push({
+              crackerRef,
+              currentQuantity,
+              addQuantity: Number(item.quantity) || 0,
+            });
+          }
+        }
+      }
+
+      // Write phase: Restore cracker stock atomically
+      const now = new Date().toISOString();
+      for (const { crackerRef, currentQuantity, addQuantity } of crackerReads) {
+        transaction.update(crackerRef, {
+          quantity: currentQuantity + addQuantity,
+          updatedAt: now,
+        });
+      }
+
+      // Update order status to CANCELLED
+      const updatedOrder: Order = {
+        ...orderData,
+        id: orderDoc.id,
+        status: 'CANCELLED',
+        cancelledAt: now,
+        cancelReason: cancelReason?.trim() || 'Cancelled by Admin',
+        updatedAt: now,
+      };
+
+      transaction.update(orderRef, sanitizeFirestoreData({
+        status: 'CANCELLED',
+        cancelledAt: now,
+        cancelReason: cancelReason?.trim() || 'Cancelled by Admin',
+        updatedAt: now,
+      }));
+
+      return updatedOrder;
+    });
+
+    return { success: true, order: result };
+  } catch (err: any) {
+    console.error('ACID cancelOrder error:', err);
+    return { success: false, error: err.message || 'Failed to cancel order' };
+  }
+}
+

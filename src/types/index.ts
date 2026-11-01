@@ -20,7 +20,7 @@ export interface StoreSettings {
   updatedAt?: string;
 }
 
-export type OrderStatus = 'ORDERED' | 'DELIVERED';
+export type OrderStatus = 'ORDERED' | 'DELIVERED' | 'CANCELLED';
 export type PaymentType = 'SETTLED' | 'CREDIT';
 export type Branch = 'BRANCH_1' | 'BRANCH_2';
 
@@ -53,6 +53,8 @@ export interface Order {
   branch?: Branch; // 'BRANCH_1' or 'BRANCH_2'
   referredBy?: string; // Optional referral name or code
   settledAt?: string;
+  cancelledAt?: string;
+  cancelReason?: string;
   items: OrderItem[];
   createdAt: string;
   updatedAt: string;
