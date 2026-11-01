@@ -603,6 +603,32 @@ export async function settleOrderCredit(orderId: string): Promise<Order | null> 
   }
 }
 
+export async function updateOrderBranch(orderId: string, branch: 'BRANCH_1' | 'BRANCH_2'): Promise<Order | null> {
+  try {
+    return await runTransaction(db, async (transaction) => {
+      const orderRef = doc(db, 'orders', orderId);
+      const orderDoc = await transaction.get(orderRef);
+      if (!orderDoc.exists()) return null;
+
+      const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
+      const now = new Date().toISOString();
+
+      order.branch = branch;
+      order.updatedAt = now;
+
+      transaction.update(orderRef, {
+        branch: branch,
+        updatedAt: now,
+      });
+
+      return order;
+    });
+  } catch (err) {
+    console.error('ACID updateOrderBranch error:', err);
+    throw err;
+  }
+}
+
 /**
  * ACID Transactional Order Cancellation:
  * Atomicity: Order cancellation and inventory restoration occur together in a single transaction;

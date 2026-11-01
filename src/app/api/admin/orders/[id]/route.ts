@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { updateOrderStatus, updateOrderItems, settleOrderCredit, cancelOrder } from '@/lib/db';
+import { updateOrderStatus, updateOrderItems, settleOrderCredit, cancelOrder, updateOrderBranch } from '@/lib/db';
 import { OrderStatus, PaymentType, Branch, OrderItem } from '@/types';
 import { revalidatePath } from 'next/cache';
 
@@ -23,6 +23,11 @@ export async function PATCH(
         return NextResponse.json({ success: false, error: cancelResult.error }, { status: 400 });
       }
       updated = cancelResult.order;
+    } else if (action === 'update_branch') {
+      if (!branch || (branch !== 'BRANCH_1' && branch !== 'BRANCH_2')) {
+        return NextResponse.json({ success: false, error: 'Valid branch is required (BRANCH_1 or BRANCH_2)' }, { status: 400 });
+      }
+      updated = await updateOrderBranch(id, branch as Branch);
     } else if (action === 'update_items') {
       if (!Array.isArray(items)) {
         return NextResponse.json({ success: false, error: 'Items must be an array' }, { status: 400 });

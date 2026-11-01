@@ -222,6 +222,34 @@ export default function ManageOrdersClient({
     }
   };
 
+  // Branch change handler: Allows changing branch anytime, even after delivery
+  const handleUpdateBranch = async (orderId: string, newBranch: Branch) => {
+    setUpdatingId(orderId);
+    try {
+      const res = await fetch(`/api/admin/orders/${orderId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'update_branch',
+          branch: newBranch,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.error);
+
+      setOrders((prev) => prev.map((o) => (o.id === orderId ? data.order : o)));
+      if (selectedOrder && selectedOrder.id === orderId) setSelectedOrder(data.order);
+      if (editingOrder && editingOrder.id === orderId) setEditingOrder(data.order);
+
+      const branchLabel = newBranch === 'BRANCH_2' ? 'Ramraj Branch' : 'Arasan Branch';
+      toast.success(`Order #${data.order.orderNumber} branch updated to ${branchLabel}!`);
+    } catch (err: any) {
+      toast.error(err.message || 'Failed to update branch');
+    } finally {
+      setUpdatingId(null);
+    }
+  };
+
   // Open delivery modal
   const handleOpenDeliveryModal = (order: Order) => {
     setDeliveryModalOrder(order);
@@ -763,18 +791,32 @@ export default function ManageOrdersClient({
                             </span>
                           )}
                         </td>
-                        <td className="py-2.5 px-3">
-                          <span
-                            className={`inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-bold ${
-                              ord.branch === 'BRANCH_2'
-                                ? 'bg-purple-100 text-purple-800'
-                                : ord.branch === 'BRANCH_1'
-                                ? 'bg-blue-100 text-blue-800'
-                                : 'bg-gray-100 text-gray-500'
-                            }`}
-                          >
-                            {branchName}
-                          </span>
+                        <td className="py-2.5 px-3" onClick={(e) => e.stopPropagation()}>
+                          <div className="relative inline-flex items-center">
+                            <select
+                              value={ord.branch || ''}
+                              onChange={(e) => {
+                                const val = e.target.value as Branch;
+                                if (val) {
+                                  handleUpdateBranch(ord.id, val);
+                                }
+                              }}
+                              disabled={updatingId === ord.id || ord.status === 'CANCELLED'}
+                              title="Click to switch or assign branch"
+                              className={`appearance-none text-[10px] font-bold rounded-lg pl-2 pr-5 py-1 border transition-colors cursor-pointer outline-none focus:ring-1 focus:ring-[#D40000] disabled:opacity-50 ${
+                                ord.branch === 'BRANCH_2'
+                                  ? 'bg-purple-50 text-purple-800 border-purple-200 hover:bg-purple-100'
+                                  : ord.branch === 'BRANCH_1'
+                                  ? 'bg-blue-50 text-blue-800 border-blue-200 hover:bg-blue-100'
+                                  : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100'
+                              }`}
+                            >
+                              <option value="" disabled>Select Branch</option>
+                              <option value="BRANCH_1">Arasan Branch</option>
+                              <option value="BRANCH_2">Ramraj Branch</option>
+                            </select>
+                            <Building2 className="w-2.5 h-2.5 absolute right-1.5 pointer-events-none text-gray-400" />
+                          </div>
                         </td>
                         <td className="py-2.5 px-3">
                           <div className="flex items-center gap-1 flex-wrap">
@@ -925,11 +967,31 @@ export default function ManageOrdersClient({
                     >
                       {editingOrder.status}
                     </span>
-                    {editingOrder.branch && (
-                      <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-blue-100 text-blue-800">
-                        {editingOrder.branch === 'BRANCH_2' ? 'Ramraj Branch' : 'Arasan Branch'}
-                      </span>
-                    )}
+                    <div className="relative inline-flex items-center">
+                      <select
+                        value={editingOrder.branch || ''}
+                        onChange={(e) => {
+                          const val = e.target.value as Branch;
+                          if (val) {
+                            handleUpdateBranch(editingOrder.id, val);
+                          }
+                        }}
+                        disabled={updatingId === editingOrder.id || editingOrder.status === 'CANCELLED'}
+                        title="Change branch for this order"
+                        className={`appearance-none text-[9px] font-bold rounded-lg pl-2 pr-4 py-0.5 border cursor-pointer outline-none ${
+                          editingOrder.branch === 'BRANCH_2'
+                            ? 'bg-purple-100 text-purple-900 border-purple-300'
+                            : editingOrder.branch === 'BRANCH_1'
+                            ? 'bg-blue-100 text-blue-900 border-blue-300'
+                            : 'bg-gray-100 text-gray-700 border-gray-300'
+                        }`}
+                      >
+                        <option value="" disabled>Select Branch</option>
+                        <option value="BRANCH_1">Arasan Branch</option>
+                        <option value="BRANCH_2">Ramraj Branch</option>
+                      </select>
+                      <Building2 className="w-2.5 h-2.5 absolute right-1 pointer-events-none text-gray-500" />
+                    </div>
                   </div>
                   <h3 className="text-base sm:text-lg font-black text-gray-950 font-mono">
                     #{editingOrder.orderNumber}
