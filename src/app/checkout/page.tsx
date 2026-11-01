@@ -1,7 +1,7 @@
 'use client';
 
 import { useCartStore } from '@/lib/cartStore';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -19,14 +19,18 @@ import {
   Tag,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { StoreSettings } from '@/types';
+import { StoreSettings, CartItem } from '@/types';
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { items, getTotalAmount, getTotalItems, clearCart } = useCartStore();
+  const { items: liveItems, getTotalAmount, getTotalItems } = useCartStore();
   const [mounted, setMounted] = useState(false);
   const [settingsLoaded, setSettingsLoaded] = useState(false);
   const [settings, setSettings] = useState<StoreSettings | null>(null);
+
+  // Snapshot cart items so subsequent changes/clearCart don't unmount checkout state
+  const [frozenItems, setFrozenItems] = useState<CartItem[]>([]);
+  const hasInitializedItems = useRef(false);
 
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
@@ -36,6 +40,7 @@ export default function CheckoutPage() {
   const [serverError, setServerError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
+  const isNavigatingRef = useRef(false);
 
   useEffect(() => {
     setMounted(true);
@@ -52,27 +57,32 @@ export default function CheckoutPage() {
       });
   }, []);
 
-  if (!mounted || !settingsLoaded || !settings || isOrderPlaced) {
+  // Capture items once hydrated
+  useEffect(() => {
+    if (liveItems.length > 0 && !hasInitializedItems.current) {
+      setFrozenItems(liveItems);
+      hasInitializedItems.current = true;
+    }
+  }, [liveItems]);
+
+  const items = frozenItems.length > 0 ? frozenItems : liveItems;
+
+  if (!mounted || !settingsLoaded || !settings) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center p-4">
         <div className="w-12 h-12 border-4 border-[#D40000] border-t-[#FFC400] rounded-full animate-spin mx-auto mb-4" />
         <h2 className="text-gray-900 font-black text-base sm:text-lg mb-1">
-          {isOrderPlaced ? 'Order confirmed! Generating invoice...' : 'Preparing checkout...'}
+          Preparing checkout...
         </h2>
         <p className="text-gray-500 text-xs">
-          {isOrderPlaced ? 'Redirecting you to your official invoice in a moment.' : 'Please wait while we verify live stock.'}
+          Please wait while we verify live stock.
         </p>
       </div>
     );
   }
 
-  const subtotal = getTotalAmount();
-  const totalItemsCount = getTotalItems();
-  const discountPercentage = settings?.discountPercentage || 0;
-  const discountAmount = Math.round((subtotal * discountPercentage) / 100);
-  const netPayable = Math.max(0, subtotal - discountAmount);
-
-  if (items.length === 0 && !isSubmitting && !isOrderPlaced) {
+  // Only show empty cart if user entered checkout with 0 items, and NOT when submitting or after placing order
+  if (items.length === 0 && !hasInitializedItems.current && !isSubmitting && !isOrderPlaced && !isNavigatingRef.current) {
     return (
       <div className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-amber-50/40 to-white px-4 py-8">
         <div className="max-w-md w-full bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#FFC400] shadow-lg text-center">
@@ -92,6 +102,12 @@ export default function CheckoutPage() {
       </div>
     );
   }
+
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const totalItemsCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  const discountPercentage = settings?.discountPercentage || 0;
+  const discountAmount = Math.round((subtotal * discountPercentage) / 100);
+  const netPayable = Math.max(0, subtotal - discountAmount);
 
   const validatePhone = (val: string) => {
     const cleaned = val.replace(/\D/g, '');
@@ -154,17 +170,36 @@ export default function CheckoutPage() {
 
       toast.success('Invoice generated successfully!');
       setIsOrderPlaced(true);
-      // Navigate cleanly to order confirmation page; OrderConfirmationPage will clear the cart
-      window.location.href = `/order/${data.orderNumber}?clearcart=1`;
+      isNavigatingRef.current = true;
+      // Pre-warm router transition or use direct assignment
+      router.push(`/order/${data.orderNumber}`);
     } catch (err: any) {
       setServerError(err.message || 'Network error. Please try again.');
       toast.error('Network error. Please check your connection.');
       setIsSubmitting(false);
+      setIsOrderPlaced(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FFFDF9] via-amber-50/15 to-white py-2 sm:py-6 pb-20">
+    <div className="min-h-screen bg-gradient-to-b from-[#FFFDF9] via-amber-50/15 to-white py-2 sm:py-6 pb-20 relative">
+      {/* High-priority Full-Screen Locking Overlay during order confirmation & invoice redirect */}
+      {isOrderPlaced && (
+        <div className="fixed inset-0 z-50 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center animate-in fade-in duration-200">
+          <div className="w-16 h-16 border-4 border-[#D40000] border-t-[#FFC400] rounded-full animate-spin mx-auto mb-4" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider mb-2 border border-emerald-200">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+            <span>Booking Confirmed</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-black text-gray-950 mb-1">
+            Generating Official Invoice...
+          </h2>
+          <p className="text-gray-500 text-xs sm:text-sm max-w-sm">
+            Please wait while we lock your order and open your official invoice bill with download and WhatsApp options.
+          </p>
+        </div>
+      )}
+
       <div className="max-w-4xl mx-auto px-3 sm:px-6">
 
         {/* Back Link */}
