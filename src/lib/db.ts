@@ -423,42 +423,50 @@ export async function updateOrderStatus(
     branch?: 'BRANCH_1' | 'BRANCH_2';
   }
 ): Promise<Order | null> {
-  const orderDoc = await getDoc(doc(db, 'orders', orderId));
-  if (!orderDoc.exists()) return null;
+  try {
+    return await runTransaction(db, async (transaction) => {
+      const orderRef = doc(db, 'orders', orderId);
+      const orderDoc = await transaction.get(orderRef);
+      if (!orderDoc.exists()) return null;
 
-  const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
-  const now = new Date().toISOString();
-  order.status = status;
-  order.updatedAt = now;
+      const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
+      const now = new Date().toISOString();
+      order.status = status;
+      order.updatedAt = now;
 
-  if (options?.paymentType) {
-    order.paymentType = options.paymentType;
-    if (options.paymentType === 'SETTLED') {
-      order.settledAt = now;
-    }
+      if (options?.paymentType) {
+        order.paymentType = options.paymentType;
+        if (options.paymentType === 'SETTLED') {
+          order.settledAt = now;
+        }
+      }
+
+      if (options?.branch) {
+        order.branch = options.branch;
+      }
+
+      if (extraDiscount && typeof extraDiscount.finalTotal === 'number') {
+        if (order.originalTotal === undefined) {
+          order.originalTotal = order.total;
+        }
+        order.extraDiscountType = extraDiscount.type;
+        order.extraDiscountValue = extraDiscount.value;
+        order.extraDiscountAmount = extraDiscount.amount;
+        order.total = Math.max(0, Math.round(extraDiscount.finalTotal));
+      } else if (status === 'ORDERED' && order.originalTotal !== undefined) {
+        order.total = order.originalTotal;
+        delete order.extraDiscountType;
+        delete order.extraDiscountValue;
+        delete order.extraDiscountAmount;
+      }
+
+      transaction.set(orderRef, sanitizeFirestoreData(order), { merge: true });
+      return order;
+    });
+  } catch (err) {
+    console.error('ACID updateOrderStatus error:', err);
+    throw err;
   }
-
-  if (options?.branch) {
-    order.branch = options.branch;
-  }
-
-  if (extraDiscount && typeof extraDiscount.finalTotal === 'number') {
-    if (order.originalTotal === undefined) {
-      order.originalTotal = order.total;
-    }
-    order.extraDiscountType = extraDiscount.type;
-    order.extraDiscountValue = extraDiscount.value;
-    order.extraDiscountAmount = extraDiscount.amount;
-    order.total = Math.max(0, Math.round(extraDiscount.finalTotal));
-  } else if (status === 'ORDERED' && order.originalTotal !== undefined) {
-    order.total = order.originalTotal;
-    delete order.extraDiscountType;
-    delete order.extraDiscountValue;
-    delete order.extraDiscountAmount;
-  }
-
-  await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order), { merge: true });
-  return order;
 }
 
 export async function updateOrderItems(
@@ -573,18 +581,26 @@ export async function updateOrderItems(
 }
 
 export async function settleOrderCredit(orderId: string): Promise<Order | null> {
-  const orderDoc = await getDoc(doc(db, 'orders', orderId));
-  if (!orderDoc.exists()) return null;
+  try {
+    return await runTransaction(db, async (transaction) => {
+      const orderRef = doc(db, 'orders', orderId);
+      const orderDoc = await transaction.get(orderRef);
+      if (!orderDoc.exists()) return null;
 
-  const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
-  const now = new Date().toISOString();
+      const order = { id: orderDoc.id, ...(orderDoc.data() as any) } as Order;
+      const now = new Date().toISOString();
 
-  order.paymentType = 'SETTLED';
-  order.settledAt = now;
-  order.updatedAt = now;
+      order.paymentType = 'SETTLED';
+      order.settledAt = now;
+      order.updatedAt = now;
 
-  await setDoc(doc(db, 'orders', orderId), sanitizeFirestoreData(order), { merge: true });
-  return order;
+      transaction.set(orderRef, sanitizeFirestoreData(order), { merge: true });
+      return order;
+    });
+  } catch (err) {
+    console.error('ACID settleOrderCredit error:', err);
+    throw err;
+  }
 }
 
 /**
