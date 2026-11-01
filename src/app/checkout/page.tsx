@@ -154,8 +154,8 @@ export default function CheckoutPage() {
 
       toast.success('Invoice generated successfully!');
       setIsOrderPlaced(true);
-      clearCart();
-      router.replace(`/order/${data.orderNumber}`);
+      // Navigate cleanly to order confirmation page; OrderConfirmationPage will clear the cart
+      window.location.href = `/order/${data.orderNumber}?clearcart=1`;
     } catch (err: any) {
       setServerError(err.message || 'Network error. Please try again.');
       toast.error('Network error. Please check your connection.');

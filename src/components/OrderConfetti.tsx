@@ -2,9 +2,19 @@
 
 import { useEffect } from 'react';
 import confetti from 'canvas-confetti';
+import { useCartStore } from '@/lib/cartStore';
 
 export default function OrderConfetti() {
+  const clearCart = useCartStore((state) => state.clearCart);
+
   useEffect(() => {
+    // Clear cart once order confirmation screen is safely displayed
+    try {
+      clearCart();
+    } catch (e) {
+      // Ignore
+    }
+
     try {
       const count = 200;
       const defaults = {
